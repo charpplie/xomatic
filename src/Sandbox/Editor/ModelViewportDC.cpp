@@ -1,0 +1,21 @@
+//////////////////////////////////////////////////////////////////////
+//
+//  CryEngine Source code
+//	
+//	File: PathFollowing.cpp
+//  Implementation of the DrawCharacter function
+//
+//	History:
+//	October 16, 2006: Created by Ivo Herzeg <ivo@crytek.de>
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+
+-NOTES: for next frames, use only the triangulation (tris info) created in the first frame, coz vertices 
+might become occluded
+
+

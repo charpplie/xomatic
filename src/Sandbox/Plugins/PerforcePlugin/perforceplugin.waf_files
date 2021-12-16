@@ -1,0 +1,19 @@
+{
+	"NoUberFile": 
+	{
+		"Root":
+		[
+			"main.cpp",
+			"PasswordDlg.cpp",
+			"PasswordDlg.h",
+			"PerforcePlugin.cpp",
+			"PerforcePlugin.h",
+			"PerforcePlugin.rc",
+			"PerforceSourceControl.cpp",
+			"PerforceSourceControl.h",
+			"resource.h",
+			"stdafx.cpp",
+			"stdafx.h"
+		]
+	}
+}

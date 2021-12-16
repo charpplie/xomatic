@@ -1,0 +1,1427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Lib">
+      <UniqueIdentifier>{fdd69310-d4f0-4bf4-833a-e4403dd86b7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HideObjects">
+      <UniqueIdentifier>{92998e21-f672-46a8-8484-954f69ef7e24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{8eddf8fa-b107-43fd-b51c-0878d4f41c26}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="PolygonSetOps">
+      <UniqueIdentifier>{44b5c7d0-12f1-40f8-b9b0-0bee6d8faa5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Behavior Selection System">
+      <UniqueIdentifier>{75ca93f8-b136-4246-84fe-32ab35f7d5a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Behavior Selection System\DAG">
+      <UniqueIdentifier>{3c6b93e7-e835-4914-8a74-93e87cb1e91b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Behavior Selection System\Behavior Tree">
+      <UniqueIdentifier>{5f54dbdc-e3df-4af9-9645-a2b42fe000a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Behavior Selection System\Behavior Tree\Tactics">
+      <UniqueIdentifier>{32426481-2ea0-4f34-bdd4-d02aa12d0521}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Behavior Selection System\Activation Conditions">
+      <UniqueIdentifier>{06c6e3c9-325f-469f-aeac-5c00078e5f15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Behavior Selection System\Slot Groups">
+      <UniqueIdentifier>{ceb4c4ac-5c3a-445d-806d-7f8b245aa307}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Behavior Selection System\New BehaviourTree">
+      <UniqueIdentifier>{440c1ce5-771d-4a47-adb2-efbbfe762133}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tactical Point System">
+      <UniqueIdentifier>{9441c59e-07ea-415f-80c3-a549c1e85c0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Group System">
+      <UniqueIdentifier>{1af6a049-c907-46a3-966c-21e5957e5e3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Group System\Formation Points Manager">
+      <UniqueIdentifier>{1523e1ed-cec1-4f1d-af46-090aca946bd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Group System\Group Movement Manager">
+      <UniqueIdentifier>{84a984e7-1aab-41e9-b79e-a88e197a93e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Perception">
+      <UniqueIdentifier>{bd4c106c-c573-4403-bc96-8da524f5d7cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Perception\Handlers">
+      <UniqueIdentifier>{133b9ff9-b60f-40ae-a192-606b3831a7e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Perception\ExtraData">
+      <UniqueIdentifier>{e8fe7bf6-e85b-41e7-9587-d260dd326e2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Perception\Target Selection">
+      <UniqueIdentifier>{3bc0cec4-6f32-40cc-a6dc-c3089ed2b191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Specific">
+      <UniqueIdentifier>{03dde3e9-171c-4119-addd-9193afcf0007}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Emotional System">
+      <UniqueIdentifier>{7a0eb747-fc4e-4242-b519-89fa6f92767b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{8007336a-98f9-4030-b2a5-487726977368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Navigation">
+      <UniqueIdentifier>{0ce0b371-7ba7-4a0a-9270-9866e7c26bb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Navigation\Layered Nav Mesh">
+      <UniqueIdentifier>{a38b6bfe-ff17-4baf-824e-7fddb8880280}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Navigation\Layered Nav Mesh\Tess">
+      <UniqueIdentifier>{54d9a149-7259-42b5-8e69-228f134287ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Navigation\DataStructs">
+      <UniqueIdentifier>{eb6b7fcc-b283-4653-988c-1ba1aaba7830}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Navigation\PathFinding">
+      <UniqueIdentifier>{167269a9-67f6-4c40-b56f-35c7bb2b7510}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cover System">
+      <UniqueIdentifier>{43cff2da-7fb0-401d-9f0f-d1fdb316f4ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AIObject">
+      <UniqueIdentifier>{4e75a5c6-5386-4090-af2c-839bfeaadd30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AIObject\Coordination">
+      <UniqueIdentifier>{98191c86-1c23-44da-a09b-6eb6386480d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{4da51a7d-ea72-4e10-a756-f4a442fb49cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers\SpatialPartitioning">
+      <UniqueIdentifier>{8575c721-00cd-48da-8521-3003ba2367fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers\Debug">
+      <UniqueIdentifier>{ca347cdc-ea52-4c34-beb8-ce18d22d6286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers\CodeCoverage">
+      <UniqueIdentifier>{17f99872-c2b5-4d71-865a-4cbbed840eeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers\PID">
+      <UniqueIdentifier>{e2a6f0f0-66fc-4315-8362-a038f4d4bb7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers\CalculationStopper">
+      <UniqueIdentifier>{0b62c264-052c-4ffe-9b4c-2f7419cfae57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Goals">
+      <UniqueIdentifier>{3d6ab89f-da21-4da2-9869-c11f92228fe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripting">
+      <UniqueIdentifier>{87804682-8ccc-4b45-aa21-70e8b50ccc3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SmartObjects">
+      <UniqueIdentifier>{e77edbc6-dff5-4300-8e3d-efe0306851c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InterestSystem">
+      <UniqueIdentifier>{eaf95e58-38b5-4c3e-9783-03fc04823311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actions">
+      <UniqueIdentifier>{26b1af77-a0eb-40ae-8fa8-9c40696918a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Deprecated">
+      <UniqueIdentifier>{7f1d839b-aa80-429f-8ce7-b38580bea286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AILightManager">
+      <UniqueIdentifier>{597cadca-4878-4ec9-a317-1b99856e034b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Coordination System">
+      <UniqueIdentifier>{0eff07fc-dc22-498e-a686-7c573db3c194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Communication System">
+      <UniqueIdentifier>{7a9f85af-6417-46b1-b8f4-3205903e2edd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GenericAStar">
+      <UniqueIdentifier>{02994e8a-e66a-4854-b2c0-285bbfedc223}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Selection Tree">
+      <UniqueIdentifier>{b43cf93a-54b8-43ad-a8dc-8ccf5864934f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CryAISystem.cpp">
+      <Filter>Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="AIDynHideObjectManager.cpp">
+      <Filter>HideObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="AIHideObject.cpp">
+      <Filter>HideObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HideSpot.cpp">
+      <Filter>HideObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Readability\ActorResourceMgr.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Readability\CoopReadabilitiesSystem.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Readability\ReadabilitySequence.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Readability\ReadabilitySequenceMgr.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Readability\ReadabilitySequenceSet.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Readability\ReadabilitySession.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Readability\SoundResourceMgr.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Readability\SoundResourceSet.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonSetOps\BspTree2d.cpp">
+      <Filter>PolygonSetOps</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonSetOps\Polygon2d.cpp">
+      <Filter>PolygonSetOps</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\ProfileDictionary.cpp">
+      <Filter>Behavior Selection System</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\dag.cpp">
+      <Filter>Behavior Selection System\DAG</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\dag_grid.cpp">
+      <Filter>Behavior Selection System\DAG</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\dag_node.cpp">
+      <Filter>Behavior Selection System\DAG</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\BehaviorTree.cpp">
+      <Filter>Behavior Selection System\Behavior Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\BehaviorTree_node.cpp">
+      <Filter>Behavior Selection System\Behavior Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\PersonalBehaviorTree.cpp">
+      <Filter>Behavior Selection System\Behavior Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\SubTactic.cpp">
+      <Filter>Behavior Selection System\Behavior Tree\Tactics</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\Tactic.cpp">
+      <Filter>Behavior Selection System\Behavior Tree\Tactics</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\TacticInfo.cpp">
+      <Filter>Behavior Selection System\Behavior Tree\Tactics</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\TacticsManager.cpp">
+      <Filter>Behavior Selection System\Behavior Tree\Tactics</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\ActivationConditions.cpp">
+      <Filter>Behavior Selection System\Activation Conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\ActivationConditionsTable.cpp">
+      <Filter>Behavior Selection System\Activation Conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\DefaultActivationConditions.cpp">
+      <Filter>Behavior Selection System\Activation Conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\GlobalActivationConditions.cpp">
+      <Filter>Behavior Selection System\Activation Conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\PersonalActivationConditions.cpp">
+      <Filter>Behavior Selection System\Activation Conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\SignalConditions.cpp">
+      <Filter>Behavior Selection System\Activation Conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\Slot.cpp">
+      <Filter>Behavior Selection System\Slot Groups</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\SlotData.cpp">
+      <Filter>Behavior Selection System\Slot Groups</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree\SlotGroup.cpp">
+      <Filter>Behavior Selection System\Slot Groups</Filter>
+    </ClCompile>
+    <ClCompile Include="NewBehaviourTree\Tree.cpp">
+      <Filter>Behavior Selection System\New BehaviourTree</Filter>
+    </ClCompile>
+    <ClCompile Include="NewBehaviourTree\TreeProfileManager.cpp">
+      <Filter>Behavior Selection System\New BehaviourTree</Filter>
+    </ClCompile>
+    <ClCompile Include="TacticalPointSystem\TacticalPointQuery.cpp">
+      <Filter>Tactical Point System</Filter>
+    </ClCompile>
+    <ClCompile Include="TacticalPointSystem\TacticalPointSystem.cpp">
+      <Filter>Tactical Point System</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupSystem\EntityGroup.cpp">
+      <Filter>Group System</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupSystem\GroupMember.cpp">
+      <Filter>Group System</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupSystem\GroupSystem.cpp">
+      <Filter>Group System</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupSystem\FormationData.cpp">
+      <Filter>Group System\Formation Points Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupSystem\FormationDataManager.cpp">
+      <Filter>Group System\Formation Points Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupSystem\FormationSet.cpp">
+      <Filter>Group System\Formation Points Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupSystem\SteeringAgent.cpp">
+      <Filter>Group System\Group Movement Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupSystem\SteeringEnviroment.cpp">
+      <Filter>Group System\Group Movement Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="PerceptionHandler\PerceptionHandlerAutoReg.cpp">
+      <Filter>Perception</Filter>
+    </ClCompile>
+    <ClCompile Include="PerceptionManager.cpp">
+      <Filter>Perception</Filter>
+    </ClCompile>
+    <ClCompile Include="PerceptionSystem.cpp">
+      <Filter>Perception</Filter>
+    </ClCompile>
+    <ClCompile Include="VisionMap.cpp">
+      <Filter>Perception</Filter>
+    </ClCompile>
+    <ClCompile Include="PerceptionHandler\BasePerceptionHandler.cpp">
+      <Filter>Perception\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="PerceptionHandler\Crysis2PerceptionHandler.cpp">
+      <Filter>Perception\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="PerceptionHandler\CrysisPerceptionHandler.cpp">
+      <Filter>Perception\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="PerceptionHandler\WarfacePerceptionHandler.cpp">
+      <Filter>Perception\Handlers</Filter>
+    </ClCompile>
+    <ClCompile Include="PerceptionHandler\WarfacePerceptionExtraData.cpp">
+      <Filter>Perception\ExtraData</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetSelection\TargetTrack.cpp">
+      <Filter>Perception\Target Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetSelection\TargetTrackCommon.cpp">
+      <Filter>Perception\Target Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetSelection\TargetTrackGroup.cpp">
+      <Filter>Perception\Target Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetSelection\TargetTrackManager.cpp">
+      <Filter>Perception\Target Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetSelection\TargetTrackModifiers.cpp">
+      <Filter>Perception\Target Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSpecific\GoalOp_Crysis2.cpp">
+      <Filter>Game Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSpecific\GoalOp_G02.cpp">
+      <Filter>Game Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSpecific\GoalOp_G04.cpp">
+      <Filter>Game Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Scriptbind_AI_G02.cpp">
+      <Filter>Game Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="Scriptbind_AI_G04.cpp">
+      <Filter>Game Specific</Filter>
+    </ClCompile>
+    <ClCompile Include="EmotionalSystem\EmotionalInfo.cpp">
+      <Filter>Emotional System</Filter>
+    </ClCompile>
+    <ClCompile Include="EmotionalSystem\EmotionalSystem.cpp">
+      <Filter>Emotional System</Filter>
+    </ClCompile>
+    <ClCompile Include="EmotionalSystem\PersonalEmotional.cpp">
+      <Filter>Emotional System</Filter>
+    </ClCompile>
+    <ClCompile Include="AIConsoleVariables.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="AISignal.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="AISignalCRCs.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="CAISystem.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="CAISystemPhys.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="CAISystemUpdate.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectContainer.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectTracker.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="AIRadialOcclusion.cpp">
+      <Filter>Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Navigation.cpp">
+      <Filter>Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="LayeredNavMesh\DynamicObstacles.cpp">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="LayeredNavMesh\DynamicVertex.cpp">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sandbox\Editor\AI\NavDataGeneration\LayeredNavMesh\ExportFormat.cpp">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="LayeredNavMesh\LayeredNavMeshRegion.cpp">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sandbox\Editor\AI\NavDataGeneration\LayeredNavMesh\LnmExportFormat.cpp">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sandbox\Editor\AI\NavDataGeneration\LayeredNavMesh\PickingAccelerator.cpp">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sandbox\Editor\AI\NavDataGeneration\LayeredNavMesh\PolygonCont.cpp">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="LayeredNavMesh\PolygonSetOps.cpp">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sandbox\Editor\AI\NavDataGeneration\LayeredNavMesh\Tess\Tess.cpp">
+      <Filter>Navigation\Layered Nav Mesh\Tess</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Sandbox\Editor\AI\NavDataGeneration\LayeredNavMesh\Tess\TessMesh.cpp">
+      <Filter>Navigation\Layered Nav Mesh\Tess</Filter>
+    </ClCompile>
+    <ClCompile Include="AllNodesContainer.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="CTriangulator.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="Navigation\CustomNavRegion.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="FlightNavRegion.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="Free2DNavRegion.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="Graph.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphNodeManager.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphStructures.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphUtility.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="IAgent.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="PathObstacles.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="RoadNavRegion.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangularNavRegion.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexList.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeNavRegion.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="Waypoint3DSurfaceNavRegion.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="WaypointHumanNavRegion.cpp">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClCompile>
+    <ClCompile Include="AStarSolver.cpp">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="Heuristic.cpp">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="NavPath.cpp">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="Pathfinder.cpp">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="PathFollower.cpp">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="PathMarker.cpp">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="SmartPathFollower.cpp">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClCompile>
+    <ClCompile Include="Cover\CoverPath.cpp">
+      <Filter>Cover System</Filter>
+    </ClCompile>
+    <ClCompile Include="Cover\CoverSampler.cpp">
+      <Filter>Cover System</Filter>
+    </ClCompile>
+    <ClCompile Include="Cover\CoverScorer.cpp">
+      <Filter>Cover System</Filter>
+    </ClCompile>
+    <ClCompile Include="Cover\CoverSurface.cpp">
+      <Filter>Cover System</Filter>
+    </ClCompile>
+    <ClCompile Include="Cover\CoverSystem.cpp">
+      <Filter>Cover System</Filter>
+    </ClCompile>
+    <ClCompile Include="Adapters.cpp">
+      <Filter>AIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AIActor.cpp">
+      <Filter>AIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AIObject.cpp">
+      <Filter>AIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AIPlayer.cpp">
+      <Filter>AIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AIVehicle.cpp">
+      <Filter>AIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="PipeUser.cpp">
+      <Filter>AIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Puppet.cpp">
+      <Filter>AIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="PuppetPhys.cpp">
+      <Filter>AIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="PuppetRateOfDeath.cpp">
+      <Filter>AIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AIGroup.cpp">
+      <Filter>AIObject\Coordination</Filter>
+    </ClCompile>
+    <ClCompile Include="AIGroupTactic.cpp">
+      <Filter>AIObject\Coordination</Filter>
+    </ClCompile>
+    <ClCompile Include="BlackBoard.cpp">
+      <Filter>AIObject\Coordination</Filter>
+    </ClCompile>
+    <ClCompile Include="Formation.cpp">
+      <Filter>AIObject\Coordination</Filter>
+    </ClCompile>
+    <ClCompile Include="Leader.cpp">
+      <Filter>AIObject\Coordination</Filter>
+    </ClCompile>
+    <ClCompile Include="LeaderAction.cpp">
+      <Filter>AIObject\Coordination</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitAction.cpp">
+      <Filter>AIObject\Coordination</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitImg.cpp">
+      <Filter>AIObject\Coordination</Filter>
+    </ClCompile>
+    <ClCompile Include="AICollision.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildingIDManager.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape2.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeContainer.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldOctree.cpp">
+      <Filter>Helpers\SpatialPartitioning</Filter>
+    </ClCompile>
+    <ClCompile Include="AIDbgRecorder.cpp">
+      <Filter>Helpers\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="AIDebugDrawHelpers.cpp">
+      <Filter>Helpers\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="AILog.cpp">
+      <Filter>Helpers\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="AIMemStats.cpp">
+      <Filter>Helpers\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="AIRecorder.cpp">
+      <Filter>Helpers\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugDraw.cpp">
+      <Filter>Helpers\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="StatsManager.cpp">
+      <Filter>Helpers\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="CodeCoverageGUI.cpp">
+      <Filter>Helpers\CodeCoverage</Filter>
+    </ClCompile>
+    <ClCompile Include="CodeCoverageManager.cpp">
+      <Filter>Helpers\CodeCoverage</Filter>
+    </ClCompile>
+    <ClCompile Include="CodeCoverageTracker.cpp">
+      <Filter>Helpers\CodeCoverage</Filter>
+    </ClCompile>
+    <ClCompile Include="AIPIDController.cpp">
+      <Filter>Helpers\PID</Filter>
+    </ClCompile>
+    <ClCompile Include="CalculationStopper.cpp">
+      <Filter>Helpers\CalculationStopper</Filter>
+    </ClCompile>
+    <ClCompile Include="GoalOp.cpp">
+      <Filter>Goals</Filter>
+    </ClCompile>
+    <ClCompile Include="GoalOpFactory.cpp">
+      <Filter>Goals</Filter>
+    </ClCompile>
+    <ClCompile Include="GoalPipe.cpp">
+      <Filter>Goals</Filter>
+    </ClCompile>
+    <ClCompile Include="GoalPipeXMLReader.cpp">
+      <Filter>Goals</Filter>
+    </ClCompile>
+    <ClCompile Include="PipeManager.cpp">
+      <Filter>Goals</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptBind_AI.cpp">
+      <Filter>Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptBind_AI2.cpp">
+      <Filter>Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="SmartObjects.cpp">
+      <Filter>SmartObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="CentralInterestManager.cpp">
+      <Filter>InterestSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="PersonalInterestManager.cpp">
+      <Filter>InterestSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="AIActions.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="FireCommand.cpp">
+      <Filter>Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="AILightManager.cpp">
+      <Filter>AILightManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationActor.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationActorAssignment.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationLoop.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationManager.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationPlan.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationRole.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationRoleSequence.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationScriptEnvironment.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationSetup.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationStep.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationTaskAction.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationTaskCommunication.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationTaskCoordination.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationTaskSignal.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinationSystem\CoordinationTaskSync.cpp">
+      <Filter>Coordination System</Filter>
+    </ClCompile>
+    <ClCompile Include="Communication\CommunicationChannel.cpp">
+      <Filter>Communication System</Filter>
+    </ClCompile>
+    <ClCompile Include="Communication\CommunicationChannelManager.cpp">
+      <Filter>Communication System</Filter>
+    </ClCompile>
+    <ClCompile Include="Communication\CommunicationManager.cpp">
+      <Filter>Communication System</Filter>
+    </ClCompile>
+    <ClCompile Include="Communication\CommunicationPlayer.cpp">
+      <Filter>Communication System</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionTree\BlockyXml.cpp">
+      <Filter>Selection Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionTree\SelectionCondition.cpp">
+      <Filter>Selection Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionTree\SelectionSignalVariables.cpp">
+      <Filter>Selection Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionTree\SelectionTranslator.cpp">
+      <Filter>Selection Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionTree\SelectionTree.cpp">
+      <Filter>Selection Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionTree\SelectionTreeManager.cpp">
+      <Filter>Selection Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionTree\SelectionTreeNode.cpp">
+      <Filter>Selection Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionTree\SelectionTreeTemplate.cpp">
+      <Filter>Selection Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionTree\SelectionVariables.cpp">
+      <Filter>Selection Tree</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CryAISystem.h">
+      <Filter>Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="AIDynHideObjectManager.h">
+      <Filter>HideObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="AIHideObject.h">
+      <Filter>HideObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HideSpot.h">
+      <Filter>HideObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Readability\ActorResourceMgr.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Readability\CoopReadabilitiesSystem.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Readability\ReadabilitySequence.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Readability\ReadabilitySequenceMgr.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Readability\ReadabilitySequenceSet.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Readability\ReadabilitySession.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Readability\SoundResourceMgr.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Readability\SoundResourceSet.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonSetOps\BiDirMap.h">
+      <Filter>PolygonSetOps</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonSetOps\BspTree2d.h">
+      <Filter>PolygonSetOps</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonSetOps\LineSeg.h">
+      <Filter>PolygonSetOps</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonSetOps\Polygon2d.h">
+      <Filter>PolygonSetOps</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonSetOps\Utils.h">
+      <Filter>PolygonSetOps</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\ProfileDictionary.h">
+      <Filter>Behavior Selection System</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\dag.h">
+      <Filter>Behavior Selection System\DAG</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\dag_grid.h">
+      <Filter>Behavior Selection System\DAG</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\dag_node.h">
+      <Filter>Behavior Selection System\DAG</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\BehaviorTree.h">
+      <Filter>Behavior Selection System\Behavior Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\BehaviorTree_node.h">
+      <Filter>Behavior Selection System\Behavior Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\PersonalBehaviorTree.h">
+      <Filter>Behavior Selection System\Behavior Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\SubTactic.h">
+      <Filter>Behavior Selection System\Behavior Tree\Tactics</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\Tactic.h">
+      <Filter>Behavior Selection System\Behavior Tree\Tactics</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\TacticInfo.h">
+      <Filter>Behavior Selection System\Behavior Tree\Tactics</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\TacticsManager.h">
+      <Filter>Behavior Selection System\Behavior Tree\Tactics</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\ActivationConditions.h">
+      <Filter>Behavior Selection System\Activation Conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\ActivationConditionsTable.h">
+      <Filter>Behavior Selection System\Activation Conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\DefaultActivationConditions.h">
+      <Filter>Behavior Selection System\Activation Conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\GlobalActivationConditions.h">
+      <Filter>Behavior Selection System\Activation Conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\PersonalActivationConditions.h">
+      <Filter>Behavior Selection System\Activation Conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\SignalConditions.h">
+      <Filter>Behavior Selection System\Activation Conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\Slot.h">
+      <Filter>Behavior Selection System\Slot Groups</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\SlotData.h">
+      <Filter>Behavior Selection System\Slot Groups</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree\SlotGroup.h">
+      <Filter>Behavior Selection System\Slot Groups</Filter>
+    </ClInclude>
+    <ClInclude Include="NewBehaviourTree\Tree.h">
+      <Filter>Behavior Selection System\New BehaviourTree</Filter>
+    </ClInclude>
+    <ClInclude Include="NewBehaviourTree\TreeProfileManager.h">
+      <Filter>Behavior Selection System\New BehaviourTree</Filter>
+    </ClInclude>
+    <ClInclude Include="TacticalPointSystem\TacticalPointQuery.h">
+      <Filter>Tactical Point System</Filter>
+    </ClInclude>
+    <ClInclude Include="TacticalPointSystem\TacticalPointQueryEnum.h">
+      <Filter>Tactical Point System</Filter>
+    </ClInclude>
+    <ClInclude Include="TacticalPointSystem\TacticalPointSystem.h">
+      <Filter>Tactical Point System</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupSystem\EntityGroup.h">
+      <Filter>Group System</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupSystem\GroupMember.h">
+      <Filter>Group System</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupSystem\GroupSystem.h">
+      <Filter>Group System</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupSystem\FormationData.h">
+      <Filter>Group System\Formation Points Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupSystem\FormationDataManager.h">
+      <Filter>Group System\Formation Points Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupSystem\FormationSet.h">
+      <Filter>Group System\Formation Points Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupSystem\SteeringAgent.h">
+      <Filter>Group System\Group Movement Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupSystem\SteeringEnviroment.h">
+      <Filter>Group System\Group Movement Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="HashedSpace.h">
+      <Filter>Perception</Filter>
+    </ClInclude>
+    <ClInclude Include="PerceptionHandler\IPerceptionHandler.h">
+      <Filter>Perception</Filter>
+    </ClInclude>
+    <ClInclude Include="IPerceptionSystem.h">
+      <Filter>Perception</Filter>
+    </ClInclude>
+    <ClInclude Include="PerceptionHandler\PerceptionHandlerAutoReg.h">
+      <Filter>Perception</Filter>
+    </ClInclude>
+    <ClInclude Include="PerceptionManager.h">
+      <Filter>Perception</Filter>
+    </ClInclude>
+    <ClInclude Include="PerceptionSystem.h">
+      <Filter>Perception</Filter>
+    </ClInclude>
+    <ClInclude Include="VisionMap.h">
+      <Filter>Perception</Filter>
+    </ClInclude>
+    <ClInclude Include="PerceptionHandler\BasePerceptionHandler.h">
+      <Filter>Perception\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="PerceptionHandler\Crysis2PerceptionHandler.h">
+      <Filter>Perception\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="PerceptionHandler\CrysisPerceptionHandler.h">
+      <Filter>Perception\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="PerceptionHandler\WarfacePerceptionHandler.h">
+      <Filter>Perception\Handlers</Filter>
+    </ClInclude>
+    <ClInclude Include="PerceptionHandler\WarfacePerceptionExtraData.h">
+      <Filter>Perception\ExtraData</Filter>
+    </ClInclude>
+    <ClInclude Include="TargetSelection\TargetTrack.h">
+      <Filter>Perception\Target Selection</Filter>
+    </ClInclude>
+    <ClInclude Include="TargetSelection\TargetTrackCommon.h">
+      <Filter>Perception\Target Selection</Filter>
+    </ClInclude>
+    <ClInclude Include="TargetSelection\TargetTrackGroup.h">
+      <Filter>Perception\Target Selection</Filter>
+    </ClInclude>
+    <ClInclude Include="TargetSelection\TargetTrackManager.h">
+      <Filter>Perception\Target Selection</Filter>
+    </ClInclude>
+    <ClInclude Include="TargetSelection\TargetTrackModifiers.h">
+      <Filter>Perception\Target Selection</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSpecific\GoalOp_Crysis2.h">
+      <Filter>Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSpecific\GoalOp_G02.h">
+      <Filter>Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSpecific\GoalOp_G04.h">
+      <Filter>Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Scriptbind_AI_G02.h">
+      <Filter>Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="Scriptbind_AI_G04.h">
+      <Filter>Game Specific</Filter>
+    </ClInclude>
+    <ClInclude Include="EmotionalSystem\EmotionalInfo.h">
+      <Filter>Emotional System</Filter>
+    </ClInclude>
+    <ClInclude Include="EmotionalSystem\EmotionalSystem.h">
+      <Filter>Emotional System</Filter>
+    </ClInclude>
+    <ClInclude Include="EmotionalSystem\PersonalEmotional.h">
+      <Filter>Emotional System</Filter>
+    </ClInclude>
+    <ClInclude Include="AgePriorityQueue.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="AIConsoleVariables.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="AISignal.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="AISignalCRCs.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="CAISystem.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Configuration.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="DeferredActionQueue.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="IntersectionTestQueue.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectContainer.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectTracker.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="RayCastQueue.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="Stub.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLUtils.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="AIRadialOcclusion.h">
+      <Filter>Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Navigation.h">
+      <Filter>Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="LayeredNavMesh\DynamicObstacles.h">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="LayeredNavMesh\DynamicVertex.h">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sandbox\Editor\AI\NavDataGeneration\LayeredNavMesh\ExportFormat.h">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="LayeredNavMesh\LayeredNavMeshRegion.h">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sandbox\Editor\AI\NavDataGeneration\LayeredNavMesh\LnmExportFormat.h">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sandbox\Editor\AI\NavDataGeneration\LayeredNavMesh\PickingAccelerator.h">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sandbox\Editor\AI\NavDataGeneration\LayeredNavMesh\PolygonCont.h">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="LayeredNavMesh\PolygonSetOps.h">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="LayeredNavMesh\PolygonSetOpsUtil.h">
+      <Filter>Navigation\Layered Nav Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sandbox\Editor\AI\NavDataGeneration\LayeredNavMesh\Tess\Tess.h">
+      <Filter>Navigation\Layered Nav Mesh\Tess</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sandbox\Editor\AI\NavDataGeneration\LayeredNavMesh\Tess\TessGeom.h">
+      <Filter>Navigation\Layered Nav Mesh\Tess</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sandbox\Editor\AI\NavDataGeneration\LayeredNavMesh\Tess\TessMesh.h">
+      <Filter>Navigation\Layered Nav Mesh\Tess</Filter>
+    </ClInclude>
+    <ClInclude Include="AllNodesContainer.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoTypeStructs.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoTypeStructs_info.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="CTriangulator.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="Navigation\CustomNavRegion.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="FlightNavRegion.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="Free2DNavRegion.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="Graph.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphLinkManager.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphNodeManager.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphStructures.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="NavRegion.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="PathObstacles.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="RoadNavRegion.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartObjectNavRegion.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangularNavRegion.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexList.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="VolumeNavRegion.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="Waypoint3DSurfaceNavRegion.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="WaypointHumanNavRegion.h">
+      <Filter>Navigation\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="AStarOpenList.h">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="AStarSolver.h">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="Heuristic.h">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="NavPath.h">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="Pathfinder.h">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="PathFollower.h">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="PathMarker.h">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartPathFollower.h">
+      <Filter>Navigation\PathFinding</Filter>
+    </ClInclude>
+    <ClInclude Include="Cover\Cover.h">
+      <Filter>Cover System</Filter>
+    </ClInclude>
+    <ClInclude Include="Cover\CoverPath.h">
+      <Filter>Cover System</Filter>
+    </ClInclude>
+    <ClInclude Include="Cover\CoverSampler.h">
+      <Filter>Cover System</Filter>
+    </ClInclude>
+    <ClInclude Include="Cover\CoverScorer.h">
+      <Filter>Cover System</Filter>
+    </ClInclude>
+    <ClInclude Include="Cover\CoverSurface.h">
+      <Filter>Cover System</Filter>
+    </ClInclude>
+    <ClInclude Include="Cover\CoverSystem.h">
+      <Filter>Cover System</Filter>
+    </ClInclude>
+    <ClInclude Include="Adapters.h">
+      <Filter>AIObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AIActor.h">
+      <Filter>AIObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AIObject.h">
+      <Filter>AIObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AIPlayer.h">
+      <Filter>AIObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AIVehicle.h">
+      <Filter>AIObject</Filter>
+    </ClInclude>
+    <ClInclude Include="PipeUser.h">
+      <Filter>AIObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Puppet.h">
+      <Filter>AIObject</Filter>
+    </ClInclude>
+    <ClInclude Include="AIGroup.h">
+      <Filter>AIObject\Coordination</Filter>
+    </ClInclude>
+    <ClInclude Include="AIGroupTactic.h">
+      <Filter>AIObject\Coordination</Filter>
+    </ClInclude>
+    <ClInclude Include="BlackBoard.h">
+      <Filter>AIObject\Coordination</Filter>
+    </ClInclude>
+    <ClInclude Include="Formation.h">
+      <Filter>AIObject\Coordination</Filter>
+    </ClInclude>
+    <ClInclude Include="Leader.h">
+      <Filter>AIObject\Coordination</Filter>
+    </ClInclude>
+    <ClInclude Include="LeaderAction.h">
+      <Filter>AIObject\Coordination</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitAction.h">
+      <Filter>AIObject\Coordination</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitImg.h">
+      <Filter>AIObject\Coordination</Filter>
+    </ClInclude>
+    <ClInclude Include="AICollision.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="AIHash.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="AISaltBufferArray.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="aisalthandle.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingIDManager.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericTreeNode.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="HashSpace.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Reference.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape2.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeContainer.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="AIQuadTree.h">
+      <Filter>Helpers\SpatialPartitioning</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldOctree.h">
+      <Filter>Helpers\SpatialPartitioning</Filter>
+    </ClInclude>
+    <ClInclude Include="AIDbgRecorder.h">
+      <Filter>Helpers\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="AIDebugDrawHelpers.h">
+      <Filter>Helpers\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="AILog.h">
+      <Filter>Helpers\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="AIRecorder.h">
+      <Filter>Helpers\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugDrawContext.h">
+      <Filter>Helpers\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="NullAIDebugRenderer.h">
+      <Filter>Helpers\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="StatsManager.h">
+      <Filter>Helpers\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="ValueHistory.h">
+      <Filter>Helpers\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeCoverageGUI.h">
+      <Filter>Helpers\CodeCoverage</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeCoverageManager.h">
+      <Filter>Helpers\CodeCoverage</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeCoverageTracker.h">
+      <Filter>Helpers\CodeCoverage</Filter>
+    </ClInclude>
+    <ClInclude Include="AIPIDController.h">
+      <Filter>Helpers\PID</Filter>
+    </ClInclude>
+    <ClInclude Include="CalculationStopper.h">
+      <Filter>Helpers\CalculationStopper</Filter>
+    </ClInclude>
+    <ClInclude Include="GoalOp.h">
+      <Filter>Goals</Filter>
+    </ClInclude>
+    <ClInclude Include="GoalOpFactory.h">
+      <Filter>Goals</Filter>
+    </ClInclude>
+    <ClInclude Include="GoalPipe.h">
+      <Filter>Goals</Filter>
+    </ClInclude>
+    <ClInclude Include="GoalPipeXMLReader.h">
+      <Filter>Goals</Filter>
+    </ClInclude>
+    <ClInclude Include="PipeManager.h">
+      <Filter>Goals</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptBind_AI.h">
+      <Filter>Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptBind_AI2.h">
+      <Filter>Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartObjects.h">
+      <Filter>SmartObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="CentralInterestManager.h">
+      <Filter>InterestSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonalInterestManager.h">
+      <Filter>InterestSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="AIActions.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="FireCommand.h">
+      <Filter>Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="AILightManager.h">
+      <Filter>AILightManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\Coordination.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationActor.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationActorAssignment.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationElement.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationLoop.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationManager.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationPlan.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationRole.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationRoleSequence.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationScriptEnvironment.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationSetup.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationStep.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationTask.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationTaskAction.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationTaskCommunication.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationTaskCoordination.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationTaskSignal.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinationSystem\CoordinationTaskSync.h">
+      <Filter>Coordination System</Filter>
+    </ClInclude>
+    <ClInclude Include="Communication\Communication.h">
+      <Filter>Communication System</Filter>
+    </ClInclude>
+    <ClInclude Include="Communication\CommunicationChannel.h">
+      <Filter>Communication System</Filter>
+    </ClInclude>
+    <ClInclude Include="Communication\CommunicationChannelManager.h">
+      <Filter>Communication System</Filter>
+    </ClInclude>
+    <ClInclude Include="Communication\CommunicationManager.h">
+      <Filter>Communication System</Filter>
+    </ClInclude>
+    <ClInclude Include="Communication\CommunicationPlayer.h">
+      <Filter>Communication System</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericAStarSolver.h">
+      <Filter>GenericAStar</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionTree\BlockyXml.h">
+      <Filter>Selection Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionTree\SelectionCondition.h">
+      <Filter>Selection Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionTree\SelectionContext.h">
+      <Filter>Selection Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionTree\SelectionSignalVariables.h">
+      <Filter>Selection Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionTree\SelectionTranslator.h">
+      <Filter>Selection Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionTree\SelectionTree.h">
+      <Filter>Selection Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionTree\SelectionTreeManager.h">
+      <Filter>Selection Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionTree\SelectionTreeNode.h">
+      <Filter>Selection Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionTree\SelectionTreeTemplate.h">
+      <Filter>Selection Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionTree\SelectionVariables.h">
+      <Filter>Selection Tree</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CryAISystem.rc">
+      <Filter>Lib</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AIQuadTree.inl">
+      <Filter>Helpers\SpatialPartitioning</Filter>
+    </None>
+  </ItemGroup>
+</Project>

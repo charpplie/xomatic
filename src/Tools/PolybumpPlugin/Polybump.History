@@ -1,0 +1,18 @@
+
+
+03/06/2008:
+
+!F The visualization in the PolybumpApplication preview now shows the ray shooting length in the direction of the normal
+   (the same length is shooting inwards as well).
+
+03/10/2008:
+
+!O optimized computation time
+!F multiple CPU core support through OpenMP
+
+04/24/2008:
+
+!B fixed computation setting from MAX dialog not used in next computation (MAX Polybump only)
+
+
+

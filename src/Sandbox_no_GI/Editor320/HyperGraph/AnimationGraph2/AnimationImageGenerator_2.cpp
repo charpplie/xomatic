@@ -1,0 +1,102 @@
+#include "stdafx.h"
+#include <ICryAnimation.h>
+#include "AnimationImageGenerator_2.h"
+
+CAnimationImageGenerator2::CAnimationImageGenerator2(CWnd* pParentWindow, const string& modelAssetName)
+:	m_modelAssetName(modelAssetName)
+{
+	m_renderCtrl.Create( pParentWindow,CRect(0, 0, 100, 100),WS_CHILD );
+	m_renderCtrl.SetGrid(false);
+	m_renderCtrl.SetAxis(false);
+	//m_renderCtrl.LoadFile( "Editor/Objects/Sphere.cgf" );
+	m_renderCtrl.LoadFile(modelAssetName.c_str());
+	m_renderCtrl.SetClearColor( ColorF(0.82f) );
+}
+
+void CAnimationImageGenerator2::ChangeModelAssetName(const char* modelAssetName)
+{
+	if ( m_modelAssetName != modelAssetName )
+	{
+		m_modelAssetName = modelAssetName;
+		m_renderCtrl.LoadFile( m_modelAssetName.c_str() );
+	}
+}
+
+void CAnimationImageGenerator2::GetAnimationImage(Gdiplus::Bitmap* pBitmap, const string& animationName, float snapshotTime)
+{
+	CImage image;
+
+	PrepareCharacterForGrab(animationName, snapshotTime);
+
+	CRect rect(0, 0, pBitmap->GetWidth(), pBitmap->GetHeight());
+	m_renderCtrl.MoveWindow( rect );
+	//m_renderCtrl.ShowWindow(SW_SHOW);
+	m_renderCtrl.GetImageOffscreen( image );
+	//m_renderCtrl.GetImage(image);
+	//m_renderCtrl.ShowWindow(SW_HIDE);
+
+	unsigned int *pImageData = image.GetData();
+	int w = image.GetWidth();
+	int h = image.GetHeight();
+
+	Gdiplus::BitmapData bitmapData;
+
+	pBitmap->LockBits(
+		0,
+		Gdiplus::ImageLockModeWrite,
+		PixelFormat32bppARGB,
+		&bitmapData);
+
+	UINT* pixels = (UINT*)bitmapData.Scan0;
+
+	for(UINT row = 0; row < bitmapData.Height; ++row)
+	{
+		for(UINT col = 0; col < bitmapData.Width; ++col)
+		{
+			unsigned int uPixel = pImageData[row * w + col];
+			pixels[row * bitmapData.Stride / 4 + col] = 0xFF000000 | uPixel;
+		}
+	}
+
+	pBitmap->UnlockBits(&bitmapData);
+}
+
+void CAnimationImageGenerator2::PrepareCharacterForGrab(const string& animationName, float snapshotTime)
+{
+	ICharacterInstance *pCharacter = m_renderCtrl.GetCharacter();
+	if (!pCharacter)
+		return;
+
+	if (pCharacter->GetIAnimationSet()->GetAnimIDByName(animationName.c_str()) >= 0)
+	{
+		m_renderCtrl.SetShowObject(true);
+
+		CryCharAnimationParams params;
+		params.m_nLayerID = 0;
+		params.m_fTransTime = 0;
+		params.m_nFlags = 0;
+
+		ISkeletonAnim* pISkeletonAnim=pCharacter->GetISkeletonAnim();
+
+		pISkeletonAnim->StartAnimation(animationName.c_str(), params);
+		assert(snapshotTime>=0.0f && snapshotTime<=1.0f);
+		pISkeletonAnim->SetLayerTime(0, snapshotTime);
+
+		m_renderCtrl.UpdateAnimation();
+		m_renderCtrl.SetCameraLookAt( 1.8f,Vec3(0,1.0f,0) );
+		m_renderCtrl.SetCameraRadius( 1.8f );
+	}
+	else
+	{
+		m_renderCtrl.SetShowObject(false);
+	}
+}
+
+bool CAnimationImageGenerator2::IsAnimationValid(const string& animationName)
+{
+	ICharacterInstance *pCharacter = m_renderCtrl.GetCharacter();
+	if (!pCharacter)
+		return false;
+
+	return pCharacter->GetIAnimationSet()->GetAnimIDByName(animationName.c_str()) >= 0;
+}

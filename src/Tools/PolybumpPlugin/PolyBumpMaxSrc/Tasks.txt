@@ -1,0 +1,31 @@
+* limit normal if the blended vertex nor is oposite (fix the problem mentioned in polybump conclusion)
+  (need denormalized normals or changes in specular mapping (diffuse is not that important) )
+
+
+* check for low poly less than 256*256 - because we use 16bit triangle indices in SRF file
+
+
+* avergae normal vector = http://www.andrew-whitehurst.net/amb_occlude.html
+
+* export denormalize texture map - for debugging and tweaking purpose
+
+* update doc about export OBJ and new stuff
+* get bumpmap from 3dstudio max
+* remove vector class from rastercube
+
+* output displacement with 16 or more bit
+* integrate displacement magnitude in extended filename
+* add normal jitter to the user interface
+* draw only triangles with used material ID in the .cln
+
+Maya:
+* check problems with material id 
+
+User interface
+* show calculated result afterwards 
+
+Optimize:
+* RasterCube with back face culling
+* accessibility quality:			float tilt=(float)sin(tiltanglepart*PI*0.5f);  -> float tilt=(float)sin(sqrt(tiltanglepart)*PI*0.5f);   and other stuff
+
+

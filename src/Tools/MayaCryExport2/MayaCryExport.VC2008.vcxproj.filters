@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CryCommon">
+      <UniqueIdentifier>{5ce3267d-95d8-47b1-8d4a-548fa2b920b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{2fb81a25-01f1-4693-89c3-231ea62355b1}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Plugin">
+      <UniqueIdentifier>{95ec9bd9-0b99-45c9-b030-465870dbaf80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CryCommonTools">
+      <UniqueIdentifier>{ece3ed02-71fa-4d9a-9106-fc13fa80180f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CryCommonTools\Export">
+      <UniqueIdentifier>{a306a6d7-0b95-4d9e-b2a5-f3bfc0516238}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CryCommonTools\Zip">
+      <UniqueIdentifier>{b095aa94-1d83-450a-8f24-766e77ca8ae4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CryCommonTools\Zip\ZipDir">
+      <UniqueIdentifier>{f1ce119a-1ecf-43bb-be93-4b94ea4dff8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CryCommonTools\Zip\zlib">
+      <UniqueIdentifier>{aa25e939-6008-4b72-b58f-21dee897b62c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CryCommonTools\UI">
+      <UniqueIdentifier>{754d476b-7573-4e12-a4e9-33464f10a822}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\CryEngine\CryCommon\EngineSettingsManager.cpp">
+      <Filter>CryCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryEngine\CryCommon\ResourceCompilerHelper.cpp">
+      <Filter>CryCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationExportSource.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="attribute.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="cryEngineSettingsPlugin.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="cryMayaSupportPlugin.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportFunctions.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="GeometryExportSource.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="materialExport.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="mayaAnimUtilities.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="MayaCryExport.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="mayaDagPathPool.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="mayaError.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="mayaNamePool.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="mayaUtilities.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="plugin.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="sharedExport.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\DebugCallStack.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\FileSystemHelpers.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\LocaleChanger.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\LogFile.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Mailer.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\ModuleHelpers.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\PakSystem.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\PathHelpers.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\PropertyHelpers.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\STLHelpers.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\StringHelpers.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\XMLPakFileSink.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\XMLWriter.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\AnimationData.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\CBAHelpers.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\ColladaExportWriter.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\ColladaWriter.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\ExportFileType.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\ExportSourceDecoratorBase.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\ExportStatusWindow.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\GeometryData.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\GeometryExportSourceAdapter.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\GeometryFileData.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\GeometryMaterialData.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\MaterialData.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\ModelData.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\MorphData.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\SingleAnimationExportSourceAdapter.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\SkeletonData.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\Export\SkinningData.cpp">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\ZipDir\ZipDirCache.cpp">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\ZipDir\ZipDirCacheFactory.cpp">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\ZipDir\ZipDirCacheRW.cpp">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\ZipDir\ZipDirFind.cpp">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\ZipDir\ZipDirFindRW.cpp">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\ZipDir\ZipDirList.cpp">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\ZipDir\ZipDirStructures.cpp">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\ZipDir\ZipDirTree.cpp">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\zlib\adler32.c">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\zlib\compress.c">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\zlib\crc32.c">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\zlib\deflate.c">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\zlib\example.c">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\zlib\gzio.c">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\zlib\infback.c">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\zlib\inffast.c">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\zlib\inflate.c">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\zlib\inftrees.c">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\zlib\trees.c">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\zlib\uncompr.c">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\zlib\zutil.c">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\UI\FrameWindow.cpp">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\UI\Layout.cpp">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\UI\ListView.cpp">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\UI\LogWindow.cpp">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\UI\ProgressBar.cpp">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\UI\PushButton.cpp">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\UI\Spacer.cpp">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\UI\TaskList.cpp">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\UI\ToggleButton.cpp">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommonTools\UI\Win32GUI.cpp">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\CryEngine\CryCommon\EngineSettingsManager.h">
+      <Filter>CryCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryEngine\CryCommon\ResourceCompilerHelper.h">
+      <Filter>CryCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationExportSource.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="attribute.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="cryEngineSettingsPlugin.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="cryMayaSupportPlugin.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportFunctions.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="GeometryExportSource.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="materialExport.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="mayaAnimUtilities.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="mayaAssert.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="MayaCryExport.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="mayaDagPathPool.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="mayaError.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="mayaIncludes.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="mayaNamePool.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="mayaUtilities.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="plugin.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="sharedExport.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\DebugCallStack.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Exceptions.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\FileSystemHelpers.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ILogFile.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\IPakSystem.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ISettings.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\LocaleChanger.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\LogFile.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Mailer.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ModuleHelpers.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\PakSystem.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\PathHelpers.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ProgressRange.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\PropertyHelpers.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\STLHelpers.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\StringHelpers.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\XMLPakFileSink.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\XMLWriter.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\AnimationData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\CBAHelpers.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\ColladaExportWriter.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\ColladaWriter.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\ExportFileType.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\ExportSourceDecoratorBase.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\ExportStatusWindow.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\GeometryData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\GeometryExportSourceAdapter.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\GeometryFileData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\GeometryMaterialData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\HelperData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\IAnimationData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\IExportContext.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\IExportSource.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\IExportWriter.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\IGeometryData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\IGeometryFileData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\IGeometryMaterialData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\IMaterialData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\IModelData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\IMorphData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\ISkeletonData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\ISkinningData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\MaterialData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\ModelData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\MorphData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\SingleAnimationExportSourceAdapter.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\SkeletonData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\Export\SkinningData.h">
+      <Filter>CryCommonTools\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ZipDir\ZipDir.h">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ZipDir\ZipDirCache.h">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ZipDir\ZipDirCacheFactory.h">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ZipDir\ZipDirCacheRW.h">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ZipDir\ZipDirFind.h">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ZipDir\ZipDirFindRW.h">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ZipDir\ZipDirList.h">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ZipDir\zipdirstructures.h">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ZipDir\ZipDirTree.h">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ZipDir\ZipFile.h">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ZipDir\ZipFileFormat.h">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\ZipDir\ZipFileFormat_info.h">
+      <Filter>CryCommonTools\Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\zlib\crc32.h">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\zlib\deflate.h">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\zlib\inffast.h">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\zlib\inffixed.h">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\zlib\inflate.h">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\zlib\inftrees.h">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\zlib\trees.h">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\zlib\zconf.h">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\zlib\zconf.in.h">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\zlib\zlib.h">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\zlib\zutil.h">
+      <Filter>CryCommonTools\Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\UI\FrameWindow.h">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\UI\IUIComponent.h">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\UI\Layout.h">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\UI\ListView.h">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\UI\LogWindow.h">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\UI\ProgressBar.h">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\UI\PushButton.h">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\UI\Spacer.h">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\UI\TaskList.h">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\UI\ToggleButton.h">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommonTools\UI\Win32GUI.h">
+      <Filter>CryCommonTools\UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MayaCryExport.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

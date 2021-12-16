@@ -1,0 +1,17 @@
+<RCC>
+<qresource>
+	<file>icons/add.png</file>
+	<file>icons/clone.png</file>
+	<file>icons/delete.png</file>
+	<file>icons/extract_from_pak.png</file>
+	<file>icons/group.png</file>
+	<file>icons/in_folder.png</file>
+	<file>icons/in_folder_and_pak.png</file>
+	<file>icons/in_pak.png</file>
+	<file>icons/record.png</file>
+	<file>icons/reload.png</file>
+	<file>icons/revert.png</file>
+	<file>icons/save.png</file>
+	<file>icons/show_in_explorer.png</file>
+</qresource>
+</RCC>

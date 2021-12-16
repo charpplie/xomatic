@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b039111d-131e-4aa1-9d9c-39c6d6f2ab21": {
+      "ProjectGuid": "b039111d-131e-4aa1-9d9c-39c6d6f2ab21",
+      "DisplayName": "libTIFF",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

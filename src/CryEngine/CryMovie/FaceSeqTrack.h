@@ -1,0 +1,45 @@
+////////////////////////////////////////////////////////////////////////////
+//
+//  Crytek Engine Source File.
+//  Copyright (C), Crytek Studios, 2002.
+// -------------------------------------------------------------------------
+//  File name:   selecttrack.h
+//  Version:     v1.00
+//  Created:     20/8/2002 by Lennert.
+//  Compilers:   Visual Studio.NET
+//  Description: 
+// -------------------------------------------------------------------------
+//  History:
+//
+////////////////////////////////////////////////////////////////////////////
+
+#ifndef __faceseqtrack_h__
+#define __faceseqtrack_h__
+
+#if _MSC_VER > 1000
+#pragma once
+#endif
+
+#include "IMovieSystem.h"
+#include "AnimTrack.h"
+
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+/** Facial animation track - keys play facial animation sequences
+*/
+class CFaceSeqTrack : public TAnimTrack<IFaceSeqKey>
+{
+public:
+	EAnimTrackType GetType() { return ATRACK_FACESEQ; };
+	EAnimValue GetValueType() { return AVALUE_FACESEQ; };
+
+	void GetKeyInfo( int key,const char* &description,float &duration );
+	void SerializeKey( IFaceSeqKey &key,XmlNodeRef &keyNode,bool bLoading );
+
+	virtual void GetMemoryUsage( ICrySizer *pSizer ) const
+	{
+		pSizer->AddObject(this, sizeof(*this));
+	}
+};
+
+#endif // __faceseqtrack_h__

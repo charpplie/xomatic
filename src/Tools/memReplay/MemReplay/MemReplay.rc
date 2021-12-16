@@ -1,0 +1,694 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+//#include "afxres.h" //Diesel cut
+#include "winres.h" //Diesel new
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Polish resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
+#ifdef _WIN32
+LANGUAGE LANG_POLISH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\memReplay.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_IMAGES              BITMAP                  "res\\Images.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "res\\memReplay.manifest"
+#endif    // Polish resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\memReplay.ico"
+IDR_DemoTYPE            ICON                    "res\\DemoDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_OPEN
+    SEPARATOR
+    BUTTON      ID_COMBINED
+    BUTTON      ID_MAIN
+    BUTTON      ID_RSX
+    SEPARATOR
+    BUTTON      ID_COUNT
+    SEPARATOR
+    BUTTON      ID_APP_DISTRIBUTION
+    SEPARATOR
+    BUTTON      ID_APP_REVERSE
+    BUTTON      ID_APP_GATHERTD
+    BUTTON      ID_APP_GATHERBU
+    BUTTON      ID_APP_EXCLUDE
+    SEPARATOR
+    BUTTON      ID_APP_PLOT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open Log\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM "&Export to XLS",              ID_FILE_EXPORTTOXLS
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Copy",                       ID_EDIT_COPY
+        MENUITEM SEPARATOR
+        MENUITEM "&Find",                       ID_EDIT_FIND
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Combined Usage",             ID_COMBINED
+        MENUITEM "&Main Usage",                 ID_MAIN
+        MENUITEM "&RSX Usage",                  ID_RSX
+    END
+    POPUP "&Tools"
+    BEGIN
+        MENUITEM "&Look up type...",            ID_TYPEINFO_LOOKUP
+        MENUITEM "&Validate allocations",       ID_TOOLS_VALIDATEALLOCATIONS
+        MENUITEM "Find sizers",                 ID_TOOLS_FINDSIZERS
+        MENUITEM "Find &overrun sizers",        ID_TOOLS_FINDOVERRUNSIZERS
+        MENUITEM "Analyse &buckets",            ID_TOOLS_ANALYSEBUCKETS
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About memReplay...",         ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 250, 135
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "MemReplay"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,23,11,20,20
+    LTEXT           "MemReplay",IDC_STATIC,51,7,177,13,SS_NOPREFIX
+    LTEXT           "FreeType2\nhttp://www.freetype.org/",IDC_STATIC,7,109,234,17
+    LTEXT           "Acknowledgements\n\nZlib\nCopyright (C) 1995-2004 Jean-loup Gailly and Mark Adler\n\nMulti-Column Tree View, version 1.4 (July 7, 2005)\nCopyright (C) 2003-2005 Michal Mecinski",IDC_STATIC,7,44,234,58
+    DEFPUSHBUTTON   "OK",IDOK,191,110,50,16,WS_GROUP
+    LTEXT           "Static",IDC_VERSIONLABEL,51,21,190,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 3, 1, 2, 1742
+PRODUCTVERSION 3, 1, 2, 1742
+FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Crytek UK"
+            VALUE "FileDescription", "Hierarchical Memory Tool"
+            VALUE "FileVersion", "1.1.0.0"
+            VALUE "InternalName", "memHierarchy.exe"
+            VALUE "LegalCopyright", "(c) Crytek UK"
+            VALUE "OriginalFilename", "memHierarchy.exe"
+            VALUE "ProductName", "memHierarchy"
+            VALUE "ProductVersion", "1.1.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 241
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 126
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "MemReplay\n\nDemo\n\n\nDemo.Document\nDemo.Document"
+    IDR_REPLAYDOCUMENT      "\nReplay\nReplay\nReplay Logs (*.mrl)\n.mrl\nMemoryReplayLog\nMemory Replay Log"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "MemReplay"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open and process log\nOpen and process log"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_OPENPROCESSED   "Open preprocessed file"
+    IDS_VERSION             "1.1.0.0"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_TREEMAP          "Display treemap"
+    ID_APP_DISTRIBUTION     "Details\nView selection details"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_REVERSE          "Reverse\nReverse treemap about selection"
+    ID_MAIN                 "Main Memory\nView main memory usage"
+    ID_RSX                  "RSX Memory\nView RSX memory usage"
+    ID_COMBINED             "Combined Memory\nView combined memory usage"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_GATHER           "Gather\nGather treemap by selection"
+    ID_APP_GATHERLINE       "Gather File:Line\nGather treemap by file:line"
+    ID_APP_GATHERFUNC       "Gather Function\nGather treemap by function"
+    ID_APP_GATHERFILE       "Gather File\nGather treemap by file"
+    ID_APP_EXCLUDE          "Exclude\nExclude treemap by selection"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_PLOT             "Plot\nPlot the selected function on the graph"
+    ID_COUNT                "\nScale based on allocation count"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_GATHERTD         "Gather Top Down\nGather treemap by selection, from the top down"
+    ID_APP_GATHERBU         "Gather Bottom Up\nGather treemap by selection, from the bottom up"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.K.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_TABICONS            BITMAP                  "res\\TabIcons.bmp"
+IDR_TOOLBAR_COMMON      BITMAP                  "res\\toolbar_common.bmp"
+IDR_TOOLBAR_USAGE       BITMAP                  "res\\toolbar_usage.bmp"
+IDR_TOOLBAR_CODE        BITMAP                  "res\\toolbar_code.bmp"
+IDR_TOOLBAR_CONTEXT     BITMAP                  "res\\toolbar_context.bmp"
+IDR_TOOLBAR_BUCKET      BITMAP                  "res\\toolbar_bucket.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_TOOLBAR_COMMON TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_OPEN
+END
+
+IDR_TOOLBAR_USAGE TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_APP_DISTRIBUTION
+END
+
+IDR_TOOLBAR_CODE TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_COMBINED
+    BUTTON      ID_MAIN
+    BUTTON      ID_RSX
+    SEPARATOR
+    BUTTON      ID_COUNT
+    SEPARATOR
+    BUTTON      ID_APP_DISTRIBUTION
+    SEPARATOR
+    BUTTON      ID_APP_REVERSE
+    BUTTON      ID_APP_GATHERTD
+    BUTTON      ID_APP_GATHERBU
+    BUTTON      ID_APP_EXCLUDE
+    SEPARATOR
+    BUTTON      ID_APP_PLOT
+END
+
+IDR_TOOLBAR_CONTEXT TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_COMBINED
+    BUTTON      ID_MAIN
+    BUTTON      ID_RSX
+    SEPARATOR
+    BUTTON      ID_APP_DISTRIBUTION
+END
+
+IDR_TOOLBAR_BUCKET TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_APP_DISTRIBUTION
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_GATHER MENU 
+BEGIN
+    POPUP "Gather"
+    BEGIN
+        MENUITEM "By &address",                 ID_BYADDRESS
+        MENUITEM "By &function",                ID_BYFUNCTION
+        MENUITEM "By file:&line",               ID_BYFILELINE
+        MENUITEM "By &file",                    ID_BYFILE
+    END
+END
+
+IDR_CODEINSPECT MENU 
+BEGIN
+    POPUP "Code Inspect"
+    BEGIN
+        MENUITEM "Delta",                       ID_CODEINSPECT_DELTA
+        MENUITEM "Allocations",                 ID_CODEINSPECT_ALLOCATIONS
+        MENUITEM "Frees",                       ID_CODEINSPECT_FREES
+        MENUITEM "Freed space",                 ID_CODEINSPECT_FREEDSPACE
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ASSETPAGE DIALOGEX 0, 0, 320, 201
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+END
+
+IDD_CODETREEPAGE DIALOGEX 0, 0, 320, 200
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+END
+
+IDD_USAGEPAGE DIALOGEX 0, 0, 316, 185
+STYLE DS_SETFONT | DS_CONTROL | WS_CHILD
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+END
+
+IDD_MEMORYMAPPAGE DIALOGEX 0, 0, 316, 185
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_VALIDATIONPAGE DIALOGEX 0, 0, 316, 185
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_REPLAYPROGRESSDLG DIALOGEX 0, 0, 160, 31
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Replaying Log..."
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_REPLAYPROGRESS,"msctls_progress32",WS_BORDER,7,7,146,17
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ASSETPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 194
+    END
+
+    IDD_CODETREEPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_USAGEPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_MEMORYMAPPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_VALIDATIONPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 178
+    END
+
+    IDD_REPLAYPROGRESSDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 153
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 24
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    ID_APP_DISTRIBUTION     "Details\nView selection details"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_OPEN            "Open and process log\nOpen and process log"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_REVERSE          "Reverse\nReverse treemap about selection"
+    ID_MAIN                 "Main Memory\nView main memory usage"
+    ID_RSX                  "RSX Memory\nView RSX memory usage"
+    ID_COMBINED             "Combined Memory\nView combined memory usage"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_PLOT             "Plot\nPlot the selected function on the graph"
+    ID_COUNT                "\nScale based on allocation count"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_GATHERTD         "Gather Top Down\nGather treemap by selection, from the top down"
+    ID_APP_GATHERBU         "Gather Bottom Up\nGather treemap by selection, from the bottom up"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_EXCLUDE          "Exclude\nExclude treemap by selection"
+END
+
+#endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\memReplay.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

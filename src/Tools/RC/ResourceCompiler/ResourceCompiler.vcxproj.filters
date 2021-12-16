@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{44b5a16a-7749-4be1-8ba6-2862bd56a350}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{9a62e0fb-592b-42c8-b52b-6b17765b0418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zip">
+      <UniqueIdentifier>{6d8a92b7-aa4d-41ea-a0b5-4fc56036d956}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zip\ZipDir">
+      <UniqueIdentifier>{fc850df8-1d77-481e-9031-39484b06c13d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zip\zlib">
+      <UniqueIdentifier>{4e8ee99c-b356-4461-be4e-50c40b60095b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CfgFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrashHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtensionManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mailer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MemInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\PakSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\PathHelpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyVars.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceCompiler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\StringHelpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\TempFilePakExtraction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\ZipDir\ZipDirCache.cpp">
+      <Filter>Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\ZipDir\ZipDirCacheFactory.cpp">
+      <Filter>Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\ZipDir\ZipDirCacheRW.cpp">
+      <Filter>Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\ZipDir\ZipDirFind.cpp">
+      <Filter>Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\ZipDir\ZipDirFindRW.cpp">
+      <Filter>Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\ZipDir\ZipDirList.cpp">
+      <Filter>Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\ZipDir\ZipDirStructures.cpp">
+      <Filter>Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\ZipDir\ZipDirTree.cpp">
+      <Filter>Zip\ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\zlib\adler32.c">
+      <Filter>Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\zlib\compress.c">
+      <Filter>Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\zlib\crc32.c">
+      <Filter>Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\zlib\deflate.c">
+      <Filter>Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\zlib\gzio.c">
+      <Filter>Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\zlib\infback.c">
+      <Filter>Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\zlib\inffast.c">
+      <Filter>Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\zlib\inflate.c">
+      <Filter>Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\zlib\inftrees.c">
+      <Filter>Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\zlib\trees.c">
+      <Filter>Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\zlib\uncompr.c">
+      <Filter>Zip\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\zlib\zutil.c">
+      <Filter>Zip\zlib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CfgFile.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdLine.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvertContext.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CpuInfo.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CrashHandler.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugLog.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtensionManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileUtil.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\IPakSystem.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListFile.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mailer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\PakSystem.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\PakXmlFileBufferSource.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\PathHelpers.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="platform_implRC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PortableString.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyVars.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResComDefs.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceCompiler.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\SimpleStringPool.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\StringHelpers.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SwapEndianness.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\TempFilePakExtraction.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ICfgFile.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IConfig.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IConvertor.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ICryCompressorRC.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ICrySourceControl.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IRCLog.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IResCompiler.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\ZipDir\ZipDir.h">
+      <Filter>Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\ZipDir\ZipDirCache.h">
+      <Filter>Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\ZipDir\ZipDirCacheFactory.h">
+      <Filter>Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\ZipDir\ZipDirCacheRW.h">
+      <Filter>Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\ZipDir\ZipDirFind.h">
+      <Filter>Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\ZipDir\ZipDirFindRW.h">
+      <Filter>Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\ZipDir\ZipDirList.h">
+      <Filter>Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\ZipDir\zipdirstructures.h">
+      <Filter>Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\ZipDir\ZipDirTree.h">
+      <Filter>Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\ZipDir\ZipFile.h">
+      <Filter>Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\ZipDir\ZipFileFormat.h">
+      <Filter>Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\ZipDir\ZipFileFormat_info.h">
+      <Filter>Zip\ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\zlib\crc32.h">
+      <Filter>Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\zlib\deflate.h">
+      <Filter>Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\zlib\inffast.h">
+      <Filter>Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\zlib\inffixed.h">
+      <Filter>Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\zlib\inflate.h">
+      <Filter>Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\zlib\inftrees.h">
+      <Filter>Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\zlib\trees.h">
+      <Filter>Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\zlib\zconf.h">
+      <Filter>Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\zlib\zconf.in.h">
+      <Filter>Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\zlib\zlib.h">
+      <Filter>Zip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\zlib\zutil.h">
+      <Filter>Zip\zlib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ResourceCompiler.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ResourceCompiler.ico" />
+  </ItemGroup>
+</Project>

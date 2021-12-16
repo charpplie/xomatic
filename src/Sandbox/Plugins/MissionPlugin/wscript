@@ -1,0 +1,25 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2013, Crytek Studios
+##
+## Creator: Christopher Bolte
+## Date: Oct 31, 2013
+## Description: WAF  based build system
+#############################################################################
+QT_TO_MOC_FILES = [	
+	'../WebShared/QCryWebPage.h',
+	'../WebShared/QCryWebView.h',
+	'MissionPanel.h',
+	]
+	
+def build(bld):	
+	files = bld.read_file_list('missionplugin.waf_files')
+	
+	bld.CryPlugin(
+		target = 'MissionPlugin',
+		source = files,	
+		features = 'qt',
+		qt_to_moc_files = QT_TO_MOC_FILES,	
+		lib = [ 'Qt5WebKit', 'Qt5WebKitWidgets' ],
+		use='EditorCommon'
+	)

@@ -1,0 +1,42 @@
+#ifndef heightfieldbv_h
+#define heightfieldbv_h
+#pragma once
+
+class CHeightfieldBV : public CBVTree {
+public:
+	CHeightfieldBV() { m_pUsedTriMap=0; m_minHeight=0.f; m_maxHeight=0.f; }
+	virtual ~CHeightfieldBV() { if (m_pUsedTriMap) delete[] m_pUsedTriMap; }
+	SPU_INDIRECT(RB_Intersect(L))
+	virtual int GetType() { return BVT_HEIGHTFIELD; }
+
+	virtual float Build(CGeometry *pGeom);
+	void SetHeightfield(heightfield *phf);
+	SPU_INDIRECT(RB_Intersect(LL))
+	virtual void GetBBox(box *pbox);
+	SPU_INDIRECT(RB_Intersect(L))
+	virtual int MaxPrimsInNode() { return m_PatchSize.x*m_PatchSize.y*2; }
+	SPU_INDIRECT(RB_Intersect(LL))
+	virtual void GetNodeBV(BV *&pBV, int iNode=0, int iCaller=0);
+	SPU_INDIRECT(RB_Intersect(LLL))
+	virtual void GetNodeBV(BV *&pBV, const Vec3 &sweepdir,float sweepstep, int iNode=0, int iCaller=0) {}
+	SPU_INDIRECT(RB_Intersect(LLLL))
+	virtual void GetNodeBV(const Matrix33 &Rw,const Vec3 &offsw,float scalew, BV *&pBV, int iNode=0, int iCaller=0);
+	SPU_INDIRECT(RB_Intersect(LLLLL))
+	virtual void GetNodeBV(const Matrix33 &Rw,const Vec3 &offsw,float scalew, BV *&pBV, const Vec3 &sweepdir,float sweepstep, int iNode=0, int iCaller=0) {}
+	SPU_INDIRECT(RB_Intersect(LLLL))
+	virtual int GetNodeContents(int iNode, BV *pBVCollider,int bColliderUsed,int bColliderLocal, 
+		geometry_under_test *pGTest,geometry_under_test *pGTestOp);
+	SPU_INDIRECT(RB_Intersect(LL))
+	virtual void MarkUsedTriangle(int itri, geometry_under_test *pGTest);
+
+	CTriMesh *m_pMesh;
+	heightfield *m_phf;
+	vector2di m_PatchStart;
+	vector2di m_PatchSize;
+	float m_minHeight,m_maxHeight;
+	unsigned int *m_pUsedTriMap;
+};
+
+void project_box_on_grid(box *pbox,grid *pgrid, geometry_under_test *pGTest, int &ix,int &iy,int &sx,int &sy,float &minz);
+
+#endif

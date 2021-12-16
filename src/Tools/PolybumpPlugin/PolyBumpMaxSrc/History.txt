@@ -1,0 +1,40 @@
+History file for PolyBumpPlugin for 3DStudio MAX
+
+       by Crytek
+
+
+--/--/---- V2.00 working version, public release on Crytek website
+08/01/2002 V2.02 displacement mapping reactivated, checkbox for normal texture is now working, key generator now covered in class
+08/02/2002 V2.10 swap blue and red channel in tangent space, to use the same scheme as ATI and NVidia does 
+08/15/2002 V2.50 major speedup ~5x-7x (new acceleator scheme), swap blue and red channel also for object space and clone space
+08/23/2002       if there is no output used, no output filename is queried and nothing is calculated
+                 Expand Texture is now better because it's no longer "black" is not expanded - it's changed to a illegal color
+09/12/2002 V2.51 normals are now with jitter (better quality - more noise) - not in user interface - default is deactivated
+                 fix user interface glitch: extend filename checkbox is not set to internal variable
+10/08/2002 V2.52 fixes rarely occurring endless loop (this could also cause artefacts)
+11/12/2002 V2.53 fixed a bug that caused tiny holes in the output
+11/21/2002 V2.6  additional bump map is now also affecting the accessibility calculation
+12/20/2002 V2.7  fixed rarely happening bug the removes the mesh assignment
+                 now we support multiple selection for the high poly mesh
+                 material id check is now later - to get the same smoothing no matter how many triangles
+                 Antialiasing adjustable and with better quality
+                 Expand adjustable
+                 average normal from accessibility (self shadowing)
+                 way better tangent space calculation
+                 Export as OBJ - not finished
+01/08/2002 V2.75 Export as OBJ finished
+                 load greyscale tga is now working
+                 fixed a bug in tangent space calculation
+                 cleanup raycasting, 3x faster accessibility
+01/30/2003 V2.76 fixed bug with bad hit calculation (last known bigger bug)
+02/19/2003       deactivated jittering for AA
+04/29/2003 V2.9  fixed bug in tangentspace calculation (mirror seams are now almost invisible)
+
+                 changed status from Working/Antialiasing to Pass x/y 
+02/03/2004 V2.91 minor internal changes, cleaned up info dialog
+03/02/2004 V3.01 added occlusion direction with proper user interface
+10/05/2004 V3.10 added cage mesh support
+10/08/2004       3DSMax: set file gamma to 1.0 (solve problems when using a custom gamma)
+                 Expand border feature value was used *2, fixed that
+00/15/2004       removed clonespace, refactored, internal change to SRF data structure and file format
+

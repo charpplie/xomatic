@@ -1,0 +1,55 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2013, Crytek Studios
+##
+## Creator: Christopher Bolte
+## Date: Oct 31, 2013
+## Description: WAF  based build system
+#############################################################################
+QT_TO_MOC_FILES = [
+	'BatchFileDialog.h',
+	'DockTitleBarWidget.h',
+	'ListSelectionDialog.h',
+	'ManipScene.h',
+	'QParentWndWidget.h',
+	'Timeline.h',
+	'MFCPropertyTree.h',
+	'QPropertyTree/PropertyRow.h',
+	'QPropertyTree/PropertyRowColor.h',
+	'QPropertyTree/PropertyRowContainer.h',
+	'QPropertyTree/PropertyRowNumber.h',
+	'QPropertyTree/PropertyRowNumberField.h',
+	'QPropertyTree/PropertyRowObject.h',
+	'QPropertyTree/PropertyRowPointer.h',
+	'QPropertyTree/PropertyRowResourceFilePath.h',
+	'QPropertyTree/PropertyRowString.h',
+	'QPropertyTree/PropertyRowStringListValue.h',
+	'QPropertyTree/PropertyTreeMenuHandler.h',
+	'QPropertyTree/PropertyTreeModel.h',
+	'QPropertyTree/QPropertyDialog.h',
+	'QPropertyTree/QPropertyTree.h',
+	'QViewport.h',
+    'QPropertyTree/PropertyRowLocalFrame.h',
+    'QPropertyTree/PropertyRowOutputFilePath.h',
+    'QPropertyTree/PropertyRowResourceFolderPath.h',
+    'QPropertyTree/PropertyRowResourceSelector.h',
+    'QPropertyTree/PropertyRowTagList.h',
+	'QPropertyTree/ValidatorBlock.h',
+	'Serialization/Decorators/ActionButton.h'
+	]
+	
+def build(bld):	
+
+	bld.CryPluginModule(
+		target      = 'EditorCommon',
+		vs_filter   = 'Sandbox/Plugins',		
+		file_list   = 'editorcommon.waf_files',
+
+		features        = 'qt',
+		qt_to_moc_files = QT_TO_MOC_FILES,
+		lib             = 'mfcs110',
+		lib_debug       = 'mfcs110d',
+		lib_profile     = 'mfcs110',
+		lib_performance = 'mfcs110',
+		lib_release     = 'mfcs110'
+	)

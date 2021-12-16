@@ -1,0 +1,29 @@
+{
+	"NoUberFile": 
+	{
+		"Root":
+		[
+			"EmergentPlugin.cpp",
+			"EmergentPlugin.h",
+			"main.cpp",
+			"resource.h",
+			"stdafx.h",
+			"StreetManager.cpp",
+			"StreetManager.h"
+		],
+		"Objects":
+		[
+			"Objects/StreetNodeObject.cpp",
+			"Objects/StreetNodeObject.h"
+		],
+		"Panels":
+		[
+			"Panels/StreetPanel.cpp",
+			"Panels/StreetPanel.h"
+		],
+		"Resources":
+		[
+			"EmergentPlugin.rc"
+		]
+	}
+}

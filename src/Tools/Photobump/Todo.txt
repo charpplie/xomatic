@@ -1,0 +1,7 @@
+
+- interesct rays in 3d
+- fill 3d point structure
+- assign colors from pictures
+- draw points
+
+- start diffusion

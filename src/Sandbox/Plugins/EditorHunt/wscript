@@ -1,0 +1,25 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2013, Crytek Studios
+##
+## Description: WAF based build system
+#############################################################################
+
+def build(bld):	
+
+	bld.CryPlugin(
+		target      = 'EditorHunt',
+		vs_filter   = 'Sandbox/Plugins',		
+		file_list   = 'editorhunt.waf_files',
+
+		use         = ['Editor', 'EditorCommon' ],
+		defines     = '_XTPLIB_VISUALSTUDIO_VERSION="vc110"',
+		includes    = [ '.', 'GeneratedFiles', Path('Code/SDKs/XT_13_4/Include') ],
+		
+		win_libpath = Path('Code/SDKs/XT_13_4/lib_vc11'),
+		
+		debug_lib       = 'mfcs110d',
+		release_lib     = 'mfcs110',
+		profile_lib     = 'mfcs110',
+		performance_lib = 'mfcs110',
+	)

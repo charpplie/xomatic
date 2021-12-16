@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Main">
+      <UniqueIdentifier>{2752d40e-798c-4073-9d8d-dfc8c339ff30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Imported">
+      <UniqueIdentifier>{041f9e19-8d7c-4761-b77e-0d7866fa85f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SubDialogs">
+      <UniqueIdentifier>{e345e7e9-1e33-4704-9492-733f9b474190}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EngineSettingsManagerApp.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\CryCommon\EngineSettingsManager.cpp">
+      <Filter>Imported</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\CryCommon\ResourceCompilerHelper.cpp">
+      <Filter>Imported</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorDialog.cpp">
+      <Filter>SubDialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="LicenseDialog.cpp">
+      <Filter>SubDialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="RCDialog.cpp">
+      <Filter>SubDialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="SCDialog.cpp">
+      <Filter>SubDialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsDialog.cpp">
+      <Filter>SubDialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineSettingsManagerDlg.cpp" />
+    <ClCompile Include="SettingsTab.cpp" />
+    <ClCompile Include="Utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EngineSettingsManagerApp.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\CryCommon\EngineSettingsManager.h">
+      <Filter>Imported</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\CryCommon\ResourceCompilerHelper.h">
+      <Filter>Imported</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorDialog.h">
+      <Filter>SubDialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="LicenseDialog.h">
+      <Filter>SubDialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="RCDialog.h">
+      <Filter>SubDialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="SCDialog.h">
+      <Filter>SubDialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsDialog.h">
+      <Filter>SubDialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineSettingsManagerDlg.h" />
+    <ClInclude Include="SettingsTab.h" />
+    <ClInclude Include="Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ce2.ico">
+      <Filter>Main\Resource Files</Filter>
+    </None>
+    <None Include="res\EngineSettingsManager.ico">
+      <Filter>Main\Resource Files</Filter>
+    </None>
+    <None Include="res\EngineSettingsManager.rc2">
+      <Filter>Main\Resource Files</Filter>
+    </None>
+    <None Include="res\green.ico">
+      <Filter>Main\Resource Files</Filter>
+    </None>
+    <None Include="res\red.ico">
+      <Filter>Main\Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="EngineSettingsManager.rc">
+      <Filter>Main\Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

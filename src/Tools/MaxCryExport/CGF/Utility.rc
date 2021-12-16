@@ -1,0 +1,622 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+//#include "afxres.h" //Diesel cut
+#include "winres.h" //Diesel new
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_NODES DIALOGEX 0, 0, 108, 439
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_OBJ_LIST,5,6,98,67,LBS_MULTIPLESEL | LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Pick...",IDC_NODE_ADD,"CustButton",WS_TABSTOP,5,75,56,12
+    CONTROL         "Remove",IDC_NODE_REMOVE,"CustButton",WS_TABSTOP,66,75,37,12
+    PUSHBUTTON      "Add Selected",IDC_NODE_ADD_SEL,5,89,56,14
+    PUSHBUTTON      "Clear List",IDC_NODE_CLEAR,66,89,37,14
+    CONTROL         "Export Nodes",IDC_EXPORT_NODES,"CustButton",WS_TABSTOP,5,159,98,12
+    CONTROL         "Add related bones",IDC_ADD_RELATED_BONES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,250,73,10
+    CONTROL         "Add whole skeleton",IDC_ADD_WHOLE_SKEL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,261,78,10
+    CONTROL         "Allow multi UV/vert.",IDC_ALLOW_MULTIUV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,340,75,10
+    CONTROL         "Write Weights",IDC_WRITE_WEIGHTS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,360,61,10
+    CONTROL         "1 Link",IDC_1LINK,"Button",BS_AUTORADIOBUTTON,25,370,35,10
+    CONTROL         "n Links",IDC_NLINKS,"Button",BS_AUTORADIOBUTTON,25,378,39,10
+    CONTROL         "Write Vertex Anim",IDC_WRITE_VERT_ANIM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,290,72,10,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_VERT_ANIM_FR_EDIT,"CustEdit",WS_TABSTOP,40,301,26,10
+    CONTROL         "",IDC_VERT_ANIM_FR_SPIN,"SpinnerControl",0x0,66,301,7,10
+    GROUPBOX        "Geometry Export Options",IDC_STATIC,5,206,98,32
+    GROUPBOX        "Vertex Animation",IDC_STATIC,5,278,98,38
+    GROUPBOX        "Auto Add Bones",IDC_STATIC,5,239,98,39,0,WS_EX_TRANSPARENT
+    LTEXT           "Frame",IDC_STATIC,76,302,20,8
+    LTEXT           "Every:",IDC_STATIC,15,302,21,8
+    CONTROL         "Vertex Colors",IDC_WRITE_VCOL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,350,57,10
+    PUSHBUTTON      "Preview",IDC_PREVIEW_NODES,5,173,56,15
+    PUSHBUTTON      "Game",IDC_PREVIEW_GAME,78,331,25,15,NOT WS_VISIBLE
+    CONTROL         "Generate default UVs",IDC_GENERATE_DEFAULT_UVS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,390,84,10
+    CONTROL         "Write Geometry",IDC_WRITE_GEOMETRY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,330,75,10
+    LTEXT           "Morph Target Min Offset",IDC_STATIC,15,404,79,10
+    CONTROL         "",IDC_MORPH_MIN_OFFSET_EDIT,"CustEdit",WS_TABSTOP,25,415,41,10
+    CONTROL         "",IDC_MORPH_MIN_OFFSET_SPIN,"SpinnerControl",0x0,66,415,7,10
+    LTEXT           "Export To",IDC_STATIC,5,106,32,8
+    COMBOBOX        IDC_EXPORT_TO,5,115,98,71,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Export File per Node",IDC_INDIVIDUALFILES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,215,86,10
+    PUSHBUTTON      "Explore...",IDC_PREVIEW_EXPLORE,66,173,37,15
+    CONTROL         "Merge All Nodes",IDC_MERGE_NODES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,225,86,10
+    GROUPBOX        "Advanced Options",IDC_STATIC,5,317,98,118
+    CONTROL         "Custom Filename",IDC_USECUSTOMFILENAME,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,134,88,10
+    CONTROL         "...",IDC_CUSTOMFILENAME,"CustButton",NOT WS_VISIBLE | WS_TABSTOP,85,145,18,9
+    EDITTEXT        IDC_CUSTOMFILENAMEEDIT,5,146,75,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    PUSHBUTTON      "...",IDC_CUSTOMFILENAMEENTER,83,144,20,12,BS_FLAT
+    PUSHBUTTON      "Export nodes (COLLADA)",IDC_EXPORT_NODES_COLLADA,5,190,98,15
+END
+
+IDD_BONES DIALOGEX 0, 0, 107, 161
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_BONE_LIST,5,6,97,57,LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Pick...",IDC_BONE_ADD,"CustButton",WS_TABSTOP,5,68,56,12
+    CONTROL         "Remove",IDC_BONE_REMOVE,"CustButton",WS_TABSTOP,65,68,37,12
+    PUSHBUTTON      "Add Selected",IDC_BONE_ADD_SEL,5,83,56,14
+    PUSHBUTTON      "Clear List",IDC_BONE_CLEAR,65,83,37,14
+    CONTROL         "Export Bones",IDC_EXPORT_BONES,"CustButton",WS_TABSTOP,5,102,97,12
+    GROUPBOX        "Bone Export Options",IDC_STATIC,5,120,97,40
+    CONTROL         "Ignore dummies",IDC_IGNORE_MESH_BONES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,135,81,10
+    CONTROL         "Sort Bones",IDC_SORT_BONES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,146,51,10
+END
+
+IDD_OPTIONS DIALOGEX 0, 0, 108, 89
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Warnings for ",IDC_STATIC,5,6,98,65
+    CONTROL         "Non-rigid Physique Links",IDC_WARN_NONRGID,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,18,90,10
+    CONTROL         "Degenerate UVW",IDC_WARN_ORPHAN_TV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,28,90,10
+    CONTROL         "Extension DLL Errors.",IDC_WARN_DLL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,38,84,10
+    CONTROL         "Multiple Vertex Colors",IDC_WARN_MULTI_VCOL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,48,83,10
+    CONTROL         "off-axis scaling",IDC_WARN_OFFAXIS_SCL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,58,62,10
+    PUSHBUTTON      "CryENGINE2 Settings",IDC_SETUPRC,10,75,88,11
+END
+
+IDD_IMPORT_PANEL DIALOGEX 0, 0, 108, 106
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Crytek Importer options"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Import Meshes",IDC_IMPORT_MESH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,50,62,10
+    CONTROL         "Import Lights",IDC_IMPORT_LIGHT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,60,56,10
+    CONTROL         "Import Helpers",IDC_IMPORT_HELPER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,70,61,10
+    GROUPBOX        "Import Type",IDC_STATIC,7,7,94,38
+    CONTROL         "Merge Objects",IDC_MERGE_SCENE,"Button",BS_AUTORADIOBUTTON,12,19,62,10
+    CONTROL         "Replace Scene",IDC_REPLACE_SCENE,"Button",BS_AUTORADIOBUTTON,12,31,65,10
+    PUSHBUTTON      "OK",IDOK,7,85,44,14
+    PUSHBUTTON      "Cancel",IDCANCEL,57,85,44,14
+END
+
+IDD_MATERIAL DIALOGEX 0, 0, 108, 86
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Material",IDC_STATIC,5,6,98,75
+    PUSHBUTTON      "Sync Material",IDC_EXP_MAT_SYNC,10,30,88,14
+    LTEXT           "From Editor to Max:",IDC_STATIC,13,18,62,8
+    LTEXT           "From Max to Editor:",IDC_STATIC,13,49,62,8
+    PUSHBUTTON      "Create Material",IDC_EXP_MAT_SYNC_TO_EDITOR,10,61,88,14
+END
+
+IDD_PROGRESS DIALOGEX 0, 0, 349, 11
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_CLIENTEDGE
+CAPTION "Exporting "
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,0,0,349,11
+END
+
+IDD_NAMED_RANGES DIALOGEX 0, 0, 332, 258
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Animation Sub-Ranges"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Delete",IDC_DELETE,77,237,28,14
+    CONTROL         "List2",IDC_RANGE_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,7,317,207
+    CONTROL         "",IDC_START_ED,"CustEdit",WS_TABSTOP,7,220,20,10
+    CONTROL         "",IDC_START_SP,"SpinnerControl",0x0,27,220,7,10
+    CONTROL         "",IDC_END_ED,"CustEdit",WS_TABSTOP,45,220,20,10
+    CONTROL         "",IDC_END_SP,"SpinnerControl",0x0,65,220,7,10
+    EDITTEXT        IDC_NAME,81,218,243,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "OK",IDC_OK,274,237,50,14
+    PUSHBUTTON      "Copy To TimeTags",IDC_COPY_RANGES_TO_TIME_TAGS,7,237,66,14
+END
+
+IDD_CRY_SHADER DIALOGEX 0, 0, 220, 205
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "",IDC_STATIC,3,33,112,67
+    CONTROL         "User1",IDC_LOCK_AD,"CustButton",WS_TABSTOP,6,46,12,12
+    LTEXT           "Ambient:",IDC_STATIC,22,43,28,10
+    CONTROL         "User1",IDC_STD_COLOR1,"ColorSwatch",WS_TABSTOP,52,41,34,12
+    CONTROL         "User1",IDC_LOCK_ADTEX,"CustButton",WS_TABSTOP,102,48,10,10
+    CONTROL         "User1",IDC_LOCK_DS,"CustButton",WS_TABSTOP,6,61,12,12
+    LTEXT           "Diffuse:",IDC_STATIC,25,57,26,10
+    CONTROL         "User1",IDC_STD_COLOR2,"ColorSwatch",WS_TABSTOP,52,55,34,12
+    CONTROL         "M",IDC_MAPON_DI,"CustButton",WS_TABSTOP,90,57,10,10
+    LTEXT           "Specular:",IDC_SPEC_TEXT,20,69,32,10
+    CONTROL         "User1",IDC_STD_COLOR3,"ColorSwatch",WS_TABSTOP,52,69,34,12
+    CONTROL         "",IDC_SI_EDIT,"CustEdit",WS_TABSTOP,52,84,23,10
+    CONTROL         "0,255,0",IDC_SI_SPIN,"SpinnerControl",0x0,75,84,11,10
+    GROUPBOX        "Transparency",IDC_STATIC,118,33,95,67
+    CONTROL         "",IDC_TR_EDIT,"CustEdit",WS_TABSTOP,163,44,21,10
+    CONTROL         "0,255,0",IDC_TR_SPIN,"SpinnerControl",0x0,184,44,11,10
+    CONTROL         "M",IDC_MAPON_TR,"CustButton",WS_TABSTOP,198,44,10,10
+    GROUPBOX        "Specular Highlights",IDC_STATIC,3,100,209,56
+    LTEXT           "Specular Level:",IDC_STATIC,16,114,49,8
+    CONTROL         "",IDC_SS_EDIT,"CustEdit",WS_TABSTOP,69,114,20,10
+    CONTROL         "0,255,0",IDC_SS_SPIN,"SpinnerControl",0x0,89,114,11,10
+    LTEXT           "Glossiness:",IDC_STATIC,31,128,36,8
+    CONTROL         "",IDC_SH_EDIT,"CustEdit",WS_TABSTOP,69,128,20,10
+    CONTROL         "0,255,0",IDC_SH_SPIN,"SpinnerControl",0x0,89,128,11,10
+    CONTROL         "M",IDC_MAPON_SH,"CustButton",WS_TABSTOP,103,128,10,10
+    CONTROL         "",IDC_HIGHLIGHT,"Static",SS_BLACKFRAME,156,108,50,36
+    LTEXT           "Alpha Test:",IDC_STATIC,123,85,37,8
+    CONTROL         "",IDC_ALPHATEST_EDIT,"CustEdit",WS_TABSTOP,161,85,23,10
+    CONTROL         "0,255,0",IDC_ALPHATEST_SPIN,"SpinnerControl",0x0,184,85,11,10
+    LTEXT           "Self-Illum:",IDC_STATIC,20,84,31,8
+    COMBOBOX        IDC_SHADER,0,153,146,146,CBS_DROPDOWN | CBS_SORT | NOT WS_VISIBLE | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "M",IDC_MAPON_SP,"CustButton",WS_TABSTOP,90,71,10,10
+    GROUPBOX        "Physicalization",IDC_STATIC,3,2,209,29
+    CONTROL         "Additive Blending",IDC_ADDITIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,123,57,70,10
+    LTEXT           "Description",IDC_SHADER_DESC,3,157,44,8,NOT WS_VISIBLE
+    CTEXT           "Required Maps",IDC_SHADER_REQUIREMENTS,145,151,53,13,SS_CENTERIMAGE | SS_SUNKEN | NOT WS_VISIBLE
+    CONTROL         "Physicalize",IDC_PHYSICALIZE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,15,48,10
+    CONTROL         "Additive Decal",IDC_ADDITIVE_DECAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,123,69,60,10
+    COMBOBOX        IDC_SURFACE,70,14,136,146,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Opacity:",IDC_ALPHA_BLEND,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,123,44,38,10
+    CONTROL         "No Shadow",IDC_NO_SHADOWS,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_DISABLED | WS_TABSTOP,75,155,53,10
+    CONTROL         "Use Glossiness",IDC_USEGLOSSINESS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,34,143,68,10
+    LTEXT           "SH material opacity",IDC_STATIC,135,189,70,8
+    LTEXT           "%",IDC_STATIC,127,189,8,8
+    CONTROL         "compute SH coefficients",IDC_SH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,178,93,9
+    CONTROL         "0,255,0",IDC_SHOP_SPIN,"SpinnerControl",0x0,114,188,11,10
+    CONTROL         "",IDC_SHOP_EDIT,"CustEdit",WS_TABSTOP,93,188,21,10
+    CONTROL         "2SIDED",IDC_SH_2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,188,8,8
+    LTEXT           "2-sided material",IDC_STATIC,18,188,51,8
+    GROUPBOX        "Spherical Harmonics",IDC_STATIC,4,169,209,32
+    CONTROL         "SH_AMBIENT",IDC_SH_AMBIENT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,102,178,11,8
+    LTEXT           "ambient visibility(global property)",IDC_STATIC,111,177,100,8
+END
+
+IDD_TIMING DIALOGEX 0, 0, 108, 92
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Export Range",IDC_STATIC,5,6,98,41
+    CONTROL         "Manual range",IDC_MANUAL_RANGE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,17,59,10
+    LTEXT           "start",IDC_STATIC,10,32,14,8
+    CONTROL         "",IDC_ANIM_START_EDIT,"CustEdit",WS_TABSTOP,27,31,18,10
+    CONTROL         "",IDC_ANIM_START_SPIN,"SpinnerControl",0x0,43,31,7,10
+    LTEXT           "End",IDC_STATIC,57,32,14,8
+    CONTROL         "",IDC_ANIM_END_EDIT,"CustEdit",WS_TABSTOP,73,31,18,10
+    CONTROL         "",IDC_ANIM_END_SPIN,"SpinnerControl",0x0,91,31,7,10
+    PUSHBUTTON      "Edit Sub-Ranges ...",IDC_EDIT_NAMED_SEG,8,68,91,14
+    CONTROL         "Export File per Range",IDC_FILE_PER_SUBRANGE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,56,84,10
+    GROUPBOX        "Sub-Ranges",IDC_STATIC,5,47,98,39
+END
+
+IDD_PHYSICS DIALOGEX 0, 0, 108, 102
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Physics",IDC_STATIC,5,6,98,90
+    CONTROL         "Breakable",IDC_BREAKABLE_PHYSICS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,20,52,10
+    COMBOBOX        IDC_GRANULARITY,10,46,89,73,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Granularity:",IDC_STATIC,10,36,36,8
+    COMBOBOX        IDC_MODE,10,73,89,73,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Mode:",IDC_STATIC,10,63,21,8
+END
+
+IDD_BATCH DIALOGEX 0, 0, 108, 60
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "Batch export",-1,5,6,98,49
+    PUSHBUTTON      "Export",IDC_BATCH,10,21,88,14
+    PUSHBUTTON      "Automated Test",IDC_TESTSUITE,10,37,88,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_NODES, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 103
+        VERTGUIDE, 15
+        VERTGUIDE, 25
+        VERTGUIDE, 61
+        VERTGUIDE, 66
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 435
+    END
+
+    IDD_BONES, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 102
+        VERTGUIDE, 15
+        VERTGUIDE, 25
+        VERTGUIDE, 35
+        VERTGUIDE, 62
+        VERTGUIDE, 80
+        VERTGUIDE, 96
+        TOPMARGIN, 6
+        HORZGUIDE, 68
+        HORZGUIDE, 90
+        HORZGUIDE, 108
+        HORZGUIDE, 120
+        HORZGUIDE, 130
+        HORZGUIDE, 140
+        HORZGUIDE, 150
+        HORZGUIDE, 160
+    END
+
+    IDD_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 103
+        VERTGUIDE, 10
+        VERTGUIDE, 98
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 118
+        HORZGUIDE, 25
+        HORZGUIDE, 43
+        HORZGUIDE, 61
+        HORZGUIDE, 73
+        HORZGUIDE, 90
+        HORZGUIDE, 100
+        HORZGUIDE, 110
+        HORZGUIDE, 120
+    END
+
+    IDD_IMPORT_PANEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 101
+        VERTGUIDE, 12
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 99
+        HORZGUIDE, 12
+        HORZGUIDE, 24
+        HORZGUIDE, 36
+        HORZGUIDE, 45
+        HORZGUIDE, 55
+        HORZGUIDE, 65
+        HORZGUIDE, 75
+    END
+
+    IDD_MATERIAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 103
+        VERTGUIDE, 10
+        VERTGUIDE, 98
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 81
+    END
+
+    IDD_NAMED_RANGES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 324
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 251
+        HORZGUIDE, 151
+        HORZGUIDE, 225
+    END
+
+    IDD_CRY_SHADER, DIALOG
+    BEGIN
+        RIGHTMARGIN, 216
+        BOTTOMMARGIN, 201
+    END
+
+    IDD_TIMING, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 103
+        VERTGUIDE, 10
+        VERTGUIDE, 98
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 86
+        HORZGUIDE, 22
+        HORZGUIDE, 36
+        HORZGUIDE, 47
+    END
+
+    IDD_PHYSICS, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 103
+        VERTGUIDE, 10
+        VERTGUIDE, 98
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 97
+    END
+
+    IDD_BATCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 103
+        VERTGUIDE, 10
+        VERTGUIDE, 98
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 55
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 3, 1, 2, 1742
+PRODUCTVERSION 3, 1, 2, 1742
+FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004b0"
+        BEGIN
+            VALUE "Comments", "http://www.crytek.com/"
+            VALUE "CompanyName", "Crytek GmbH"
+            VALUE "FileDescription", "CryENGINE 3dsMax Exporter"
+            VALUE "FileVersion", "3, 1, 2, 1742"
+            VALUE "InternalName", "CryENGINE 3dsMax Exporter"
+            VALUE "LegalCopyright", "Copyright © 2001-2010 Crytek GmbH"
+            VALUE "OriginalFilename", "MaxCryExport.dlu"
+            VALUE "ProductName", "CryENGINE 3DSMax Exporter"
+            VALUE "FileVersion", "3, 1, 2, 1742"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_DMTL_MASKBUTTONS    BITMAP                  "dmtlmsk.bmp"
+IDB_DMTL_BUTTONS        BITMAP                  "dmtlbut.bmp"
+IDB_BUTTONS             BITMAP                  "buttons.bmp"
+IDB_BUTTONS_MASK        BITMAP                  "buttons_mask.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_DS_AMBIENT          "Ambient Color"
+    IDS_DS_DIFFUSE          "Diffuse Color"
+    IDS_DS_SPECULAR         "Specular Color"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_DS_NOSUCH_CLR       "No Such Color"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_DS_LOCK_DS          "Lock Diffuse and Specular?"
+    IDS_DS_MTLDESC          "Crytek Shader"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_DS_LOCKAD           "Lock Ambient and Diffuse?"
+    IDS_DS_LOCKCOL          "Lock Colors"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_DS_PARAMCHG         "Param Change"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_JW_ADTEXLOCK        "Ambient-Diffuse Texture Lock"
+    IDS_JW_ADLOCK           "Ambient-Diffuse Lock"
+    IDS_JW_DSLOCK           "Diffuse-Specular Lock"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_KE_GLOSSINESS       "Glossiness"
+    IDS_KE_SELFILLUM        "Self-Illumination"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_KE_SPEC_LEVEL       "Specular Level"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_DS_PARAMETERS       "Parameters"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CLASSNAME           "CryENGINE2 Exporter"
+    IDS_PARAMETERS          "Parameters"
+    IDS_CLASS_NAME          "CryImporter"
+    IDS_LIBDESC             "CryENGINE2 3dsMax Exporter"
+    IDS_CATEGORY            "Crytek Tools"
+    IDS_SIMPLE              "Simple Param"
+    IDS_NONAME              "NoName"
+    IDS_OBJECTS             "Object Export"
+    IDS_EXPORT              "Bone Export"
+    IDS_OPTIONS             "Options"
+    IDS_TIMING              "Timing"
+    IDS_MATERIAL            "Material"
+    IDS_PHYSICS             "Physics"
+    IDS_BATCH               "Batch"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CGF_FILETYPE_STRING "Crytek Geometry Files (*.cgf)|*.cgf|"
+    IDS_CHR_FILETYPE_STRING "Crytek Character Files (*.chr)|*.chr|"
+    IDS_CGA_FILETYPE_STRING "Crytek Geometry Animation Files (*.cga)|*.cga|"
+    IDS_ANM_FILETYPE_STRING "Crytek Animation Files (*.anm)|*.anm|"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.K.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Australia) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENA)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_AUS
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_FACEREPORT DIALOGEX 0, 0, 349, 221
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_TEXT,38,53,203,84,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,285,132,50,15
+    LTEXT           "Static",IDC_MESSAGE,68,17,19,8
+    PUSHBUTTON      "&Select Faces",IDC_SELECT_DEGENERATE_FACES,79,184,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_FACEREPORT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 342
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 214
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (Australia) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

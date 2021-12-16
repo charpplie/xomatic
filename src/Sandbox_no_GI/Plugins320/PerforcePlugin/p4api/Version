@@ -1,0 +1,14 @@
+# These values identify the release and patchlevel represented by these sources.# RELEASE = 2007 2 prebeta ;
+#       'year' is the year of the release
+#       'Nth' is which release of the year (1 2 3)
+#       'special' is 'main' for mainline builds and 'beta' for beta builds.
+
+# PATCHLEVEL = 122958 ;
+#       Of the source.
+
+# SUPPDATE = 2007 05 22 ;
+#       Of the build.  The copyright date is derived from SUPPDATE.
+
+RELEASE = 2007 2 ;
+PATCHLEVEL = 122958 ;
+SUPPDATE = 2007 05 22 ;

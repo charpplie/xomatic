@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Shared Editor Code %28Editor%29">
+      <UniqueIdentifier>{8ce8d3e8-4bc1-4e2a-8bf1-1ef3ab772ae3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Events">
+      <UniqueIdentifier>{a26669b7-f833-4926-8e62-b4eeb352052a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared Editor Code %28Editor%29">
+      <UniqueIdentifier>{8ce8d3e8-4bc1-4e2a-8bf1-1ef3ab772ae3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{da0034df-1c3f-4a48-bedc-b01a43c15538}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="QPropertyTree">
+      <UniqueIdentifier>{0ac59439-3788-40f0-941b-8264cd0f21d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Serialization">
+      <UniqueIdentifier>{35b4bfcb-d131-402b-98f9-77031f0956ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Serialization\Decorators">
+      <UniqueIdentifier>{ff6bdbd9-cad1-4ef2-b1d3-f7338d7a3ed3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DrawPrimitives">
+      <UniqueIdentifier>{07e998f4-a1a5-495f-948d-c807f466f30d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="QViewPort">
+      <UniqueIdentifier>{1b3db722-4118-47a0-8eaf-7fffae7565a4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EditorCommon.def" />
+    <None Include="res\EditorCommon.rc2" />
+    <None Include="QPropertyTree\file_open.xpm">
+      <Filter>QPropertyTree</Filter>
+    </None>
+    <None Include="QPropertyTree\file_save.xpm">
+      <Filter>QPropertyTree</Filter>
+    </None>
+    <None Include="QPropertyTree\error.xpm">
+      <Filter>QPropertyTree</Filter>
+    </None>
+    <None Include="QPropertyTree\warning.xpm">
+      <Filter>QPropertyTree</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="QtIntegration.cpp" />
+    <ClCompile Include="QtViewPane.cpp" />
+    <ClCompile Include="moc.cpp" />
+    <ClCompile Include="Events\EventManager.cpp">
+      <Filter>Events</Filter>
+    </ClCompile>
+    <ClCompile Include="ManipScene.cpp" />
+    <ClCompile Include="..\..\Editor\Objects\DisplayContext.cpp">
+      <Filter>Shared Editor Code %28Editor%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Editor\RenderHelpers\AxisHelper.cpp">
+      <Filter>Shared Editor Code %28Editor%29</Filter>
+    </ClCompile>
+    <ClCompile Include="MFCPropertyTree.cpp" />
+    <ClCompile Include="BatchFileDialog.cpp" />
+    <ClCompile Include="Timeline.cpp" />
+    <ClCompile Include="Serialization.cpp" />
+    <ClCompile Include="QPropertyTree\PropertyDrawContext.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyIArchive.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyOArchive.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRow.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowBool.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowContainer.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowField.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowIconXPM.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowLocalFrame.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowNumber.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowNumberField.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowObject.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowOutputFilePath.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowPointer.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowResourceFilePath.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowResourceFolderPath.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowResourceSelector.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowSlider.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowString.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowStringListValue.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowTagList.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyRowToggleButton.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyTreeModel.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\PropertyTreeOperator.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\QPropertyDialog.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\QPropertyTree.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\Color.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="Serialization\JSONIArchive.cpp">
+      <Filter>Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="Serialization\JSONOArchive.cpp">
+      <Filter>Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="Serialization\MemoryReader.cpp">
+      <Filter>Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="Serialization\MemoryWriter.cpp">
+      <Filter>Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="Serialization\BinArchive.cpp">
+      <Filter>Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="Serialization\Qt.cpp">
+      <Filter>Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="DeepFilterProxyModel.cpp" />
+    <ClCompile Include="ListSelectionDialog.cpp" />
+    <ClCompile Include="DrawingPrimitives\Ruler.cpp">
+      <Filter>DrawPrimitives</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawingPrimitives\TimeSlider.cpp">
+      <Filter>DrawPrimitives</Filter>
+    </ClCompile>
+    <ClCompile Include="QPropertyTree\Unicode.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QViewport.cpp">
+      <Filter>QViewPort</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Editor\RenderHelpers\AxisHelper.cpp">
+      <Filter>Shared Editor Code %28Editor%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Editor\Objects\DisplayContext.cpp">
+      <Filter>Shared Editor Code %28Editor%29</Filter>
+    </ClCompile>
+    <ClCompile Include="DockTitleBarWidget.cpp" />
+    <ClCompile Include="QPropertyTree\ConstStringList.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QParentWndWidget.cpp" />
+    <ClCompile Include="QPropertyTree\PropertyRowColor.cpp">
+      <Filter>QPropertyTree</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="QtIntegration.h" />
+    <ClInclude Include="EditorCommonAPI.h" />
+    <ClInclude Include="QtViewPane.h" />
+    <ClInclude Include="QtUtil.h" />
+    <ClInclude Include="EditorCommon.h" />
+    <ClInclude Include="..\..\Editor\Objects\DisplayContext.h">
+      <Filter>Shared Editor Code %28Editor%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Editor\RenderHelpers\AxisHelper.h">
+      <Filter>Shared Editor Code %28Editor%29</Filter>
+    </ClInclude>
+    <ClInclude Include="TimelineContent.h" />
+    <ClInclude Include="Serialization.h" />
+    <ClInclude Include="QPropertyTree\PropertyDrawContext.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\PropertyIArchive.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\PropertyOArchive.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\PropertyRowBool.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\PropertyRowField.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\PropertyRowImpl.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\PropertyTreeOperator.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\Color.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\JSONIArchive.h">
+      <Filter>Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\JSONOArchive.h">
+      <Filter>Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\MemoryReader.h">
+      <Filter>Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\MemoryWriter.h">
+      <Filter>Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\Token.h">
+      <Filter>Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\BinArchive.h">
+      <Filter>Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\ContextList.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\Qt.h">
+      <Filter>Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\QtImpl.h">
+      <Filter>Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\Decorators\INavigationProvider.h">
+      <Filter>Serialization\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\Decorators\IconXPM.h">
+      <Filter>Serialization\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\Strings.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\Pointers.h">
+      <Filter>Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\PointersImpl.h">
+      <Filter>Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="QViewportConsumer.h" />
+    <ClInclude Include="Serialization\Decorators\IGizmoSink.h">
+      <Filter>Serialization\Decorators</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\PropertyRowObject.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="DeepFilterProxyModel.h" />
+    <ClInclude Include="DrawingPrimitives\Ruler.h">
+      <Filter>DrawPrimitives</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawingPrimitives\TimeSlider.h">
+      <Filter>DrawPrimitives</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\Unicode.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="QViewportEvents.h">
+      <Filter>QViewPort</Filter>
+    </ClInclude>
+    <ClInclude Include="QViewportSettings.h">
+      <Filter>QViewPort</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization\Decorators\ToggleButton.h" />
+    <ClInclude Include="Serialization\Decorators\ToggleButtonImpl.h" />
+    <ClInclude Include="..\..\Editor\RenderHelpers\AxisHelper.h">
+      <Filter>Shared Editor Code %28Editor%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Editor\Objects\DisplayContext.h">
+      <Filter>Shared Editor Code %28Editor%29</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\ConstStringList.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\Factory.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\MathUtils.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\Serialization.h" />
+    <ClInclude Include="QPropertyTree\ValidatorBlock.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+    <ClInclude Include="QPropertyTree\QPropertyTreeStyle.h">
+      <Filter>QPropertyTree</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="EditorCommon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMOC Include="Events\EventManager.h">
+      <Filter>Events</Filter>
+    </QtMOC>
+    <QtMOC Include="ManipScene.h" />
+    <QtMOC Include="BatchFileDialog.h" />
+    <QtMOC Include="Timeline.h" />
+    <QtMOC Include="QPropertyTree\QPropertyTree.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyRow.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyRowContainer.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyRowLocalFrame.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyRowNumber.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyRowNumberField.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyRowOutputFilePath.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyRowPointer.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyRowResourceFilePath.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyRowResourceFolderPath.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyRowResourceSelector.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyRowString.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyRowStringListValue.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyRowTagList.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyTreeMenuHandler.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\PropertyTreeModel.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="QPropertyTree\QPropertyDialog.h">
+      <Filter>QPropertyTree</Filter>
+    </QtMOC>
+    <QtMOC Include="ListSelectionDialog.h" />
+    <QtMOC Include="QViewport.h">
+      <Filter>QViewPort</Filter>
+    </QtMOC>
+    <QtMOC Include="DockTitleBarWidget.h" />
+    <QtMOC Include="QParentWndWidget.h" />
+    <QtMOC Include="MFCPropertyTree.h" />
+    <QtMOC Include="QPropertyTree\PropertyRowColor.h" />
+  </ItemGroup>
+</Project>

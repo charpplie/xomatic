@@ -1,0 +1,29 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2013, Crytek Studios
+##
+## Creator: Christopher Bolte
+## Date: Oct 31, 2013
+## Description: WAF  based build system
+#############################################################################
+
+def build(bld):	
+	files = bld.read_file_list('ffmpegplugin.waf_files')
+	
+	tsk = bld.CryPlugin(
+		target = 'FFMPEGPlugin',
+		source = files,
+		pch = 'StdAfx.cpp',				
+	)		
+	
+	if tsk != None:
+		# Compute source file
+		src_path = bld.path
+		src = src_path.make_node('ffmpeg.exe')
+		
+		# Compute target file
+		dst_dir = bld.dest_dir			
+		tgt = dst_dir.make_node('ffmpeg.exe')
+
+		# Create Copy tasks
+		tsk.create_task('copy_outputs', src, tgt) 

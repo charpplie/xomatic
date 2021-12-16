@@ -1,0 +1,4 @@
+EXPORTS
+	CreateGameStartup			@1
+	CreateEditorGame			@2
+	CryModuleGetMemoryInfo @8

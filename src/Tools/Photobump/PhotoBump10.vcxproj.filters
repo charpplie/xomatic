@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{100a09cc-f943-42f4-863d-36b5794dd468}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\msoft">
+      <UniqueIdentifier>{9e181f42-0d92-4f26-a5e3-fe4ec28060b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenCV">
+      <UniqueIdentifier>{b738d353-5ccd-46ea-ad9d-eb2f2c060639}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="klt">
+      <UniqueIdentifier>{5b1ffb0c-7211-41d8-9dbd-e5a2a4572c26}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BilateralFiltering.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CalibrationAdjust.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CalibrationLoad2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CalibrationLoadBojou.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DenseMatching.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureDetector2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HeightmapDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageProcessing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageSegmentation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshReconstruct8.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjExporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PhotoBump10.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PhotoBump10Doc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PhotoBump10Draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PhotoBump10View.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PhotoBump10ViewControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PhotoBump10ViewCreation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PhotoFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PhotoImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonReduction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PVertex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReconstructionOptionsDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReconstructSegments3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="segm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SelfCalibration3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangulator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Video.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoDebug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CCamera.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlane.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Lines3dInt.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilsDebug.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlApprParaboloidFit3.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlApprPlaneFit3.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlBandedMatrix.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlBSplineBasis.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlBSplineRectangle.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlConvexHull2.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlConvexHull3.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlDelaunay2a.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlEigen.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlGMatrix.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlGVector.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlImplicitSurface.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlIntrPln3Pln3.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlLine3.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlLinearSystem.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlMath.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlMatrix2.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlMatrix3.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlMatrix4.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlNURBSRectangle.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlParametricSurface.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlPlane3.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlPoint4.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlSurface.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlSystem.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlVector2.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlVector3.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlVector4.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="WmlWinSystem.cpp">
+      <Filter>Math\msoft</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\bitstrm.cpp">
+      <Filter>OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\cvcap.cpp">
+      <Filter>OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_base.cpp">
+      <Filter>OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_bmp.cpp">
+      <Filter>OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_jpeg.cpp">
+      <Filter>OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_png.cpp">
+      <Filter>OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_pxm.cpp">
+      <Filter>OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_sunras.cpp">
+      <Filter>OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_tiff.cpp">
+      <Filter>OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\image.cpp">
+      <Filter>OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\loadsave.cpp">
+      <Filter>OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\utils.cpp">
+      <Filter>OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\window_w32.cpp">
+      <Filter>OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="klt\convolve.cpp">
+      <Filter>klt</Filter>
+    </ClCompile>
+    <ClCompile Include="klt\error.cpp">
+      <Filter>klt</Filter>
+    </ClCompile>
+    <ClCompile Include="klt\klt.cpp">
+      <Filter>klt</Filter>
+    </ClCompile>
+    <ClCompile Include="klt\klt_util.cpp">
+      <Filter>klt</Filter>
+    </ClCompile>
+    <ClCompile Include="klt\pnmio.cpp">
+      <Filter>klt</Filter>
+    </ClCompile>
+    <ClCompile Include="klt\pyramid.cpp">
+      <Filter>klt</Filter>
+    </ClCompile>
+    <ClCompile Include="klt\selectGoodFeatures.cpp">
+      <Filter>klt</Filter>
+    </ClCompile>
+    <ClCompile Include="klt\storeFeatures.cpp">
+      <Filter>klt</Filter>
+    </ClCompile>
+    <ClCompile Include="klt\trackFeatures.cpp">
+      <Filter>klt</Filter>
+    </ClCompile>
+    <ClCompile Include="klt\writeFeatures.cpp">
+      <Filter>klt</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="segm.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="2PassScale.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Filters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ForwardDecl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HeightmapDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageProcessing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadingBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PhotoBump10.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PhotoBump10Doc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PhotoBump10View.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PhotoFrame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PhotoImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PQuadtree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PVertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReconstructionOptionsDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Video.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CAABB.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="CCamera.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="CMatrix.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlane.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="math_decl.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="vector3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlApprParaboloidFit3.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlApprPlaneFit3.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlBandedMatrix.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlBSplineBasis.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlBSplineRectangle.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlConvexHull2.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlConvexHull3.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlDelaunay2a.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlEigen.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlGMatrix.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlGVector.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlImplicitSurface.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlIntrPln3Pln3.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlLine3.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlLinearSystem.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlMath.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlMatrix.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlMatrix2.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlMatrix3.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlMatrix4.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlNURBSRectangle.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlParametricSurface.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlPlane3.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlPoint.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlPoint4.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlSurface.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlSystem.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlVector.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlVector2.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlVector3.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlVector4.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="WmlWinSystem.h">
+      <Filter>Math\msoft</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\_cverror.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\_highgui.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\bitstrm.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cv.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cv.hpp">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cvaux.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cvaux.hpp">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cvcompat.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cverror.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cvmat.hpp">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cvstreams.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cvtypes.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_base.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_bmp.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_jpeg.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_png.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_pxm.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_sunras.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_tiff.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmts.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\highgui.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\utils.h">
+      <Filter>OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="klt\base.h">
+      <Filter>klt</Filter>
+    </ClInclude>
+    <ClInclude Include="klt\convolve.h">
+      <Filter>klt</Filter>
+    </ClInclude>
+    <ClInclude Include="klt\error.h">
+      <Filter>klt</Filter>
+    </ClInclude>
+    <ClInclude Include="klt\klt.h">
+      <Filter>klt</Filter>
+    </ClInclude>
+    <ClInclude Include="klt\klt_util.h">
+      <Filter>klt</Filter>
+    </ClInclude>
+    <ClInclude Include="klt\pnmio.h">
+      <Filter>klt</Filter>
+    </ClInclude>
+    <ClInclude Include="klt\pyramid.h">
+      <Filter>klt</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\PhotoBump10.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\PhotoBump10.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\PhotoBump10Doc.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tech01.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\tech_01.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="WmlMatrix.inl">
+      <Filter>Math\msoft</Filter>
+    </None>
+    <None Include="WmlPoint4.inl">
+      <Filter>Math\msoft</Filter>
+    </None>
+    <None Include="WmlSystem.inl">
+      <Filter>Math\msoft</Filter>
+    </None>
+    <None Include="WmlSystem.mcr">
+      <Filter>Math\msoft</Filter>
+    </None>
+    <None Include="WmlVector.inl">
+      <Filter>Math\msoft</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+    <None Include="Todo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PhotoBump10.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="OpenCV\cv.lib">
+      <Filter>OpenCV</Filter>
+    </Library>
+    <Library Include="OpenCV\cvaux.lib">
+      <Filter>OpenCV</Filter>
+    </Library>
+    <Library Include="FreeImage.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuildStep Include="GaussianBlur.h">
+      <Filter>Header Files</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="res\PhotoBump10.manifest" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,1176 @@
+/*************************************************************************
+  Crytek Source File.
+  Copyright (C), Crytek Studios, 2001-2004.
+ -------------------------------------------------------------------------
+	$Id$
+	$DateTime$
+	Description:	Implementation of the IGameFramework interface. 
+					MiniGameFramework provides a basic implementation to replace CryAction
+  
+ -------------------------------------------------------------------------
+  History:
+  - 15:2:2010	11:45 : Created by Christian Helmich
+
+*************************************************************************/
+
+#include "StdAfx.h"
+#include "MiniGameFramework.h"
+#include "../GameCore/GameConfig.h"
+
+//includes CryEngine submodules
+#include <IEntitySystem.h>
+#include <IMovieSystem.h>
+#include <ITextModeConsole.h>
+#include <ICryAnimation.h>
+
+//includes MiniGameFramework submodules
+#include "Level/MiniLevelSystem.h"
+
+#ifndef USE_EXTERNAL_FRAMEWORK_DLL
+
+//////////////////////////////////////////////////////////////////////////
+// CrySystem entry point
+
+
+
+
+#define DLL_INITFUNC_SYSTEM "CreateSystemInterface"
+
+
+#ifdef _LIB //if in static library
+extern "C" 
+{
+	ISystem* CreateSystemInterface(const SSystemInitParams& initParams );
+}
+#endif //_LIB
+
+// CrySystem entry point/
+//////////////////////////////////////////////////////////////////////////
+// utility functions
+
+template<typename fnCreate>	
+fnCreate			GetEntryProc(HMODULE hDll, const char* entryProcName)
+{
+	LOG_CODE_COVERAGE();
+	CRY_ASSERT(hDll);
+	CRY_SAFE_RETURN(!hDll, NULL);
+
+	CRY_ASSERT(entryProcName);
+	CRY_SAFE_RETURN(!entryProcName, NULL);
+
+	return (fnCreate)CryGetProcAddress(hDll, entryProcName);
+}
+
+// utility functions/
+//////////////////////////////////////////////////////////////////////////
+// static global variables
+
+static simpleframework::CSystemEventListener_MiniGF g_system_event_listener_action;
+
+// static global variables/
+//////////////////////////////////////////////////////////////////////////
+// static member variables
+
+// static member variables/
+//////////////////////////////////////////////////////////////////////////
+// ctor & dtor
+
+simpleframework::CMiniGameFramework::CMiniGameFramework():
+	//- module
+#if !defined(_LIB) && !defined(LINUX) && !defined(PS3)
+	m_hSystemDll(0),
+#endif	//!_LIB && !LINUX && !PS3
+	//- subsystems
+	m_pSystem(0),
+	m_pLevelSystem(0),
+	//- states
+	m_bGameStarted(false),
+	m_ePauseState(eMGF_GamePaused),
+	m_bEditing(false),
+	m_bScheduleLevelEnd(false),
+	//- load/save/cheat game
+	m_bAllowLoad(false),
+	m_bAllowSave(false),
+	m_bAllowCheat(false),
+	//- network
+	m_bServerEnabled(false),
+	m_bClientEnabled(false)
+
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+simpleframework::CMiniGameFramework::~CMiniGameFramework()
+{
+	LOG_CODE_COVERAGE();
+	CRY_ASSERT(gEnv);
+
+	EndGameContext();
+	//exit ISystem interfaces
+	gEnv->pEntitySystem->Reset();
+	gEnv->pMovieSystem->SetUser(NULL);
+
+	//for all submodules
+	SAFE_DELETE(m_pLevelSystem);	
+
+	SAFE_RELEASE(m_pSystem);
+
+#if !defined(_LIB) && !defined(LINUX) && !defined(PS3)
+	if(m_hSystemDll)
+		CryFreeLibrary(m_hSystemDll);
+#endif	//!_LIB && !LINUX && !PS3
+}
+
+IGameFramework*	simpleframework::CMiniGameFramework::CreateInstance()
+{
+	LOG_CODE_COVERAGE();
+	//creating on static memory to keep compatibility with CCryAction
+	//needed for deletion, etc...
+	static char spMGFBuffer[sizeof(simpleframework::CMiniGameFramework)];
+	return new ((void*)spMGFBuffer) simpleframework::CMiniGameFramework();	
+}
+
+// ctor & dtor/
+//////////////////////////////////////////////////////////////////////////
+//- instance lifecycle
+
+bool	simpleframework::CMiniGameFramework::Init(SSystemInitParams& startupParams)
+{
+	LOG_CODE_COVERAGE();
+	if(startupParams.pSystem)
+	{
+		m_pSystem = startupParams.pSystem;
+		if (*startupParams.szUserPath)
+			startupParams.pSystem->ChangeUserPath(startupParams.szUserPath);
+	}
+	else
+	{
+#if !defined(_LIB) && !defined(LINUX) && !defined(PS3)
+		m_hSystemDll = CryLoadLibrary("CrySystem.dll");
+		CRY_ASSERT(m_hSystemDll);
+		CRY_SAFE_RETURN(!m_hSystemDll, false);
+
+		PFNCREATESYSTEMINTERFACE CreateSystemInterface = 
+			GetEntryProc<PFNCREATESYSTEMINTERFACE>(m_hSystemDll, DLL_INITFUNC_SYSTEM);
+#endif	//!_LIB && !LINUX && !PS3
+
+		CRY_ASSERT(!m_pSystem);
+		CRY_SAFE_CREATE(m_pSystem, CreateSystemInterface(startupParams));
+		CRY_ASSERT(m_pSystem);
+		CRY_SAFE_RETURN(!m_pSystem, false);
+		startupParams.pSystem = m_pSystem;
+	}
+	ModuleInitISystem(m_pSystem, "MiniGameFramework");	//only in its own dll
+	m_pSystem->GetISystemEventDispatcher()->RegisterListener( &g_system_event_listener_action );
+
+#ifdef GAME_DEBUG_MEM
+	DumpMemInfo("CMiniGameFramework::Init start");
+#endif //GAME_DEBUG_MEM
+
+	//init subsystems here
+ 	CRY_ASSERT(!m_pLevelSystem);
+ 	CRY_SAFE_CREATE(m_pLevelSystem, (new CMiniLevelSystem("levels")));
+ 	CRY_ASSERT(m_pLevelSystem);	
+
+#ifdef GAME_DEBUG_MEM
+	DumpMemInfo("CMiniGameFramework::Init end");
+#endif //GAME_DEBUG_MEM
+
+	return true;
+}
+
+//-----------------------------------
+
+bool	simpleframework::CMiniGameFramework::CompleteInit()
+{
+	LOG_CODE_COVERAGE();
+	CRY_ASSERT(gEnv);
+	CRY_SAFE_RETURN(!gEnv, false);
+
+	CRY_ASSERT(m_pSystem);
+	CRY_SAFE_RETURN(!m_pSystem, false);
+
+#ifdef GAME_DEBUG_MEM
+	DumpMemInfo("CMiniGameFramework::CompleteInit start");
+#endif //GAME_DEBUG_MEM
+
+	EndGameContext();
+	
+	//TODO: destroy and recreate some submodules that deserved it, set to m_pSystem
+	//visual log
+	//material effects (also load material effects xml libs here)
+	///m_pMaterialEffects = new CMaterialEffects();3
+	///CRY_ASSERT(m_pMaterialEffects);	
+	///CRY_SAFE_PTR_ACCESS(m_pMaterialEffects, Load("MaterialEffects.xml"));
+	///CRY_SAFE_PTR_ACCESS(m_pSystem, SetIMaterialEffects(m_pMaterialEffects));
+	
+	//complete game init here
+	//WHY HERE?
+	CRY_ASSERT(gEnv->pGame);
+	CRY_SAFE_RETURN(!gEnv->pGame, false);
+	gEnv->pGame->CompleteInit();
+
+	//material effect flowgraphs
+	//CRY_SAFE_PTR_ACCESS(m_pMaterialEffects, LoadFlowGraphLibs());
+
+
+#ifdef GAME_DEBUG_MEM
+	DumpMemInfo("CMiniGameFramework::CompleteInit end");
+#endif //GAME_DEBUG_MEM
+
+	m_bGameStarted;
+	
+	return true;
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::Shutdown()
+{
+	LOG_CODE_COVERAGE();
+	//manually calling destructor, since allocated on static memory
+	this->~CMiniGameFramework();
+}
+
+//-----------------------------------
+
+
+bool	simpleframework::CMiniGameFramework::PreUpdate(bool haveFocus, unsigned int updateFlags)
+{
+	LOG_CODE_COVERAGE();
+
+	CRY_ASSERT(gEnv);
+	CRY_SAFE_RETURN(!gEnv, false);
+
+	CRY_ASSERT(gEnv->pSystem);
+	CRY_SAFE_RETURN(!gEnv->pSystem, false);
+
+	CRY_ASSERT(gEnv->pTimer);
+	CRY_SAFE_RETURN(!gEnv->pTimer, false);
+
+	CRY_ASSERT(gEnv->pFrameProfileSystem);
+	CRY_SAFE_RETURN(!gEnv->pFrameProfileSystem, false);
+
+	CRY_ASSERT(gEnv->pConsole);
+	CRY_SAFE_RETURN(!gEnv->pConsole, false);
+
+	ITextModeConsole* pTextModeConsole = gEnv->pSystem->GetITextModeConsole();
+	//CRY_ASSERT(pTextModeConsole);
+	//CRY_SAFE_RETURN(!pTextModeConsole, false);
+
+	//get frame time
+	float	frameTime	= gEnv->pTimer->GetFrameTime();
+	bool	bGameStarted= IsGameStarted();
+	bool	bGamePaused = !bGameStarted || IsGamePaused();	
+	bool	bRetRun		= true;
+
+	//execute next console command
+// 	if(!m_nextFrameCommand->empty())
+// 	{
+// 		gEnv->pConsole->ExecuteString(*m_nextFrameCommand);
+// 		m_nextFrameCommand->resize(0);
+// 	}
+
+	//draw console	
+	if(pTextModeConsole)
+		pTextModeConsole->BeginDraw();
+
+
+	//update frame profiling (when in game mode)
+	if (!(updateFlags & ESYSUPDATE_EDITOR))
+	{
+		gEnv->pFrameProfileSystem->StartFrame();
+	}
+		
+	//begin rendering
+	gEnv->pSystem->RenderBegin();	
+
+	//update system (in game mode)
+	if (!(updateFlags & ESYSUPDATE_EDITOR))
+	{		
+		if (gEnv->bMultiplayer && !gEnv->bServer)
+			bGamePaused = false;
+
+		const bool bGameWasPaused = bGamePaused;	//save pause state before updating system
+		bRetRun = gEnv->pSystem->Update(updateFlags, (int)bGamePaused);
+
+		// notify listeners
+		OnActionEvent(SActionEvent(eAE_earlyPreUpdate));
+
+		//Game might have been paused or un-paused during previous pSystem->Update()
+		bGameStarted = IsGameStarted();
+		bGamePaused = !bGameStarted || IsGamePaused();
+
+		//no further updating needed in pause mode
+		if(bGamePaused)
+			return bRetRun;
+
+		if(!bGameWasPaused)
+		{			
+			// don't update until next frame if pause state changed (was paused or is now paused)
+//			CRY_ASSERT(m_pViewSystem);
+// 			CRY_SAFE_PTR_ACCESS(m_pViewSystem, Update(min(frameTime,0.1f)));
+// 
+// 			CRY_ASSERT(m_pGameplayRecorder)
+// 			CRY_SAFE_PTR_ACCESS(m_pGameplayRecorder, Update(frameTime));
+		}
+		if(bGameStarted)
+		{
+			// update flowgraph system if game has started
+// 			CRY_ASSERT(m_pFlowSystem);
+// 			CRY_SAFE_PTR_ACCESS(m_pFlowSystem, Update());
+		}
+	}
+
+	//update other submodules, regardless of whether in editor or not
+//	CRY_SAFE_PTR_ACCESS(m_pMaterialEffects, Update(frameTime));	
+//	CRY_SAFE_PTR_ACCESS(m_pMusicLogic, Update());	
+//	CRY_SAFE_PTR_ACCESS(m_pMusicGraphState, Update());
+	//etc
+
+	return bRetRun;
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::PostUpdate(bool haveFocus, unsigned int updateFlags)
+{
+	LOG_CODE_COVERAGE();
+
+	CRY_ASSERT(gEnv);
+	CRY_SAFE_RETURN(!gEnv, CRY_NO_RETURN_VALUE);
+
+	CRY_ASSERT(gEnv->pSystem);
+	CRY_SAFE_RETURN(!gEnv->pSystem, CRY_NO_RETURN_VALUE);
+
+	ITextModeConsole* pTextModeConsole = gEnv->pSystem->GetITextModeConsole();
+	//CRY_ASSERT(pTextModeConsole);
+	//CRY_SAFE_RETURN(!pTextModeConsole, CRY_NO_RETURN_VALUE);
+
+	//nothing to do in editor mode
+	if( updateFlags & ESYSUPDATE_EDITOR_ONLY )
+		return;
+
+	//get timer before rendering
+	CRY_ASSERT(gEnv->pTimer);	
+	float delta = gEnv->pTimer->GetFrameTime();
+
+	
+	//game mode only updates
+	if(!(updateFlags & ESYSUPDATE_EDITOR_AI_PHYSICS))
+	{
+		//get pause state	
+		const bool bGamePaused = IsGamePaused(); // slightly different from m_paused (check's gEnv->pTimer as well)
+
+		if (!bGamePaused)
+		{
+// 			CRY_ASSERT(m_pEffectSystem)
+// 			CRY_SAFE_PTR_ACCESS(m_pEffectSystem, Update(delta));			
+		}
+
+		// syncronize all animations to ensure that their computations have finished	
+		CRY_ASSERT(gEnv->pCharacterManager);
+		gEnv->pCharacterManager->SyncAllAnimations();
+	}	
+
+	//finally render
+	gEnv->pSystem->Render();
+
+	//update submodule listeners
+	//CALL_FRAMEWORK_LISTENERS(OnPostUpdate(delta));
+
+	//end rendering
+	gEnv->pSystem->RenderEnd();
+
+	
+
+	if (!(updateFlags & ESYSUPDATE_EDITOR))
+	{
+		CRY_ASSERT(gEnv->pFrameProfileSystem);
+		gEnv->pFrameProfileSystem->EndFrame();
+	}
+
+	//finish console drawing
+	if(pTextModeConsole)
+		pTextModeConsole->EndDraw();
+
+	gEnv->p3DEngine->SyncProcessStreamingUpdate();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::Reset(bool clients)
+{
+	LOG_CODE_COVERAGE();
+
+	//reset submodules that need being reset
+//	CRY_SAFE_PTR_ACCESS(m_pMusicLogic, Stop());
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::PauseGame(bool pause, bool force, unsigned int nFadeOutInMS)
+{
+	LOG_CODE_COVERAGE();
+
+	CRY_ASSERT(gEnv);
+	CRY_SAFE_RETURN(!gEnv, CRY_NO_RETURN_VALUE);
+
+	CRY_ASSERT(gEnv->pTimer);
+	CRY_SAFE_RETURN(!gEnv->pTimer, CRY_NO_RETURN_VALUE);
+
+	CRY_ASSERT(gEnv->pSoundSystem);
+	CRY_SAFE_RETURN(!gEnv->pSoundSystem, CRY_NO_RETURN_VALUE);
+
+	CRY_ASSERT(gEnv->p3DEngine);
+	CRY_SAFE_RETURN(!gEnv->p3DEngine, CRY_NO_RETURN_VALUE);
+
+	CRY_ASSERT(gEnv->pEntitySystem);
+	CRY_SAFE_RETURN(!gEnv->pEntitySystem, CRY_NO_RETURN_VALUE);
+
+	CRY_ASSERT(gEnv->pMovieSystem);
+	CRY_SAFE_RETURN(!gEnv->pMovieSystem, CRY_NO_RETURN_VALUE);
+
+	CRY_ASSERT(gEnv->pInput);
+	CRY_SAFE_RETURN(!gEnv->pInput, CRY_NO_RETURN_VALUE);
+
+	//nothing to do when in (forced) pause mode and no pause enforced
+	if (!force && m_ePauseState )
+		return;	
+
+	//when pause state change
+	if (	(m_ePauseState == eMGF_GamePaused) != pause 
+		||	(m_ePauseState == eMGF_GameForcedPause) != force)
+	{
+		//stop subsystems
+		if(gEnv->pTimer)
+			gEnv->pTimer->PauseTimer(ITimer::ETIMER_GAME, pause);
+
+		if(gEnv->pSoundSystem)
+			gEnv->pSoundSystem->Pause(pause, false, nFadeOutInMS);
+
+		if(gEnv->p3DEngine)
+			gEnv->p3DEngine->GetTimeOfDay()->SetPaused(pause);
+
+		if(gEnv->pEntitySystem)
+			gEnv->pEntitySystem->PauseTimers(pause);
+
+		if (gEnv->pMovieSystem)
+		{
+			if (pause)
+				gEnv->pMovieSystem->Pause();
+			else
+				gEnv->pMovieSystem->Resume();
+		}
+
+		//disable rumble
+		if(pause && gEnv->pInput)
+			gEnv->pInput->ForceFeedbackEvent( SFFOutputEvent(eDI_XI, eFF_Rumble_Basic, 0.0f, 0.0f, 0.0f) );
+
+		//state update		
+		if(pause)
+			m_ePauseState = eMGF_GamePaused;
+		else
+			m_ePauseState = eMGF_GameRunning;
+		
+
+		//here was: broadcast to game object system		
+	}
+
+	//goto to forced pause mode
+	if(force)
+		m_ePauseState = eMGF_GameForcedPause;
+}
+
+//-----------------------------------
+
+bool	simpleframework::CMiniGameFramework::IsGamePaused()
+{
+	LOG_CODE_COVERAGE();
+
+	CRY_ASSERT(gEnv);
+	CRY_SAFE_RETURN(!gEnv, false);
+
+	CRY_ASSERT(gEnv->pTimer);
+	CRY_SAFE_RETURN(!gEnv->pTimer, false);
+
+	return m_ePauseState || !gEnv->pTimer->IsTimerEnabled();	
+}
+
+//-----------------------------------
+
+bool	simpleframework::CMiniGameFramework::IsGameStarted()
+{
+	LOG_CODE_COVERAGE();
+	return m_bGameStarted;
+}	
+
+//- instance lifecycle/
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//- factories register
+
+void	simpleframework::CMiniGameFramework::RegisterFactory(const char* name, IActorCreator* pCreator, bool isAI)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::RegisterFactory(const char* name, IItemCreator* pCreator, bool isAI)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::RegisterFactory(const char* name, IVehicleCreator* pCreator, bool isAI)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::RegisterFactory(const char* name, IGameObjectExtensionCreator* pCreator, bool isAI )
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::RegisterFactory(const char* name, IAnimationStateNodeFactory* (*func)(), bool isAI )
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::RegisterFactory(const char* name, ISaveGame* (*func)(), bool)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::RegisterFactory(const char* name, ILoadGame* (*func)(), bool)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//- factories register/
+//////////////////////////////////////////////////////////////////////////
+//- listener access
+
+void	simpleframework::CMiniGameFramework::RegisterListener(IGameFrameworkListener* pGameFrameworkListener, const char* name,EFRAMEWORKLISTENERPRIORITY eFrameworkListenerPriority)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::UnregisterListener(IGameFrameworkListener* pGameFrameworkListener)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//- listener access/
+//////////////////////////////////////////////////////////////////////////
+//- game context
+
+bool	simpleframework::CMiniGameFramework::StartGameContext( const SGameStartParams* pGameStartParams )
+{
+	LOG_CODE_COVERAGE();
+
+	CRY_ASSERT(pGameStartParams);
+	CRY_SAFE_RETURN(!pGameStartParams, false);
+
+	CRY_ASSERT(gEnv);
+	CRY_SAFE_RETURN(!gEnv, false);
+
+	if (!gEnv->IsEditor())
+	{
+		EndGameContext();
+	}
+
+
+	return true;
+}
+
+//-----------------------------------
+
+bool	simpleframework::CMiniGameFramework::ChangeGameContext( const SGameContextParams* pGameContextParams )
+{
+	LOG_CODE_COVERAGE();
+
+	CRY_ASSERT(pGameContextParams);
+	CRY_SAFE_RETURN(!pGameContextParams, false);
+
+	return true;
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::EndGameContext()
+{
+	LOG_CODE_COVERAGE();
+
+	CRY_ASSERT(gEnv);
+	CRY_SAFE_RETURN(!gEnv, CRY_NO_RETURN_VALUE);
+
+	CRY_ASSERT(gEnv->pCryPak);
+	CRY_SAFE_RETURN(!gEnv->pCryPak, CRY_NO_RETURN_VALUE);	
+
+	//CRY_SAFE_PTR_ACCESS(m_pMusicLogic, Stop());
+	gEnv->pCryPak->DisableRuntimeFileAccess(false);
+}
+
+//-----------------------------------
+
+bool	simpleframework::CMiniGameFramework::StartedGameContext() const
+{
+	LOG_CODE_COVERAGE();
+	return true;
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::SetGameSessionHandler(IGameSessionHandler* pSessionHandler)
+{
+	LOG_CODE_COVERAGE();
+	CRY_ASSERT(pSessionHandler);
+	CRY_SAFE_RETURN(!pSessionHandler, CRY_NO_RETURN_VALUE);
+}
+
+//- game context/
+//////////////////////////////////////////////////////////////////////////
+//- breakability
+
+void	simpleframework::CMiniGameFramework::FlushBreakableObjects()
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::ResetBrokenGameObjects()
+{
+	LOG_CODE_COVERAGE();
+}
+
+void simpleframework::CMiniGameFramework::CloneBrokenObjectsAndRevertToStateAtTime(int32 iFirstBreakEventIndex, uint16 * pBreakEventIndices, int32& iNumBreakEvents, IRenderNode** outClonedNodes, int32& iNumClonedNodes, SRenderNodeCloneLookup& renderNodeLookup)
+{
+	LOG_CODE_COVERAGE();
+}
+
+void simpleframework::CMiniGameFramework::ApplySingleProceduralBreakFromEventIndex(uint16 uBreakEventIndex, const SRenderNodeCloneLookup& renderNodeLookup)
+{
+	LOG_CODE_COVERAGE();
+}
+
+void simpleframework::CMiniGameFramework::UnhideBrokenObjectsByIndex( uint16 * ObjectIndicies, int32 iNumObjectIndices )
+{
+	LOG_CODE_COVERAGE();
+}
+
+void simpleframework::CMiniGameFramework::AddBreakEventListener(IBreakEventListener * pListener)
+{
+	LOG_CODE_COVERAGE();
+}
+
+void simpleframework::CMiniGameFramework::RemoveBreakEventListener(IBreakEventListener * pListener)
+{
+	LOG_CODE_COVERAGE();
+}
+
+void simpleframework::CMiniGameFramework::OnBreakageSpawnedEntity(IEntity* pEntity, IPhysicalEntity* srcPhysEntity)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//- breakability/
+//////////////////////////////////////////////////////////////////////////
+//- editor
+
+void	simpleframework::CMiniGameFramework::InitEditor(IGameToEditorInterface* pGameToEditor)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::SetEditorLevel(const char* levelName, const char* levelFolder)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::GetEditorLevel(char** levelName, char** levelFolder)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::OnEditorSetGameMode( int iMode )
+{
+	LOG_CODE_COVERAGE();
+}
+
+//- editor/
+//////////////////////////////////////////////////////////////////////////
+//- networking
+
+void	simpleframework::CMiniGameFramework::BeginLanQuery()
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::EndCurrentQuery()
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::DelegateAuthority(EntityId entityId, uint16 channelId)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+CTimeValue	simpleframework::CMiniGameFramework::GetServerTime()
+{
+	LOG_CODE_COVERAGE();
+	return CTimeValue();
+}
+
+//-----------------------------------
+
+uint16	simpleframework::CMiniGameFramework::GetGameChannelId(INetChannel* pNetChannel)
+{
+	LOG_CODE_COVERAGE();
+	return 0;
+}
+
+//-----------------------------------
+
+bool	simpleframework::CMiniGameFramework::IsChannelOnHold(uint16 channelId)
+{
+	LOG_CODE_COVERAGE();
+	return false;
+}
+
+//-----------------------------------
+
+bool	simpleframework::CMiniGameFramework::GetNetworkSafeClassId(uint16& id, const char* className)
+{
+	LOG_CODE_COVERAGE();
+	return false;
+}
+
+//-----------------------------------
+
+bool	simpleframework::CMiniGameFramework::GetNetworkSafeClassName(char* className, size_t maxn, uint16 id)
+{
+	LOG_CODE_COVERAGE();
+	return false;
+}
+
+//- networking/
+//////////////////////////////////////////////////////////////////////////
+//- player access
+
+bool		simpleframework::CMiniGameFramework::BlockingSpawnPlayer()
+{
+	LOG_CODE_COVERAGE();
+	return false;
+}
+
+//-----------------------------------
+
+EntityId	simpleframework::CMiniGameFramework::GetClientActorId() const
+{
+	LOG_CODE_COVERAGE();
+	return 0;
+}
+
+//- player access
+//////////////////////////////////////////////////////////////////////////
+//- game object
+
+//- game object/
+//////////////////////////////////////////////////////////////////////////
+//- save game
+
+bool	simpleframework::CMiniGameFramework::SaveGame(const char* path, bool quick, bool bForceImmediate, ESaveGameReason reason, bool ignoreDelay, const char* checkPoint)
+{
+	LOG_CODE_COVERAGE();
+
+	CRY_ASSERT(gEnv);
+	CRY_SAFE_RETURN(!gEnv, false);
+
+	CRY_ASSERT(gEnv->pSystem);
+	CRY_SAFE_RETURN(!gEnv->pSystem, false);
+
+	CRY_ASSERT(gEnv->pTimer);
+	CRY_SAFE_RETURN(!gEnv->pTimer, false);
+
+	if(reason == eSGR_FlowGraph && IsInTimeDemo())
+		return true;	//ignore checkpoint saving when running time demo
+
+	if (!CanSave())
+		return false;
+
+	//we totally ignore the forced saving, or if there should be a delay
+
+	//forward preSaveEvent to subsystems
+	OnActionEvent(SActionEvent(eAE_preSaveGame, (int)reason, "presave"));
+
+	//save file
+	CTimeValue tSaveTime = gEnv->pTimer->GetAsyncTime();
+
+	gEnv->pSystem->SerializingFile(quick ? 1 : 2);
+	bool bSavingSuccess = false;	
+	//your serializer comes in here
+	gEnv->pSystem->SerializingFile(0);
+
+	tSaveTime = gEnv->pTimer->GetAsyncTime() - tSaveTime;
+	GameWarning("%s took %.4f sec to save game to %s : success %i",
+		__FUNCTION__,
+		tSaveTime.GetSeconds(),
+		path,
+		bSavingSuccess);
+
+	//forward postSaveEvent to subsystems
+	OnActionEvent(SActionEvent(eAE_postSaveGame, (int)reason, bSavingSuccess ? "game saved" : "game NOT saved") );
+
+	return bSavingSuccess;
+}
+
+//-----------------------------------
+
+bool	simpleframework::CMiniGameFramework::LoadGame(const char* path, bool quick, bool ignoreDelay)
+{
+	LOG_CODE_COVERAGE();
+
+	CRY_ASSERT(gEnv);
+	CRY_SAFE_RETURN(!gEnv, false);
+
+	CRY_ASSERT(gEnv->pSystem);
+	CRY_SAFE_RETURN(!gEnv->pSystem, false);
+
+	CRY_ASSERT(gEnv->pTimer);
+	CRY_SAFE_RETURN(!gEnv->pTimer, false);
+	
+	if (!CanLoad())
+		return false;
+
+	//load file
+	CTimeValue tSaveTime = gEnv->pTimer->GetAsyncTime();
+
+	gEnv->pSystem->SerializingFile(quick ? 1 : 2);
+	bool bLoadingSuccess = false;
+	//your serializer comes in here
+	gEnv->pSystem->SerializingFile(0);
+
+	tSaveTime = gEnv->pTimer->GetAsyncTime() - tSaveTime;
+
+	AllowSave(bLoadingSuccess);	//if loaded correctly, saving is allowed
+	
+	GameWarning("%s took %.4f sec to load game to %s : success %i",
+		__FUNCTION__,
+		tSaveTime.GetSeconds(),
+		path,
+		bLoadingSuccess);	
+
+	return bLoadingSuccess;
+}
+
+//-----------------------------------
+
+bool	simpleframework::CMiniGameFramework::CanSave()
+{
+	LOG_CODE_COVERAGE();
+
+//	bool bInCutScene = m_pViewSystem ? m_pViewSystem->IsPlayingCutScene() : false;
+//	if(bInCutScene)
+//		return false;
+
+	if(IsInTimeDemo())
+		return false;
+
+	return m_bAllowSave;
+}
+
+
+//-----------------------------------
+
+bool simpleframework::CMiniGameFramework::CanCheat()
+{
+	LOG_CODE_COVERAGE();
+
+	CRY_ASSERT(gEnv);
+	CRY_SAFE_RETURN(!gEnv, false);
+
+	CRY_ASSERT(gEnv->pSystem);
+	CRY_SAFE_RETURN(!gEnv->pSystem, false);
+
+	if(gEnv->bMultiplayer)
+		return false;
+
+	return m_bAllowCheat || gEnv->pSystem->IsDevMode();
+}
+
+//- save game/
+//////////////////////////////////////////////////////////////////////////
+//- state query
+
+bool	simpleframework::CMiniGameFramework::IsInLevelLoad()
+{
+	LOG_CODE_COVERAGE();
+	return false;
+}
+
+//-----------------------------------
+
+bool	simpleframework::CMiniGameFramework::IsLoadingSaveGame()
+{
+	LOG_CODE_COVERAGE();
+	return false;
+}
+
+//- state query/
+//////////////////////////////////////////////////////////////////////////
+//- level access
+
+// const char*	simpleframework::CMiniGameFramework::GetLevelName()
+// {
+// 	LOG_CODE_COVERAGE();
+// 	return NULL;
+// }
+
+//-----------------------------------
+
+const char*	simpleframework::CMiniGameFramework::GetAbsLevelPath(char*const pPath, const uint32 cPathMaxLen)
+{
+	LOG_CODE_COVERAGE();
+	return NULL;
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::PrefetchLevelAssets( const bool bEnforceAll )
+{
+	LOG_CODE_COVERAGE();
+}
+
+//- level access/
+//////////////////////////////////////////////////////////////////////////
+//- game GUID
+
+void	simpleframework::CMiniGameFramework::SetGameGUID(const char* gameGUID)
+{
+	LOG_CODE_COVERAGE();
+	CRY_ASSERT(gameGUID);
+	CRY_SAFE_RETURN(!gameGUID, CRY_NO_RETURN_VALUE);	
+	strncpy(m_szGameGUID, gameGUID, GAMEGUID_LENGTH);	//safer than memcpy
+}
+
+//- game GUID/
+//////////////////////////////////////////////////////////////////////////
+//- memory stats
+
+void	simpleframework::CMiniGameFramework::GetMemoryStatistics(ICrySizer* s)
+{
+	LOG_CODE_COVERAGE();
+#ifndef _LIB // Only when compiling as dynamic library
+	SIZER_COMPONENT_NAME(s,"STL Allocator Waste");
+	CryModuleMemoryInfo meminfo;
+	ZeroStruct(meminfo);
+	CryGetMemoryInfoForModule( &meminfo );
+	s->AddObject( (this+2),(size_t)meminfo.STL_wasted );	
+#endif //!_LIB
+
+	s->Add(*this);
+	//for all submodules	
+	//CHILD_MEM_STATISTICS(m_pLevelSystem, s);
+	//CHILD_MEM_STATISTICS(m_pGameContext, s);
+	//CHILD_MEM_STATISTICS(m_pViewSystem, s);
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::DumpMemInfo(const char* format, ...)
+{
+	LOG_CODE_COVERAGE();
+
+	CRY_ASSERT(gEnv);
+	CRY_SAFE_RETURN(!gEnv, CRY_NO_RETURN_VALUE);
+	CRY_ASSERT(gEnv->pLog);
+	CRY_SAFE_RETURN(!gEnv->pLog, CRY_NO_RETURN_VALUE);
+
+
+	CryModuleMemoryInfo memInfo;
+	CryGetMemoryInfoForModule(&memInfo);
+
+	va_list args;
+	va_start(args,format);
+	gEnv->pLog->LogV( ILog::eAlways,format,args );
+	va_end(args);
+
+	gEnv->pLog->LogWithType( ILog::eAlways, "Alloc=%I64d kb  String=%I64d kb  STL-alloc=%I64d kb  STL-wasted=%I64d kb", (memInfo.allocated - memInfo.freed) >> 10 , memInfo.CryString_allocated >> 10, memInfo.STL_allocated >> 10 , memInfo.STL_wasted >> 10);
+}
+
+//- memory stats/
+//////////////////////////////////////////////////////////////////////////
+//- voice recording
+
+void	simpleframework::CMiniGameFramework::EnableVoiceRecording(const bool enable)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::MutePlayerById(EntityId mutePlayer)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+bool	simpleframework::CMiniGameFramework::IsVoiceRecordingEnabled()
+{
+	LOG_CODE_COVERAGE();
+	return false;
+}
+
+//- voice recording/
+//////////////////////////////////////////////////////////////////////////
+//- AI proxies
+
+IAIActorProxy*	simpleframework::CMiniGameFramework::GetAIActorProxy(EntityId id) const
+{
+	LOG_CODE_COVERAGE();
+	return NULL;
+}
+
+//-----------------------------------
+
+IAIActorProxy*	simpleframework::CMiniGameFramework::CreateAIActorProxy(IGameObject* pGameObject, EntityId id)
+{
+	LOG_CODE_COVERAGE();
+	return NULL;
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::DestroyAIActorProxy(EntityId id)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::DestroyAllAIActorProxies()
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::DestroyUnusedAIActorProxies()
+{
+	LOG_CODE_COVERAGE();
+}
+
+//- AI proxies/
+//////////////////////////////////////////////////////////////////////////
+//- Multiplayer
+
+bool	simpleframework::CMiniGameFramework::IsImmersiveMPEnabled()
+{
+	LOG_CODE_COVERAGE();
+	return false;
+}
+
+//- Multiplayer/
+//////////////////////////////////////////////////////////////////////////
+//- Browser
+
+void	simpleframework::CMiniGameFramework::ExecuteCommandNextFrame(const char* sz)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::ShowPageInBrowser(const char* URL)
+{
+	LOG_CODE_COVERAGE();
+}
+
+//- Browser/
+//////////////////////////////////////////////////////////////////////////
+//- 
+
+bool	simpleframework::CMiniGameFramework::StartProcess(const char* cmd_line)
+{
+	LOG_CODE_COVERAGE();
+	return true;
+}
+
+//-----------------------------------
+
+bool	simpleframework::CMiniGameFramework::SaveServerConfig(const char* path)
+{
+	LOG_CODE_COVERAGE();
+	return true;
+}
+
+//-----------------------------------
+
+void	simpleframework::CMiniGameFramework::ReleaseGameStats()
+{
+	LOG_CODE_COVERAGE();
+}
+
+//- /
+//////////////////////////////////////////////////////////////////////////
+void	simpleframework::CMiniGameFramework::OnActionEvent(const SActionEvent& ev)
+{
+	//forward ev to all submodules
+	//CALL_FRAMEWORK_LISTENERS(OnActionEvent(ev));
+}
+
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+
+void	simpleframework::CSystemEventListener_MiniGF::OnSystemEvent( ESystemEvent event, UINT_PTR wparam, UINT_PTR lparam )
+{
+	LOG_CODE_COVERAGE();
+	switch (event)
+	{
+	case ESYSTEM_EVENT_RANDOM_SEED:
+		//g_random_generator.seed((uint32)wparam);
+		break;
+
+	case ESYSTEM_EVENT_LEVEL_POST_UNLOAD:
+		{
+			STLALLOCATOR_CLEANUP;
+			break;
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+#endif //USE_EXTERNAL_FRAMEWORK_DLL
+
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////

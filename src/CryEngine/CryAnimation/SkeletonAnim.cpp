@@ -1,0 +1,1022 @@
+//////////////////////////////////////////////////////////////////////
+//
+//  CryEngine Source code
+//	
+//	File:Skeleton.cpp
+//  Implementation of Skeleton class (Forward Kinematics)
+//
+//	History:
+//	January 12, 2005: Created by Ivo Herzeg <ivo@crytek.de>
+//
+//////////////////////////////////////////////////////////////////////
+#include "stdafx.h"
+#include <float.h>
+#include "CharacterInstance.h"
+#include "LMG.h"
+
+#include "Command_Buffer.h"
+
+#if defined(PS3)
+uint32 gCommandBufferExecuteAddr;
+uint16 gCommandBufferExecuteJobID;
+#if !defined(__SPU__) && !defined(__CRYCG__)
+DECLARE_SPU_CLASS_JOB("ProcessAnimationUpdate", TAnimProcessAnimationUpdateJob, CSkeletonAnim );
+DECLARE_SPU_CLASS_JOB( "CommandBufferExecute", TCommandBufferExecuteJob, CSkeletonAnim);
+#define USE_SPU
+static void InitCommandBufferHandle()
+{	
+	// init global handles for CommandBufferExecute Job
+	static NPPU::TJobHandle sExecute(GetIJobManSPU()->GetJobHandle("CommandBufferExecute"));
+	gCommandBufferExecuteAddr = sExecute->jobHandle;
+	gCommandBufferExecuteJobID	  = sExecute->jobId;	
+}
+#else//__SPU__
+#define InitCommandBufferHandle()
+#endif
+#else
+#define InitCommandBufferHandle()
+#endif//PS3
+
+#define PROCESS_ANIM_MAIN_THREAD
+
+#include "ControllerOpt.h"
+
+// TEMP
+std::vector< std::vector<DebugJoint> > g_arrSkeletons;
+int32 g_nGlobalAnimID=-1;
+int32 g_nAnimID=-1;
+uint32 g_AnimationUpdates=0;
+
+
+
+//-----------------------------------------------------------------------------------------------------
+
+/*
+CSkeletonAnimTask
+*/
+
+CSkeletonAnimTask::CSkeletonAnimTask()
+{
+	m_executeNeeded = false;
+	m_bExecuted = false;
+
+	m_pSkeletonAnim = NULL;
+}
+
+CSkeletonAnimTask::~CSkeletonAnimTask()
+{
+}
+
+//
+
+void CSkeletonAnimTask::Initialize(CSkeletonAnim& skeletonAnim)
+{
+	m_pSkeletonAnim = &skeletonAnim;
+}
+
+void CSkeletonAnimTask::Begin(const QuatT& locationPhysics, const QuatTS& locationAnimation)
+{
+	if (m_executeNeeded)
+		return;
+
+	m_locationPhysics = locationPhysics;
+	m_locationAnimation = locationAnimation;
+
+	m_executeNeeded = true;
+	m_executeEvent.Reset();
+
+	m_executed.Lock();
+	m_bExecuted = false;
+	m_executed.Unlock();
+
+	CAnimationThreadTask::Begin();
+}
+
+void CSkeletonAnimTask::Wait()
+{
+	DEFINE_PROFILER_FUNCTION();
+
+	if (!m_executeNeeded)
+		return;
+
+	m_executeEvent.Wait();
+	m_executeNeeded = false;
+	
+}
+
+// CAnimationThreadTask
+
+void CSkeletonAnimTask::Execute()
+{
+	m_executed.Lock();
+	if (m_bExecuted)
+	{
+		m_executed.Unlock();
+		return;
+	}
+
+#ifndef PROCESS_ANIM_MAIN_THREAD
+	m_pSkeletonAnim->ProcessAnimationUpdate(m_locationPhysics, m_locationAnimation);
+#endif
+	if (m_pSkeletonAnim->m_pSkeletonPose->m_bFullSkeletonUpdate)
+		m_pSkeletonAnim->ProcessForwardKinematics(m_locationPhysics, m_locationAnimation);
+
+	m_executeEvent.Set();
+
+	m_bExecuted = true;
+	m_executed.Unlock();
+}
+
+/*
+CSkeletonAnim
+*/
+
+void CSkeletonAnim::InitSkeletonAnim(CCharInstance* pInstance, CSkeletonPose* pSkeletonPose )
+{
+	m_pInstance					=	pInstance;
+	m_pSkeletonPose			=	pSkeletonPose;
+	m_CharEditMode = 0;
+	m_ShowDebugText = 0;
+	m_AnimationDrivenMotion=0;
+	m_MirrorAnimation=0;
+
+	m_IsAnimPlaying=0;
+	m_ActiveLayer=0;
+
+	m_desiredLocalLocation.SetIdentity();
+	m_desiredArrivalDeltaTime = 0.0f;
+	m_desiredTurnSpeedMultiplier = 1.0f;
+	m_fDesiredTurnSpeedBlend = 1.0f;
+	m_fDesiredTurnSpeedOffset = 0.0f;
+	m_fDesiredTurnSpeedScale = 0.0f;
+
+	for (int id = 0; id < eMotionParamID_COUNT; id++)
+	{
+		m_desiredMotionParam[id] = 0.0f;
+		m_CharEditBlendSpaceOverrideEnabled[id] = false;
+		m_CharEditBlendSpaceOverride[id] = 0.0f;
+	}
+
+	m_arrAdditiveWeights[0]			=0.0f;
+	m_arrLayerSpeedMultiplier[0]=1.0f;
+	m_arrLayerBlending[0]				=1.0f;
+	m_arrLayerBlendingTime[0]		=0.0f;
+	for (int i=1; i<numVIRTUALLAYERS; i++)
+	{
+		m_arrAdditiveWeights[i]			=1.0f;
+		m_arrLayerSpeedMultiplier[i]=1.0f;
+		m_arrLayerBlending[i]				=0.0f;
+		m_arrLayerBlendingTime[i]		=0.0f;
+		m_arrLayerBlendingMult[i]=1.0f;
+	}
+
+	m_pPreProcessCallback = 0;
+	m_pPreProcessCallbackData = 0;
+
+	m_pEventCallback = 0;
+	m_pEventCallbackData = 0;
+
+
+	m_TrackViewExclusive=0;
+	m_bReinitializeAnimGraph = false;
+	if (m_pSkeletonPose->GetLocatorWriteable())
+		m_pSkeletonPose->GetLocatorWriteable()->Initialize();
+	m_fAllowMultilayerAnim = 1.0f;
+	for (int i=0; i<NUM_ANIMATION_USER_DATA_SLOTS; i++)
+		m_fUserData[i] = 0.0f;
+
+	m_ActiveLayer=0;
+
+	m_RelativeMovement.SetIdentity();
+
+	//----------------------------------------------------
+
+	m_bDidRun=false; 
+	m_bNeedPostProcess=false; 
+	m_pWrongControllerName=NULL; 
+	nStopAnimationQueuePos=0; 
+	m_nEventQueuePos=0;
+	m_bSetDefaultPose=0;
+	bExtrapolation = false;
+
+	ResetControlParam();
+
+	uint32 numJoints = m_pInstance->m_pModel->m_ModelSkeleton.m_arrModelJoints.size();
+	m_arrJointMask.resize(numJoints);
+	for (uint32 i=0; i<numJoints; i++)
+		m_arrJointMask[i]	= 0xFFFF; //activate all bones in all layers
+
+	m_threadTask.Initialize(*this);
+
+}
+
+
+uint8 CSkeletonAnim::GetJointMask(int32 nJointNo, uint8 layer)
+{
+	return (m_arrJointMask[nJointNo] >> layer) & 1;
+}
+
+void CSkeletonAnim::SetJointMask(int32 nJointNo, uint8 layer, uint8 val)
+{
+	uint32 mask2 = 1 << layer;
+	uint32 mask = (val & 0x1) << layer;
+	m_arrJointMask[nJointNo] = (m_arrJointMask[nJointNo] & ~mask2) | mask;
+}
+
+//enable & disable animation for one specified bone and layer
+bool CSkeletonAnim::SetJointMask(const char* szBoneName, uint32 nLayerNo, uint8 nVal)
+{
+	if (nLayerNo>=numVIRTUALLAYERS)
+		return 0;
+	int nBone = m_pSkeletonPose->GetJointIDByName(szBoneName);
+	if(nBone == -1)
+		return 0;
+	SetJointMask(nBone,nLayerNo, nVal); 
+	return 1;
+}
+
+//enable & disable animation for one full layer
+bool CSkeletonAnim::SetLayerMask(uint32 nLayerNo, uint8 nVal)
+{
+	if (nLayerNo>=numVIRTUALLAYERS)
+		return 0;
+	uint32 numBones = m_pSkeletonPose->GetJointCount();
+	for (uint32 b=0; b<numBones; b++)
+		SetJointMask(b,nLayerNo, nVal);
+	return 1;
+}
+
+
+
+// small util function to align a pointer to the next aligned adress, keep in mind to have enough memory
+// allocated when using it.
+template<int Alignment, typename Type>
+ILINE Type* align_pointer( const Type *ptr )
+{
+	uint32 addr = reinterpret_cast<uint32>(ptr);
+	const uint32 ALIGN = Alignment - 1;
+	if( addr & ALIGN )
+	{
+		addr += ALIGN;	// advance ptr over next aligned address
+		addr &= ~ALIGN;	// align ptr to this address
+	}
+
+	return reinterpret_cast<Type*>(addr);
+}
+
+
+void CSkeletonAnim::FinishAnimationComputations()
+{
+	FinishAnimationComputationsExecute();
+}
+
+void CSkeletonAnim::FinishAnimationComputationsExecute()
+{
+	if (!m_bDidRun)
+		return;
+
+#if defined(PS3)
+#if defined(USE_SPU)			
+	if( InvokeJobOnSPU("ProcessAnimationUpdate"))
+	{
+		{						
+			DEFINE_PROFILER_SECTION("Syncing Async forwardKinematics");
+			GetIJobManSPU()->WaitSPUJob(m_JobStateProcessAnimations);
+		}
+
+		// CGA animations are not yet supported on SPU, so execute these after ProcessAnimationUpdate has finished
+		if( m_pSkeletonPose->m_bFullSkeletonUpdate && m_pInstance->m_pModel->m_ObjectType == CGA  )
+		{						
+			ProcessForwardKinematics( m_CGAPhysLocationCurr,  m_CGAAnimLocationCurr ); 	//DANGEROUS: character is not visible, so we do no update at all
+		}
+	}
+	else
+#endif
+#else
+	{
+		m_threadTask.Wait();
+	}
+#endif
+
+	ProcessForwardKinematics_stage3(m_CGAPhysLocationCurr,  m_CGAAnimLocationCurr); // does remaining computing
+
+	m_bDidRun = false;
+	SyncData();
+}
+
+void CSkeletonAnim::SyncData()
+{		
+	// sync other job data
+	SyncProcessAnimations();
+
+	//check if the oldest animation in the queue is still needed
+	for(uint32 nVLayerNo=0; nVLayerNo<numVIRTUALLAYERS; nVLayerNo++)
+	{
+		uint32 numAnimsInLayer = m_arrLayer_AFIFO[nVLayerNo].size();
+		if (numAnimsInLayer==0)
+			continue;
+
+		if (m_arrLayer_AFIFO[nVLayerNo][0].m_bRemoveFromQueue )
+		{
+			uint32 na=m_arrLayer_AFIFO[nVLayerNo].size();
+			UnloadAnimationAssets(m_arrLayer_AFIFO[nVLayerNo], 0);
+		//	for (uint32 i=1; i<na; i++)	m_arrLayer_AFIFO[nVLayerNo][i-1]=m_arrLayer_AFIFO[nVLayerNo][i];
+			size_t size = (na - 1) * sizeof(CAnimation);
+			if ( size )
+			{
+				memmove(&m_arrLayer_AFIFO[nVLayerNo][0], &m_arrLayer_AFIFO[nVLayerNo][1], size);
+			}
+			m_arrLayer_AFIFO[nVLayerNo].pop_back();
+		}
+	}
+
+
+	f32 radiant = GetRelRotationZ();
+	Quat q = Quat::CreateRotationZ(radiant);
+	Vec3 t = -m_pSkeletonPose->GetLocatorWriteable()->m_translationRelative;
+	m_RelativeMovement=QuatT(q,q*t);
+
+	//----------------------------------------------------------------------
+	//callback into the game to move and clamp the AC to the entity
+	if (m_pPreProcessCallback)
+		(*m_pPreProcessCallback)(m_pInstance,m_pPreProcessCallbackData);
+	//----------------------------------------------------------------------
+
+	m_pInstance->m_HadUpdate=1;
+
+	// invoke post process	
+	if( m_bNeedPostProcess )
+	{	
+		m_pInstance->SkeletonPostProcess( m_PostProcessPhysLocationNext, m_PostProcessAnimLocationNext, m_pPostProcessIAttachment, m_fPostProcessZoomAdjustedDistanceFromCamera, m_nPostProcessOnRender );
+		m_bNeedPostProcess = false;
+	}
+
+	// check if we have deferred queue updates to execute now	
+	for( size_t i = 0 ; i < m_arrDeferredQueueUpdates.size() ; ++i )
+	{
+		const DeferredQueueUpdate& rQueueUpdate = m_arrDeferredQueueUpdates[i];
+		if( rQueueUpdate.m_bRemoveFirstAnim )
+		{
+			RemoveFirstAnimationFromQueue( rQueueUpdate.m_nLayer );
+		}
+
+		AppendAnimationToQueue( rQueueUpdate.m_nLayer, rQueueUpdate.m_Anim );
+		SetActiveLayer(rQueueUpdate.m_nLayer,1);
+	}
+	
+	m_arrDeferredQueueUpdates.clear();
+}
+
+void CSkeletonAnim::SetPostProcessParameter( const QuatT &rPhysLocationNext, const QuatTS &rAnimLocationNext, IAttachment*	pIAttachment, float fZoomAdjustedDistanceFromCamera, uint32 nOnRender )
+{
+	m_PostProcessPhysLocationNext = rPhysLocationNext;
+	m_PostProcessAnimLocationNext = rAnimLocationNext;
+	m_pPostProcessIAttachment = pIAttachment;
+	m_fPostProcessZoomAdjustedDistanceFromCamera = fZoomAdjustedDistanceFromCamera;
+	m_nPostProcessOnRender = nOnRender;
+	m_bNeedPostProcess = true;
+
+}
+
+void CSkeletonAnim::SyncProcessAnimations()
+{
+	// call defered stopanimation
+	for( uint32 i = 0 ; i < numVIRTUALLAYERS ; ++i )
+	{
+		if( m_arrStopAnimationQueue[i] >= 0 )
+		{
+			StopAnimationInLayer( m_arrStopAnimationQueue[i], 0.5f );
+		}
+		else
+		{
+			break;
+		}
+	}
+
+	if (m_pEventCallback)
+	{
+		for( uint32 i=0; i<m_nEventQueuePos; ++i )
+		{
+			m_LastAnimEvent = spuEventQueue[i];
+			(*m_pEventCallback)(m_pInstance,m_pEventCallbackData);
+		}
+		m_nEventQueuePos = 0;
+	}
+
+}
+
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+void CSkeletonAnim::ProcessAnimations( const QuatT& rPhysLocationCurr, const QuatTS& rAnimLocationCurr, uint32 OnRender )
+{
+	if (m_bDidRun)
+		return;
+
+	Skeleton::CPoseData* pPoseData = m_pSkeletonPose->GetPoseDataWriteable();
+
+	if (m_bSetDefaultPose)
+	{
+		CModelSkeleton* pModelSkeleton =	&m_pInstance->m_pModel->m_ModelSkeleton;
+		CModelJoint* parrModelJoints	 =	&pModelSkeleton->m_arrModelJoints[0];
+		uint32 numJoints = m_pSkeletonPose->GetJointCount();
+		for (uint32 i=0; i<numJoints; i++)
+		{
+			pPoseData->m_jointsRelative[i] = pModelSkeleton->m_poseData.m_jointsRelative[i];
+			pPoseData->m_jointsAbsolute[i] = pModelSkeleton->m_poseData.m_jointsAbsolute[i];
+		}
+	}
+
+	// TODO: This has to go from here and into a PoseModifier call.
+	{
+		//this is something we should handle outside of CryAnimation
+		SLookIK& rLookIK = m_pSkeletonPose->m_LookIK();
+		SmoothCD(rLookIK.m_LookIKTargetSmooth,    rLookIK.m_LookIKTargetSmoothRate,    m_pInstance->m_fOriginalDeltaTime, rLookIK.m_LookIKTarget,    0.10f);
+		SmoothCD(rLookIK.m_lookIKBlendsSmooth[0], rLookIK.m_lookIKBlendsSmoothRate[0], m_pInstance->m_fOriginalDeltaTime, rLookIK.m_lookIKBlends[0], 0.10f);
+		SmoothCD(rLookIK.m_lookIKBlendsSmooth[1], rLookIK.m_lookIKBlendsSmoothRate[1], m_pInstance->m_fOriginalDeltaTime, rLookIK.m_lookIKBlends[1], 0.10f);
+		SmoothCD(rLookIK.m_lookIKBlendsSmooth[2], rLookIK.m_lookIKBlendsSmoothRate[2], m_pInstance->m_fOriginalDeltaTime, rLookIK.m_lookIKBlends[2], 0.10f);
+		SmoothCD(rLookIK.m_lookIKBlendsSmooth[3], rLookIK.m_lookIKBlendsSmoothRate[3], m_pInstance->m_fOriginalDeltaTime, rLookIK.m_lookIKBlends[3], 0.10f);
+		SmoothCD(rLookIK.m_lookIKBlendsSmooth[4], rLookIK.m_lookIKBlendsSmoothRate[4], m_pInstance->m_fOriginalDeltaTime, rLookIK.m_lookIKBlends[4], 0.10f);
+
+		SAnimationPoseModiferParams poseModifierParams;
+		poseModifierParams.pCharacterInstance = m_pInstance;
+		poseModifierParams.timeDelta = m_pInstance->m_fOriginalDeltaTime;
+		poseModifierParams.locationNextPhysics = QuatT(rAnimLocationCurr);
+		poseModifierParams.locationNextAnimation = QuatT(rAnimLocationCurr);
+		poseModifierParams.pPoseRelative = &pPoseData->m_jointsRelative[0];
+		poseModifierParams.pPoseAbsolute = &pPoseData->m_jointsAbsolute[0];
+		poseModifierParams.jointCount = m_pSkeletonPose->GetJointCount();
+		m_pSkeletonPose->m_AimIK().UpdateParameters(poseModifierParams);
+	}
+
+
+
+	gEnv->pCharacterManager->AddAnimationToSyncQueue( m_pInstance );
+
+	if (GetCharEditMode()==0)
+	{
+		int nCurrentFrameID = g_pCharacterManager->m_nUpdateCounter; 
+		if ( m_pInstance->m_LastUpdateFrameID_Pre == nCurrentFrameID )
+		{
+			//multiple updates in the same frame can be a problem
+			const char* name = m_pInstance->m_pModel->GetModelFilePath();
+			g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING, VALIDATOR_FLAG_FILE,name,	"several pre-updates: FrameID: %x  Old: %x  Now: %x",nCurrentFrameID,m_pInstance->m_LastUpdateFrameID_PreType, OnRender);
+
+			return;
+		}
+	}
+
+	m_pInstance->m_LastUpdateFrameID_PreType = OnRender;
+	if (OnRender!=1)
+		m_pInstance->m_LastUpdateFrameID_Pre = g_pCharacterManager->m_nUpdateCounter; //g_pIRenderer->GetFrameID(false);
+
+	InitCommandBufferHandle();
+
+	// clear stopanimation queue
+	memset( &m_arrStopAnimationQueue, -1, sizeof(m_arrStopAnimationQueue) );
+	nStopAnimationQueuePos = 0;
+
+	if( m_nEventQueuePos != 0 )
+	{
+		int i = 1101010;
+	}
+	// clear event queue
+	m_nEventQueuePos = 0;
+
+	// ProcessPre PoseModifiers
+	m_pSkeletonPose->m_AimIK().ExecutePreProcess();
+
+
+	m_bDidRun = true;
+
+#if defined(PS3)
+#if defined(USE_SPU)
+	if(InvokeJobOnSPU("ProcessAnimationUpdate") )
+	{	
+#ifdef PROCESS_ANIM_MAIN_THREAD
+		ProcessAnimationUpdate(rPhysLocationCurr,rAnimLocationCurr);
+		TCommandBufferExecuteJob job( rPhysLocationCurr, rAnimLocationCurr );
+#else
+		TAnimProcessAnimationUpdateJob job( rPhysLocationCurr, rAnimLocationCurr );
+#endif
+		job.SetClassInstance(*this);
+		job.RegisterJobState(&m_JobStateProcessAnimations);		
+		job.SetCacheMode(NPPU::eCM_8);				
+		job.Run();		
+	}
+	else
+	{
+		ProcessAnimationUpdate(rPhysLocationCurr,rAnimLocationCurr);
+		if ( m_pSkeletonPose->m_bFullSkeletonUpdate )
+			ProcessForwardKinematics(rPhysLocationCurr,  rAnimLocationCurr);			
+	}
+#endif
+#else
+	{
+#ifdef PROCESS_ANIM_MAIN_THREAD
+		ProcessAnimationUpdate(rPhysLocationCurr,rAnimLocationCurr);
+#endif
+		m_threadTask.Begin(rPhysLocationCurr,  rAnimLocationCurr);
+	}		
+#endif
+
+	// DON'T ADD CODE BELOW HERE!!!
+	// on PS3, the ProcessAnimations and ProcessForwardKinemtic functions are executed on SPU, and so they run asynchronly from the other code
+	// all functions which should be called after these functions have finished should be moved to the FinishAnimationComputations functions
+}
+
+
+//------------------------------------------------------------------------
+//---                        ANIMATION-UPDATE                          ---
+//-----    we have to do this even if the character is not visible   -----
+//------------------------------------------------------------------------
+#if !defined(CRYCG_CM)
+SPU_ENTRY(ProcessAnimationUpdate)
+#endif
+void CSkeletonAnim::ProcessAnimationUpdate( const QuatT rPhysLocationCurr, const QuatTS rAnimLocationCurr )
+{
+	DEFINE_PROFILER_FUNCTION();
+
+#ifdef VTUNE_PROFILE 
+	g_pISystem->VTuneResume();
+#endif
+
+	InitGlobalSPUVars();
+	
+#if defined(__SPU__)
+	int bLayer0NeedBackTransfer = 0;
+	LMG::AnimCodeLookup::initSPULookup();	
+
+	//alloc storage memory for layer animation (layer0 is threaded special since the later layers call function on it)
+	gAninmationFifo 		= SPU_LOCAL_PTR( static_cast<CAnimation*>( alloca( (MAX_EXEC_QUEUE * sizeof(CAnimation)) + 128) ) );
+	gAninmationFifoLayer0	= SPU_LOCAL_PTR( static_cast<CAnimation*>( alloca( (MAX_EXEC_QUEUE * sizeof(CAnimation)) + 128) ) );
+
+	gAninmationFifo = SPU_LOCAL_PTR( align_pointer<128>(gAninmationFifo) );
+	gAninmationFifoLayer0 = SPU_LOCAL_PTR( align_pointer<128>(gAninmationFifoLayer0) );
+
+	//transfer layer0
+	DynArray<CAnimation> &rLayer0 = m_arrLayer_AFIFO[0];
+	bLayer0NeedBackTransfer = rLayer0.size();
+	if( bLayer0NeedBackTransfer )
+	{
+		// transfer in up to three chunks
+		memtransfer_from_main( &gAninmationFifoLayer0[0], &rLayer0[0], 2 * sizeof(CAnimation), ASYNC_ANIM_DMA_1 );
+		if( bLayer0NeedBackTransfer > 2 ) memtransfer_from_main( &gAninmationFifoLayer0[2], &rLayer0[2], 2 * sizeof(CAnimation), ASYNC_ANIM_DMA_2 );
+		if( bLayer0NeedBackTransfer > 4 ) memtransfer_from_main( &gAninmationFifoLayer0[4], &rLayer0[4], (MAX_EXEC_QUEUE -4) * sizeof(CAnimation), ASYNC_ANIM_DMA_3 );
+
+	}	
+#endif
+
+	CSkeletonPose* 	const __restrict pSkeletonPose = m_pSkeletonPose;
+
+	SAimIK &rAimIK = pSkeletonPose->m_AimIK();
+	rAimIK.m_AimDirection	=	Vec3(ZERO);
+
+	rAimIK.m_numActiveAimPoses=0;
+	for (uint32 i=0; i<MAX_EXEC_QUEUE*2; i++)
+	{
+		rAimIK.m_AimInfo[i].m_fWeight		= 0.0f;
+		rAimIK.m_AimInfo[i].m_numAimPoses	= 0;
+		rAimIK.m_AimInfo[i].m_nGlobalAimID0 = -1;
+		rAimIK.m_AimInfo[i].m_nGlobalAimID1	= -1;
+		rAimIK.m_AimInfo[i].m_fAnimTime		= 0.0f;
+	}
+
+	pSkeletonPose->m_LookIK().m_LookDirection	=	Vec3(ZERO);
+	m_pSkeletonPose->GetLocatorWriteable()->m_rotationRelative = 0.0f;
+	m_pSkeletonPose->GetLocatorWriteable()->m_translationRelative = Vec3(ZERO);
+	if (Console::GetInst().ca_NoAnim)
+		return;	
+
+/*
+	const char* mname = m_pInstance->GetFilePath();
+	uint32 identical=0;
+	identical |= ( strcmp(mname,"objects/weapons/us/frag_grenade/frag_grenade.chr")==0 );
+	identical |= ( strcmp(mname,"objects/weapons/us/scar_v2/scar_fp.cdf")==0 );
+	identical |= ( strcmp(mname,"objects/weapons/us/nova/nova_fp.cdf")==0 );
+	if (Console::GetInst().ca_DebugText || m_ShowDebugText)
+	{
+		if (identical)
+		{
+			f32 fColor[4] = {1,0,0,1};
+			const char* mname = m_pInstance->GetFilePath();
+			g_pIRenderer->Draw2dLabel( 1,g_YLine, 1.2f, fColor, false,"model: %s",mname); 
+			g_YLine+=0x10;
+		}
+	}*/
+
+	for(uint32 nVLayerNo=0; nVLayerNo<numVIRTUALLAYERS; nVLayerNo++)
+	{
+		DynArray<CAnimation> &rCurLayer = m_arrLayer_AFIFO[nVLayerNo];
+		uint32 numAnimsPerLayer = rCurLayer.size();
+		if (numAnimsPerLayer)
+		{
+#if defined(__SPU__)
+			if( nVLayerNo != 0 )
+			{
+				// transfer in up to three chunks
+				memtransfer_from_main( &gAninmationFifo[0], &rCurLayer[0], 2 * sizeof(CAnimation), ASYNC_ANIM_DMA_1 );
+				if( numAnimsPerLayer > 2 ) memtransfer_from_main( &gAninmationFifo[2], &rCurLayer[2], 2 * sizeof(CAnimation), ASYNC_ANIM_DMA_2 );
+				if( numAnimsPerLayer > 4 ) memtransfer_from_main( &gAninmationFifo[4], &rCurLayer[4], (MAX_EXEC_QUEUE -4) * sizeof(CAnimation), ASYNC_ANIM_DMA_3 );		
+			}
+#endif
+
+			BlendManager( m_pInstance->m_fDeltaTime*m_arrLayerSpeedMultiplier[nVLayerNo],  rCurLayer, nVLayerNo );
+
+#if !defined(__SPU__)
+			if (Console::GetInst().ca_DebugText || m_ShowDebugText)
+			{
+				//if (identical)
+					BlendManagerDebug(  m_arrLayer_AFIFO[nVLayerNo], nVLayerNo );
+			}
+#endif
+
+#if defined(__SPU__)
+			if( nVLayerNo != 0 )
+			{
+				memtransfer_sync( ANIM_BACK_TRANSFER );
+			}
+#endif
+
+		}
+
+		LayerBlendManager( m_pInstance->m_fDeltaTime, nVLayerNo );
+
+	}
+
+
+#if defined(__SPU__)
+	// transfer layer0 back
+	if( bLayer0NeedBackTransfer )
+	{
+		if( bLayer0NeedBackTransfer > MAX_EXEC_QUEUE )
+			bLayer0NeedBackTransfer = MAX_EXEC_QUEUE;
+		memtransfer_to_main( &m_arrLayer_AFIFO[0][0], &gAninmationFifoLayer0[0], bLayer0NeedBackTransfer * sizeof(CAnimation), ANIM_BACK_TRANSFER );
+		memtransfer_sync( ANIM_BACK_TRANSFER );
+	}
+	if ( pSkeletonPose->m_bFullSkeletonUpdate )
+	{
+		
+		uint32 JobAddr = gCommandBufferExecuteAddr;
+		uint16 JobID	 = gCommandBufferExecuteJobID;
+		SPU_VERBATIM_BLOCK( "{ DECLARE_SPU_CLASS_JOB( TCommandBufferExecuteJob, CSkeletonAnim);"
+			"TCommandBufferExecuteJob job( rPhysLocationCurr, rAnimLocationCurr );"
+			"job.SetClassInstance(*this);"
+			"job.SetCacheMode(NPPU::eCM_8);"
+			"__spu_flush_cache();"
+			"job.Run( JobAddr, false, JobID ); }" );	
+		
+	}
+
+#endif
+
+}
+
+#ifdef PS3
+//need to copy parameters to execute in asynchronously
+#if !defined(CRYCG_CM)
+SPU_ENTRY(CommandBufferExecute)
+#endif
+void CSkeletonAnim::ProcessForwardKinematics( const QuatT rPhysLocationCurr, const QuatTS rAnimCharLocationCurr )
+#else
+void CSkeletonAnim::ProcessForwardKinematics( const QuatT& rPhysLocationCurr, const QuatTS& rAnimCharLocationCurr )
+#endif
+{
+	InitGlobalSPUVars();
+
+	// SPU pre-block, needed to tranfer data to spu local arrays and inint global spu vars
+#if defined(__SPU__)
+	// dont execute CGA animation in parallel since they are not supported on SPU yet(and not cost intensive)
+	if( m_pInstance->m_pModel->m_ObjectType == CGA )
+	{
+		// remeber parameter to execute on ppu later
+		m_CGAPhysLocationCurr	= rPhysLocationCurr;
+		m_CGAAnimLocationCurr	=	rAnimCharLocationCurr;
+		return;
+	}
+#endif
+
+	Command::CBuffer commandBuffer;
+	Commands_Create(rPhysLocationCurr, rAnimCharLocationCurr, commandBuffer);
+
+	commandBuffer.Execute();
+}
+
+SPU_NO_INLINE
+void CSkeletonAnim::ProcessForwardKinematics_stage3(const QuatT& rPhysLocationCurr, const QuatTS& rAnimLocationCurr)
+{
+	Skeleton::CPoseData* pPoseData = m_pSkeletonPose->GetPoseDataWriteable();
+
+	// some reference to spare unnecessary ptr dereferencing
+	CSkeletonPose* 	const __restrict 	pSkeletonPose 					= m_pSkeletonPose;
+	CModelSkeleton* const __restrict 	pModelSkeleton 					= pSkeletonPose->m_pModelSkeleton;
+
+	QuatT* 			const	__restrict	pSkeletonRelativePose	= SPU_PTR_SELECT( &pPoseData->m_jointsRelative[0], gSkeletonRelativePose );
+	QuatT* 			const	__restrict	pSkeletonAbsolutPose	= SPU_PTR_SELECT( &pPoseData->m_jointsAbsolute[0], gSkeletonAbsolutePose );
+	Status4*		const	__restrict 	pSkeletonControllerInfo	= SPU_PTR_SELECT( &pPoseData->m_jointsStatus[0], gSkeletonControllerInfo );
+
+	uint32 numJoints		= m_pSkeletonPose->CSkeletonPose::GetJointCount();
+
+	uint32 nObjectType =	m_pInstance->m_pModel->m_ObjectType;
+	if (nObjectType==CHR)
+	{
+
+#if !defined(__SPU__)
+		if (m_MirrorAnimation)
+		{
+			float fColor[4] = {0,1,0,1};
+			g_pIRenderer->Draw2dLabel( 1,g_YLine, 3.3f, fColor, false,"Partial Body Mirrored Animation"  );	g_YLine+=16.0f;
+		}
+#endif
+
+		//------------------------------------------------------------------------------------
+		//--------------                     mirror                                   --------
+		//------------------------------------------------------------------------------------
+		if (m_MirrorAnimation) 
+		{
+			QuatT AbsoluteQuatMirror[MAX_JOINT_AMOUNT];
+
+			QuatT _RelativeQuatTemp[MAX_JOINT_AMOUNT];
+			for(uint32 i=0; i<numJoints; i++)
+				_RelativeQuatTemp[i] = pSkeletonRelativePose[i];
+
+			pSkeletonAbsolutPose[0] = _RelativeQuatTemp[0];
+			AbsoluteQuatMirror[0]	= _RelativeQuatTemp[0];
+			for(uint32 i=1; i<numJoints; i++)
+			{
+				int32 m = m_pSkeletonPose->m_pModelSkeleton->m_arrMirrorJoints[i];
+				if (m>0)
+				{
+					int32 p0=m_pSkeletonPose->m_parrModelJoints[i].m_idxParent;
+					pSkeletonAbsolutPose[i] = pSkeletonAbsolutPose[p0] * _RelativeQuatTemp[i];
+
+					AbsoluteQuatMirror[m].q.w		= pSkeletonAbsolutPose[i].q.v.y;
+					AbsoluteQuatMirror[m].q.v.x = pSkeletonAbsolutPose[i].q.v.z;
+					AbsoluteQuatMirror[m].q.v.y = pSkeletonAbsolutPose[i].q.w;
+					AbsoluteQuatMirror[m].q.v.z = pSkeletonAbsolutPose[i].q.v.x;
+
+					AbsoluteQuatMirror[m].t.x		= -pSkeletonAbsolutPose[i].t.x;
+					AbsoluteQuatMirror[m].t.y		=  pSkeletonAbsolutPose[i].t.y;
+					AbsoluteQuatMirror[m].t.z		=  pSkeletonAbsolutPose[i].t.z;
+
+					int32 p=m_pSkeletonPose->m_parrModelJoints[m].m_idxParent;
+					pSkeletonRelativePose[m] = AbsoluteQuatMirror[p].GetInverted() * AbsoluteQuatMirror[m];
+					pSkeletonRelativePose[m].q.Normalize();
+				}
+			}
+		}
+
+	}
+
+	//------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------
+
+	//f32 fColor[4] = { 0.0f, 0.5f, 1.0f, 1 };
+	//g_pIRenderer->Draw2dLabel( 1,g_YLine, 1.3f, fColor, false, "m_BlendedRoot.m_fAllowMultilayerAnim: %f",m_BlendedRoot.m_fAllowMultilayerAnim);	g_YLine+=0x10;
+
+#if !defined(__SPU__)
+	if ( Console::GetInst().ca_DebugCaps )
+	{
+		int layer = 0;
+		int animCount = GetNumAnimsInFIFO(layer);
+
+		char* szMotionParamID[eMotionParamID_COUNT] = 
+		{
+			"TravelAngle", "TravelDistScale", "TravelSpeed", "TravelDist", "TravelSlope", "TurnSpeed", "TurnAngle", "Duration"
+		};
+
+		for (int i = 0; i < animCount; ++i) 
+		{
+			f32 stride = f32(i * (eMotionParamID_COUNT + 1));
+			CAnimation anim = GetAnimFromFIFO(layer, i);
+			if (anim.m_bActivated)
+			{
+				const SParametric& lmg = anim.m_Parametric;
+				for (int id = 0; id < eMotionParamID_COUNT; ++id)
+				{
+					const MotionParamDesc& desc = lmg.m_params[id].desc;
+					if (desc.m_nUsage != eMotionParamUsage_None)
+					{
+						if (!lmg.m_params[id].desc.m_bLocked)
+						{
+							const ColorF cCol(0.7f,1.0f,0.7f,1.0f);
+							gEnv->pRenderer->Draw2dLabel(750, 100 + (stride + id) * 20, 1.3f, (float*)&cCol, false,	"%s [%3.2f %3.2f %3.2f %3.2f] %3.2f", szMotionParamID[id], desc.m_fMin, desc.m_fMinAsset, desc.m_fMaxAsset, desc.m_fMax, desc.m_fMaxChangeRate);
+						}
+						else
+						{
+							const ColorF cCol(1.0f,1.0f,0.7f,1.0f);
+							gEnv->pRenderer->Draw2dLabel(750, 100 + (stride + id) * 20, 1.3f, (float*)&cCol, false,	"%s [%3.2f %3.2f %3.2f %3.2f] LOCK", szMotionParamID[id], desc.m_fMin, desc.m_fMinAsset, desc.m_fMaxAsset, desc.m_fMax);
+						}
+					}
+					else
+					{
+						const ColorF cCol(1.0f,0.7f,0.7f,1.0f);
+						gEnv->pRenderer->Draw2dLabel(750, 100 + (stride + id) * 20, 1.3f, (float*)&cCol, false,	"%s [ not supported ]", szMotionParamID[id]);
+					}
+				}
+			}
+		}
+	}
+#endif
+
+	//--------------------------------------------------------------------------------------
+	//--------------------------------------------------------------------------------------
+	//--------------------------------------------------------------------------------------
+
+	if (Console::GetInst().ca_ForceNullAnimation && pModelSkeleton->IsHuman())
+	{		
+		for (uint32 i=0; i<numJoints; i++)
+			pSkeletonRelativePose[i] = pModelSkeleton->m_poseData.m_jointsRelative[i];
+	}
+
+	
+#ifdef _DEBUG
+	if ( (m_IsAnimPlaying & 1) && m_AnimationDrivenMotion && nObjectType==CHR)
+	{
+		Quat q = pSkeletonRelativePose[0].q;
+		Vec3 t = pSkeletonRelativePose[0].t;
+		assert(q.IsEquivalent(IDENTITY,0.001f));
+		assert(t.IsEquivalent(ZERO,0.001f));
+	}
+#endif
+
+	if (pSkeletonPose->m_nForceSkeletonUpdate==0)
+	{
+		if (m_IsAnimPlaying==0 && nObjectType==CGA)
+		{
+			pSkeletonPose->m_bFullSkeletonUpdate=0;	//DANGEROUS: if we don't play an animation, we don't update the skeleton
+		}
+	}
+
+#ifdef _DEBUG
+	if ( (m_IsAnimPlaying & 1) && m_AnimationDrivenMotion && nObjectType==CHR)
+	{
+		Quat q = pSkeletonRelativePose[0].q;
+		Vec3 t = pSkeletonRelativePose[0].t;
+		assert(q.IsEquivalent(IDENTITY,0.001f));
+		assert(t.IsEquivalent(ZERO,0.001f));
+	}
+#endif
+
+
+#ifdef VTUNE_PROFILE 
+	g_pISystem->VTunePause();//VTPause();
+#endif
+
+}
+
+
+//------------------------------------------------------------
+//------------------------------------------------------------
+//------------------------------------------------------------
+void CSkeletonAnim::Serialize(TSerialize ser)
+{
+	// make sure no parallel computations are running while serialization
+#if !defined(__SPU__)
+	FinishAnimationComputations();
+#endif
+
+	CAnimationSet* pAnimationSet = &m_pInstance->m_pModel->m_AnimationSet;
+	if (ser.GetSerializationTarget() != eST_Network)
+	{
+		ser.BeginGroup("CSkeletonAnim");
+		ser.Value("AnimationDrivenMotion", m_AnimationDrivenMotion );
+		ser.Value("ForceSkeletonUpdate", m_pSkeletonPose->m_nForceSkeletonUpdate );
+
+		for (uint32 nLayer=0; nLayer<numVIRTUALLAYERS; nLayer++)
+		{
+			ser.BeginGroup("FIFO");
+			uint32 nAnimsInFIFO = m_arrLayer_AFIFO[nLayer].size();  
+			ser.Value("nAnimsInFIFO",nAnimsInFIFO);
+			if(ser.IsReading())
+				m_arrLayer_AFIFO[nLayer].resize(nAnimsInFIFO);
+
+			for (uint32 a=0; a<nAnimsInFIFO; a++)
+			{
+				m_arrLayer_AFIFO[nLayer][a].Serialize(ser);  
+
+				if(ser.IsReading())
+				{
+					int32 nAnimID0    = m_arrLayer_AFIFO[nLayer][a].m_Parametric.m_nParametricID;
+
+					int32 numAnims0=m_arrLayer_AFIFO[nLayer][a].m_Parametric.m_numAnims;
+					for (int32 i=0; i<numAnims0; i++)
+					{
+						int32 nAnimID   = m_arrLayer_AFIFO[nLayer][a].m_Parametric.m_nAnimID[i];
+						if (nAnimID>=0)
+						{
+							const ModelAnimationHeader& AnimHeader = pAnimationSet->GetModelAnimationHeaderRef(nAnimID);
+							GlobalAnimationHeaderCAF& rGlobalAnimHeader = g_AnimationManager.m_arrGlobalCAF[AnimHeader.m_nGlobalAnimId];
+							if (rGlobalAnimHeader.IsAssetOnDemand())
+							{
+								if (rGlobalAnimHeader.IsAssetLoaded()==0)
+									pAnimationSet->StreamCAF(AnimHeader.m_nGlobalAnimId,0);
+								rGlobalAnimHeader.m_nRef_at_Runtime++;
+							}
+						}
+					}
+				}
+			}
+			ser.EndGroup();
+		}
+
+		ser.EndGroup();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+void CSkeletonAnim::SetCharEditMode( uint32 m ) 
+{	
+	m_CharEditMode = m > 0;
+	m_pInstance->m_pModel->m_AnimationSet.m_CharEditMode = m;
+}; 
+
+
+//////////////////////////////////////////////////////////////////////////
+
+void CSkeletonAnim::SetDebugging( uint32 debugFlags )
+{
+	m_ShowDebugText = debugFlags > 0 ;
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+size_t CSkeletonAnim::SizeOfThis (ICrySizer * pSizer)
+{
+	uint32 TotalSize  = 0;
+	TotalSize += sizeof(uint16) * m_arrJointMask.capacity();
+	TotalSize += sizeof(DeferredQueueUpdate) * m_arrDeferredQueueUpdates.capacity(); 
+	for(uint32 i=0; i<numVIRTUALLAYERS; i++)
+		TotalSize += (m_arrLayer_AFIFO[i].capacity()*sizeof(CAnimation));
+	return TotalSize;
+}
+
+void CSkeletonAnim::GetMemoryUsage(ICrySizer * pSizer) const
+{
+	pSizer->AddObject( m_arrJointMask );
+	pSizer->AddObject( m_arrDeferredQueueUpdates );
+	
+	for(uint32 i=0; i<numVIRTUALLAYERS; i++)
+		pSizer->AddObject( m_arrLayer_AFIFO[i] );		
+}
+
+// util function for spus, used to transfer the controller lookuptable to spu local storage
+void InitSpuControllerLookupTable( const DynArray<uint32> &lookupTable )
+{
+#if defined(__SPU__)
+	extern SPU_LOCAL uint32 gCurrentLookupTableAddr;	
+
+	const uint32 *src = &lookupTable[0];
+
+	// don't copy if we have the data already
+	if( gCurrentLookupTableAddr == (uint32)src )
+		return;
+
+	gControllerLookupTableSize = lookupTable.size();
+
+	IF( gControllerLookupTableSize == 0, false )
+		return;
+
+	uint32 size = gControllerLookupTableSize * sizeof(uint32);
+
+	memcpy( gControllerLookup, src, size );	
+
+	// remember current activ lookup table
+	gCurrentLookupTableAddr = (uint32)src;
+
+#else
+	return;
+#endif
+}
+	
+void CSkeletonAnim::InitGlobalSPUVars()
+{
+#if defined(__SPU__)
+	g_pAnimationManager = &( g_pCharacterManager->GetAnimationManager() );	
+	g_jointCount = m_pSkeletonPose->GetPoseData().GetJointCount();
+#endif
+}
+
+// ugly workaround for a CryCG Bug, sometimes functions marked as SPU_INDIRECT are not mapped,
+// one workaround is to move the function into the cpp file, but since ControllerOpt.h doesn't has one,
+// i moved it here as a tmp solution till this crycg bug is fixed.
+SPU_INDIRECT(CommandBufferExecute(M))
+EControllerInfo CControllerOptNonVirtual::GetControllerType()
+{
+	return eControllerOpt; 
+}
+
+#include UNIQUE_VIRTUAL_WRAPPER(ISkeletonAnim)
+#undef USE_SPU
+
+void CSkeletonAnim::PushLayer(IAnimationLayer* pLayer)
+{
+	if (IAnimationPoseModifier* pPoseModifier = cryinterface_cast<IAnimationPoseModifier>(pLayer))
+	{
+		m_pSkeletonPose->m_poseModifiers.push_back(pPoseModifier);
+	}
+}

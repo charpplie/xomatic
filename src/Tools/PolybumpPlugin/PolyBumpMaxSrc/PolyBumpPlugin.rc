@@ -1,0 +1,330 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+//#include "afxres.h" //Diesel cut
+#include "winres.h" //Diesel new
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral (Default) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEUD)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PANEL DIALOGEX 0, 0, 108, 292
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "About",IDC_ABOUT,78,277,26,11
+    PUSHBUTTON      "Stop",IDC_ENDPROCESS,56,251,48,11,NOT WS_VISIBLE
+    PUSHBUTTON      "High Poly",IDC_PICKHIGHPOLY,4,36,37,10,WS_DISABLED
+    PUSHBUTTON      "Low Poly",IDC_PICKLOWPOLY,4,50,37,10,WS_DISABLED
+    CONTROL         "use nearest hit",IDC_HITNEAREST,"Button",BS_AUTORADIOBUTTON,9,107,62,10
+    CONTROL         "use latest hit",IDC_HITLATEST,"Button",BS_AUTORADIOBUTTON,9,117,55,10
+    EDITTEXT        IDC_RAYLENGTH,50,128,24,13,ES_AUTOHSCROLL
+    COMBOBOX        IDC_OUTPUTSIZEX,18,209,32,84,CBS_DROPDOWNLIST | WS_TABSTOP
+    PUSHBUTTON      "Start",IDC_STARTPROCESS,4,263,100,11
+    GROUPBOX        "Selection",IDC_STATIC,4,3,100,21
+    LTEXT           "",IDC_SELECTIONNAME,9,11,89,8
+    LTEXT           "<none>",IDC_HIGHPOLYNAME,46,37,58,8
+    LTEXT           "<none>",IDC_LOWPOLYNAME,46,51,58,8
+    LTEXT           "W:",IDC_STATIC,8,211,10,8
+    GROUPBOX        "Rayshooting",IDC_STATIC,4,97,100,90
+    LTEXT           "ray length is",IDC_STATIC,10,130,39,8
+    LTEXT           "of low poly size",IDC_STATIC,52,142,50,8
+    LTEXT           "%",IDC_STATIC,76,131,8,8
+    COMBOBOX        IDC_OUTPUTSIZEY,68,209,32,84,CBS_DROPDOWNLIST | WS_TABSTOP
+    CTEXT           "x",IDC_STATIC,50,211,8,8
+    GROUPBOX        "Output",IDC_STATIC,4,196,100,33
+    LTEXT           "H:",IDC_STATIC,60,211,8,8
+    PUSHBUTTON      "OBJ Export",IDC_EXPORTSELECTION,58,20,41,9
+    COMBOBOX        IDC_ANTIALIASING,49,152,52,84,CBS_DROPDOWNLIST | WS_TABSTOP
+    LTEXT           "Antialiasing:",IDC_STATIC,11,154,38,8
+    PUSHBUTTON      "Debug",IDC_DEBUGBUTTON,77,104,23,9,NOT WS_VISIBLE
+    PUSHBUTTON      "Cage",IDC_PICKCAGE,4,78,37,10
+    LTEXT           "<none>",IDC_CAGENAME,46,78,58,8
+    PUSHBUTTON      "Projection",IDC_PICKPROJECTION,4,63,37,10,WS_DISABLED
+    LTEXT           "<none>",IDC_PROJECTIONNAME,46,63,58,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,10,167,88,1
+    COMBOBOX        IDC_HORIZONMODE,49,171,52,84,CBS_DROPDOWNLIST | WS_TABSTOP
+    LTEXT           "Horizon:",IDC_STATIC,20,173,27,8
+    PUSHBUTTON      "Open existing SRF",IDC_OPENEXISTINGSRF,4,277,66,11
+    COMBOBOX        IDC_THREADPRIORITY,49,239,52,84,CBS_DROPDOWNLIST | WS_TABSTOP
+    LTEXT           "CPU Priority:",IDC_STATIC,7,241,40,8
+END
+
+IDD_ABOUT DIALOGEX 0, 0, 273, 198
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE
+CAPTION "PolyBump About..."
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CTEXT           "Polybump Plugin",IDC_STATIC,98,18,76,11,SS_CENTERIMAGE,WS_EX_CLIENTEDGE
+    CTEXT           "(c) 2000-2002 Crytek GmbH. All rights reserved.",IDC_STATIC,7,32,262,8
+    CTEXT           "Version 4.0  25.Jan 2008",IDC_STATIC,7,50,262,8
+    EDITTEXT        IDC_SERIAL,7,111,230,14,ES_AUTOHSCROLL
+    LTEXT           "Serial No (Hardware ID dependent):",IDC_SERIAL_TEXT,7,102,262,8
+    DEFPUSHBUTTON   "Ok",IDOK,245,179,24,14
+    CTEXT           "Crytek, the Crytek Logo, Polybump, CryENGINE are registered\ntrademarks of Crytek GmbH.",IDC_STATIC,7,66,262,18
+    PUSHBUTTON      "How to get your personal Serial No from Crytek",IDC_GETSERIALFROMCRYTEK,36,150,199,12
+    PUSHBUTTON      "Credits",IDC_CREDITS,111,88,50,10
+    CTEXT           "NonSerialVersion",IDC_NONSERIALVERSION,7,129,262,10,NOT WS_VISIBLE
+    PUSHBUTTON      "Customize Resource Compiler",IDC_SETUPRC,7,179,105,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PANEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 104
+        VERTGUIDE, 13
+        VERTGUIDE, 41
+        VERTGUIDE, 46
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 288
+    END
+
+    IDD_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 269
+        VERTGUIDE, 238
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Neutral (Default) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Germany) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CREDITS DIALOGEX 0, 0, 246, 114
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Polybump Plugin Credits"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,97,91,50,14
+    CTEXT           "Development:\nMartin Mittring, Marco Corbetta, Andrey Khonich\n\nGraphics-Development and Testing:\nMichael Khaimzon, Max Aristov, Timo Kujansuu, Sten Hübler, Roman Hunyavyy, Andrew Dorr, Garth Midgley, David March",IDC_STATIC,7,9,232,60
+    CTEXT           "Documentation && QA Testing:\nMartin Mittring, Andrew Dorr, Tony Davis, Amanda Crichton",IDC_STATIC,7,63,232,23
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CREDITS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 239
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 107
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // German (Germany) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LOWMESHDATA DIALOGEX 0, 0, 186, 46
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Get UV mapping from"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    COMBOBOX        IDC_CHANNELNO,66,9,31,84,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Channel No:",IDC_STATIC,16,12,40,8
+    COMBOBOX        IDC_MATERIALID,66,24,31,84,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Material ID:",IDC_STATIC,16,27,37,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_LOWMESHDATA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 3, 1, 2, 1742
+PRODUCTVERSION 3, 1, 2, 1742
+FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040C04B0"
+        BEGIN
+            VALUE "FileDescription", "DLL de PolyBumpPlugin"
+            VALUE "FileVersion", "3, 1, 2, 1742"
+            VALUE "InternalName", "PolyBumpPlugin"
+            VALUE "LegalCopyright", "Copyright (C) 1998"
+            VALUE "OriginalFilename", "PolyBumpPlugin.DLL"
+            VALUE "ProductName", "Bibliothèque de liaison dynamique PolyBumpPlugin"
+            VALUE "FileVersion", "3, 1, 2, 1742"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Traduction", 0x40c, 1200
+    END
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// French (France) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+#ifdef _WIN32
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\PolyBumpPlugin.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.fra\\afxres.rc""          // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // French (France) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\PolyBumpPlugin.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.fra\afxres.rc"          // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,362 @@
+#pragma once
+
+#include <XTToolkitPro.h>
+#include "Controls\ConsoleSCB.h"
+
+#include "Controls\RollupBar.h"
+#include "Controls\RollupCtrl.h"
+#include "Controls\HiColorToolBar.h"
+#include "Controls\ToolbarTab.h"
+#include "Include\IViewPane.h"
+
+#include "ToolBoxBar.h"
+
+#define MAINFRM_LAYOUT_NORMAL "NormalLayout"
+#define MAINFRM_LAYOUT_PREVIEW "PreviewLayout"
+#define WM_FRAME_CAN_CLOSE (WM_APP + 1000)
+
+class CMission;
+class CLayoutWnd;
+class CViewPaneManager;
+class CPanelDisplayLayer;
+//class CConsoleSCB;
+class CBackgroundTasksListener;
+
+class SANDBOX_API CMainFrame: public CXTPFrameWnd, public CXTPOffice2007FrameHook, public IEditorNotifyListener
+{
+public:
+	CMainFrame();
+	DECLARE_DYNCREATE(CMainFrame)
+
+	static XTPDockingPanePaintTheme GetDockingPaneTheme();
+	static BOOL GetDockingHelpers();
+	static XTPPaintTheme GetPaintTheme();
+
+// Attributes
+public:
+// Operations
+	//! Show window and restore saved state.
+	void ShowWindowEx(int nCmdShow);
+public:
+// Overrides
+	// ClassWizard generated virtual function overrides
+	//{{AFX_VIRTUAL(CMainFrame)
+	public:
+	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	virtual BOOL DestroyWindow();
+	virtual void ActivateFrame(int nCmdShow);
+	virtual BOOL LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd* pParentWnd, CCreateContext* pContext);
+protected:
+	virtual BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
+	//}}AFX_VIRTUAL
+
+// Implementation
+public:
+	virtual ~CMainFrame();
+#ifdef _DEBUG
+	virtual void AssertValid() const;
+	virtual void Dump(CDumpContext& dc) const;
+#endif
+
+	// Access the status bar to display toolbar tooltips and status messages
+	void SetStatusText( LPCTSTR pszText );
+	void SetStatusText(CString strText) { SetStatusText((const char*)strText); };
+	// Parameter nItemIdentifier can be found in MainFrm.cpp, in structure "indicators"
+	void SetItemStatusText(int nItemIdentifier,LPCTSTR pszText );
+	void SetItemStatusText(int nItemIdentifier,CString strText ){SetItemStatusText(nItemIdentifier,(const char*)strText);};
+	int SelectRollUpBar( int rollupBarId );
+	CRollupCtrl* GetRollUpControl( int rollupBarId=ROLLUP_OBJECTS );
+	CLayoutWnd*	GetLayout() { return m_pLayoutWnd; }
+	void SetSelectionName( const CString &name );
+	void IdleUpdate();
+	//! Enable/Disable keyboard accelerator.
+	void EnableAccelerator( bool bEnable );
+	//! Edit keyboard shortcuts.
+	void EditAccelerator();
+	// Check if dock state is valid with this window.
+	BOOL VerifyBarState( CDockState &state );
+	//! Save current window configuration.
+	void SaveConfig();
+	void SaveCurrentLayout();
+	void LoadConfig();
+	// ! Disables the main menu.
+	void EnableMenu( bool bEnable );
+	//! Put external tools to menu.
+	void UpdateToolsMenu();
+	void UpdateExternalsTools();
+	void UpdateViewPaneMenu();
+	//! Create the Views > Layouts menu.
+	void UpdateViewLayoutsPaneMenu( CXTPControl* pLayoutMenuControl );
+	//! Create a Layout sub menu with commands that can be done on a layout (eg. Load, Delete...)
+	void UpdateViewLayoutsPaneSubMenu( CXTPControl* pLayoutSubMenuControl, int layoutId );
+	//! Reset timers used for auto saving.
+	void ResetAutoSaveTimers(bool bForceInit = false);
+
+	//////////////////////////////////////////////////////////////////////////
+	// IEditorNotifyListener
+	//////////////////////////////////////////////////////////////////////////
+	virtual void OnEditorNotifyEvent( EEditorNotifyEvent event );
+
+
+//OLD
+	//////////////////////////////////////////////////////////////////////////
+	// Panes Manager.
+	//////////////////////////////////////////////////////////////////////////
+	//CXTPDockingPaneManager* GetDockingPaneManager() { return &m_paneManager; }
+	//CWnd* OpenPage( const char *sPaneClassName,bool bReuseOpened=true );
+	//CWnd* FindPage( const char *sPaneClassName );
+	bool  ClosePage(const char *sPaneClassName);
+	bool	IsPageDocked(const char *sPaneClassName);
+//OLD
+
+	CViewPaneManager* GetViewPaneManager();
+	bool IsPreview() const;
+	void UpdateSkinning(XTPDockingPanePaintTheme paneTheme, XTPPaintTheme paintTheme);
+	void OnToolbarDropDown( int idCommand,CRect &rcControl );
+	void SwitchSkin(UINT nID){OnSwitchSkin(nID);};
+
+	CXTPRibbonBar* GetRibbonBar()
+	{
+		return m_pRibbonBar;
+	}
+
+	void RegisterOpenWndCommands();
+
+protected:
+	void AdjustToolBarIconSize();
+	void CreateRibbonBar();
+	void ReloadRibbonBar();
+	static void ReloadRibbonBarCmd( IConsoleCmdArgs* pArgs );
+	void RegisterStdViewClasses();
+	void InvalidateControls();
+	void CreateRollupBar();
+	void DockControlBarLeftOf(CControlBar* Bar, CControlBar* LeftOf);
+	void DockControlBarNextTo(CControlBar* pBar,CControlBar* pTargetBar);
+	void SwitchTheme( XTPPaintTheme paintTheme,XTPDockingPanePaintTheme paneTheme );
+	bool FindMenuPos(CMenu* pBaseMenu, UINT myID, CMenu*& pMenu, int & mpos);
+	void InitRefCoordControl( CXTPControlComboBox* pCombo );
+	void InitSelectionMaskControl( CXTPControlComboBox* pCombo );
+
+	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	afx_msg void OnSize(UINT nType, int cx, int cy);
+	afx_msg	void OnGetMinMaxInfo(MINMAXINFO* lpMMI);
+	afx_msg BOOL OnCopyData(CWnd* pWnd, COPYDATASTRUCT* pCopyDataStruct);
+	afx_msg void OnClose();
+	afx_msg void OnMusicInfo();
+	afx_msg void OnOpenSoundBrowser();
+	afx_msg void OnDisableSound();
+	afx_msg void OnUpdateDisableSound(CCmdUI* pCmdUI);
+	afx_msg void OnDisableMusic();
+	afx_msg void OnUpdateDisableMusic(CCmdUI* pCmdUI);
+	afx_msg void OnOpenDialogBrowser();
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	afx_msg void OnEditNextSelectionMask();
+	afx_msg LRESULT OnDockingPaneNotify(WPARAM wParam, LPARAM lParam);
+	afx_msg void OnTrackView();
+	afx_msg void OnDataBaseView();
+	afx_msg void OnCustomize();
+	afx_msg int OnCreateControl(LPCREATECONTROLSTRUCT lpCreateControl);
+	afx_msg int OnCreateCommandBar(LPCREATEBARSTRUCT lpCreatePopup);
+	afx_msg void OnInitCommandsPopup(CXTPPopupBar* pPopupBar);
+	afx_msg void OnDockingHelpers();
+	afx_msg void OnUpdateDockingHelpers(CCmdUI* pCmdUI);
+	afx_msg void OnSkining();
+	afx_msg void OnUpdateSkining(CCmdUI* pCmdUI);
+	afx_msg void OnSkinChanged();
+	afx_msg void LoadCrySkin();
+	afx_msg void OnUpdateSnapToGrid(CCmdUI* pCmdUI);
+	afx_msg void OnAINavigationDisplayAgentUpdate(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateCurrentLayer(CCmdUI* pCmdUI);
+	afx_msg void OnSelectionChanged(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnDeleteSelection();
+	afx_msg void OnRefCoordSysChange(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnUpdateRefCoordSys(CCmdUI* pCmdUI);
+	afx_msg void OnRefCoordSysRange(UINT nID);
+	afx_msg void OnRefCoordSysUpdateRange(CCmdUI* pCmdUI);
+	afx_msg void OnSnapCommand(UINT nID);
+	afx_msg void OnSnapCommandUpdate(CCmdUI* pCmdUI);
+	afx_msg void OnAngleSnapCommand(UINT nID);
+	afx_msg void OnAngleSnapCommandUpdate(CCmdUI* pCmdUI);
+	afx_msg void OnAINavigationSelectDisplayAgent(UINT nID);
+	afx_msg void OnAINavigationSelectDisplayAgentUpdate(CCmdUI* pCmdUI);
+	afx_msg void OnSelectionMaskChanged(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnUpdateSelectionMask(CCmdUI* pCmdUI);
+	afx_msg void OnSelectionMaskPopup(UINT nID);
+	afx_msg void OnSelectionMaskPopupUpdate(CCmdUI* pCmdUI);
+	afx_msg void OnMissionChanged(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnExecuteTool( UINT nID );
+	afx_msg void OnOpenViewPane( UINT nID );
+	afx_msg void OnUpdateControlBar(CCmdUI* pCmdUI);
+	afx_msg BOOL OnToggleBar(UINT nID);
+	afx_msg BOOL OnSwitchTheme(UINT nID);
+	afx_msg void OnUpdateTheme(CCmdUI* pCmdUI);
+	afx_msg BOOL OnSwitchSkin(UINT nID);
+	afx_msg void OnUpdateSkin(CCmdUI* pCmdUI);
+	afx_msg void OnProgressCancelClicked();
+	afx_msg LRESULT OnMatEditSend(WPARAM, LPARAM);
+	afx_msg void OnUpdateBackgroundActivity( CCmdUI* pCmdUI );
+	afx_msg void OnUpdateMemoryStatus( CCmdUI* pCmdUI );
+	afx_msg void OnViewSavePaneLayout();
+	afx_msg void OnViewRestoreDefaultLayout();
+	afx_msg void OnViewLoadPaneLayout( UINT nID );
+	afx_msg void OnViewSavePaneLayout( UINT nID );
+	afx_msg void OnViewDeletePaneLayout( UINT nID );
+	afx_msg void OnViewRenamePaneLayout( UINT nID );
+	afx_msg void OnCustomUICommand( UINT nID );
+	afx_msg void OnCustomUICommandUpdate( CCmdUI* pCmdUI );
+	DECLARE_MESSAGE_MAP()
+
+	static void Command_Open_MaterialEditor();
+	static void Command_Open_CharacterEditor();
+	static void Command_Open_DataBaseView();
+	static void Command_Open_TrackView();
+	static void Command_Open_LightmapCompiler();
+	static void Command_Open_SelectObjects();
+	static void Command_Open_FlowGraph();
+	static void Command_Open_TimeOfDay();
+	static void Command_Open_FacialEditor();
+	static void Command_Open_SmartObjectsEditor();
+	static void Command_Open_DialogSystemEditor();
+	static void Command_Open_VisualLogViewer();
+	static void Command_Open_TerrainEditor();
+	static void Command_Open_TerrainTextureLayers();
+	static void Command_Open_LiveMocap();
+	static void Command_Open_TextureBrowser();
+	static void Command_Open_AssetBrowser();
+	static void Command_Open_AnimActionEditor();
+	static void Command_Open_LayerEditor();
+
+	static void Command_Close_MaterialEditor();
+	static void Command_Close_CharacterEditor();
+	static void Command_Close_DataBaseView();
+	static void Command_Close_TrackView();
+	static void Command_Close_LightmapCompiler();
+	static void Command_Close_SelectObjects();
+	static void Command_Close_FlowGraph();
+	static void Command_Close_TimeOfDay();
+	static void Command_Close_FacialEditor();
+	static void Command_Close_SmartObjectsEditor();
+	static void Command_Close_DialogSystemEditor();
+	static void Command_Close_VisualLogViewer();
+	static void Command_Close_TerrainEditor();
+	static void Command_Close_TerrainTextureLayers();
+	static void Command_Close_LiveMocap();
+	static void Command_Close_TextureBrowser();
+	static void Command_Close_AssetBrowser();
+	static void Command_Close_AnimActionEditor();
+	static void Command_Close_LayerEditor();
+
+protected:
+	CXTPStatusBar m_wndStatusBar;
+	CBackgroundTasksListener* m_pBGTasks;
+	// Added this variable for quick access to this particular toolbar.
+	CXTPToolBar* m_pEditToolBar;
+	CReBar m_wndReBar;
+	CXTPToolBar* m_pLiveCreateToolbar;
+	CToolBar m_wndToolBar;
+	CToolBar m_objectModifyBar;
+	CToolBar m_missionToolBar;
+	CToolBar m_wndTerrainToolBar;
+	CToolBar m_wndAvoToolBar;
+	CXTPRibbonBar* m_pRibbonBar;
+	CLayoutWnd* m_pLayoutWnd;
+	std::auto_ptr<CConsoleSCB> m_pConsole;
+	CRollupBar m_wndRollUp;
+	CRollupCtrl m_objectRollupCtrl;
+	CRollupCtrl m_terrainRollupCtrl;
+	CRollupCtrl m_modellingRollupCtrl;
+	CRollupCtrl m_displayRollupCtrl;
+	CXTFlatComboBox m_missions;
+	CPanelDisplayLayer* m_pLayerPanel;
+	class CTerrainPanel* m_terrainPanel;
+	class CMainTools* m_mainTools;
+	CViewPaneManager* m_viewPaneManager;
+	CString m_selectionName;
+	CMission* m_currentMission;
+	class CObjectLayer* m_currentLayer;
+	RefCoordSys m_coordSys;
+	int m_objectSelectionMask;
+	CXTWindowPos m_wndPosition;
+	int m_autoSaveTimer;
+	int m_autoRemindTimer;
+	int m_networkAuditionTimer;
+	bool m_bAcceleratorsEnabled;
+	bool m_bSkinLoaded;
+	//! names of available pane layout filenames in the Layouts folder.
+	std::vector< CString > m_layoutFilenames;
+public:
+	afx_msg void OnLivecreateSettings();
+};
+
+class CCustomControlSplitButtonPopup : public CXTPControlPopup
+{
+public:
+	DECLARE_XTP_CONTROL(CCustomControlSplitButtonPopup)
+	
+	CCustomControlSplitButtonPopup()
+	{
+		m_controlType = xtpControlSplitButtonPopup;
+	}
+
+	virtual BOOL OnSetPopup(BOOL bPopup)
+	{
+		if (bPopup)
+		{
+			CRect rc = GetRect();
+
+			GetParent()->ClientToScreen(rc);
+			((CMainFrame*)AfxGetMainWnd())->OnToolbarDropDown(GetID(),rc);
+		}
+		return TRUE;
+	}
+};
+
+class CCustomControlButtonPopup : public CXTPControlPopup
+{
+public:
+	DECLARE_XTP_CONTROL(CCustomControlButtonPopup)
+	
+	CCustomControlButtonPopup()
+	{
+		m_controlType = xtpControlButtonPopup;
+	}
+
+	virtual BOOL OnSetPopup(BOOL bPopup)
+	{
+		if (bPopup)
+		{
+			CRect rc = GetRect();
+
+			GetParent()->ClientToScreen(rc);
+			((CMainFrame*)AfxGetMainWnd())->OnToolbarDropDown(GetID(), rc);
+		}
+		return TRUE;
+	}
+};
+/* //Diesel cut dooble
+class CEditorObjectCreateCommand : public _i_reference_target_t
+{
+	CString m_className;
+public:
+	CEditorObjectCreateCommand( const CString &className )
+	{
+		m_className = className;
+	}
+	void Execute();
+};
+*/ //Diesel cut
+class CEditorOpenViewCommand : public _i_reference_target_t
+{
+	CString m_className;
+public:
+	CEditorOpenViewCommand( const CString &className )
+	{
+		m_className = className;
+	}
+	void Execute()
+	{
+		// Create browse mode for this category.
+		GetIEditor()->OpenView(m_className);
+	}
+};

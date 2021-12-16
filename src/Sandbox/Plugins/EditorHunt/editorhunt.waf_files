@@ -1,0 +1,17 @@
+{
+	"NoUberFile": 
+	{
+		"Root":
+		[
+			"main.cpp",
+			"EditorHuntPlugin.cpp",
+			"ActorEntityObject.cpp",
+			"OffMeshLinkObject.cpp",
+			"pch.cpp",
+			"EditorHuntPlugin.h",
+			"ActorEntityObject.h",
+			"OffMeshLinkObject.h",
+			"pch.h"
+		]
+	}
+}

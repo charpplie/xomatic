@@ -1,0 +1,56 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2013, Crytek Studios
+##
+## Creator: Christopher Bolte
+## Date: Oct 31, 2013
+## Description: WAF  based build system
+#############################################################################
+QT_TO_MOC_FILES = [
+	'CharacterTool/AnimEventPresetPanel.h',
+	'CharacterTool/AnimationList.h',
+	'CharacterTool/AnimationTagList.h',
+	'CharacterTool/BlendSpacePreview.h',
+	'CharacterTool/BlockPalette.h',
+	'CharacterTool/CharacterDocument.h',
+	'CharacterTool/CharacterGizmoManager.h',
+	'CharacterTool/CharacterList.h',
+	'CharacterTool/CharacterToolForm.h',
+	'CharacterTool/CharacterToolSystem.h',
+	'CharacterTool/CleanCompiledAnimationsTool.h',
+	'CharacterTool/CompressionMachine.h',
+	'CharacterTool/DisplayParametersPanel.h',
+	'CharacterTool/DockWidgetManager.h',
+	'CharacterTool/EditorCompressionPresetTable.h',
+	'CharacterTool/EditorDBATable.h',
+	'CharacterTool/Explorer.h',
+	'CharacterTool/ExplorerDataProvider.h',
+	'CharacterTool/ExplorerFileList.h',
+	'CharacterTool/ExplorerModel.h',
+	'CharacterTool/ExplorerPanel.h',
+	'CharacterTool/JointNameSelector.h',
+	'CharacterTool/ModeCharacter.h',
+	'CharacterTool/PlaybackPanel.h',
+	'CharacterTool/PropertiesPanel.h',
+	'CharacterTool/ResaveAnimSettingsTool.h',
+	'CharacterTool/ScanAndLoadFilesTask.h',
+	'CharacterTool/SceneContent.h',
+	'CharacterTool/SceneParametersPanel.h',
+	'CharacterTool/SkeletonList.h',
+	'CharacterTool/SplitViewport.h',
+	'CharacterTool/TransformPanel.h'
+	]
+
+def build(bld):	
+
+	bld.CryPlugin(
+		target      = 'EditorAnimation',
+		vs_filter   = 'Sandbox/Plugins',
+		file_list   = 'editoranimation.waf_files',		
+
+		features        = 'qt',		
+		includes        = 'GeneratedFiles',						
+		libpath         = Path('Code/Sandbox/SDKs/OpenCollada/COLLADAStreamWriter/lib/win/Win32/Release'),
+		qt_to_moc_files = QT_TO_MOC_FILES,
+		use             = 'EditorCommon'
+	)

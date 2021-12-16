@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source\Core">
+      <UniqueIdentifier>{6e062e1b-b127-417a-b3c5-01d12c13ecd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Core\Server">
+      <UniqueIdentifier>{49355166-e04a-479d-837c-153a457aaf54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Core\tinyxml">
+      <UniqueIdentifier>{e86f18ab-fe7f-43b7-8703-467c7043ece8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Core\zlib">
+      <UniqueIdentifier>{d7f794a3-d236-4a41-906e-7893e8e6aedf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CrySCompileServer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Mailer.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\STLHelper.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Server\CrySimpleCache.cpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Server\CrySimpleErrorLog.cpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Server\CrySimpleJob.cpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Server\CrySimpleMutex.cpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Server\CrySimpleServer.cpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Server\CrySimpleSock.cpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Server\ShaderList.cpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\tinyxml\tinystr.cpp">
+      <Filter>Source\Core\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\tinyxml\tinyxml.cpp">
+      <Filter>Source\Core\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\tinyxml\tinyxmlerror.cpp">
+      <Filter>Source\Core\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\tinyxml\tinyxmlparser.cpp">
+      <Filter>Source\Core\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\tinyxml\xmltest.cpp">
+      <Filter>Source\Core\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\zlib\adler32.c">
+      <Filter>Source\Core\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\zlib\compress.c">
+      <Filter>Source\Core\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\zlib\crc32.c">
+      <Filter>Source\Core\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\zlib\deflate.c">
+      <Filter>Source\Core\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\zlib\gzio.c">
+      <Filter>Source\Core\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\zlib\infback.c">
+      <Filter>Source\Core\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\zlib\inffast.c">
+      <Filter>Source\Core\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\zlib\inflate.c">
+      <Filter>Source\Core\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\zlib\inftrees.c">
+      <Filter>Source\Core\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\zlib\trees.c">
+      <Filter>Source\Core\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\zlib\uncompr.c">
+      <Filter>Source\Core\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\zlib\zutil.c">
+      <Filter>Source\Core\zlib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\Common.h">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Error.hpp">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Mailer.h">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\MD5.hpp">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\StdTypes.hpp">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\STLHelper.hpp">
+      <Filter>Source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Server\CrySimpleCache.hpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Server\CrySimpleErrorLog.hpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Server\CrySimpleJob.hpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Server\CrySimpleMutex.hpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Server\CrySimpleServer.hpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Server\CrySimpleSock.hpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Server\ShaderList.hpp">
+      <Filter>Source\Core\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\tinyxml\tinystr.h">
+      <Filter>Source\Core\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\tinyxml\tinyxml.h">
+      <Filter>Source\Core\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\zlib\crc32.h">
+      <Filter>Source\Core\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\zlib\deflate.h">
+      <Filter>Source\Core\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\zlib\inffast.h">
+      <Filter>Source\Core\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\zlib\inffixed.h">
+      <Filter>Source\Core\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\zlib\inflate.h">
+      <Filter>Source\Core\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\zlib\inftrees.h">
+      <Filter>Source\Core\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\zlib\trees.h">
+      <Filter>Source\Core\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\zlib\zconf.h">
+      <Filter>Source\Core\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\zlib\zconf.in.h">
+      <Filter>Source\Core\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\zlib\zlib.h">
+      <Filter>Source\Core\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\zlib\zutil.h">
+      <Filter>Source\Core\zlib</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

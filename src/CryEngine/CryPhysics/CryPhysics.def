@@ -1,0 +1,4 @@
+EXPORTS
+	CreatePhysicalWorld    @1
+	ModuleInitISystem      @2
+	CryModuleGetMemoryInfo @8

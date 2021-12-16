@@ -1,0 +1,1244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Streams">
+      <UniqueIdentifier>{f797e297-cc4e-450c-b0b9-1d2949dc4601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Compression">
+      <UniqueIdentifier>{0f33721e-d868-4921-bc12-daa7f4b32437}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{4ab2e6da-f2d9-4352-8457-e4bfa2c7ce6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cryptography">
+      <UniqueIdentifier>{1e50fc41-e47f-4f56-b343-a21dacc2c913}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Context">
+      <UniqueIdentifier>{6003670c-14e6-4f3b-804e-44f3e5f514bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Context\History">
+      <UniqueIdentifier>{4359f359-c4bd-48a3-8e45-511b9914179f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Services">
+      <UniqueIdentifier>{e0871488-3dfa-4e6f-bf1b-133392bf0301}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VOIP">
+      <UniqueIdentifier>{96c10a60-2e3f-472d-9fcc-6ec41ed9dab3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdParty">
+      <UniqueIdentifier>{a6c8ff3c-e565-46b8-add1-4e7ee9ff3d3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdParty\Speex">
+      <UniqueIdentifier>{fdb0c004-805e-42fb-b92d-6f4b74c1fdd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdParty\Speex\Internal Headers">
+      <UniqueIdentifier>{4b5317ce-4b52-49f2-ba93-7645aea64458}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdParty\Speex\Code">
+      <UniqueIdentifier>{1b23fe61-1416-434b-bfbb-07d9520d37ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdParty\Speex\External headers">
+      <UniqueIdentifier>{ef0760c4-02a4-451d-8bc1-1eeaaaf80615}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdParty\BigDigits">
+      <UniqueIdentifier>{c1fe5361-ebde-4324-ab87-f25a17e78cd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug Kit">
+      <UniqueIdentifier>{6c89049e-4efe-404f-9f95-ea943ea35d22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RCon">
+      <UniqueIdentifier>{71a89743-ec39-48e0-b067-0e2c72aee97a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Http">
+      <UniqueIdentifier>{e07c67fb-90b4-4576-93db-ad97e3b0cbe1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Service: CryLAN">
+      <UniqueIdentifier>{15f8c925-2ec9-41db-950c-69c8542fb853}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Socket Library">
+      <UniqueIdentifier>{d6cfbfe7-690b-4272-a4e2-c5e3b820a715}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AntiCheat">
+      <UniqueIdentifier>{28616c11-e685-410e-8441-641f907c678d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol">
+      <UniqueIdentifier>{4959bdf0-a187-416d-a472-06fc335a0e89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lobby">
+      <UniqueIdentifier>{35a96825-8a41-4571-bd66-a9ab9770030b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lobby\LAN">
+      <UniqueIdentifier>{fc83c5a4-83dd-4960-98c9-254a6b48fbc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lobby\Live">
+      <UniqueIdentifier>{758a7705-d371-460d-ad14-688ff3a9f298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lobby\PSN">
+      <UniqueIdentifier>{e4347572-6949-4118-ab51-e4946658dbf8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Streams\ArithStream.h">
+      <Filter>Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="Streams\ByteStream.h">
+      <Filter>Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="Streams\CommStream.h">
+      <Filter>Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="Streams\CompressingStream.h">
+      <Filter>Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="Streams\SimpleInputStream.h">
+      <Filter>Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="Streams\SimpleOutputStream.h">
+      <Filter>Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="Streams\SimpleStreamDefs.h">
+      <Filter>Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\AdaptiveFloat.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\AdaptiveVelocity.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\ArithAlphabet.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\ArithModel.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\ArithPrimitives.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\BoolCompress.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\BoolCompress2.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\CompressionManager.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\GaussianEncoding.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\GaussianEncoding_SlotData.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\ICompressionPolicy.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\ICompressionPolicy2.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\IntegerValuePredictor.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\OwnChannelCompressionPolicy.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\Quantizer.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\RangedIntPolicy.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\SegmentedCompressionSpace.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\SerializationChunk.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\StationaryInteger.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="Compression\StringTable.h">
+      <Filter>Compression</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoFreeHandle.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="DistributedLogger.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Errors.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="FixedSizeArena.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="INetworkMember.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="MementoMemoryManager.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="NetCVars.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="NetLog.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="NetTimer.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Network.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="objcnt.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="objcnt_defs.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="PolymorphicQueue.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="STLMementoAllocator.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkQueue.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Cryptography\rijndael.h">
+      <Filter>Cryptography</Filter>
+    </ClInclude>
+    <ClInclude Include="Cryptography\StreamCipher.h">
+      <Filter>Cryptography</Filter>
+    </ClInclude>
+    <ClInclude Include="Cryptography\Whirlpool.h">
+      <Filter>Cryptography</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\Authentication.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\BreakagePlayback.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\CET_Server.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\ChangeList.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\ClientContextView.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\ContextEstablisher.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\ContextView.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\ContextViewStateManager.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\DemoDefinitions.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\DemoPlaybackListener.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\DemoRecordListener.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\IContextViewExtension.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\INetContextListener.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\NetContext.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\NetContextState.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\PeerContextView.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\RMILogger.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\ServerContextView.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\SessionID.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\SyncContext.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\SyncedFile.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\SyncedFilePak.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\SyncedFileSet.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\UpdateAspectDataContext.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\UpdateMessage.h">
+      <Filter>Context</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\History\AuthorityHistory.h">
+      <Filter>Context\History</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\History\ConfigurationHistory.h">
+      <Filter>Context\History</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\History\History.h">
+      <Filter>Context\History</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\History\MementoHistory.h">
+      <Filter>Context\History</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\History\ProfileHistory.h">
+      <Filter>Context\History</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\History\RegularlySyncedItem.h">
+      <Filter>Context\History</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\NetworkACL\NetProfileTokens.h">
+      <Filter>Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\ServiceManager.h">
+      <Filter>Services</Filter>
+    </ClInclude>
+    <ClInclude Include="VOIP\IVoiceDecoder.h">
+      <Filter>VOIP</Filter>
+    </ClInclude>
+    <ClInclude Include="VOIP\IVoiceEncoder.h">
+      <Filter>VOIP</Filter>
+    </ClInclude>
+    <ClInclude Include="VOIP\IVoicePacketListener.h">
+      <Filter>VOIP</Filter>
+    </ClInclude>
+    <ClInclude Include="Context\VoiceContext.h">
+      <Filter>VOIP</Filter>
+    </ClInclude>
+    <ClInclude Include="VOIP\VoiceManager.h">
+      <Filter>VOIP</Filter>
+    </ClInclude>
+    <ClInclude Include="VOIP\VoicePacket.h">
+      <Filter>VOIP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\_kiss_fft_guts.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\arch.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\cb_search.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\cb_search_arm4.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\cb_search_bfin.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\cb_search_sse.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\fftwrap.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\filters.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\filters_arm4.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\filters_bfin.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\filters_sse.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\fixed_arm4.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\fixed_arm5e.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\fixed_bfin.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\fixed_debug.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\fixed_generic.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\kiss_fft.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\kiss_fftr.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\lpc.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\lpc_bfin.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\lsp.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\lsp_bfin.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\ltp.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\ltp_arm4.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\ltp_bfin.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\ltp_sse.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\math_approx.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\misc.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\misc_bfin.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\modes.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\nb_celp.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\pseudofloat.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\quant_lsp.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\quant_lsp_bfin.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\sb_celp.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\smallft.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\stack_alloc.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\vbr.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\vorbis_psy.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\vq.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\vq_arm4.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\vq_bfin.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\libspeex\vq_sse.h">
+      <Filter>3rdParty\Speex\Internal Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\include\speex.h">
+      <Filter>3rdParty\Speex\External headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\include\speex_bits.h">
+      <Filter>3rdParty\Speex\External headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\include\speex_callbacks.h">
+      <Filter>3rdParty\Speex\External headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\include\speex_header.h">
+      <Filter>3rdParty\Speex\External headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\Speex\include\speex_stereo.h">
+      <Filter>3rdParty\Speex\External headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\BigDigits\bigd.h">
+      <Filter>3rdParty\BigDigits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\BigDigits\bigdigits.h">
+      <Filter>3rdParty\BigDigits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\BigDigits\bigdRand.h">
+      <Filter>3rdParty\BigDigits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SDKs\BigDigits\spRandom.h">
+      <Filter>3rdParty\BigDigits</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugKit\DebugKit.h">
+      <Filter>Debug Kit</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugKit\DebugOutput.h">
+      <Filter>Debug Kit</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugKit\Encoding.h">
+      <Filter>Debug Kit</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugKit\NetVis.h">
+      <Filter>Debug Kit</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugKit\NetworkInspector.h">
+      <Filter>Debug Kit</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugKit\ServerProfiler.h">
+      <Filter>Debug Kit</Filter>
+    </ClInclude>
+    <ClInclude Include="RemoteControl\Protocol.h">
+      <Filter>RCon</Filter>
+    </ClInclude>
+    <ClInclude Include="RemoteControl\RemoteControl.h">
+      <Filter>RCon</Filter>
+    </ClInclude>
+    <ClInclude Include="Http\AutoConfigDownloader.h">
+      <Filter>Http</Filter>
+    </ClInclude>
+    <ClInclude Include="Http\SimpleHttpServer.h">
+      <Filter>Http</Filter>
+    </ClInclude>
+    <ClInclude Include="Services\CryLAN\LanQueryListener.h">
+      <Filter>Service: CryLAN</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\CompositeDatagramSocket.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\IDatagramSocket.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\InternetSimulatorSocket.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\ISocketIOManager.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\IStreamSocket.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\LocalDatagramSocket.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\NetAddress.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\SocketError.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\SocketIOManager360.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\SocketIOManagerIOCP.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\SocketIOManagerNull.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\SocketIOManagerSelect.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\TCPStreamSocket.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\UDPDatagramSocket.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Socket\WatchdogTimer.h">
+      <Filter>Socket Library</Filter>
+    </ClInclude>
+    <ClInclude Include="AntiCheat\DefenceContext.h">
+      <Filter>AntiCheat</Filter>
+    </ClInclude>
+    <ClInclude Include="AntiCheat\DefenceData.h">
+      <Filter>AntiCheat</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\CTPEndpoint.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\ExponentialKeyExchange.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\FrameTypes.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\ICTPEndpointListener.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\INubMember.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\MessageMapper.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\MessageQueue.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\NetChannel.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\NetNub.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\NullSendable.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\PacketRateCalculator.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\PMTUDiscovery.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\Serialize.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol\StatsCollector.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\CryLobby.h">
+      <Filter>Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\CryMatchMaking.h">
+      <Filter>Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\CryRebroadcaster.h">
+      <Filter>Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\CryStats.h">
+      <Filter>Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\CryTelemetry.h">
+      <Filter>Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\CryVoice.h">
+      <Filter>Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\LAN\CryLANLobby.h">
+      <Filter>Lobby\LAN</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\LAN\CryLANMatchMaking.h">
+      <Filter>Lobby\LAN</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\Live\CryXLSPTelemetry.h">
+      <Filter>Lobby\Live</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\PSN\CryPSNLobby.h">
+      <Filter>Lobby\PSN</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\PSN\CryPSNMatchMaking.h">
+      <Filter>Lobby\PSN</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\PSN\CryPSNSessionSupport.h">
+      <Filter>Lobby\PSN</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\PSN\CryPSNSupport.h">
+      <Filter>Lobby\PSN</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby\PSN\CryPSNVoice.h">
+      <Filter>Lobby\PSN</Filter>
+    </ClInclude>
+    <ClInclude Include="NetProfile.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Streams\ByteStream.cpp">
+      <Filter>Streams</Filter>
+    </ClCompile>
+    <ClCompile Include="Streams\CompressingStream.cpp">
+      <Filter>Streams</Filter>
+    </ClCompile>
+    <ClCompile Include="Streams\SimpleInputStream.cpp">
+      <Filter>Streams</Filter>
+    </ClCompile>
+    <ClCompile Include="Streams\SimpleOutputStream.cpp">
+      <Filter>Streams</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\AdaptiveBoolPolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\AdaptiveBoolPolicy2.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\AdaptiveFloat.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\AdaptiveFloatPolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\AdaptiveOrientationPolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\AdaptiveUnitVec3Policy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\AdaptiveVec3Policy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\AdaptiveVelocity.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\AdaptiveVelocityPolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\ArithAlphabet.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\ArithModel.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\ArithPrimitives.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\BiggerOrSmallerPolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\BoolCompress.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\BoolCompress2.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\CompressionManager.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\DefaultPolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\EntityIdPolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\FloatAsIntPolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\GaussianEncoding.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\IntegerValuePredictor.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\JumpyPolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\NoSendPolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\OwnChannelCompressionPolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\QuantizedVec3.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\Quantizer.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\RangedIntPolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\SegmentedCompressionSpace.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\SerializationChunk.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\StationaryInteger.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\StringTable.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\StringTablePolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\TimePolicy.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="Compression\Vec3TableCompressor.cpp">
+      <Filter>Compression</Filter>
+    </ClCompile>
+    <ClCompile Include="CryNetwork.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="DistributedLogger.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="MementoMemoryManager.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="NetCVars.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="NetLog.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="NetTimer.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Network.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkQueue.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Cryptography\rijndael.cpp">
+      <Filter>Cryptography</Filter>
+    </ClCompile>
+    <ClCompile Include="Cryptography\StreamCipher.cpp">
+      <Filter>Cryptography</Filter>
+    </ClCompile>
+    <ClCompile Include="Cryptography\Whirlpool.cpp">
+      <Filter>Cryptography</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\Authentication.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\BreakagePlayback.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\CET_Server.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\ClientContextView.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\ContextEstablisher.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\ContextView.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\ContextViewStateManager.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\DemoPlaybackListener.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\DemoRecordListener.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\NetContext.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\NetContextState.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\PeerContextView.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\ServerContextView.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\SessionID.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\SyncedFile.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\SyncedFilePak.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\SyncedFileSet.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\UpdateAspectDataContext.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\UpdateMessage.cpp">
+      <Filter>Context</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\History\AuthorityHistory.cpp">
+      <Filter>Context\History</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\History\ConfigurationHistory.cpp">
+      <Filter>Context\History</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\History\History.cpp">
+      <Filter>Context\History</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\History\MementoHistory.cpp">
+      <Filter>Context\History</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\History\ProfileHistory.cpp">
+      <Filter>Context\History</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\History\RegularlySyncedItem.cpp">
+      <Filter>Context\History</Filter>
+    </ClCompile>
+    <ClCompile Include="Services\NetworkACL\NetProfileTokens.cpp">
+      <Filter>Services</Filter>
+    </ClCompile>
+    <ClCompile Include="Services\ServiceManager.cpp">
+      <Filter>Services</Filter>
+    </ClCompile>
+    <ClCompile Include="VOIP\IVoiceDecoder.cpp">
+      <Filter>VOIP</Filter>
+    </ClCompile>
+    <ClCompile Include="VOIP\IVoiceEncoder.cpp">
+      <Filter>VOIP</Filter>
+    </ClCompile>
+    <ClCompile Include="VOIP\SpeexCodec.cpp">
+      <Filter>VOIP</Filter>
+    </ClCompile>
+    <ClCompile Include="Context\VoiceContext.cpp">
+      <Filter>VOIP</Filter>
+    </ClCompile>
+    <ClCompile Include="VOIP\VoiceManager.cpp">
+      <Filter>VOIP</Filter>
+    </ClCompile>
+    <ClCompile Include="VOIP\VoicePacket.cpp">
+      <Filter>VOIP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\bits.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\cb_search.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\exc_10_16_table.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\exc_10_32_table.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\exc_20_32_table.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\exc_5_256_table.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\exc_5_64_table.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\exc_8_128_table.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\fftwrap.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\filters.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\gain_table.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\gain_table_lbr.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\hexc_10_32_table.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\hexc_table.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\high_lsp_tables.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\jitter.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\kiss_fft.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\kiss_fftr.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\lbr_48k_tables.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\lpc.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\lsp.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\lsp_tables_nb.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\ltp.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\math_approx.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\mdf.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\misc.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\modes.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\nb_celp.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\preprocess.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\quant_lsp.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\sb_celp.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\smallft.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\speex.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\speex_callbacks.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\speex_header.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\stereo.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\vbr.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\vorbis_psy.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\vq.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\Speex\libspeex\window.c">
+      <Filter>3rdParty\Speex\Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\BigDigits\bigd.c">
+      <Filter>3rdParty\BigDigits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\BigDigits\bigdigits.c">
+      <Filter>3rdParty\BigDigits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\BigDigits\bigdRand.c">
+      <Filter>3rdParty\BigDigits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\BigDigits\spBigdigits.c">
+      <Filter>3rdParty\BigDigits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SDKs\BigDigits\spRandom.c">
+      <Filter>3rdParty\BigDigits</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugKit\DebugKit.cpp">
+      <Filter>Debug Kit</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugKit\DebugOutput.cpp">
+      <Filter>Debug Kit</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugKit\Encoding.cpp">
+      <Filter>Debug Kit</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugKit\NetVis.cpp">
+      <Filter>Debug Kit</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugKit\NetworkInspector.cpp">
+      <Filter>Debug Kit</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugKit\ServerProfiler.cpp">
+      <Filter>Debug Kit</Filter>
+    </ClCompile>
+    <ClCompile Include="RemoteControl\RemoteControl.cpp">
+      <Filter>RCon</Filter>
+    </ClCompile>
+    <ClCompile Include="Http\AutoConfigDownloader.cpp">
+      <Filter>Http</Filter>
+    </ClCompile>
+    <ClCompile Include="Http\SimpleHttpServer.cpp">
+      <Filter>Http</Filter>
+    </ClCompile>
+    <ClCompile Include="Services\CryLAN\LanQueryListener.cpp">
+      <Filter>Service: CryLAN</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\CompositeDatagramSocket.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\IDatagramSocket.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\InternetSimulatorSocket.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\ISocketIOManager.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\IStreamSocket.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\LocalDatagramSocket.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\NetAddress.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\SocketError.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\SocketIOManager360.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\SocketIOManagerIOCP.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\SocketIOManagerSelect.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\TCPStreamSocket.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\UDPDatagramSocket.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket\WatchdogTimer.cpp">
+      <Filter>Socket Library</Filter>
+    </ClCompile>
+    <ClCompile Include="AntiCheat\DefenceContext.cpp">
+      <Filter>AntiCheat</Filter>
+    </ClCompile>
+    <ClCompile Include="AntiCheat\DefenceData.cpp">
+      <Filter>AntiCheat</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\CTPEndpoint.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\ExponentialKeyExchange.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\FrameTypes.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\MessageMapper.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\MessageQueue.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\NetChannel.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\NetNub.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\NullSendable.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\PacketRateCalculator.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\PMTUDiscovery.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\Serialize.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\StatsCollector.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\CryLobby.cpp">
+      <Filter>Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\CryMatchMaking.cpp">
+      <Filter>Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\CryRebroadcaster.cpp">
+      <Filter>Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\CryStats.cpp">
+      <Filter>Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\CryTelemetry.cpp">
+      <Filter>Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\CryVoice.cpp">
+      <Filter>Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\LAN\CryLANLobby.cpp">
+      <Filter>Lobby\LAN</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\LAN\CryLANMatchMaking.cpp">
+      <Filter>Lobby\LAN</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\Live\CryLiveLobby.cpp">
+      <Filter>Lobby\Live</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\Live\CryLiveMatchMaking.cpp">
+      <Filter>Lobby\Live</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\Live\CryLiveStats.cpp">
+      <Filter>Lobby\Live</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\Live\CryLiveVoice.cpp">
+      <Filter>Lobby\Live</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\Live\CryXLSPTelemetry.cpp">
+      <Filter>Lobby\Live</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\PSN\CryPSNLobby.cpp">
+      <Filter>Lobby\PSN</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\PSN\CryPSNMatchMaking.cpp">
+      <Filter>Lobby\PSN</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\PSN\CryPSNSessionSupport.cpp">
+      <Filter>Lobby\PSN</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\PSN\CryPSNSupport.cpp">
+      <Filter>Lobby\PSN</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby\PSN\CryPSNVoice.cpp">
+      <Filter>Lobby\PSN</Filter>
+    </ClCompile>
+    <ClCompile Include="NetProfile.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CryNetwork.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuildStep Include="Lobby\Live\CryLiveLobby.h">
+      <Filter>Lobby\Live</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="Lobby\Live\CryLiveMatchMaking.h">
+      <Filter>Lobby\Live</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="Lobby\Live\CryLiveStats.h">
+      <Filter>Lobby\Live</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="Lobby\Live\CryLiveVoice.h">
+      <Filter>Lobby\Live</Filter>
+    </CustomBuildStep>
+  </ItemGroup>
+</Project>

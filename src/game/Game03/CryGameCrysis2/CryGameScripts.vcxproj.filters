@@ -1,0 +1,3298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{0c166b95-4f6f-4ebf-88ed-68f10c7cff6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\PerformanceTests">
+      <UniqueIdentifier>{a7bf9a2d-3182-49e0-a49a-98ad36aab707}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI">
+      <UniqueIdentifier>{36947ff3-2c8b-4891-ba54-ad52ab738f6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Communication">
+      <UniqueIdentifier>{ca0e07f2-c3e7-46bd-a932-cb610572aa07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Coordination">
+      <UniqueIdentifier>{3ef758d4-a5e8-43f8-a607-cf3969850ff4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors">
+      <UniqueIdentifier>{59cb32e4-1032-4871-b1af-81670c42321d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Aliens">
+      <UniqueIdentifier>{85277224-23a6-436a-a43c-a3ce86e15687}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Aliens\Guard">
+      <UniqueIdentifier>{7e8f9b31-6d46-48d5-8985-2257ada9e4ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Aliens\Hunter">
+      <UniqueIdentifier>{2fa9a11e-e9f0-4aad-9730-321db7990b52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Aliens\Scout">
+      <UniqueIdentifier>{54daff28-2a0f-40be-8a61-6448f210c9a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Aliens\ScoutMOAC">
+      <UniqueIdentifier>{1254f993-3ad3-426d-ba5b-86de1d938d12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Aliens\Trooper">
+      <UniqueIdentifier>{08af6544-1db6-4d54-b888-a365a3742580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Aliens\Warrior">
+      <UniqueIdentifier>{4f9cc4c4-8b47-4747-bdc0-3c9a00e7a2c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\NewAliens">
+      <UniqueIdentifier>{451420eb-40d4-4add-8986-6e4859d9ea38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\NewAliens\AlienGrunt">
+      <UniqueIdentifier>{d45fe394-ec35-4b72-aa33-d434b596df02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\NewAliens\AlienHeavy">
+      <UniqueIdentifier>{ef968066-6afd-4172-a816-5fe0b8ca9f2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\NewAliens\AlienPinger">
+      <UniqueIdentifier>{3320e648-f40a-4b62-b5a6-35b4da901504}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\NewAliens\AlienStalker">
+      <UniqueIdentifier>{d41e2f17-6e4b-4ed4-849c-21e9818d235c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\NewAliens\AlienTick">
+      <UniqueIdentifier>{7fbcffaa-4ca7-4d64-92de-7d0e9cf9e5bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\NewHumans">
+      <UniqueIdentifier>{849a639d-5b4f-43aa-a3c4-e28b17c404aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\NewHumans\HumanGrunt">
+      <UniqueIdentifier>{163fe25f-9ad8-4ef7-a4aa-d699ba5d71e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination">
+      <UniqueIdentifier>{b0d9b034-7999-4b7f-b856-4a28ebc1df30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\Assault">
+      <UniqueIdentifier>{150b3d60-8cdb-4112-8d8c-e205f550a50f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\FriendlyDeath">
+      <UniqueIdentifier>{cf221734-d397-4749-b3e3-7c6a90611cf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities">
+      <UniqueIdentifier>{8f6f45cc-b523-41cb-b955-56f328f636df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\Camper">
+      <UniqueIdentifier>{792d01e0-7709-41e5-8b54-f8ae475c8136}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\Cover2">
+      <UniqueIdentifier>{f3614172-2166-42ca-90f5-3c4531ca6c6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\Cover3">
+      <UniqueIdentifier>{1e46d40c-e095-42d4-8ac9-c5fb2c901448}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\CoverUser">
+      <UniqueIdentifier>{8d432531-34ed-4cbb-91a3-7047a9e1041b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\demo">
+      <UniqueIdentifier>{1e7721ee-d129-46a9-9c7d-0424071638bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\Drone">
+      <UniqueIdentifier>{7b04a127-7d2b-428a-8a42-a636600786b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\FollowerNPC">
+      <UniqueIdentifier>{9b7b6e9a-7712-499a-8fe9-374eeb6230bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\FriendlyNPC">
+      <UniqueIdentifier>{ff310c54-7482-4e65-91ed-1760723c7a7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\Harvester">
+      <UniqueIdentifier>{767bccac-ecbe-47a4-90d8-90c8eaf63c3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\HumanBase">
+      <UniqueIdentifier>{9d52c3d7-0136-4713-9aea-b3ba9d9028a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\Player">
+      <UniqueIdentifier>{0d656606-674e-4747-93d6-8bdf0f00e876}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\SHARED">
+      <UniqueIdentifier>{dbfb953c-696b-4c39-bfcf-6e519f78ddce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\SHARED\Combat">
+      <UniqueIdentifier>{2496126d-08e2-4745-917d-3f814c2deea7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\SHARED\InVehicle">
+      <UniqueIdentifier>{b76c5a3f-d0e0-43dc-8e10-bfce4afdb549}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\SHARED\Jobs">
+      <UniqueIdentifier>{8db58d02-139f-4745-9a73-43498fd96ab0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\SHARED\Other">
+      <UniqueIdentifier>{fc434e1f-bad7-406f-bde9-01a15e184a47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\Sneaker">
+      <UniqueIdentifier>{7fa518f1-31e9-4ef5-8070-576bcb9fb851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\Spotter">
+      <UniqueIdentifier>{c2c04068-fc70-4349-904c-8383ec545ba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\Suit">
+      <UniqueIdentifier>{94bd03d5-02aa-484e-9e2d-76314d33feb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\SuitBoss">
+      <UniqueIdentifier>{3553b153-e9d5-432b-af9c-37ff79b8b27d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\SuitHurricane">
+      <UniqueIdentifier>{2663b635-9100-4f1d-bdad-40e505e5dcc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\SuitSniper">
+      <UniqueIdentifier>{776d284e-d3f7-4e93-8eb7-dba94e300ba2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\TeamLeaders">
+      <UniqueIdentifier>{5d43195a-dbaf-4f45-afba-66163e81e903}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\Personalities\WatchTowerGuard">
+      <UniqueIdentifier>{beaa7c59-cc03-4949-bebe-d71df533dcca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\VEHICLES">
+      <UniqueIdentifier>{7f765058-9300-4ec7-814f-d2286652cba1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\VEHICLES\AAA">
+      <UniqueIdentifier>{04394a5a-25ae-45cb-9aeb-6709fbec67f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\VEHICLES\APC">
+      <UniqueIdentifier>{1d75baf5-2867-42d1-99c5-25d677ef554e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\VEHICLES\BOAT">
+      <UniqueIdentifier>{4ed89dbf-3b57-4ee0-9518-0cc187d384a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\VEHICLES\CAR">
+      <UniqueIdentifier>{3e73cdff-2758-4e93-a676-2681749cbc54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\VEHICLES\HELIAGGRESSIVE">
+      <UniqueIdentifier>{d0b214d9-b252-4c98-87fb-2e300e103650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\VEHICLES\HELICOPTER">
+      <UniqueIdentifier>{4decccdf-e288-45d9-aba9-942f144ed41a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\VEHICLES\PATROLBOAT">
+      <UniqueIdentifier>{4ce03865-9b45-47ff-8c5c-06dfa460a63a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\VEHICLES\TANK">
+      <UniqueIdentifier>{27f0904d-93aa-4a96-8b0b-37c89d88a6d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\VEHICLES\TANKCLOSE">
+      <UniqueIdentifier>{cbdbdde4-8bb8-49d8-974b-16071ed60aca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\VEHICLES\TANKFIXED">
+      <UniqueIdentifier>{d358e6d9-5006-42ef-b572-88a92043f7ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\VEHICLES\VTOL">
+      <UniqueIdentifier>{ac5d71c8-e0e1-4c32-a7ce-e628920844b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Behaviors\VEHICLES\WARRIOR">
+      <UniqueIdentifier>{6384491c-047c-4823-8461-e9cf1102d1f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Characters">
+      <UniqueIdentifier>{da3a6c59-84c5-4038-8ed4-2252718b000b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Characters\Aliens">
+      <UniqueIdentifier>{ede7ef0c-48f3-487c-ae14-b1d9376e48ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Characters\NewAliens">
+      <UniqueIdentifier>{f5eeb487-9923-4eec-a69a-1dff9d742c86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Characters\NewHumans">
+      <UniqueIdentifier>{f4cfed1d-0493-4e86-a4ec-e5ea6cbcfa71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Characters\Personalities">
+      <UniqueIdentifier>{4215c49b-d71d-43af-affa-f0ffa8b6a7f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Characters\VEHICLES">
+      <UniqueIdentifier>{575e0d8c-8e81-4a40-8321-02a5e0102b5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Formations">
+      <UniqueIdentifier>{29fad373-59c0-4abc-a506-621baa66fb6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\GoalPipes">
+      <UniqueIdentifier>{49d081f3-4da0-4e26-abfa-260a85a4b789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Logic">
+      <UniqueIdentifier>{8ce6270a-45e2-4b03-a19b-7ccfdd486d89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Packs">
+      <UniqueIdentifier>{9cfe9c37-52b0-48fc-bd51-e01a692f3973}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\Packs\Animation">
+      <UniqueIdentifier>{76aa7a42-76c4-44e3-b963-708a62ecbbc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\AI\TPS">
+      <UniqueIdentifier>{7feefdc7-f9bb-4d87-a822-3032dde83a37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\BehaviorTree">
+      <UniqueIdentifier>{b1df4b5e-f5b7-42f0-832a-9d46a6a4d625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\BehaviorTree\ActivationConditions">
+      <UniqueIdentifier>{7afedd76-39d9-4835-9977-981c7a32f587}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\BehaviorTree\Profiles">
+      <UniqueIdentifier>{3bacd531-965e-40f4-b409-2cb6e5e30e59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\BehaviorTree\Trees">
+      <UniqueIdentifier>{0db9caa4-d2c9-4fa3-83c6-5df037f932f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities">
+      <UniqueIdentifier>{240d9320-4c94-41eb-b411-e77c2046add4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\actor">
+      <UniqueIdentifier>{47f731ee-5061-43b2-be0f-a8bddc3002a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\actor\Parameters">
+      <UniqueIdentifier>{6f8a7d33-d1ce-4490-b32c-419d773627f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\AI">
+      <UniqueIdentifier>{83bcc358-eac7-458b-a043-1dae9ea72814}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\AI\Aliens">
+      <UniqueIdentifier>{95af3dcd-ae14-4e0e-9cd4-51731f626218}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\AI\Misc">
+      <UniqueIdentifier>{c8d37998-ed2e-4567-b6d5-54968c5fea59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\AI\NewAliens">
+      <UniqueIdentifier>{3c5c5925-b367-4379-9c2e-53df9c2b98c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\AI\NewHumans">
+      <UniqueIdentifier>{4fd97dfa-b884-4de0-9ead-19eee0d1012c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\AI\Prototype">
+      <UniqueIdentifier>{88c33246-4538-4322-b7d6-bc582548a571}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\AI\Shared">
+      <UniqueIdentifier>{31b695b3-868a-49c4-a329-4b47d47f5cba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\AISpawners">
+      <UniqueIdentifier>{7696b831-d14b-42af-9a72-0fbe1ac4e765}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Boids">
+      <UniqueIdentifier>{42ea094e-a616-4e04-98bc-49d4c026f1f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\ContextualNavigation">
+      <UniqueIdentifier>{24215cb2-1347-40da-a2a9-839768379e26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Default">
+      <UniqueIdentifier>{f00ecff6-b6e6-4db5-bbdf-f7703f108287}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Doors">
+      <UniqueIdentifier>{8d896286-bfa5-4b8f-bf3b-59781e9de79c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Elevators">
+      <UniqueIdentifier>{a6c55cc2-97cb-486a-acae-2a3304af8178}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Environment">
+      <UniqueIdentifier>{674068f7-edfa-4994-8f56-f84e2e6d70f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\HUD">
+      <UniqueIdentifier>{4f7a1b21-f6b6-4e04-ad72-a9fadbbdeeae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items">
+      <UniqueIdentifier>{d7a4451a-61ce-477b-b606-59b9b09dd846}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items\Crysis2">
+      <UniqueIdentifier>{5ba076f8-1747-455c-81ac-6fa207e53f70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items\Crysis2\Accessories">
+      <UniqueIdentifier>{21350623-3f7b-486c-8cbb-ae37027e24a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items\Crysis2\Ammo">
+      <UniqueIdentifier>{2c309ce4-36da-4b6f-8392-95b264e9acae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items\Crysis2\Ammo\Aliens">
+      <UniqueIdentifier>{6518826e-52cd-4183-b067-1356957f7b93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items\Crysis2\Ammo\Humans">
+      <UniqueIdentifier>{ed98da47-8c73-4f67-aaf8-bfb184b353cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items\Crysis2\Ammo\Perks">
+      <UniqueIdentifier>{51b72da4-40e6-427b-9cf5-fa1d828adc6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items\Crysis2\Ammo\Vehicles">
+      <UniqueIdentifier>{21203d02-3eee-4c86-9048-7d0d47742ed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items\Crysis2\Gamemodes">
+      <UniqueIdentifier>{1558dc4a-7624-4f01-b8a4-11d160a7ed3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items\Crysis2\Weapons">
+      <UniqueIdentifier>{235cd079-412b-4a26-af0f-196a65ba676c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items\Crysis2\Weapons\Aliens">
+      <UniqueIdentifier>{dce520d2-67a9-4b1c-a006-a2abfbcfe52e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items\Crysis2\Weapons\Debug">
+      <UniqueIdentifier>{a5c90d77-8d84-4e4f-9231-a50be7c5a4b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items\Crysis2\Weapons\Humans">
+      <UniqueIdentifier>{b3492367-3e03-4b9a-8b89-4e10f252840a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Items\Crysis2\Weapons\Vehicles">
+      <UniqueIdentifier>{4473d3de-d354-4dd9-92ef-f0c9444e6959}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Lights">
+      <UniqueIdentifier>{eea36cd3-f4fe-469f-9138-d5bff410d6b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Multiplayer">
+      <UniqueIdentifier>{ac693cd7-c550-49cd-ab23-0ec5d5b03866}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\NanoSuit">
+      <UniqueIdentifier>{a618d613-0ecd-475c-b3ee-efa9f50e2fdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Others">
+      <UniqueIdentifier>{32211e94-fd58-473b-bb17-621e3cc65018}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Particle">
+      <UniqueIdentifier>{b51f033b-fddf-412e-bfa0-e47a42b4bdc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Physics">
+      <UniqueIdentifier>{788c189c-88ae-44f8-aa42-1d339098350f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\PlayerInteractive">
+      <UniqueIdentifier>{8e94bcbb-caeb-41e5-85e7-95a5584d779a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Render">
+      <UniqueIdentifier>{a0232911-f12b-44c8-b1ff-5e3670157ff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Sound">
+      <UniqueIdentifier>{b9fbc89c-93b2-4cee-82df-ef4fbd8fc9af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Triggers">
+      <UniqueIdentifier>{76de4d7c-8470-439f-9483-1e68bfde4247}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Vehicles">
+      <UniqueIdentifier>{16b5a676-0e0c-4f23-bfaa-0dd1f0456479}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Vehicles\DamagesTemplates">
+      <UniqueIdentifier>{6e1568fe-5214-40fb-812d-4b7e7fa4af2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Vehicles\Implementations">
+      <UniqueIdentifier>{bdf8b513-a4c7-4e0f-99e7-80f82945abd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Vehicles\Implementations\Xml">
+      <UniqueIdentifier>{febd3232-8deb-4545-898c-c3035e56e558}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\Vehicles\Lights">
+      <UniqueIdentifier>{76dd53ab-37de-4a92-8f5d-716828768bd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\ZeroG">
+      <UniqueIdentifier>{7b2ce79c-5747-4621-bd96-46a3ec1afbdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Entities\_Archive">
+      <UniqueIdentifier>{9d5a3cc8-8043-451d-b0f5-f35342e7a82f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Expressions">
+      <UniqueIdentifier>{fb055c45-4717-431e-8c45-e6a8d54a8446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\FeatureTests">
+      <UniqueIdentifier>{149d939c-a840-4768-a51b-ef32be60ec4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\FlowNodes">
+      <UniqueIdentifier>{99314914-0152-4789-887b-350fdb1d41ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\FrontEnd">
+      <UniqueIdentifier>{ffb83c0f-490f-480c-8de7-baae915fe63a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\GameRules">
+      <UniqueIdentifier>{6735e13b-13e1-4088-ae76-43a0f821e3ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\HUD">
+      <UniqueIdentifier>{2081ab5b-56f2-49cf-aff2-df1c88d89362}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Network">
+      <UniqueIdentifier>{4e634cea-ee7a-45c8-bd0e-4ca55868ab2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\old">
+      <UniqueIdentifier>{a07c41a6-ee9b-4939-aa43-1c48469257b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\old\UI">
+      <UniqueIdentifier>{cd109aa5-fd1e-4570-ab33-eb0ed9504ff5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\PerkInfo">
+      <UniqueIdentifier>{0fcdfa1e-d2b2-4772-ac23-c867f88f37fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Progression">
+      <UniqueIdentifier>{03797618-0fe5-47e0-9f33-574a6e9f3a79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Sounds">
+      <UniqueIdentifier>{61e45dce-ffb8-41f5-8852-9f8bc7e19136}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\UI">
+      <UniqueIdentifier>{db331b2a-508a-4802-ba5f-27cc227743d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Utils">
+      <UniqueIdentifier>{734cfda6-eb13-4157-be43-31e87cd2b7e9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\GameCrysis2\Scripts\AnimPrototyping.xml">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BALANCING.lua">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\callbacks.txt">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\common.lua">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FontColors.txt">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\gameCodeCoverage.xml">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\lua_funcs.txt">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\main.lua">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Map.lua">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\physics.lua">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\saveutils.lua">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Shooter.xml">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\TransitionTableSample.xml">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Tweaks.lua">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\TweaksConfig.lua">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\TweakSystem.lua">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\PerformanceTests\pier_flycam.cfg">
+      <Filter>Scripts\PerformanceTests</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\PerformanceTests\pier_flycam_addplayers.cfg">
+      <Filter>Scripts\PerformanceTests</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\PerformanceTests\pier_stresstest.cfg">
+      <Filter>Scripts\PerformanceTests</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\aiconfig.lua">
+      <Filter>Scripts\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Anchor.lua">
+      <Filter>Scripts\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\lookup.xml">
+      <Filter>Scripts\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\pathfindProperties.lua">
+      <Filter>Scripts\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\PerceptionConfigurations.xml">
+      <Filter>Scripts\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\TacticalPositionManager.lua">
+      <Filter>Scripts\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Communication\BasicCommunications.xml">
+      <Filter>Scripts\AI\Communication</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Communication\ChannelConfig.xml">
+      <Filter>Scripts\AI\Communication</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Coordination\Alerted.xml">
+      <Filter>Scripts\AI\Coordination</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Coordination\Combat.xml">
+      <Filter>Scripts\AI\Coordination</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Coordination\Coordination.lua">
+      <Filter>Scripts\AI\Coordination</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Coordination\GroupMemberDeath.xml">
+      <Filter>Scripts\AI\Coordination</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\ai.lua">
+      <Filter>Scripts\AI\Behaviors</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\AIBehaviour.lua">
+      <Filter>Scripts\AI\Behaviors</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\DEFAULT.lua">
+      <Filter>Scripts\AI\Behaviors</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Template.lua">
+      <Filter>Scripts\AI\Behaviors</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\GUARDDEFAULT.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\SCOUTDEFAULT.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\TROOPERDEFAULT.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Guard\GuardDumb.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Guard</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Guard\GuardNeueCombat.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Guard</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Guard\GuardNeueIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Guard</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Hunter\HunterAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Hunter</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Hunter\HunterIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Hunter</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Hunter\HunterPatrol.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Hunter</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Scout\ScoutAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Scout</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Scout\ScoutIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Scout</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Scout\ScoutRecoil.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Scout</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Scout\ScoutSearch.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Scout</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\ScoutMOAC\ScoutMOACAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\ScoutMOAC</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\ScoutMOAC\ScoutMOACDefault.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\ScoutMOAC</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\ScoutMOAC\ScoutMOACIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\ScoutMOAC</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\ScoutMOAC\ScoutMOACPatrol.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\ScoutMOAC</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrGroupCoverSearch.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrGroupSearch.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperAttackJump.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperAttackMelee.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperAttackMoar.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperAttackPursue.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperAttackSpecialAction.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperAttackSwitchPosition.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperAttackSwitchPositionMelee.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperDodge.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperDumb.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperFunctions.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperGrabbedByScout.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperInterested.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperSearch.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperShootOnRock.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperShootOnSpot.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperShootOnWall.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Trooper\TrooperThreatened.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Trooper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Aliens\Warrior\WarriorIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Aliens\Warrior</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienBaseBehavior.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntAlertedInvestigateInterested.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntAlertedInvestigateThreatened.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntCallReinforcements.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntCombatAssault.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntCombatFarRange.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntCombatInCover.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntCombatOptimalRange.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntCombatSearchApproach.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntCombatSearchScanner.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntCombatTargetObject.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntCombatUnderPressure.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntDefendCombat.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntDefendIdle.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntDefendInCover.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntDefendUnderPressure.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntForcedExecute.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienGrunt\AlienGruntIdle.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienHeavy\AlienHeavyAlertedInvestigateInterested.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienHeavy</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienHeavy\AlienHeavyAlertedInvestigateThreatened.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienHeavy</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienHeavy\AlienHeavyBaseBehavior.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienHeavy</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienHeavy\AlienHeavyCombatAssault.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienHeavy</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienHeavy\AlienHeavyCombatFarRange.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienHeavy</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienHeavy\AlienHeavyCombatMeleeCharge.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienHeavy</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienHeavy\AlienHeavyCombatOptimalRange.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienHeavy</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienHeavy\AlienHeavyCombatSearchApproach.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienHeavy</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienHeavy\AlienHeavyCombatSearchClose.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienHeavy</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienHeavy\AlienHeavyCombatTargetObject.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienHeavy</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienHeavy\AlienHeavyForcedExecute.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienHeavy</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienHeavy\AlienHeavyIdle.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienHeavy</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienPinger\PingerAlerted.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienPinger</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienPinger\PingerAttack.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienPinger</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienPinger\PingerBaseBehavior.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienPinger</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienPinger\PingerDamaged.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienPinger</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienPinger\PingerIdle.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienPinger</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienPinger\PingerLookAround.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienPinger</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienPinger\PingerPatrolArea.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienPinger</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerAlertedInvestigateInterested.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerAlertedInvestigateThreatened.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerCallReinforcements.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerCombatAggressive.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerCombatAssault.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerCombatFarRange.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerCombatMeleeAttack.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerCombatOptimalRange.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerCombatSearchApproach.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerCombatSearchVisor.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerCombatTargetObject.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerForcedExecute.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerIdle.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienStalker\AlienStalkerUnderPressure.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienStalker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienTick\AlienTickDeliverBiomass.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienTick</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewAliens\AlienTick\AlienTickIdle.lua">
+      <Filter>Scripts\AI\Behaviors\NewAliens\AlienTick</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanBaseBehavior.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntAlertedInvestigateInterested.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntAlertedInvestigateThreatened.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntAvoidImmediateThreat.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntCallReinforcements.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntCloseRange.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntCombatAssault.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntCombatFarRange.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntCombatInCover.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntCombatOptimalRange.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntCombatSearchApproach.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntCombatSearchScanner.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntCombatTargetObject.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntCombatUnderPressure.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntDefendCombat.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntDefendIdle.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntDefendInCover.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntDefendUnderPressure.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntForcedExecute.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntIdle.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntLowAmmo.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\HumanGruntUseMountedWeapon.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\HumanGruntCoverFire.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\HumanGruntFlankLeft.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\HumanGruntFlankRight.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\HumanGruntReload.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\HumanGruntThrowFlashGrenade.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\HumanGruntThrowFragGrenade.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\HumanGruntThrowSmokeGrenade.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\Assault\HumanGruntAssault.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\Assault</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\Assault\HumanGruntBaseOfFireCoverFire.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\Assault</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\Assault\HumanGruntBaseOfFireRelocate.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\Assault</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\FriendlyDeath\FriendlyDeathApproachSuspectedSource.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\FriendlyDeath</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\FriendlyDeath\FriendlyDeathGetIntoCover.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\FriendlyDeath</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\FriendlyDeath\FriendlyDeathInvestigateDeadBody.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\FriendlyDeath</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\FriendlyDeath\FriendlyDeathSearchForSource.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\FriendlyDeath</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\FriendlyDeath\FriendlyDeathSupport.lua">
+      <Filter>Scripts\AI\Behaviors\NewHumans\HumanGrunt\Coordination\FriendlyDeath</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Prototype.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Camper\CamperAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Camper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Camper\CamperHide.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Camper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Camper\CamperIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Camper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Camper\CamperSeek.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Camper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2Attack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2AttackGroup.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2AvoidExplosives.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2AvoidTank.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2AvoidVehicle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2CallReinforcements.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2Hide.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2Idle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2Interested.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2Panic.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2Reload.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2RPGAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2Search.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2Seek.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2Threatened.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover2\Cover2ThreatenedStandby.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover2</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover3\Cover3Attack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover3</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover3\Cover3AvoidExplosives.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover3</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover3\Cover3Fallen.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover3</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover3\Cover3ForcedAction.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover3</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover3\Cover3Idle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover3</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover3\Cover3Interested.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover3</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover3\Cover3InVehicle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover3</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Cover3\Cover3Seek.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Cover3</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserAttackFromCover.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserAttackGroup.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserAvoidExplosives.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserAvoidTank.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserAvoidVehicle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserCallReinforcements.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserHide.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserInterested.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserPanic.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserReload.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserRPGAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserSearch.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserSeek.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserThreatened.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\CoverUser\CoverUserThreatenedStandby.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\CoverUser</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\demo\SuperDumbIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\demo</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\demo\TestIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\demo</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\demo\TestIdle2.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\demo</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\demo\TestIdle3.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\demo</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Drone\DroneApproach.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Drone</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Drone\DroneBase.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Drone</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Drone\DroneConfused.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Drone</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Drone\DroneIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Drone</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\FollowerNPC\FollowerNPCAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\FollowerNPC</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\FollowerNPC\FollowerNPCIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\FollowerNPC</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\FriendlyNPC\FriendlyNPCAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\FriendlyNPC</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\FriendlyNPC\FriendlyNPCIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\FriendlyNPC</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Harvester\HarvesterAfraid.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Harvester</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Harvester\HarvesterFull.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Harvester</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Harvester\HarvesterIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Harvester</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Harvester\HarvesterSwarm.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Harvester</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\HumanBase\HBaseFakeAlerted.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\HumanBase</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\HumanBase\HBaseIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\HumanBase</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\HumanBase\HBaseStaticShooter.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\HumanBase</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\HumanBase\HBaseTranquilized.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\HumanBase</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Player\PlayerAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Player</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Player\PlayerIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Player</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\Combat\CheckDead.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\Combat</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\Combat\FastKill.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\Combat</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\Combat\UseMounted.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\Combat</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\Combat\UseMountedIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\Combat</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\Combat\UseMountedTranquilized.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\Combat</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\InVehicle\EnteringVehicle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\InVehicle</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\InVehicle\InVehicle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\InVehicle</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\InVehicle\InVehicleAlerted.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\InVehicle</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\InVehicle\InVehicleChangeSeat.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\InVehicle</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\InVehicle\InVehicleControlled.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\InVehicle</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\InVehicle\InVehicleControlledGunner.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\InVehicle</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\InVehicle\InVehicleGunner.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\InVehicle</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\InVehicle\InVehicleTranquilized.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\InVehicle</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\Jobs\Job_StandIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\Jobs</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\Other\Dialog.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\Other</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SHARED\Other\Dumb.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SHARED\Other</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Sneaker\SneakerAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Sneaker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Sneaker\SneakerHide.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Sneaker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Sneaker\SneakerIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Sneaker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Sneaker\SneakerSeek.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Sneaker</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Spotter\SpotterCharge.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Spotter</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Spotter\SpotterEMP.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Spotter</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Spotter\SpotterFlee.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Spotter</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Spotter\SpotterIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Spotter</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Spotter\SpotterInvestigate.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Spotter</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Spotter\SpotterInvestigateCloak.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Spotter</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Spotter\SpotterLocate.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Spotter</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Spotter\SpotterScan.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Spotter</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Spotter\SpotterScanCloak.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Spotter</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Suit\SuitAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Suit</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Suit\SuitHide.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Suit</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Suit\SuitIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Suit</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Suit\SuitReload.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Suit</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Suit\SuitStealth.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Suit</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\Suit\SuitThreatened.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\Suit</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SuitBoss\SuitBossAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SuitBoss</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SuitBoss\SuitBossIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SuitBoss</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SuitBoss\SuitBossP1.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SuitBoss</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SuitBoss\SuitBossP1b.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SuitBoss</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SuitBoss\SuitBossP2.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SuitBoss</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SuitBoss\SuitBossP3.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SuitBoss</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SuitHurricane\SuitHurricaneAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SuitHurricane</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SuitHurricane\SuitHurricaneIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SuitHurricane</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SuitHurricane\SuitHurricaneThreatened.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SuitHurricane</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SuitSniper\SuitSniperAttack.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SuitSniper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SuitSniper\SuitSniperIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SuitSniper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\SuitSniper\SuitSniperThreatened.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\SuitSniper</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\TeamLeaders\LeaderIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\TeamLeaders</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\WatchTowerGuard\WatchTowerGuardAlerted.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\WatchTowerGuard</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\WatchTowerGuard\WatchTowerGuardCombat.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\WatchTowerGuard</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\Personalities\WatchTowerGuard\WatchTowerGuardIdle.lua">
+      <Filter>Scripts\AI\Behaviors\Personalities\WatchTowerGuard</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\VehicleAct.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\VehicleGoto.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\VehicleIdle.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\AAA\AAAIdle.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\AAA</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\APC\APCIdle.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\APC</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\BOAT\BoatIdle.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\BOAT</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\CAR\CarAlerted.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\CAR</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\CAR\CarGoto.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\CAR</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\CAR\CarIdle.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\CAR</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\CAR\CarSkid.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\CAR</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELIAGGRESSIVE\HeliAggressiveIdle.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELIAGGRESSIVE</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliAttack.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliBase.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HELIDEFAULT.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliEmergencyLanding.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliFly.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliGoto.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliHoverAttack2.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliHoverAttack3.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliIdle.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliIgnorant.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliLanding.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliPatrol.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliReinforcement.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliSmoothGoto.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\HELICOPTER\HeliUnIgnorant.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\HELICOPTER</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\PATROLBOAT\PatrolBoatIdle.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\PATROLBOAT</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANK\TankAlert.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANK</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANK\TankAttack.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANK</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANK\TANKDEFAULT.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANK</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANK\TankEmergencyExit.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANK</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANK\TankGoto.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANK</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANK\TankIdle.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANK</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANK\TankMove.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANK</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANKCLOSE\TankCloseAttack.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANKCLOSE</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANKCLOSE\TankCloseGoto.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANKCLOSE</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANKCLOSE\TankCloseGotoPath.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANKCLOSE</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANKCLOSE\TankCloseIdle.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANKCLOSE</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANKCLOSE\TankCloseRunAway.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANKCLOSE</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANKCLOSE\TankCloseSwitchPath.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANKCLOSE</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANKFIXED\TankFixedGoto.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANKFIXED</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\TANKFIXED\TankFixedIdle.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\TANKFIXED</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\VTOL\VtolAttack.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\VTOL</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\VTOL\VtolEmergencyLanding.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\VTOL</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\VTOL\VtolFly.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\VTOL</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\VTOL\VtolGoto.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\VTOL</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\VTOL\VtolIdle.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\VTOL</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\VTOL\VtolIgnorant.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\VTOL</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\VTOL\VtolLanding.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\VTOL</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\VTOL\VtolReinforcement.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\VTOL</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\VTOL\VtolSmoothGoto.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\VTOL</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\VTOL\VtolUnIgnorant.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\VTOL</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Behaviors\VEHICLES\WARRIOR\WarriorIdle.lua">
+      <Filter>Scripts\AI\Behaviors\VEHICLES\WARRIOR</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\AICharacter.lua">
+      <Filter>Scripts\AI\Characters</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\DEFAULT.lua">
+      <Filter>Scripts\AI\Characters</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Aliens\GuardNeue.lua">
+      <Filter>Scripts\AI\Characters\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Aliens\Hunter.lua">
+      <Filter>Scripts\AI\Characters\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Aliens\Scout.lua">
+      <Filter>Scripts\AI\Characters\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Aliens\ScoutMOAC.lua">
+      <Filter>Scripts\AI\Characters\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Aliens\Trooper.lua">
+      <Filter>Scripts\AI\Characters\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Aliens\TrooperLeader.lua">
+      <Filter>Scripts\AI\Characters\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Aliens\Warrior.lua">
+      <Filter>Scripts\AI\Characters\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\NewAliens\AlienGruntCharacter.lua">
+      <Filter>Scripts\AI\Characters\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\NewAliens\AlienHeavyCharacter.lua">
+      <Filter>Scripts\AI\Characters\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\NewAliens\AlienPingerCharacter.lua">
+      <Filter>Scripts\AI\Characters\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\NewAliens\AlienStalkerCharacter.lua">
+      <Filter>Scripts\AI\Characters\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\NewAliens\AlienTickCharacter.lua">
+      <Filter>Scripts\AI\Characters\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\NewHumans\HumanGruntCharacter.lua">
+      <Filter>Scripts\AI\Characters\NewHumans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\Camper.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\Cover2.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\Cover3.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\CoverUser.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\Demo.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\Drone.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\FollowerNPC.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\FriendlyNPC.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\Harvester.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\Leader.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\Player.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\Sneaker.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\Spotter.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\Suit.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\SuitBoss.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\SuitHurricane.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\SuitSniper.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\SuperDumb.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\Personalities\WatchTowerGuard.lua">
+      <Filter>Scripts\AI\Characters\Personalities</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\VEHICLES\Aaa.lua">
+      <Filter>Scripts\AI\Characters\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\VEHICLES\Apc.lua">
+      <Filter>Scripts\AI\Characters\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\VEHICLES\Boat.lua">
+      <Filter>Scripts\AI\Characters\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\VEHICLES\Car.lua">
+      <Filter>Scripts\AI\Characters\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\VEHICLES\Heli.lua">
+      <Filter>Scripts\AI\Characters\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\VEHICLES\HeliAggressive.lua">
+      <Filter>Scripts\AI\Characters\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\VEHICLES\PatrolBoat.lua">
+      <Filter>Scripts\AI\Characters\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\VEHICLES\Tank.lua">
+      <Filter>Scripts\AI\Characters\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\VEHICLES\TankClose.lua">
+      <Filter>Scripts\AI\Characters\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\VEHICLES\TankFixed.lua">
+      <Filter>Scripts\AI\Characters\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\VEHICLES\Vtol.lua">
+      <Filter>Scripts\AI\Characters\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Characters\VEHICLES\Warrior.lua">
+      <Filter>Scripts\AI\Characters\VEHICLES</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Formations\FormationManager.lua">
+      <Filter>Scripts\AI\Formations</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\GoalPipesAlienTick.xml">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\GoalPipesCoordination.xml">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\GoalPipesShared.xml">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManager.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManager2.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManagerAlien.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManagerCoordination.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManagerCover2.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManagerCoverUser.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManagerGrunt.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManagerHeavy.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManagerHuman.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManagerOther.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManagerPinger.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManagerShared.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManagerSpotter.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManagerStalker.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PipeManagerVehicle.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PMReusable.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\GoalPipes\PMSingle.lua">
+      <Filter>Scripts\AI\GoalPipes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Logic\AI_Utils.lua">
+      <Filter>Scripts\AI\Logic</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Logic\BlackBoard.lua">
+      <Filter>Scripts\AI\Logic</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Logic\ReadabilityControl.lua">
+      <Filter>Scripts\AI\Logic</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Packs\Animation\Alien.lua">
+      <Filter>Scripts\AI\Packs\Animation</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Packs\Animation\Basic.lua">
+      <Filter>Scripts\AI\Packs\Animation</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Packs\Animation\Leader.lua">
+      <Filter>Scripts\AI\Packs\Animation</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Packs\Animation\PACKS.lua">
+      <Filter>Scripts\AI\Packs\Animation</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\Packs\Animation\Trooper.lua">
+      <Filter>Scripts\AI\Packs\Animation</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\TPS\AlienGruntQueries.lua">
+      <Filter>Scripts\AI\TPS</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\TPS\AlienTickQueries.lua">
+      <Filter>Scripts\AI\TPS</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\TPS\HarvesterQueries.lua">
+      <Filter>Scripts\AI\TPS</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\TPS\HeavyQueries.lua">
+      <Filter>Scripts\AI\TPS</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\TPS\HumanGruntQueries.lua">
+      <Filter>Scripts\AI\TPS</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\TPS\PingerQueries.lua">
+      <Filter>Scripts\AI\TPS</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\TPS\SharedQueries.lua">
+      <Filter>Scripts\AI\TPS</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\TPS\SpotterQueries.lua">
+      <Filter>Scripts\AI\TPS</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\AI\TPS\StalkerQueries.lua">
+      <Filter>Scripts\AI\TPS</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Globals.xml">
+      <Filter>Scripts\BehaviorTree</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Tactics.xml">
+      <Filter>Scripts\BehaviorTree</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\ActivationConditions\AlienGrunt.xml">
+      <Filter>Scripts\BehaviorTree\ActivationConditions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\ActivationConditions\AlienHeavy.xml">
+      <Filter>Scripts\BehaviorTree\ActivationConditions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\ActivationConditions\AlienPinger.xml">
+      <Filter>Scripts\BehaviorTree\ActivationConditions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\ActivationConditions\AlienStalker.xml">
+      <Filter>Scripts\BehaviorTree\ActivationConditions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\ActivationConditions\Cover3.xml">
+      <Filter>Scripts\BehaviorTree\ActivationConditions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\ActivationConditions\Drone.xml">
+      <Filter>Scripts\BehaviorTree\ActivationConditions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\ActivationConditions\Harvester.xml">
+      <Filter>Scripts\BehaviorTree\ActivationConditions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\ActivationConditions\HumanGrunt.xml">
+      <Filter>Scripts\BehaviorTree\ActivationConditions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\ActivationConditions\Spotter.xml">
+      <Filter>Scripts\BehaviorTree\ActivationConditions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Profiles\AlienGrunt.xml">
+      <Filter>Scripts\BehaviorTree\Profiles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Profiles\AlienHeavy.xml">
+      <Filter>Scripts\BehaviorTree\Profiles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Profiles\AlienPinger.xml">
+      <Filter>Scripts\BehaviorTree\Profiles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Profiles\AlienStalker.xml">
+      <Filter>Scripts\BehaviorTree\Profiles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Profiles\Cover3.xml">
+      <Filter>Scripts\BehaviorTree\Profiles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Profiles\Drone.xml">
+      <Filter>Scripts\BehaviorTree\Profiles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Profiles\Harvester.xml">
+      <Filter>Scripts\BehaviorTree\Profiles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Profiles\HumanGrunt.xml">
+      <Filter>Scripts\BehaviorTree\Profiles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Profiles\Spotter.xml">
+      <Filter>Scripts\BehaviorTree\Profiles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Trees\AlienGrunt.xml">
+      <Filter>Scripts\BehaviorTree\Trees</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Trees\AlienHeavy.xml">
+      <Filter>Scripts\BehaviorTree\Trees</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Trees\AlienPinger.xml">
+      <Filter>Scripts\BehaviorTree\Trees</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Trees\AlienStalker.xml">
+      <Filter>Scripts\BehaviorTree\Trees</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Trees\Cover3.xml">
+      <Filter>Scripts\BehaviorTree\Trees</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Trees\Drone.xml">
+      <Filter>Scripts\BehaviorTree\Trees</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Trees\Harvester.xml">
+      <Filter>Scripts\BehaviorTree\Trees</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Trees\HumanGrunt.xml">
+      <Filter>Scripts\BehaviorTree\Trees</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\BehaviorTree\Trees\Spotter.xml">
+      <Filter>Scripts\BehaviorTree\Trees</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\actor\AlienPlayer.lua">
+      <Filter>Scripts\Entities\actor</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\actor\BasicActor.lua">
+      <Filter>Scripts\Entities\actor</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\actor\BasicAlien.lua">
+      <Filter>Scripts\Entities\actor</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\actor\Hologram.lua">
+      <Filter>Scripts\Entities\actor</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\actor\player.lua">
+      <Filter>Scripts\Entities\actor</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\actor\spectator.lua">
+      <Filter>Scripts\Entities\actor</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\actor\Parameters\Hologram_Params.xml">
+      <Filter>Scripts\Entities\actor\Parameters</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\actor\Parameters\Player_Params.xml">
+      <Filter>Scripts\Entities\actor\Parameters</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\AIAlertness.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\AIAnchor.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\AIReinforcementSpot.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\AISpawner.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\AITerritory.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\AIWave.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Civilian.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Civilian_x.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\DamageTestEnt.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Drone_x.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\DummyPlayer.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Grunt.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Grunt_x.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\SmartObject.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\SmartObjectCondition.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\TagPoint.lua">
+      <Filter>Scripts\Entities\AI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Aliens\Alien.lua">
+      <Filter>Scripts\Entities\AI\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Aliens\Alien_x.lua">
+      <Filter>Scripts\Entities\AI\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Aliens\Coordinator.lua">
+      <Filter>Scripts\Entities\AI\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Aliens\Coordinator_x.lua">
+      <Filter>Scripts\Entities\AI\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Aliens\Hunter.lua">
+      <Filter>Scripts\Entities\AI\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Aliens\Hunter_x.lua">
+      <Filter>Scripts\Entities\AI\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Aliens\Observer.lua">
+      <Filter>Scripts\Entities\AI\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Aliens\Observer_x.lua">
+      <Filter>Scripts\Entities\AI\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Aliens\Scout.lua">
+      <Filter>Scripts\Entities\AI\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Aliens\Scout_x.lua">
+      <Filter>Scripts\Entities\AI\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Aliens\Trooper.lua">
+      <Filter>Scripts\Entities\AI\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Aliens\Trooper_x.lua">
+      <Filter>Scripts\Entities\AI\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Aliens\Warrior.lua">
+      <Filter>Scripts\Entities\AI\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Misc\Shark.lua">
+      <Filter>Scripts\Entities\AI\Misc</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Misc\Shark_x.lua">
+      <Filter>Scripts\Entities\AI\Misc</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewAliens\AlienBase.lua">
+      <Filter>Scripts\Entities\AI\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewAliens\AlienGrunt.lua">
+      <Filter>Scripts\Entities\AI\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewAliens\AlienGrunt_x.lua">
+      <Filter>Scripts\Entities\AI\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewAliens\AlienHeavy.lua">
+      <Filter>Scripts\Entities\AI\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewAliens\AlienHeavy_x.lua">
+      <Filter>Scripts\Entities\AI\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewAliens\AlienPinger.lua">
+      <Filter>Scripts\Entities\AI\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewAliens\AlienPinger_x.lua">
+      <Filter>Scripts\Entities\AI\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewAliens\AlienStalker.lua">
+      <Filter>Scripts\Entities\AI\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewAliens\AlienStalker_x.lua">
+      <Filter>Scripts\Entities\AI\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewAliens\AlienTick.lua">
+      <Filter>Scripts\Entities\AI\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewAliens\AlienTick_x.lua">
+      <Filter>Scripts\Entities\AI\NewAliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewHumans\HumanBase.lua">
+      <Filter>Scripts\Entities\AI\NewHumans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewHumans\HumanGrunt.lua">
+      <Filter>Scripts\Entities\AI\NewHumans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\NewHumans\HumanGrunt_x.lua">
+      <Filter>Scripts\Entities\AI\NewHumans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Prototype\Harvester.lua">
+      <Filter>Scripts\Entities\AI\Prototype</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Prototype\Harvester_x.lua">
+      <Filter>Scripts\Entities\AI\Prototype</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Prototype\Spotter.lua">
+      <Filter>Scripts\Entities\AI\Prototype</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Prototype\Spotter_x.lua">
+      <Filter>Scripts\Entities\AI\Prototype</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Shared\AIBase.lua">
+      <Filter>Scripts\Entities\AI\Shared</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Shared\BasicAI.lua">
+      <Filter>Scripts\Entities\AI\Shared</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Shared\BasicAIEvent.lua">
+      <Filter>Scripts\Entities\AI\Shared</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AI\Shared\BasicAITable.lua">
+      <Filter>Scripts\Entities\AI\Shared</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AISpawners\SpawnAlien.lua">
+      <Filter>Scripts\Entities\AISpawners</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AISpawners\SpawnCivilian.lua">
+      <Filter>Scripts\Entities\AISpawners</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AISpawners\SpawnCoordinator.lua">
+      <Filter>Scripts\Entities\AISpawners</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AISpawners\SpawnGrunt.lua">
+      <Filter>Scripts\Entities\AISpawners</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AISpawners\SpawnHunter.lua">
+      <Filter>Scripts\Entities\AISpawners</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AISpawners\SpawnObserver.lua">
+      <Filter>Scripts\Entities\AISpawners</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AISpawners\SpawnScout.lua">
+      <Filter>Scripts\Entities\AISpawners</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\AISpawners\SpawnTrooper.lua">
+      <Filter>Scripts\Entities\AISpawners</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Boids\Birds.lua">
+      <Filter>Scripts\Entities\Boids</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Boids\Boid.lua">
+      <Filter>Scripts\Entities\Boids</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Boids\Bugs.lua">
+      <Filter>Scripts\Entities\Boids</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Boids\Chickens.lua">
+      <Filter>Scripts\Entities\Boids</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Boids\Crabs.lua">
+      <Filter>Scripts\Entities\Boids</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Boids\Fish.lua">
+      <Filter>Scripts\Entities\Boids</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Boids\Frogs.lua">
+      <Filter>Scripts\Entities\Boids</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Boids\Plover.lua">
+      <Filter>Scripts\Entities\Boids</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Boids\Turtles.lua">
+      <Filter>Scripts\Entities\Boids</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\ContextualNavigation\GrabableLedge.lua">
+      <Filter>Scripts\Entities\ContextualNavigation</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Default\GeomEntity.lua">
+      <Filter>Scripts\Entities\Default</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Default\RopeEntity.lua">
+      <Filter>Scripts\Entities\Default</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Doors\AdvancedDoor.lua">
+      <Filter>Scripts\Entities\Doors</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Doors\AnimDoor.lua">
+      <Filter>Scripts\Entities\Doors</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Doors\AutomaticDoor1Piece.lua">
+      <Filter>Scripts\Entities\Doors</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Doors\Door.lua">
+      <Filter>Scripts\Entities\Doors</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Elevators\Elevator.lua">
+      <Filter>Scripts\Entities\Elevators</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Elevators\ElevatorSwitch.lua">
+      <Filter>Scripts\Entities\Elevators</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Environment\AlienMine.lua">
+      <Filter>Scripts\Entities\Environment</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Environment\Shake.lua">
+      <Filter>Scripts\Entities\Environment</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Environment\Tornado.lua">
+      <Filter>Scripts\Entities\Environment</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\HUD\HUD_Object.lua">
+      <Filter>Scripts\Entities\HUD</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\AmmoCrate.lua">
+      <Filter>Scripts\Entities\Items</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Explosive.lua">
+      <Filter>Scripts\Entities\Items</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Item.lua">
+      <Filter>Scripts\Entities\Items</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\ItemSystemMath.lua">
+      <Filter>Scripts\Entities\Items</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Accessories\Detonator.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Accessories</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Accessories\DrillerAttachment.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Accessories</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Accessories\GrenadeLauncher.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Accessories</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Accessories\Reflex.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Accessories</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Accessories\SDMHologram.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Accessories</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Accessories\Silencer.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Accessories</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Accessories\SilencerPistol.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Accessories</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Accessories\SniperScope.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Accessories</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Aliens\alienassaultbullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Aliens\alienminigunbullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Aliens\alienmortar.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Aliens\AlienNailGrenade.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Aliens\clusterbomb.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Aliens\hurricanealienbullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Aliens\pinger_Rocket.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Aliens\ShadowSniperBullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Aliens\Stalker_ShotgunShell.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Aliens\turretbullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\50bullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\Bullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\C4Explosive.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\ExplosiveGrenade.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\Flashbang.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\GaussBullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\GrenadeLauncherGrenade.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\HeavyBullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\HMGBullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\Hologram.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\HPistolBullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\HurricaneBullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\ImpulseBeamProjectile.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\JavelinMissile.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\KvoltBullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\LTagGrenade.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\MikeBullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\Rocket.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\ScarBullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\ShotgunShell.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\SMGBullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\SmokeGrenade.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\SniperBullet.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\swarmermissile.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\TunnelingGrenade.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Humans\VolatileSpike.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Perks\Chaff.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Perks</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Perks\CriticalEMP.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Perks</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Perks\EMPSatStrike.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Perks</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Perks\SatStrike.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Perks</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Perks\SelfDestructPerk.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Perks</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Perks\SmokeBlast.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Perks</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Perks\StampPerk.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Perks</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Vehicles\APCCannon_ammo.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Ammo\Vehicles\Vehicle_SmokeGrenade.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Ammo\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Gamemodes\BTBBomb.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Gamemodes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Gamemodes\Dogtag.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Gamemodes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Gamemodes\ExtractionGun.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Gamemodes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Binoculars.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Aliens\AlienTurret.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Aliens\attackship_clusterbomb.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Aliens\FY71alien.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Aliens\Grunt_NailGrenadeLauncher.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Aliens\Heavy_minigun.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Aliens\Heavy_mortar.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Aliens\Pinger_Hurricane.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Aliens\Pinger_RocketLauncher.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Aliens\Pinger_SonicWeapon.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Aliens\Stalker_Shotgun.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Aliens</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Debug\DebugGun.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Debug</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Debug\FelineSilencer.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Debug</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Debug\HammerSilencer.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Debug</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Debug\NovaSilencer.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Debug</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Debug\SCARAudio.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Debug</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\AGL.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\AIGrenades.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\AutoTurret.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\AY69.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\C4.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\DSG1.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\Feline.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\FlashBangGrenades.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\FragGrenades.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\Gauss.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\Grendel.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\Hammer.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\HMG.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\Jackal.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\JAW.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\K-Volt.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\LTAG.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\Marshall.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\mike.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\Mk60.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\Nova.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\PickAndThrowWeapon.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\Revolver.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\SCAR.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\SCARAB.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\SmokeGrenades.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Humans\swarmer.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Humans</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Vehicles\APCCannon.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Vehicles\APCRocketLauncher.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Vehicles\HeliCannon.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Vehicles\Vehicle_Smoke.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Vehicles\VehicleAGL.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Items\Crysis2\Weapons\Vehicles\VehicleHMG.xml">
+      <Filter>Scripts\Entities\Items\Crysis2\Weapons\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Lights\DestroyableLight.lua">
+      <Filter>Scripts\Entities\Lights</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Lights\IndirectLight.lua">
+      <Filter>Scripts\Entities\Lights</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Lights\Light.lua">
+      <Filter>Scripts\Entities\Lights</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Lights\RigidBodyLight.lua">
+      <Filter>Scripts\Entities\Lights</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Lights\SimpleIndirectLight.lua">
+      <Filter>Scripts\Entities\Lights</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Lights\SimpleLight.lua">
+      <Filter>Scripts\Entities\Lights</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\AlienEnergyPoint.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\AlienEnergyPointPSL.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\AssaultArmoury.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\AssaultIntel.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\BTBBomb.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\BTBBombBase.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\BTBBombSite.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\BuyZone.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\CrashSiteLocation.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\CTFBase.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\CTFFlag.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\ExtractionPoint.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\ExtractionWeaponSpawn.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\Factory.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\Flag.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\ForbiddenArea.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\HelicopterLandingPad.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\HQ.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\Objective.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\PayloadBank.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\PayloadPickup.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\PayloadPickupPoint.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\Perimeter.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\PSLBase.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\PSLCapturePoint.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\RaceCheckpoint.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\SpawnGroup.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\SpectatorCCTVPoint.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\SpectatorPoint.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\TeamRandomSoundVolume.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\TeamSoundSpot.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Multiplayer\TimeBonusLocation.lua">
+      <Filter>Scripts\Entities\Multiplayer</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\NanoSuit\nanosuit.xml">
+      <Filter>Scripts\Entities\NanoSuit</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\AlienDropPod.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\BreakableObject.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\CameraShake.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\CameraSource.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\CameraTarget.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\CharacterAttachHelper.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\Checkpoint.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\CloneFactory.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\Comment.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\CoopCheckpoint.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\DecalPlacer.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\Fan.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\Hazard.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\InteractiveEntity.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\Mine.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\MissionObjective.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\NanoTool_HelperEntity.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\NanoVisionHelper.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\NWEntityLightning.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\PingerPoint.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\PlayerModelChanger.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\PrecacheCamera.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\RaisingWater.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\RigidBody.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\ShootingTarget.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\SoundSupressor.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\SpawnPoint.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\SpotterScannable.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\Switch.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\TacticalEntity.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\WaterKillEvent.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Others\Wind.lua">
+      <Filter>Scripts\Entities\Others</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Particle\ParticleEffect.lua">
+      <Filter>Scripts\Entities\Particle</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\AnimObject.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\AreaBezierVolume.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\BasicEntity.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\BreakableObject.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\Breakage.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\Cloth.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\Constraint.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\DeadBody.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\DestroyableObject.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\Explosion.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\GravityBox.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\GravitySphere.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\GravityStream.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\GravityStreamCap.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\GravityValve.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\PressurizedObject.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\RigidBodyEx.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\rope.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Physics\WindArea.lua">
+      <Filter>Scripts\Entities\Physics</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\PlayerInteractive\InteractiveObjectEx.lua">
+      <Filter>Scripts\Entities\PlayerInteractive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Render\Cloud.lua">
+      <Filter>Scripts\Entities\Render</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Render\Flash.lua">
+      <Filter>Scripts\Entities\Render</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Render\Fog.lua">
+      <Filter>Scripts\Entities\Render</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Render\FogVolume.lua">
+      <Filter>Scripts\Entities\Render</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Render\Lightning.lua">
+      <Filter>Scripts\Entities\Render</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Render\PrismObject.lua">
+      <Filter>Scripts\Entities\Render</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Render\ViewDist.lua">
+      <Filter>Scripts\Entities\Render</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Render\VolumeObject.lua">
+      <Filter>Scripts\Entities\Render</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\AmbientVolume.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\Dialog.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\MissionHint.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\MusicEndTheme.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\MusicLogicTrigger.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\MusicMoodSelector.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\MusicPlayPattern.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\MusicStinger.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\MusicThemeSelector.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\RandomAmbientSound.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\RandomAmbientSoundPreset.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\RandomSoundVolume.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\ReverbVolume.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\SoundEventSpot.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\SoundExclusive.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\SoundExclusivePreset.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\SoundMoodVolume.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Sound\SoundSpot.lua">
+      <Filter>Scripts\Entities\Sound</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Triggers\AICheckInBox.lua">
+      <Filter>Scripts\Entities\Triggers</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Triggers\AreaTrigger.lua">
+      <Filter>Scripts\Entities\Triggers</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Triggers\CinematicTrigger.lua">
+      <Filter>Scripts\Entities\Triggers</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Triggers\DelayTrigger.lua">
+      <Filter>Scripts\Entities\Triggers</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Triggers\MultipleTrigger.lua">
+      <Filter>Scripts\Entities\Triggers</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Triggers\ProximityTrigger.lua">
+      <Filter>Scripts\Entities\Triggers</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\def_vehicle.xml">
+      <Filter>Scripts\Entities\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\veed_defaults.xml">
+      <Filter>Scripts\Entities\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\VehicleBase.lua">
+      <Filter>Scripts\Entities\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\VehicleBaseAI.lua">
+      <Filter>Scripts\Entities\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\VehiclePartDetached.lua">
+      <Filter>Scripts\Entities\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\VehiclePool.lua">
+      <Filter>Scripts\Entities\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\VehicleSeat.lua">
+      <Filter>Scripts\Entities\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\VehicleSystem.lua">
+      <Filter>Scripts\Entities\Vehicles</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\DamagesTemplates\def_vehicledamages.xml">
+      <Filter>Scripts\Entities\Vehicles\DamagesTemplates</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\DamagesTemplates\DefaultVehicleDamages.xml">
+      <Filter>Scripts\Entities\Vehicles\DamagesTemplates</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\ArmouredCar.lua">
+      <Filter>Scripts\Entities\Vehicles\Implementations</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Blackops_apc.lua">
+      <Filter>Scripts\Entities\Vehicles\Implementations</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\blackopshelicopter.lua">
+      <Filter>Scripts\Entities\Vehicles\Implementations</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\blackopshelitransport.lua">
+      <Filter>Scripts\Entities\Vehicles\Implementations</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Civ_car1.lua">
+      <Filter>Scripts\Entities\Vehicles\Implementations</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\hmmwv_nextgen.lua">
+      <Filter>Scripts\Entities\Vehicles\Implementations</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\icv.lua">
+      <Filter>Scripts\Entities\Vehicles\Implementations</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\tourist_bus.lua">
+      <Filter>Scripts\Entities\Vehicles\Implementations</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\US_tank.lua">
+      <Filter>Scripts\Entities\Vehicles\Implementations</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\US_transportVTOL.lua">
+      <Filter>Scripts\Entities\Vehicles\Implementations</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\US_vtol.lua">
+      <Filter>Scripts\Entities\Vehicles\Implementations</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\ArmouredCar.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\Blackops_apc.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\blackopshelicopter.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\blackopshelitransport.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\civ_boat.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\civ_car.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\Civ_car1.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\DefaultVehicle.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\hmmwv_nextgen.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\icv.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\nypd_car.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\QuadBike.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\taxi.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\tourist_bus.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\US_tank.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\US_vtol.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Implementations\Xml\VehicleProp.xml">
+      <Filter>Scripts\Entities\Vehicles\Implementations\Xml</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Lights\def_lights.xml">
+      <Filter>Scripts\Entities\Vehicles\Lights</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\Vehicles\Lights\DefaultVehicleLights.xml">
+      <Filter>Scripts\Entities\Vehicles\Lights</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\ZeroG\GravitySphere.lua">
+      <Filter>Scripts\Entities\ZeroG</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\AICrate.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\AITrigger.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\AnimObject.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\AreaMine.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\AutomaticElevator.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\BFly.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\BoatTrampolineTrigger.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\CameraFocus.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\CameraTargetPoint.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\chain.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\cloth.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\DamageArea.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\fan.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\fan2.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\FlagEntity.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\FrogMine.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\GameEvent.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\Grasshopper.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\HeliStatic.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\ImpulseTrigger.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\ParticleSpray.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\PlaceableExplo.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\PlaceableGeneric.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\ProximityDamage.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\ProximityKeyTrigger.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\ProximityMine.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\pusher.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\ShootTarget.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\SmartProximityTrigger.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\Storm.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\SwingingObject.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\SwivilChair.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\TV.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\VisibilityTrigger.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\Watch.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Entities\_Archive\Waypoint.lua">
+      <Filter>Scripts\Entities\_Archive</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Expressions\CombatRandomExpressions.lua">
+      <Filter>Scripts\Expressions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Expressions\DeadRandomExpressions.lua">
+      <Filter>Scripts\Expressions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Expressions\DefaultRandomExpressions.lua">
+      <Filter>Scripts\Expressions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Expressions\NoRandomExpressions.lua">
+      <Filter>Scripts\Expressions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Expressions\SearchRandomExpressions.lua">
+      <Filter>Scripts\Expressions</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FeatureTests\CrashSiteTests.xml">
+      <Filter>Scripts\FeatureTests</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FeatureTests\FeatureTests.xml">
+      <Filter>Scripts\FeatureTests</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FeatureTests\FrontEndTests.xml">
+      <Filter>Scripts\FeatureTests</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FeatureTests\KillCamTests.xml">
+      <Filter>Scripts\FeatureTests</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FeatureTests\TwoPlayers.xml">
+      <Filter>Scripts\FeatureTests</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FlowNodes\CameraShake.lua">
+      <Filter>Scripts\FlowNodes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FlowNodes\ScriptCommand.lua">
+      <Filter>Scripts\FlowNodes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FlowNodes\SpawnParticleEffect.lua">
+      <Filter>Scripts\FlowNodes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FlowNodes\TestScripted.lua">
+      <Filter>Scripts\FlowNodes</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FrontEnd\CW2FrontEnd.xml">
+      <Filter>Scripts\FrontEnd</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FrontEnd\CW2IngameFrontEnd.xml">
+      <Filter>Scripts\FrontEnd</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FrontEnd\CW2Loading.xml">
+      <Filter>Scripts\FrontEnd</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FrontEnd\CW2Loading_ps3.xml">
+      <Filter>Scripts\FrontEnd</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FrontEnd\FrontEnd.xml">
+      <Filter>Scripts\FrontEnd</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FrontEnd\IngameFrontEnd.xml">
+      <Filter>Scripts\FrontEnd</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FrontEnd\Loading.xml">
+      <Filter>Scripts\FrontEnd</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\FrontEnd\Loading_ps3.xml">
+      <Filter>Scripts\FrontEnd</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\AllOrNothing.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\AllOrNothing.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\Assault.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\Assault.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\BattleDust.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\BombTheBase.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\BombTheBase.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\CaptureTheFlag.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\CaptureTheFlag.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\Coop.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\Countdown.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\Countdown.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\CrashSite.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\CrashSite.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\EquipmentLoadoutItems.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\EquipmentLoadoutPackages.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\Extraction.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\Extraction.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\GameModes.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\GameRulesUtils.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\HitDeathReactions.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\HitDeathReactions_Defs.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\InstantAction.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\InstantAction.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\InstantAction_old.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\InstantActionLoadout.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\InstantActionLoadout_old.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\LevelNames.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\MPDamageTable.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\Payload.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\PowerStruggleLite.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\PowerStruggleLite.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\PowerStruggleLiteAlert.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\PowerStruggleLiteUtils.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\Race.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\SinglePlayer.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\SinglePlayer.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\TeamAction.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\TeamInstantAction.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\TeamInstantAction.xml">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\GameRules\TeamInstantAction_old.lua">
+      <Filter>Scripts\GameRules</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\HUD\HUDObjectFileList.xml">
+      <Filter>Scripts\HUD</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\HUD\HUDObjects_mp.xml">
+      <Filter>Scripts\HUD</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\HUD\HUDObjects_services.xml">
+      <Filter>Scripts\HUD</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\HUD\HUDObjects_sp.xml">
+      <Filter>Scripts\HUD</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\HUD\HUDStateDef_mp.xml">
+      <Filter>Scripts\HUD</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\HUD\HUDStateDef_sp.xml">
+      <Filter>Scripts\HUD</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\HUD\HUDStateFileList.xml">
+      <Filter>Scripts\HUD</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Network\CompressionPolicy.xml">
+      <Filter>Scripts\Network</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Network\cvars.txt">
+      <Filter>Scripts\Network</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Network\EntityScheduler.xml">
+      <Filter>Scripts\Network</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Network\Protect.xml">
+      <Filter>Scripts\Network</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Network\Scheduler.xml">
+      <Filter>Scripts\Network</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Network\server_cvars.txt">
+      <Filter>Scripts\Network</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Network\StatsConfig.xml">
+      <Filter>Scripts\Network</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Network\StatsConfig_BETA.xml">
+      <Filter>Scripts\Network</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Network\wrld.xml">
+      <Filter>Scripts\Network</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\old\Crosshairs.lua">
+      <Filter>Scripts\old</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\old\UI\NewWeaponUI.lua">
+      <Filter>Scripts\old\UI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\PerkInfo\PerkInfo.xml">
+      <Filter>Scripts\PerkInfo</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\PerkInfo\ScoreRewards.xml">
+      <Filter>Scripts\PerkInfo</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Progression\EPDLevels.xml">
+      <Filter>Scripts\Progression</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Progression\EPDRanks.xml">
+      <Filter>Scripts\Progression</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Progression\Events.xml">
+      <Filter>Scripts\Progression</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Progression\Levels.xml">
+      <Filter>Scripts\Progression</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Progression\Ranks.xml">
+      <Filter>Scripts\Progression</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Sounds\BattlechatterData.xml">
+      <Filter>Scripts\Sounds</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Sounds\cw2_Annoucements.xml">
+      <Filter>Scripts\Sounds</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\UI\UI2.xml">
+      <Filter>Scripts\UI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\UI\UI2_cw2_elements.xml">
+      <Filter>Scripts\UI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\UI\UI2_cw2_missionobjectives.xml">
+      <Filter>Scripts\UI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\UI\UI2_cw2_notif_popup.xml">
+      <Filter>Scripts\UI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\UI\UI2_cw2_notification.xml">
+      <Filter>Scripts\UI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\UI\UI2_cw2_score.xml">
+      <Filter>Scripts\UI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\UI\UI2_cw2_spectator.xml">
+      <Filter>Scripts\UI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\UI\UI2Textures.xml">
+      <Filter>Scripts\UI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\UI\UI2Textures_360pad.xml">
+      <Filter>Scripts\UI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\UI\UI2Textures_cw2.xml">
+      <Filter>Scripts\UI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\UI\UI2Textures_ps3pad.xml">
+      <Filter>Scripts\UI</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Utils\AIDebugUtils.lua">
+      <Filter>Scripts\Utils</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Utils\Containers.lua">
+      <Filter>Scripts\Utils</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Utils\EntityUtils.lua">
+      <Filter>Scripts\Utils</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Utils\Math.lua">
+      <Filter>Scripts\Utils</Filter>
+    </None>
+    <None Include="..\..\..\GameCrysis2\Scripts\Utils\ZeroG.lua">
+      <Filter>Scripts\Utils</Filter>
+    </None>
+  </ItemGroup>
+</Project>

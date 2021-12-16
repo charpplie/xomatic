@@ -1,0 +1,27 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2013, Crytek Studios
+##
+## Creator: Christopher Bolte
+## Date: Oct 31, 2013
+## Description: WAF  based build system
+#############################################################################
+
+QT_TO_MOC_FILES = [
+	'TextToSpeechPanel.h',
+    '..\WebShared\QCryWebPage.h',
+    '..\WebShared\QCryWebView.h',
+	]
+
+def build(bld):	
+	files = bld.read_file_list('texttospeechpllugin.waf_files')
+
+	bld.CryPlugin(
+		target = 'TextToSpeechPlugin',
+		source = files,
+		features = 'qt',
+		use = ['Editor', 'EditorCommon'],
+		qt_to_moc_files = QT_TO_MOC_FILES,
+		lib = [ 'Qt5WebKit', 'Qt5WebKitWidgets' ],
+		libpath = bld.CreateRootRelativePath('Code/SDKs/boost/lib/64bit'),
+	)

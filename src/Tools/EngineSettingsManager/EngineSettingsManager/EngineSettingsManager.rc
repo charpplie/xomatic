@@ -1,0 +1,327 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+//#include "afxres.h" //Diesel cut
+#include "winres.h" //Diesel new
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Germany) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ENGINESETTINGSMANAGER_DIALOG DIALOGEX 0, 0, 246, 186
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOPMOST | WS_EX_WINDOWEDGE | WS_EX_APPWINDOW
+CAPTION "CryENGINE Settings"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,105,163,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,189,163,50,16
+    CONTROL         "",IDC_SETTINGS_TAB,"SysTabControl32",0x0,7,7,232,150
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 3, 1, 2, 1742
+PRODUCTVERSION 3, 1, 2, 1742
+FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Crytek"
+            VALUE "FileDescription", "Provides settings for CryENGINE"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "SettingsMgr.exe"
+            VALUE "LegalCopyright", "(c) Crytek.  All rights reserved."
+            VALUE "OriginalFilename", "SettingsMgr.exe"
+            VALUE "ProductName", "CryENGINE Settings Manager"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ENGINESETTINGSMANAGER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 239
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About EngineSettingsManager..."
+END
+
+#endif    // German (Germany) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_RC_DIALOG DIALOGEX 0, 0, 200, 100
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Parameters (e.g. ""/showdialog=0 /...""):",IDC_STATIC,7,7,128,8
+    EDITTEXT        IDC_PARAMS_EDIT,7,18,186,14,ES_AUTOHSCROLL
+    CONTROL         "Hide <CUSTOM> preset",IDC_HIDE_CUSTOM_CB,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,38,93,10
+    CONTROL         "Show Output Window",IDC_SHOW_WINDOW_CB,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,51,85,10
+END
+
+IDD_EDITOR_DIALOG DIALOGEX 0, 0, 224, 125
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Prefer 32 Bit Editor",IDC_32BIT_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,7,77,10
+    EDITTEXT        IDC_EXPORT_KEY_0,15,48,31,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_EXPORT_KEY_1,49,48,31,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_EXPORT_KEY_2,83,48,31,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_EXPORT_KEY_3,117,48,31,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    GROUPBOX        "Level Decryption Key",IDC_EXPORT_KEY_GROUP,7,30,210,45,NOT WS_VISIBLE
+    PUSHBUTTON      "Reset",IDC_RESET_BUTTON,155,48,53,15,NOT WS_VISIBLE
+END
+
+IDD_SETTINGSDIALOG DIALOGEX 0, 0, 200, 100
+STYLE DS_SETFONT | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Root Directory (The path which contains /Bin32):",IDC_STATIC,7,7,156,8
+    EDITTEXT        IDC_ROOT_PATH,7,17,160,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE_BUTTON,171,17,22,14
+    GROUPBOX        "Engine State",IDC_STATIC,7,60,186,33
+    ICON            IDI_GREEN_ICON,IDC_RC_STATE,11,70,20,20
+    LTEXT           "rc.exe found!",IDC_RC_STATE_LABEL,35,75,92,8
+END
+
+IDD_SC_DIALOG DIALOGEX 0, 0, 200, 100
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "r_ShadersRemoteCompiler",IDC_REMOTE_COMPILER_CB,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,38,101,10
+    EDITTEXT        IDC_SERVER_EDIT,7,18,186,14,ES_AUTOHSCROLL
+    LTEXT           "r_ShaderCompilerServer:",IDC_SERVER_STATIC,7,7,82,8
+    LTEXT           "Static",IDC_INFO_STATIC,15,60,170,26
+END
+
+IDD_LICENSE_DIALOG DIALOGEX 0, 0, 207, 141
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "License Server selection",IDC_STATIC,11,9,78,8
+    GROUPBOX        "",IDC_STATIC,17,20,179,44
+    CONTROL         "Global",IDC_LICENSE_MYCRYENGINE,"Button",BS_AUTORADIOBUTTON,24,25,85,13
+    LTEXT           "Key",IDC_STATIC,49,37,42,8
+    EDITTEXT        IDC_LICENSE_KEY_0,46,46,31,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LICENSE_KEY_1,80,46,31,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LICENSE_KEY_2,114,46,31,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LICENSE_KEY_3,148,46,31,14,ES_AUTOHSCROLL
+    GROUPBOX        "",IDC_STATIC,17,63,179,47
+    CONTROL         "Internal",IDC_LICENSE_MANUAL,"Button",BS_AUTORADIOBUTTON,24,68,41,10
+    LTEXT           "Server IP",IDC_STATIC,49,79,42,8
+    CONTROL         "",IDC_LICENSE_IPADDRESS,"SysIPAddress32",WS_TABSTOP,46,91,98,15
+    LTEXT           "Port",IDC_STATIC,148,79,42,8
+    EDITTEXT        IDC_LICENSE_PORT,147,91,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    ICON            IDI_GREEN_ICON,IDC_LICENSE_VALIDATION_STATUS_IMAGE,98,113,21,20
+    LTEXT           "Validation Success",IDC_LICENSE_VALIDATION_STATUS_TEXT,128,116,66,12,SS_CENTERIMAGE
+    PUSHBUTTON      "Validate",IDC_AUTHENTICATE_BUTTON,17,115,71,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_RC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_EDITOR_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 217
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 118
+    END
+
+    IDD_SETTINGSDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_SC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_LICENSE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 200
+        VERTGUIDE, 17
+        VERTGUIDE, 24
+        VERTGUIDE, 35
+        VERTGUIDE, 164
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+        HORZGUIDE, 24
+        HORZGUIDE, 41
+        HORZGUIDE, 62
+        HORZGUIDE, 78
+        HORZGUIDE, 91
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)\r\n"
+    "LANGUAGE 7, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\EngineSettingsManager.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_CE2_ICON            ICON                    "res\\ce2.ico"
+IDI_RED_ICON            ICON                    "res\\red.ico"
+IDI_GREEN_ICON          ICON                    "res\\green.ico"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+LANGUAGE 7, 1
+#pragma code_page(1252)
+#include "res\EngineSettingsManager.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,2287 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Crytek Character Animation source code
+//	
+//	History:
+//	28/09/2004 - Created by Ivo Herzeg <ivo@crytek.de>
+//
+//  Contains:
+//  loading of model and animationss
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+
+#include <I3DEngine.h>
+#include <ICryAnimation.h>
+#include <IIndexedMesh.h>
+#include "VectorMap.h"
+#include "CryHeaders.h"
+#include "ModelMesh.h"
+#include "Model.h"
+#include "LoaderCHR.h"
+#include "StringUtils.h"
+#include "CharacterManager.h"
+#include "FacialAnimation/FaceAnimation.h"
+#include "FacialAnimation/FacialModel.h"
+#include "FacialAnimation/FaceEffectorLibrary.h"
+#include "LoaderDBA.h"
+#include "AnimEventLoader.h"
+
+#include "Helper.h"
+
+
+
+//////////////////////////////////////////////////////////////////////////
+// temporary solution to access the links for thin and fat models
+//////////////////////////////////////////////////////////////////////////
+extern CCharacterModel* model_thin;
+extern CCharacterModel* model_fat;
+
+
+const char* CryCHRLoader::DEFAULT_BIPED_SETUP_FILENAME = "objects/DefaultBiped.setup";
+const char* CryCHRLoader::DEFAULT_BIPED_IK_FILENAME = "objects/DefaultBiped.IK";
+
+
+string GetLODName(const string& file, uint32 LOD) 
+{
+	return LOD ? file + "_lod" + CryStringUtils::toString(LOD) + "." + CRY_CHARACTER_FILE_EXT : file+"."+CRY_CHARACTER_FILE_EXT;
+}
+
+
+CCharacterModel* CryCHRLoader::LoadNewCHR( const string& strGeomFileName, CharacterManager* pManager, uint32 SurpressWarning,uint32 qqloadanimations)
+{
+
+	LOADING_TIME_PROFILE_SECTION(g_pISystem);
+
+	COMPILE_TIME_ASSERT(sizeof(TFace)==6);
+
+	MEMSTAT_CONTEXT_FMT(EMemStatContextTypes::MSC_CHR, 0, "%s", strGeomFileName.c_str());
+
+	const char* szExt = CryStringUtils::FindExtension(strGeomFileName.c_str());
+	m_strGeomFileNameNoExt.assign (strGeomFileName.c_str(), *szExt?szExt-1:szExt);
+
+	if (m_strGeomFileNameNoExt.empty()){
+		g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING,	VALIDATOR_FLAG_FILE,strGeomFileName,	"Wrong character filename" );
+		return 0;
+	}
+
+	//--------------------------------------------------------------------------------------------
+
+	uint32 nLODs=0;
+	std::vector<CContentCGF*> pCGF;
+	pCGF.resize(1);
+	bool b = true;
+
+	uint32 baseLOD = 0;
+
+	stack_string filename = stack_string(m_strGeomFileNameNoExt.c_str()) + "." + CRY_CHARACTER_FILE_EXT;
+
+	while (b)
+	{
+		bool bNoWarnings = baseLOD != 0;
+		pCGF[0] = g_pI3DEngine->LoadChunkFileContent(GetLODName(m_strGeomFileNameNoExt, baseLOD),bNoWarnings);
+		if (pCGF[0])
+		{
+			b = false;
+			nLODs++;
+		}
+		else
+		{
+			if (baseLOD == 0)
+			{
+
+				if (SurpressWarning==0)
+				{
+					g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING,	VALIDATOR_FLAG_FILE,filename,	"Failed to Load Character file" );
+				}
+
+				return false;
+			}
+			else
+				--baseLOD;
+		}
+	}
+
+	b = true;
+	while (b)
+	{
+		bool bNoWarnings = (baseLOD + nLODs) != 0;
+		string lodName = GetLODName(m_strGeomFileNameNoExt, baseLOD + nLODs);
+		CContentCGF* pChunkFile = g_pI3DEngine->LoadChunkFileContent(lodName,bNoWarnings);//m_strGeomFileNameNoExt + "_lod" + CryStringUtils::toString(nLODs) + "." + CRY_CHARACTER_FILE_EXT );
+		if (pChunkFile)
+		{
+			pCGF.push_back(pChunkFile);
+			nLODs++; 
+		}
+		else
+			b =false;
+		//g_pI3DEngine->ReleaseChunkFileContent( pChunkFile );
+	}
+
+
+	static ICVar *p_e_lod_min = gEnv->pConsole->GetCVar("e_LodMin");
+	if(p_e_lod_min)
+		baseLOD = p_e_lod_min->GetIVal();
+
+	if ( baseLOD >= nLODs)
+		baseLOD = nLODs - 1;
+
+
+	CCharacterModel* pModel = new CCharacterModel(strGeomFileName, pManager, CHR,pCGF[0]->GetNode(0)->name);
+	const char* fname = pModel->GetModelFilePath();
+
+	pModel->m_nBaseLOD = baseLOD;
+
+	pModel->m_arrModelMeshes.resize(nLODs, CModelMesh());
+
+
+	_smart_ptr<IMaterial> m_pMaterial;
+
+	IGeomManager *m_pPhysicalGeometryManager = g_pIPhysicalWorld ? g_pIPhysicalWorld->GetGeomManager() : NULL;
+	assert(m_pPhysicalGeometryManager);
+
+
+	// Create a remapping table for morph names to morph indices. This is so the morph with a given
+	// name appears in the same position for all LODs (otherwise the wrong morph can get played if
+	// morphs are missing in lower LODs).
+	VectorMap<string, int> morphNameIndexMap;
+	{
+		VectorMap<string, int>::container_type morphNames;
+
+		// Find the first model.
+		CSkinningInfo* pBaseSkinningInfo = 0;
+		for (uint32 lod=0; lod<nLODs; lod++)
+		{
+			CContentCGF* pLOD = pCGF[lod];
+			CSkinningInfo* pSkinningInfo = (pLOD ? pLOD->GetSkinningInfo() : 0);
+			if (pSkinningInfo)
+			{
+				pBaseSkinningInfo = pSkinningInfo;
+				break;
+			}
+		}
+
+		// Build the name map.
+		assert(pBaseSkinningInfo);
+		uint32 morphCount = pBaseSkinningInfo->m_arrMorphTargets.size();
+		for (uint32 morphIndex=0; morphIndex<morphCount; ++morphIndex)
+		{
+			const string& name = pBaseSkinningInfo->m_arrMorphTargets[morphIndex]->m_strName;
+			// check for duplicate
+			bool bExist = false;
+			for(size_t i=0;i<morphNames.size();i++)
+			{
+				if( morphNames[i].first==name )
+				{
+					bExist = true;
+					break;
+				}
+			}
+			if( bExist )
+			{
+				g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING,	VALIDATOR_FLAG_FILE,filename,	"Duplicated morph mask found %s",name.c_str() );
+			}
+			morphNames.push_back(std::make_pair(name, morphIndex));
+		}
+		morphNameIndexMap.SwapElementsWithVector(morphNames);
+	}
+
+	//	CSkinningInfo* pSkinningInfo;
+	for (uint32 lod=0; lod<nLODs; lod++) 
+	{
+		if (pCGF[lod]==0)
+			continue;
+		CSkinningInfo* pSkinningInfo = pCGF[lod]->GetSkinningInfo();
+		if (pSkinningInfo==0) 
+			return 0;
+
+		DynArray<uint16> &m_arrExtToIntMap  = pSkinningInfo->m_arrExt2IntMap;
+
+		//--------------------------------------------------------------------------
+		//---         setup optimized indexed mesh for rendering                 ---
+		//--------------------------------------------------------------------------
+		uint32 numNodes = pCGF[lod]->GetNodeCount();
+		CNodeCGF* pGFXNode=0;
+		for(uint32 n=0; n<numNodes; n++) 
+		{
+			if (pCGF[lod]->GetNode(n)->type==CNodeCGF::NODE_MESH && pCGF[lod]->GetNode(n)->pMesh )	
+			{	
+				pGFXNode = pCGF[lod]->GetNode(n);	break; 
+			}
+		}
+		if (pGFXNode==0)
+		{
+			g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING, VALIDATOR_FLAG_FILE,filename,	"Failed to Load Character file. GFXNode not found" );
+			//assert (0);
+			return false;
+		}
+
+		CMesh* pMesh = pGFXNode->pMesh;
+		if (pMesh->m_pBoneMapping==0)
+		{
+			g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING, VALIDATOR_FLAG_FILE,filename,	"Failed to Load Character file. Skeleton-Initial-Positions are missing" );
+			//assert (0);
+			return false;
+		}
+
+		if (lod == 0 || m_pMaterial == NULL)
+		{
+			if (pGFXNode->pMaterial)
+				m_pMaterial = g_pI3DEngine->GetMaterialManager()->LoadCGFMaterial( pGFXNode->pMaterial,PathUtil::GetPath(m_strGeomFileNameNoExt) );
+			else
+				m_pMaterial = g_pI3DEngine->GetMaterialManager()->GetDefaultMaterial();
+		}
+		// Assign loaded material to model.
+		if (m_pMaterial)
+			pModel->SetMaterial( m_pMaterial );
+
+
+		//---------------------------------------------------------------------
+		//---------------------------------------------------------------------
+		//---------------------------------------------------------------------
+
+		CModelMesh* pModelMesh = pModel->GetModelMesh(lod);
+		pModelMesh->m_nLOD = lod;
+		pModelMesh->m_pModel = pModel;
+
+		//compare bone between different LODs
+		/*	if (lod >= 1) 
+		{ 
+		CSkinningInfo* pSkinningInfo0 = pCGF[0]->GetSkinningInfo();
+		CSkinningInfo* pSkinningInfo1 = pCGF[lod]->GetSkinningInfo();
+		uint32 numBones0 = pSkinningInfo0->m_arrBonesDesc.size();
+		uint32 numBones1 = pSkinningInfo1->m_arrBonesDesc.size();
+		if (numBones0!=numBones1) 
+		{
+		g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING, VALIDATOR_FLAG_FILE,filename,	"Failed to Load Character, Different bone amount of LOD0 and LOD%i", lod );
+		assert (0);
+		return false;
+		}
+
+		uint32 HasLODMismatch=0;
+		for (uint32 g=0; g<numBones0; g++)
+		{
+		const char* name0 = pSkinningInfo0->m_arrBonesDesc[g].m_arrBoneName;
+		const char* name1 = pSkinningInfo1->m_arrBonesDesc[g].m_arrBoneName;
+		bool IsIdentical  = ( 0 == stricmp(name0,name1) );
+		if (IsIdentical==0) 
+		{
+		g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING, VALIDATOR_FLAG_FILE,filename,	"Character LOD mismatch. The bone number %d is different. LOD0 %s  LOD%i %s",g,name0, lod, name1 );
+		HasLODMismatch++;
+		}
+		}
+
+		if (HasLODMismatch)
+		return false;
+		}*/
+
+
+
+
+		if (lod==0) 
+		{
+			//-----------------------------------------------------------------
+			//---                initialize bone info                       ---
+			//---  in LOD 0 we initialize the bones and the morph-targets,  ---
+			//---  in LOD 1 we update their physics; 
+			//---  LOD 2 has no effect
+			//-----------------------------------------------------------------
+			uint32 numBones = pSkinningInfo->m_arrBonesDesc.size();	assert(numBones);
+			if (numBones>MAX_JOINT_AMOUNT)
+			{
+				g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING, VALIDATOR_FLAG_FILE,filename,	"Too many Joints in model. Current Limit is: %d",MAX_JOINT_AMOUNT );
+				//assert(!"too many joints in model");
+				return 0;
+			}
+
+			pModel->m_ModelSkeleton.m_poseData.m_jointsRelative.resize(numBones);
+			pModel->m_ModelSkeleton.m_poseData.m_jointsAbsolute.resize(numBones);
+			pModel->m_ModelSkeleton.m_arrModelJoints.resize(numBones);
+
+			pModel->m_arrCollisions.reserve(numBones);
+
+			for (uint32 nBone = 0; nBone<numBones; ++nBone) 
+			{
+				assert(pSkinningInfo->m_arrBonesDesc[nBone].m_DefaultB2W.IsOrthonormalRH());
+				pModel->m_ModelSkeleton.m_arrModelJoints[nBone].m_idx							= nBone;
+
+				pModel->m_ModelSkeleton.m_arrModelJoints[nBone].m_idxParent	= -1;
+				int32 offset=pSkinningInfo->m_arrBonesDesc[nBone].m_nOffsetParent;
+				if (offset)
+					pModel->m_ModelSkeleton.m_arrModelJoints[nBone].m_idxParent	= (int)nBone+offset;
+
+
+				pModel->m_ModelSkeleton.m_arrModelJoints[nBone].m_nJointCRC32				=	pSkinningInfo->m_arrBonesDesc[nBone].m_nControllerID;
+				pModel->m_ModelSkeleton.m_arrModelJoints[nBone].m_nJointCRC32Lower	=	g_pCrc32Gen->GetCRC32Lowercase(pSkinningInfo->m_arrBonesDesc[nBone].m_arrBoneName);
+				pModel->m_ModelSkeleton.m_arrModelJoints[nBone].m_PhysInfo[0]				=	pSkinningInfo->m_arrBonesDesc[nBone].m_PhysInfo[0];
+				pModel->m_ModelSkeleton.m_arrModelJoints[nBone].m_PhysInfo[1].pPhysGeom = 0;
+				pModel->m_ModelSkeleton.m_arrModelJoints[nBone].m_fMass							=	pSkinningInfo->m_arrBonesDesc[nBone].m_fMass;
+				pModel->m_ModelSkeleton.m_poseData.m_jointsAbsolute[nBone] = QuatT(pSkinningInfo->m_arrBonesDesc[nBone].m_DefaultB2W);
+				pModel->m_ModelSkeleton.m_poseData.m_jointsAbsolute[nBone].q.Normalize();
+
+				pModel->m_ModelSkeleton.m_arrModelJoints[nBone].m_nLimbId						=	pSkinningInfo->m_arrBonesDesc[nBone].m_nLimbId;
+				pModel->m_ModelSkeleton.m_arrModelJoints[nBone].m_numChildren				=	pSkinningInfo->m_arrBonesDesc[nBone].m_numChildren;
+				pModel->m_ModelSkeleton.m_arrModelJoints[nBone].m_nOffsetChildren		=	pSkinningInfo->m_arrBonesDesc[nBone].m_nOffsetChildren;
+
+
+
+				pModel->m_ModelSkeleton.m_poseData.m_jointsRelative[nBone] = pModel->m_ModelSkeleton.m_poseData.m_jointsAbsolute[nBone];
+				int32 p=pModel->m_ModelSkeleton.m_arrModelJoints[nBone].m_idxParent;
+				if (p >=0)
+				{
+					pModel->m_ModelSkeleton.m_poseData.m_jointsRelative[nBone] =
+						pModel->m_ModelSkeleton.m_poseData.m_jointsAbsolute[p].GetInverted() *
+						pModel->m_ModelSkeleton.m_poseData.m_jointsAbsolute[nBone];
+				}
+				pModel->m_ModelSkeleton.m_poseData.m_jointsRelative[nBone].q.Normalize();
+
+				pModel->m_ModelSkeleton.m_arrModelJoints[nBone].SetJointName( &pSkinningInfo->m_arrBonesDesc[nBone].m_arrBoneName[0] );
+			}
+
+
+			//check deepness-level inside hierarchy
+			for (uint32 i=0; i<numBones; i++)
+			{
+				int32 p = pModel->m_ModelSkeleton.m_arrModelJoints[i].m_idxParent;
+				while (p >= 0) 
+				{
+					pModel->m_ModelSkeleton.m_arrModelJoints[i].m_numLevels++;
+					p = pModel->m_ModelSkeleton.m_arrModelJoints[p].m_idxParent;
+				}
+			}
+		} //if(lod==0)
+
+		//in LOD 1 we update the physics; lod 2 has no effect
+		if (lod<2) 
+			pModel->m_ModelSkeleton.m_arrModelJoints[0].UpdateHierarchyPhysics( pSkinningInfo->m_arrBoneEntities, lod );
+
+
+
+		const char* RootName = pModel->m_ModelSkeleton.m_arrModelJoints[0].GetJointName();
+		Matrix34 m34=pSkinningInfo->m_arrBonesDesc[0].m_DefaultB2W;
+		Quat orientation = Quat(m34);
+		Vec3 cx=orientation.GetColumn0();
+		Vec3 cy=orientation.GetColumn1();
+		Vec3 cz=orientation.GetColumn2();
+		string LODFileName = GetLODName(m_strGeomFileNameNoExt, lod);					
+		if (RootName[0]=='B' && RootName[1]=='i' && RootName[2]=='p' && RootName[3]=='0' && RootName[4]=='1')
+		{
+			uint32 IsIdentiy0 = orientation.IsEquivalent(Quat(IDENTITY),0.001f); //this is the default Motion Builder orientation
+			uint32 IsIdentiy1 = orientation.IsEquivalent(Quat(0.70710677f,Vec3(0,0,0.70710677f)),0.001f); //this is the default Character Studio orientation
+			if (IsIdentiy0==0 && IsIdentiy1==0)
+			{
+				g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING, VALIDATOR_FLAG_FILE,LODFileName,	"Articulated model (BIP) has wrong orientation. Please use the CryEngine conventions when building a model" );
+				//CRY_ASSERT_MESSAGE(!"Inverted model orientation!", strGeomFileName);
+			}
+		}
+		else
+		{
+			uint32 IsIdentiy = orientation.IsEquivalent(Quat(IDENTITY),0.001f);
+			if (IsIdentiy==0)
+			{
+				g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING, VALIDATOR_FLAG_FILE,LODFileName,	"Articulated model (MAX) has wrong orientation. Please use the CryEngine conventions when building a model" );
+				//CRY_ASSERT_MESSAGE(!"Inverted model orientation!", strGeomFileName);
+			}
+		}
+
+		//-----------------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------------
+		//pModel->m_arrModelMeshes[lod].m_arrPhyBoneMeshes=pSkinningInfo->m_arrPhyBoneMeshes;
+		if (m_pPhysicalGeometryManager) 
+		{
+			// this map contains the bone geometry. The mapping is : [Chunk ID]->[Physical geometry read from that chunk]
+			// the chunks from which the physical geometry is read are the bone mesh chunks.
+			CCharacterModel::ChunkIdToPhysGeomMap m_mapLimbPhysGeoms;
+			m_mapLimbPhysGeoms.clear();
+			uint32 numPBM = pSkinningInfo->m_arrPhyBoneMeshes.size();	
+			for (uint32 p=0; p<numPBM; p++) 
+			{
+				PhysicalProxy  pbm = pSkinningInfo->m_arrPhyBoneMeshes[p];
+				uint32 numFaces = pbm.m_arrMaterials.size();
+				// add a new entry to the map chunk->limb geometry, so that later it can be found by the bones
+				// during the post-initialization mapping of pPhysGeom from Chunk id to the actual geometry pointer
+				uint32 flags = (numFaces<=20 ? mesh_SingleBB : mesh_OBB|mesh_AABB|mesh_AABB_rotated)	| mesh_multicontact0 | mesh_approx_box | mesh_approx_sphere | mesh_approx_cylinder | mesh_approx_capsule;
+
+				IGeometry* pPhysicalGeometry = m_pPhysicalGeometryManager->CreateMesh(&pbm.m_arrPoints[0],&pbm.m_arrIndices[0], &pbm.m_arrMaterials[0] ,0,numFaces,flags );
+				assert (pPhysicalGeometry);
+				assert(m_pMaterial != NULL);
+				if (m_pMaterial)
+				{
+					// Assign custom material to physics.
+					int defSurfaceIdx = pbm.m_arrMaterials.empty() ? 0 : pbm.m_arrMaterials[0] ;
+					int surfaceTypesId[MAX_SUB_MATERIALS];
+					memset( surfaceTypesId,0,sizeof(surfaceTypesId) );
+					int numIds = m_pMaterial->FillSurfaceTypeIds(surfaceTypesId);
+					m_mapLimbPhysGeoms[pbm.ChunkID] =	m_pPhysicalGeometryManager->RegisterGeometry( pPhysicalGeometry, defSurfaceIdx, &surfaceTypesId[0],numIds );
+				}
+
+				pPhysicalGeometry->Release();
+			}
+
+			if (lod==0)
+			{
+				pModel->m_bHasPhysics2 = false;
+				// build the bone index by name and call PostInitialize for bone infos
+				//pModel->m_AnimationSet.onBonesChanged();
+			}		
+
+			if (lod < 2)
+			{
+				// change the pPhysGeom from indices (chunk ids) to the actual physical geometry pointers
+				// This modifies the given map by deleting or zeroing elements of the map that were used during the mapping
+				if (pModel->PostInitBonePhysGeom (m_mapLimbPhysGeoms, lod))
+				{
+					pModel->UpdatePhysBonePrimitives(pSkinningInfo->m_arrBoneEntities, lod);
+					pModel->m_bHasPhysics2 = true;
+					pModel->onBonePhysicsChanged();
+				}
+			}
+
+			// clean up the physical geometry objects that were not used
+			for (CCharacterModel::ChunkIdToPhysGeomMap::iterator it = m_mapLimbPhysGeoms.begin(); it != m_mapLimbPhysGeoms.end(); ++it)
+			{
+				phys_geometry* pPhysGeom = it->second;
+				if (pPhysGeom)
+					g_pIPhysicalWorld->GetGeomManager()->UnregisterGeometry(pPhysGeom);
+			}
+			m_mapLimbPhysGeoms.clear();
+
+		}
+
+
+
+		//	const char* RootName = pModel->m_ModelSkeleton.m_arrModelJoints[0].GetJointName();
+		if (RootName[0]=='B' && RootName[1]=='i' && RootName[2]=='p' && RootName[3]=='0' && RootName[4]=='1')
+		{
+			//This character-model is a biped and it was made in CharacterStudio. 
+			//CharacterStudio is not allowing us to project the Bip01 on the ground and change its orientation; thats why we have to do it here.
+			pModel->m_ModelSkeleton.m_poseData.m_jointsAbsolute[0].SetIdentity();
+			pModel->m_ModelSkeleton.m_poseData.m_jointsRelative[0].SetIdentity();
+			uint32 numJoints = pModel->m_ModelSkeleton.m_arrModelJoints.size();	
+			for (uint32 bone=1; bone<numJoints; bone++)
+			{
+				int32 idxParent = pModel->m_ModelSkeleton.m_arrModelJoints[bone].m_idxParent;
+				if (idxParent==0)
+				{
+					pModel->m_ModelSkeleton.m_poseData.m_jointsRelative[bone] =
+						pModel->m_ModelSkeleton.m_poseData.m_jointsAbsolute[bone];
+				}
+			}
+		}
+
+
+		//--------------------------------------------------------------------------
+		//---                copy internal skin-vertices                         ---
+		//--------------------------------------------------------------------------
+		uint32 numIntVertices = pSkinningInfo->m_arrIntVertices.size();
+		assert(numIntVertices);
+		pModelMesh->m_arrIntVertices=pSkinningInfo->m_arrIntVertices;
+
+		//--------------------------------------------------------------------------
+		//---                     copy Ext2Int map                               ---
+		//--------------------------------------------------------------------------
+		pModelMesh->m_numExtVertices = pSkinningInfo->m_arrExt2IntMap.size();
+		assert(pModelMesh->m_numExtVertices);
+
+
+
+
+		//-----------------------------------------------------------------
+		//---   check if we have a thin and a fat version               ---
+		//---              this is a temporary solution                 ---
+		//-----------------------------------------------------------------
+		if (model_thin && model_fat) 
+		{	
+			//overwrite the precalculated thin and fat version
+			CModelMesh* pSkin_thin = model_thin->GetModelMesh(lod);
+			CModelMesh* pSkin_fat	= model_fat->GetModelMesh(lod);
+			if (pSkin_thin==0 || pSkin_fat==0)
+			{
+				g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING, VALIDATOR_FLAG_FILE,filename,	"Failed to Load Character file. The basemodel has thin and fat version, but the LODs don't." );
+				//assert (0);
+				return false;
+			}
+
+			uint32 size_thin = pSkin_thin->m_arrIntVertices.size();
+			uint32 size_fat  = pSkin_fat->m_arrIntVertices.size();
+			if (numIntVertices!=size_thin ||  numIntVertices!=size_fat)
+			{
+				g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING, VALIDATOR_FLAG_FILE,filename,	"Failed to Load Character file. Thin, fat and basemodel have different vertex-count" );
+				//assert (0);
+				return false;
+			}
+
+			//	assert(numIntVertices==size_thin);
+			//	assert(numIntVertices==size_fat);
+			for(uint32 i=0; i<numIntVertices; i++)
+			{
+				pModelMesh->m_arrIntVertices[i].wpos0=pSkin_thin->m_arrIntVertices[i].wpos1;
+				pModelMesh->m_arrIntVertices[i].wpos2=pSkin_fat->m_arrIntVertices[i].wpos1;
+			}
+		}
+
+		for (uint32 e=0; e<pModelMesh->m_numExtVertices; e++ )
+		{
+			uint32 i=m_arrExtToIntMap[e];
+			pMesh->m_pShapeDeformation[e].thin	= pModelMesh->m_arrIntVertices[i].wpos0;
+			pMesh->m_pShapeDeformation[e].fat		= pModelMesh->m_arrIntVertices[i].wpos2;
+			pMesh->m_pShapeDeformation[e].index	= pModelMesh->m_arrIntVertices[i].color;
+		}
+
+
+		IMaterial *pIMaterial = pModel->GetMaterial();	assert(pIMaterial);
+		{
+			//workaround-HACK-HACK-HACK-HACK-HACK-HACK-HACK-HACK-HACK-HACK-HACK-HACK-
+			//fix this in the exporter
+			uint32 numSubsets = pMesh->m_subsets.size();
+			for (uint32 i=0; i<numSubsets; i++)	
+			{
+				pMesh->m_subsets[i].FixRanges(pMesh->m_pIndices);
+			}
+		}
+
+
+		//--------------------------------------------------------------------------
+		//---        just for software-skinning! will be removed soon            ---
+		//---          copy external faces (sorted by materials)                 ---
+		//--------------------------------------------------------------------------
+		uint32 numIntFaces = pSkinningInfo->m_arrIntFaces.size();
+		uint32 numExtFaces = pMesh->m_nIndexCount/3;
+		assert(numIntFaces);
+		if (numExtFaces!=numIntFaces) 
+		{
+			g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING, VALIDATOR_FLAG_FILE,filename,	"external and internal face-amount is different. Probably caused by degenerated faces" );
+			//CRY_ASSERT_MESSAGE(!"Inconsistent face count!",strGeomFileName);
+		}
+
+		std::vector<TFace> arrExtFaces;	arrExtFaces.resize(numExtFaces);
+		for (uint32 f=0; f<numExtFaces; f++)
+		{
+			arrExtFaces[f].i0 = pMesh->m_pIndices[f*3+0];
+			arrExtFaces[f].i1 = pMesh->m_pIndices[f*3+1];
+			arrExtFaces[f].i2 = pMesh->m_pIndices[f*3+2];
+		}
+
+		// TEMP: Convert Matrix tangent frame to Quaternion.
+#ifndef PS3
+		if (pMesh->m_pTangents)
+		{
+			for (uint32 e=0; e<pMesh->m_numVertices; e++)
+			{
+				Vec3 tangent(
+					tPackB2F(pMesh->m_pTangents[e].Tangent.x),
+					tPackB2F(pMesh->m_pTangents[e].Tangent.y),
+					tPackB2F(pMesh->m_pTangents[e].Tangent.z));
+				tangent.Normalize();
+
+				Vec3 binormal(
+					tPackB2F(pMesh->m_pTangents[e].Binormal.x),
+					tPackB2F(pMesh->m_pTangents[e].Binormal.y),
+					tPackB2F(pMesh->m_pTangents[e].Binormal.z));
+				binormal.Normalize();
+
+				f32 flip = tPackB2F(pMesh->m_pTangents[e].Tangent.w);
+
+				Matrix33 m;
+				m.SetRow(0, tangent);
+				m.SetRow(1, binormal);
+				m.SetRow(2, tangent.Cross(binormal).GetNormalized());
+				m.OrthonormalizeFast();
+
+				uint32 isOrtho = m.IsOrthonormalRH(0.1f);
+				if (isOrtho==0)
+				{
+					m.SetIdentity();  //workaround to avoid a Division by 0 because of a broken tangent-matrix in the model-mesh
+					
+					//Diesel cut
+					//ANIM_ASSET_CHECK_TRACE(isOrtho != 0, ("Invalid tangent-matrix in model: %s", strGeomFileName.c_str()));
+				}
+				Quat quat(m);
+
+				if (quat.w < 0.0f)
+					quat = -quat;
+				quat.v = -quat.v;
+
+				if (flip < 0.0f)
+					quat = -quat;
+
+				tangent = quat.GetRow0();
+				binormal = quat.GetRow1();
+				pMesh->m_pTangents[e].Tangent.x = tPackF2B(quat.v.x);
+				pMesh->m_pTangents[e].Tangent.y = tPackF2B(quat.v.y);
+				pMesh->m_pTangents[e].Tangent.z = tPackF2B(quat.v.z);
+				pMesh->m_pTangents[e].Tangent.w = tPackF2B(flip);
+
+				pMesh->m_pTangents[e].Binormal.x = tPackF2B(quat.v.x);
+				pMesh->m_pTangents[e].Binormal.y = tPackF2B(quat.v.y);
+				pMesh->m_pTangents[e].Binormal.z = tPackF2B(quat.v.z);
+				pMesh->m_pTangents[e].Binormal.w = tPackF2B(quat.w);
+			}
+		}
+#endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		//------------------------------------------------------------------------
+		//--  create external SkinBuffer and copy "splitted" internal vertices  --
+		//------------------------------------------------------------------------
+		ExtSkinVertex * arrExtVertices = new ExtSkinVertex[pModelMesh->m_numExtVertices];//(ExtSkinVertex *)malloca(numExtVertices * sizeof(ExtSkinVertex));
+
+		for (uint32 e=0; e<pModelMesh->m_numExtVertices; e++)
+		{
+			arrExtVertices[e].wpos1		= pMesh->m_pPositions[e];
+			assert(arrExtVertices[e].wpos1.IsValid());
+			arrExtVertices[e].u				=	pMesh->m_pTexCoord[e].s;
+			arrExtVertices[e].v				=	pMesh->m_pTexCoord[e].t;
+
+			arrExtVertices[e].wpos0		= pMesh->m_pShapeDeformation[e].thin;
+			arrExtVertices[e].wpos2		= pMesh->m_pShapeDeformation[e].fat;
+			arrExtVertices[e].color		=	pMesh->m_pShapeDeformation[e].index;
+
+
+			arrExtVertices[e].boneIDs	=	pMesh->m_pBoneMapping[e].boneIDs;	
+			arrExtVertices[e].weights	=	pMesh->m_pBoneMapping[e].weights;	
+		}
+
+		if (pMesh->m_streamSize[CMesh::QTANGENTS]) 
+		{
+			for (uint32 e=0; e<pModelMesh->m_numExtVertices; e++)
+			{
+				arrExtVertices[e].binormal=	pMesh->m_pQTangents[e].TangentBinormal;
+			}
+		}
+		else 
+		{
+			for (uint32 e=0; e<pModelMesh->m_numExtVertices; e++)
+			{
+				arrExtVertices[e].binormal=	pMesh->m_pTangents[e].Binormal;
+				arrExtVertices[e].tangent	=	pMesh->m_pTangents[e].Tangent;
+			}
+		}
+
+		// Indices in CollisionBBoxes in internal format!!!
+
+		std::set<int> usedBoneslist;
+		std::vector<int> useRemap(pSkinningInfo->m_arrBonesDesc.size());
+
+		if (lod == baseLOD && !pSkinningInfo->m_bProperBBoxes)
+		{
+			for (uint32 e=0; e<pModelMesh->m_numExtVertices; e++)
+			{
+				uint32 i=m_arrExtToIntMap[e];
+				uint8 idx0 = (uint8)pModelMesh->m_arrIntVertices[i].boneIDs[0];
+				uint8 idx1 = (uint8)pModelMesh->m_arrIntVertices[i].boneIDs[1];
+				uint8 idx2 = (uint8)pModelMesh->m_arrIntVertices[i].boneIDs[2];
+				uint8 idx3 = (uint8)pModelMesh->m_arrIntVertices[i].boneIDs[3];
+				usedBoneslist.insert(idx0);
+				usedBoneslist.insert(idx1);
+				usedBoneslist.insert(idx2);
+				usedBoneslist.insert(idx3);
+			}
+
+			int remap = 0;
+			for (std::set<int>::iterator it = usedBoneslist.begin(), end = usedBoneslist.end(); it != end ; ++it, ++remap) 	
+			{
+				MeshCollisionInfo meshCollision;
+				meshCollision.m_aABB = AABB(Vec3(VMAX),Vec3(VMIN));
+				meshCollision.m_iBoneId = *it;
+				pModel->m_arrCollisions.push_back(meshCollision);
+				useRemap[*it] = remap;
+			}
+		}
+
+		pModelMesh->m_arrExtBoneIDs.resize(pModelMesh->m_numExtVertices);
+		for (uint32 e=0; e<pModelMesh->m_numExtVertices; e++)
+		{
+			uint32 i=m_arrExtToIntMap[e];
+			uint8 idx0 = (uint8)pModelMesh->m_arrIntVertices[i].boneIDs[0];
+			uint8 idx1 = (uint8)pModelMesh->m_arrIntVertices[i].boneIDs[1];
+			uint8 idx2 = (uint8)pModelMesh->m_arrIntVertices[i].boneIDs[2];
+			uint8 idx3 = (uint8)pModelMesh->m_arrIntVertices[i].boneIDs[3];
+			pModelMesh->m_arrExtBoneIDs[e].idx0	= idx0;
+			pModelMesh->m_arrExtBoneIDs[e].idx1	= idx1;
+			pModelMesh->m_arrExtBoneIDs[e].idx2	= idx2;
+			pModelMesh->m_arrExtBoneIDs[e].idx3	= idx3;
+
+			if (lod == baseLOD && !pSkinningInfo->m_bProperBBoxes)
+			{
+				pModel->m_arrCollisions[useRemap[idx0]].m_aABB.Add(pModelMesh->m_arrIntVertices[i].wpos1);
+				pModel->m_arrCollisions[useRemap[idx1]].m_aABB.Add(pModelMesh->m_arrIntVertices[i].wpos1);
+				pModel->m_arrCollisions[useRemap[idx2]].m_aABB.Add(pModelMesh->m_arrIntVertices[i].wpos1);
+				pModel->m_arrCollisions[useRemap[idx3]].m_aABB.Add(pModelMesh->m_arrIntVertices[i].wpos1);
+
+				pModel->m_arrCollisions[useRemap[idx0]].m_arrIndexes.push_back(e);
+				pModel->m_arrCollisions[useRemap[idx1]].m_arrIndexes.push_back(e);
+				pModel->m_arrCollisions[useRemap[idx2]].m_arrIndexes.push_back(e);
+				pModel->m_arrCollisions[useRemap[idx3]].m_arrIndexes.push_back(e);
+			}
+
+		}
+
+		//--------------------------------------------------------------------------
+		//---           copy morph-targets are just for LOD 0                    ---
+		//--------------------------------------------------------------------------
+		if (pSkinningInfo->m_arrMorphTargets.size() != 0)
+		{
+			float fMidAxis = 0;
+			// Calculate geometry vertical symetry line.
+			for (uint32 e = 0; e <pModelMesh->m_numExtVertices; e++)
+			{
+				fMidAxis += arrExtVertices[e].wpos0.x;
+			}
+			fMidAxis = fMidAxis / pModelMesh->m_numExtVertices;
+
+			//pModelMesh->m_arrMorphTargets = pSkinningInfo->m_arrMorphTargets;
+			uint32 numMorphtargets = pSkinningInfo->m_arrMorphTargets.size();
+			pModelMesh->m_morphTargets.resize(morphNameIndexMap.size()); // All lods should have the same morph layout.
+			std::fill(pModelMesh->m_morphTargets.begin(), pModelMesh->m_morphTargets.end(), 0);
+			for(uint32 i=0; i<numMorphtargets; i++) 
+			{
+				// Look up the name->index map to find out where this morph target should go in the list.
+				VectorMap<string, int>::iterator itNameMapPosition = morphNameIndexMap.find(pSkinningInfo->m_arrMorphTargets[i]->m_strName);
+				if (itNameMapPosition == morphNameIndexMap.end())
+					continue; // If the morph target doesn't exist in the base LOD, then we don't use it.
+				int morphIndex = (*itNameMapPosition).second;
+
+				CMorphTarget *pMorphTarget = new CMorphTarget;
+				pModelMesh->m_morphTargets[morphIndex] = pMorphTarget;
+				pMorphTarget->m_MeshID = pSkinningInfo->m_arrMorphTargets[i]->MeshID;
+				pMorphTarget->m_name = pSkinningInfo->m_arrMorphTargets[i]->m_strName;
+
+				fMidAxis = 0;
+
+				AABB bbox;
+				bbox.Reset();
+				uint32 nVerts = (int)pSkinningInfo->m_arrMorphTargets[i]->m_arrExtMorph.size();
+				assert(nVerts);
+
+				std::vector<Vec3> arrMTVertices; 
+				arrMTVertices.resize(nVerts);
+
+				pMorphTarget->m_vertices.resize(nVerts);
+				pMorphTarget->m_MTNegBasis	=Vec3(+99999.0f,+99999.0f,+99999.0f);
+				pMorphTarget->m_MTExtensions=Vec3(-99999.0f,-99999.0f,-99999.0f);
+				for (uint32 v=0; v<nVerts; v++)
+				{
+					uint32 nVertexId = pSkinningInfo->m_arrMorphTargets[i]->m_arrExtMorph[v].nVertexId;
+					assert(nVertexId<0xffff); //lets hope that no crazy artist will create a model with more then 0xffff vertices
+					pMorphTarget->m_vertices[v].m_nVertexId = nVertexId;
+					arrMTVertices[v] = pSkinningInfo->m_arrMorphTargets[i]->m_arrExtMorph[v].ptVertex;
+
+					if (pMorphTarget->m_MTNegBasis.x>arrMTVertices[v].x)
+						pMorphTarget->m_MTNegBasis.x=arrMTVertices[v].x;
+					if (pMorphTarget->m_MTNegBasis.y>arrMTVertices[v].y)
+						pMorphTarget->m_MTNegBasis.y=arrMTVertices[v].y;
+					if (pMorphTarget->m_MTNegBasis.z>arrMTVertices[v].z)
+						pMorphTarget->m_MTNegBasis.z=arrMTVertices[v].z;
+
+					if (pMorphTarget->m_MTExtensions.x<arrMTVertices[v].x)
+						pMorphTarget->m_MTExtensions.x=arrMTVertices[v].x;
+					if (pMorphTarget->m_MTExtensions.y<arrMTVertices[v].y)
+						pMorphTarget->m_MTExtensions.y=arrMTVertices[v].y;
+					if (pMorphTarget->m_MTExtensions.z<arrMTVertices[v].z)
+						pMorphTarget->m_MTExtensions.z=arrMTVertices[v].z;
+
+					// Calculate morph target bounding box.
+					bbox.Add( arrExtVertices[nVertexId].wpos0 );
+				}
+
+				pMorphTarget->m_MTExtensions.x += -pMorphTarget->m_MTNegBasis.x;
+				pMorphTarget->m_MTExtensions.x = max(pMorphTarget->m_MTExtensions.x,0.0001f);
+				assert(pMorphTarget->m_MTExtensions.x);
+
+				pMorphTarget->m_MTExtensions.y += -pMorphTarget->m_MTNegBasis.y;
+				pMorphTarget->m_MTExtensions.y = max(pMorphTarget->m_MTExtensions.y,0.0001f);
+				assert(pMorphTarget->m_MTExtensions.y);
+
+				pMorphTarget->m_MTExtensions.z += -pMorphTarget->m_MTNegBasis.z;
+				pMorphTarget->m_MTExtensions.z = max(pMorphTarget->m_MTExtensions.z,0.0001f);
+				assert(pMorphTarget->m_MTExtensions.z);
+
+				for (uint32 v=0; v<nVerts; v++)
+				{
+					arrMTVertices[v].x=(arrMTVertices[v].x-pMorphTarget->m_MTNegBasis.x)/pMorphTarget->m_MTExtensions.x;
+					arrMTVertices[v].y=(arrMTVertices[v].y-pMorphTarget->m_MTNegBasis.y)/pMorphTarget->m_MTExtensions.y;
+					arrMTVertices[v].z=(arrMTVertices[v].z-pMorphTarget->m_MTNegBasis.z)/pMorphTarget->m_MTExtensions.z;
+				}
+
+				//vertex quantizations
+				for (uint32 v=0; v<nVerts; v++)
+				{
+					int32 x=int32(arrMTVertices[v].x*255.0f);
+					x=max(x,0); 	x=min(x,255);
+					int32 y=int32(arrMTVertices[v].y*255.0f);
+					y=max(y,0);		y=min(y,255);
+					int32 z=int32(arrMTVertices[v].z*255.0f);
+					z=max(z,0);		z=min(z,255);
+					pMorphTarget->m_vertices[v].m_MTVertexX = x;
+					pMorphTarget->m_vertices[v].m_MTVertexY = y;
+					pMorphTarget->m_vertices[v].m_MTVertexZ = z;
+				}
+
+
+				Vec3 bboxCenter = bbox.GetCenter();
+				Vec3 bboxHalfSize = bbox.GetSize() * 0.5f;	
+
+				for (uint32 v=0; v<nVerts; v++)
+				{
+					pMorphTarget->m_vertices[v].m_fBalanceLR = 0xff;
+					assert( fabsf(bboxHalfSize.x)>0.001f );
+					if (bboxHalfSize.x)
+					{
+						uint32 nVertexId = pMorphTarget->m_vertices[v].m_nVertexId;
+						Vec3 point = arrExtVertices[nVertexId].wpos0;
+						float balance = (point.x - bboxCenter.x) / bboxHalfSize.x;
+
+						float fl = 1.0f - max(balance,0.0f);
+						float fr = 1.0f - max(-balance,0.0f);
+						fl = fl * fl * fl;
+						fr = fr * fr * fr;
+
+						int32 ufl=int32(fl*15.0f);
+						ufl=max(ufl,0x00);
+						ufl=min(ufl,0x0f);
+						int32 ufr=int32(fr*15.0f);
+						ufr=max(ufr,0x00);
+						ufr=min(ufr,0x0f);
+						pMorphTarget->m_vertices[v].m_fBalanceLR	= (uint8(ufr)<<4) | (uint8(ufl));
+					}
+				}
+			}
+			// remove NULL morphs entries
+			for(int n=(int)pModelMesh->m_morphTargets.size()-1;n>=0;n--)
+			{
+				if( pModelMesh->m_morphTargets[n]==NULL )
+				{
+					pModelMesh->m_morphTargets.erase(pModelMesh->m_morphTargets.begin()+n);
+				}
+			}
+		}
+		//////////////////////////////////////////////////////////////////////////
+
+		// Create the RenderMesh
+		if (lod >= baseLOD)
+		{
+			pModelMesh->m_numExtTriangles = pMesh->m_nIndexCount/3;
+			pModel->m_pRenderMeshs[lod] =	g_pIRenderer->CreateRenderMesh("Character", pModel->GetModelFilePath());
+			assert(pModel->m_pRenderMeshs[lod]!=0);
+
+			// CreateRenderMesh create an object with an refcount of 1, by using a smart-ptr the refcount is incrased to 2, so use Release to correct the refcount
+			pModel->m_pRenderMeshs[lod]->Release();			
+			pModel->m_pRenderMeshs[lod]->SetMaterial( pIMaterial );
+
+			const char* pName = pModel->m_strFilePath;
+			uint32 numSubsets = pMesh->GetSubSetCount();
+			for (uint32 s=0; s<numSubsets; s++)
+			{
+				uint32 numID = pMesh->m_subsets[s].m_arrGlobalBonesPerSubset.size();
+				for(uint32 d=0; d<numID; d++)
+				{
+					uint16 id = uint16(pMesh->m_subsets[s].m_arrGlobalBonesPerSubset[d]);
+					if (id>255)
+						CryFatalError("CryAnimation: Invalid Chunk-ID in Model: %s  lod: %d",pName,lod);
+				}
+			}
+
+			pModel->m_pRenderMeshs[lod]->SetMesh( *pMesh, 0, FSM_MORPH_TARGETS | FSM_CREATE_DEVICE_MESH, 0);
+		}
+		else
+			pModelMesh->m_numExtTriangles = 0;
+
+
+		if (lod == baseLOD) 
+		{
+			if(!pSkinningInfo->m_bProperBBoxes)
+			{
+				//if (!pSkinningInfo->m_arrCollisions.empty())
+				//	pModel->m_arrCollisions = pSkinningInfo->m_arrCollisions;
+
+				for (int i = 0; i < pModel->m_arrCollisions.size(); ++i)
+				{
+					std::set<int> unique;
+
+					for (int j = 0; j < pModel->m_arrCollisions[i].m_arrIndexes.size(); ++j)
+					{
+						unique.insert(pModel->m_arrCollisions[i].m_arrIndexes[j]);
+					}
+
+					DynArray<short int> tmp;
+					tmp.swap(pModel->m_arrCollisions[i].m_arrIndexes);
+					pModel->m_arrCollisions[i].m_arrIndexes.reserve(unique.size());
+
+					for (uint32 j = 0; j < arrExtFaces.size(); ++j)
+					{
+						if ((unique.find(arrExtFaces[j].i0) != unique.end()) || (unique.find(arrExtFaces[j].i1) != unique.end()) || (unique.find(arrExtFaces[j].i2) != unique.end()))
+						{
+							pModel->m_arrCollisions[i].m_arrIndexes.push_back(j);
+							if((j * 3 + 2) >= static_cast<uint32>(pSkinningInfo->m_arrIntFaces.size() * 3))
+							{
+								g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING,VALIDATOR_FLAG_FILE,"Error mapping face indices while loading CHR file %s", strGeomFileName);
+							}
+						}
+					}
+				}
+				// we don't need base data
+				DynArray<short int> tmp;
+				tmp.swap(pModel->m_arrCollisions[0].m_arrIndexes);
+			}
+			else
+			{
+				pModel->m_arrCollisions = pSkinningInfo->m_arrCollisions;
+			}
+		}
+
+		delete [] arrExtVertices;
+
+		//---------------------------------------------------------------------------------
+
+	} //loop over all LODs
+
+	//---------------------------------------------------------------------------------------------------------------
+
+	for (uint32 lod=0; lod<nLODs; lod++) 
+		g_pI3DEngine->ReleaseChunkFileContent( pCGF[lod] );
+
+	pModel->m_ModelSkeleton.SetIKJointID();
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//---------------------------------------------------------------------------------------------------------------
+
+	//////////////////////////////////////////////////////////////////////////
+	//use vertices to calculate AABB
+	CModelMesh* pModelMesh = pModel->GetModelMesh(baseLOD);
+	//	uint32 numExtVertices = ;//arrExtVertices.size();
+	pModel->m_ModelAABB=AABB(Vec3(VMAX),Vec3(VMIN));
+
+	//for(uint32 i=0; i<numExtVertices; i++)
+	//	pModel->m_ModelAABB.Add(arrExtVertices[i].wpos1);
+	pModel->m_ModelAABB = pModel->m_arrCollisions[0].m_aABB;//
+
+
+	//////////////////////////////////////////////////////////////////////////
+
+	pModel->PostLoad();
+
+	string setupFileName = m_strGeomFileNameNoExt + ".setup";
+	m_pModel = pModel;
+	LoadSetup(setupFileName);
+
+	//-------------------------------------------------------------------------------------------------------------
+	//---     Each base-character model must have an IK-definition, or the IK will not work           -------------
+	//-------------------------------------------------------------------------------------------------------------
+	string strAimIK_FileName = m_strGeomFileNameNoExt + ".IK";
+	XmlNodeRef TopNode = LoadIKSetup( strAimIK_FileName,pModel );
+	if (TopNode==0)
+	{
+		//if there is no IK-definition per model then we load the default one to make surre that the bipeds work.
+		//check if this is REALLY a biped
+		int32 wbone = pModel->m_ModelSkeleton.GetJointIDByName("weapon_bone");
+		if (IsModelBiped() && wbone>0)
+		{ 
+			LoadIKSetup(DEFAULT_BIPED_IK_FILENAME, pModel);
+		}
+	}
+
+	const char* RootName = pModel->m_ModelSkeleton.m_arrModelJoints[0].GetJointName();
+	uint32 IsBiped=0;
+	if (RootName[0]=='B' && RootName[1]=='i' && RootName[2]=='p' && RootName[3]=='0' && RootName[4]=='1')
+		IsBiped=1;
+
+	if (g_pCharacterManager->m_IsDedicatedServer==0 || IsBiped==0)
+	{
+		string m_strCalFileName = m_strGeomFileNameNoExt + ".cal";
+		uint32 l = LoadAnimations(m_strCalFileName, pModel);
+		if (l == 0)	
+			return NULL;
+		else
+		{
+			pModel->m_AnimationSet.ComputeSelectionProperties();
+			pModel->m_AnimationSet.VerifyLMGs();
+			pModel->m_AnimationSet.VerifyPMGs();
+		}
+
+		int32 numGlobalAnims = g_AnimationManager.m_arrGlobalCAF.size();
+		assert(numGlobalAnims);
+		//pModel->m_AnimationSet.m_arrAnimations.shrink();
+		//	g_AnimationManager.m_arrGlobalCAF.shrink();
+		//	g_AnimationManager.m_arrGlobalLMG.shrink();
+		//	g_AnimationManager.m_arrGlobalPMG.shrink();
+	}
+
+	// If there is a facial model, but no expression library, we should create an empty library for it.
+	// When we assign the library to the facial model it will automatically be assigned the morphs as expressions.
+	{
+		CFacialModel* pFacialModel = (pModel ? pModel->GetFacialModel() : 0);
+		CFacialEffectorsLibrary* pEffectorsLibrary = (pFacialModel ? pFacialModel->GetFacialEffectorsLibrary() : 0);
+		if (pFacialModel && !pEffectorsLibrary)
+		{
+			CFacialAnimation* pFacialAnimationManager = (g_pCharacterManager ? g_pCharacterManager->GetFacialAnimation() : 0);
+			CFacialEffectorsLibrary* pNewLibrary = new CFacialEffectorsLibrary(pFacialAnimationManager);
+			const string& filePath = pModel->GetFilePath();
+			if (!filePath.empty())
+			{
+				string libraryFilePath = PathUtil::ReplaceExtension(filePath, ".fxl");
+				pNewLibrary->SetName(libraryFilePath);
+			}
+			if (pFacialModel && pNewLibrary)
+				pFacialModel->AssignLibrary(pNewLibrary);
+		}
+	}
+
+
+
+
+	return pModel;
+}
+
+void CryCHRLoader::LoadLod(XmlNodeRef root)
+{
+	XmlNodeRef lod = root->findChild("Lod");
+	if (!lod)	
+		return;
+
+	uint32 count = lod->getChildCount();
+	for (uint32 i=0; i<count; ++i)
+	{
+		XmlNodeRef jointList = lod->getChild(i);
+		if (!jointList->isTag("JointList"))
+			continue;
+
+		uint32 level;
+		if (!jointList->getAttr("level", level))
+			continue;
+
+		DynArray<uint32> jointMask;
+		uint32 jointCount = jointList->getChildCount();
+		for (uint32 j=0; j<jointCount; ++j)
+		{
+			XmlNodeRef joint = jointList->getChild(j);
+			if (!joint->isTag("Joint"))
+				continue;
+
+			const char* name = joint->getAttr("name");
+			if (!name)
+				continue;
+
+			uint32 nameCrc32 = g_pCrc32Gen->GetCRC32(name);
+			jointMask.push_back(nameCrc32);
+		}
+
+		if (!jointMask.empty())
+		{
+			std::sort(jointMask.begin(), jointMask.end());
+			m_pModel->m_arrAnimationLOD.push_back()->swap(jointMask);
+		}
+	}
+}
+
+void CryCHRLoader::LoadSetup(const char* fileName)
+{
+	XmlNodeRef root = g_pISystem->LoadXmlFile(fileName);
+	if (!root)
+	{
+		if (IsModelBiped())
+			root = LoadIKSetup(DEFAULT_BIPED_SETUP_FILENAME, m_pModel);
+		if (!root)
+			return;
+	}
+
+	LoadLod(root);
+}
+
+//------------------------------------------------------------------------------------------------------------
+// loads XML-File to setup IK
+//------------------------------------------------------------------------------------------------------------
+XmlNodeRef CryCHRLoader::LoadIKSetup( const char* AimIK_FileName, CCharacterModel* pModel )
+{
+	LOADING_TIME_PROFILE_SECTION(g_pISystem);
+
+	CModelSkeleton* pModelSkeleton = &pModel->m_ModelSkeleton;
+	XmlNodeRef TOPROOT		= g_pISystem->LoadXmlFile(AimIK_FileName);
+	if (TOPROOT)
+	{
+		//use XML file
+//Diesel cut
+		//g_pILog->LogToFile("CryAnimation: parse and setup: %s", AimIK_FileName);
+
+		const char* TopRootXMLTAG = TOPROOT->getTag();
+		if (stricmp(TopRootXMLTAG,"IK_Definition")==0) 
+		{
+
+			uint32 numIKTypes = TOPROOT->getChildCount();
+			for (uint32 iktype=0; iktype<numIKTypes; iktype++) 
+			{
+				XmlNodeRef IKNode = TOPROOT->getChild(iktype);
+
+				//-----------------------------------------------------------
+				//check AimIK-Setup  
+				//-----------------------------------------------------------
+				const char* IKTypeTAG = IKNode->getTag();
+				if (stricmp(IKTypeTAG,"AimIK_Definition")==0) 
+				{
+
+					uint32 numChilds = IKNode->getChildCount();
+					for (uint32 c=0; c<numChilds; c++) 
+					{
+						XmlNodeRef node = IKNode->getChild(c);
+						const char* strTag = node->getTag();
+
+						//----------------------------------------------------------------------------------------
+
+						if (stricmp(strTag,"RWeaponJoint")==0) 
+						{
+							const char* pJointName = node->getAttr( "JointName" );
+							int32 jidx = pModelSkeleton->GetJointIDByName(pJointName);
+							assert(jidx>0);
+							if (jidx>0)
+								pModelSkeleton->m_IdxArray[eIM_RWeaponBoneIdx] = jidx;
+						}
+
+						//----------------------------------------------------------------------------------------
+
+						if (stricmp(strTag,"LWeaponJoint")==0) 
+						{
+							const char* pJointName = node->getAttr( "JointName" );
+							int32 jidx = pModelSkeleton->GetJointIDByName(pJointName);
+							assert(jidx>0);
+							if (jidx>0)
+								pModelSkeleton->m_IdxArray[eIM_LWeaponBoneIdx] = jidx;
+						}
+
+						//----------------------------------------------------------------------------
+						if (stricmp(strTag,"RotationList")==0) 
+						{
+							uint32 num = node->getChildCount();
+							pModelSkeleton->m_AimIK_Rot.reserve(num);
+							for (uint32 i=0; i<num; i++) 
+							{
+								SJointsAimIK_Rot AimIK_Rot;
+								XmlNodeRef nodeRot = node->getChild(i);
+								const char* RotTag = nodeRot->getTag();
+								if (stricmp(RotTag,"Rotation")==0) 
+								{
+									const char* pJointName = nodeRot->getAttr( "JointName" );
+									int32 jidx = pModelSkeleton->GetJointIDByName(pJointName);
+									if (jidx>0)
+									{
+										AimIK_Rot.m_nJointIdx = jidx;
+										AimIK_Rot.m_strJointName = pModelSkeleton->GetJointNameByID(jidx);
+									}
+									assert(jidx>0);
+									nodeRot->getAttr( "Primary",    AimIK_Rot.m_nPreEvaluate );
+									nodeRot->getAttr( "Additive",   AimIK_Rot.m_nAdditive );
+									//	AimIK_Rot.m_nAdditive=0;
+									pModelSkeleton->m_AimIK_Rot.push_back( AimIK_Rot );
+								}
+							}
+						}
+
+						//----------------------------------------------------------------------------------------
+
+						if (stricmp(strTag,"PositionList")==0) 
+						{
+							uint32 num = node->getChildCount();
+							pModelSkeleton->m_AimIK_Pos.reserve(num);
+							for (uint32 i=0; i<num; i++) 
+							{
+								SJointsAimIK_Pos AimIK_Pos;
+								XmlNodeRef nodePos = node->getChild(i);
+								const char* PosTag = nodePos->getTag();
+								if (stricmp(PosTag,"Position")==0) 
+								{
+									const char* pJointName = nodePos->getAttr( "JointName" );
+									int32 jidx = pModelSkeleton->GetJointIDByName(pJointName);
+									if (jidx>0)
+									{
+										AimIK_Pos.m_nJointIdx = jidx;
+										AimIK_Pos.m_strJointName = pModelSkeleton->GetJointNameByID(jidx);
+									}
+									assert(jidx>0);
+									pModelSkeleton->m_AimIK_Pos.push_back( AimIK_Pos );
+								}
+							}
+						}
+
+						//----------------------------------------------------------------------------------------
+
+						if (stricmp(strTag,"DirectionalBlends")==0) 
+						{
+							uint32 num = node->getChildCount();
+							pModelSkeleton->m_DirectionalBlends.reserve(num);
+							for (uint32 i=0; i<num; i++) 
+							{
+								DirectionalBlends DirBlend;
+								XmlNodeRef nodePos = node->getChild(i);
+								const char* DirTag = nodePos->getTag();
+								if (stricmp(DirTag,"Joint")==0) 
+								{
+									const char* pAnimToken = nodePos->getAttr( "AnimToken" );
+									DirBlend.m_AnimToken = pAnimToken;
+									DirBlend.m_AnimTokenCRC32 = g_pCrc32Gen->GetCRC32Lowercase(pAnimToken);
+
+									const char* pJointName = nodePos->getAttr( "ParameterJoint" );
+									int jidx1 = pModelSkeleton->GetJointIDByName(pJointName);
+									if (jidx1>0)
+									{
+										DirBlend.m_nParaJointIdx = jidx1;
+										DirBlend.m_strParaJointName = pModelSkeleton->GetJointNameByID(jidx1);
+									}
+									assert(jidx1>0);
+
+									const char* pStartJointName = nodePos->getAttr( "StartJoint" );
+									int jidx2 = pModelSkeleton->GetJointIDByName(pStartJointName);
+									if (jidx2>0)
+									{
+										DirBlend.m_nStartJointIdx	= jidx2;
+										DirBlend.m_strStartJointName = pModelSkeleton->GetJointNameByID(jidx2);
+									}
+									assert(jidx2>0);
+
+									pModelSkeleton->m_DirectionalBlends.push_back( DirBlend );
+								}
+							}
+						}
+
+
+					}
+				}
+
+				//-----------------------------------------------------------
+				//check LimbIK-Setup  
+				//-----------------------------------------------------------
+				if (stricmp(IKTypeTAG,"LimbIK_Definition")==0) 
+				{
+					uint32 num = IKNode->getChildCount();
+					for (uint32 likdef=0; likdef<num; likdef++) 
+					{
+						IKLimbType IKLimb;
+						XmlNodeRef nodePos = IKNode->getChild(likdef);
+						const char* PosTag = nodePos->getTag();
+						if (stricmp(PosTag,"IK")==0) 
+						{
+							const char* pHandle = nodePos->getAttr( "Handle" );
+							if (pHandle==0)
+								continue;
+							IKLimb.m_nHandle = *(uint64*)pHandle;
+
+							const char* pSolver = nodePos->getAttr( "Solver" );
+							if (pSolver==0)
+								continue;
+
+							IKLimb.m_nSolver = *(uint32*)pSolver;
+
+							//-----------------------------------------------------------------------------------
+
+							if (IKLimb.m_nSolver==*(uint32*)"2BIK")  //check the Solver
+							{
+								const char* pRoot = nodePos->getAttr( "Root" );
+								if (pRoot==0)
+									continue;
+								int32 nRootIdx = pModelSkeleton->GetJointIDByName(pRoot);
+								if (nRootIdx<0)
+									continue;
+
+								const char* pEndEffector = nodePos->getAttr( "EndEffector" );
+								if (pEndEffector==0)
+									continue;
+								int32 nEndEffectorIdx = pModelSkeleton->GetJointIDByName(pEndEffector);
+								if (nEndEffectorIdx<0)
+									continue;
+
+								assert(nRootIdx<nEndEffectorIdx);
+								if (nRootIdx>=nEndEffectorIdx)
+									continue;
+
+
+								int32 nBaseRootIdx = pModelSkeleton->GetJointParentIDByID(nRootIdx);
+								if (nBaseRootIdx<0)
+									continue;
+								int32 nMiddleIdx = pModelSkeleton->GetJointParentIDByID(nEndEffectorIdx);
+								if (nMiddleIdx<0)
+									continue;
+								//do a simple verification
+								int32 idx  = pModelSkeleton->GetJointParentIDByID(nMiddleIdx);
+								const char* strRoot  = pModelSkeleton->GetJointNameByID(idx);
+								if (idx != nRootIdx)
+									continue;
+
+								IKLimb.m_arrJointChain.resize(4);
+								IKLimb.m_arrJointChain[0].m_idxJoint = nBaseRootIdx;
+								IKLimb.m_arrJointChain[0].m_strJoint = pModelSkeleton->GetJointNameByID(nBaseRootIdx);
+								IKLimb.m_arrJointChain[1].m_idxJoint = nRootIdx;
+								IKLimb.m_arrJointChain[1].m_strJoint = pModelSkeleton->GetJointNameByID(nRootIdx);
+								IKLimb.m_arrJointChain[2].m_idxJoint = nMiddleIdx;
+								IKLimb.m_arrJointChain[2].m_strJoint = pModelSkeleton->GetJointNameByID(nMiddleIdx);
+								IKLimb.m_arrJointChain[3].m_idxJoint = nEndEffectorIdx;
+								IKLimb.m_arrJointChain[3].m_strJoint = pModelSkeleton->GetJointNameByID(nEndEffectorIdx);
+
+								uint32 numJoints = pModelSkeleton->GetNumJoints();
+								int16 arrIndices[MAX_JOINT_AMOUNT];
+								int32 icounter=0;
+								int32 start=nRootIdx;
+								for (uint32 i=start; i<numJoints; i++)
+								{
+									int32 c=i;
+									while(c>0)
+									{
+										if (nRootIdx==c) {	arrIndices[icounter++]=i;	break; }
+										else c = pModelSkeleton->m_arrModelJoints[c].m_idxParent;
+									}
+								}
+								if (icounter)
+								{
+									IKLimb.m_arrLimbChildren.resize(icounter);
+									for (int32 i=0; i<icounter; i++)
+										IKLimb.m_arrLimbChildren[i]=arrIndices[i];
+								}
+
+
+								int32 arrEndEff2Root[MAX_JOINT_AMOUNT];
+								arrEndEff2Root[0]=nEndEffectorIdx;
+
+								int32 error=-1;	uint32 links;
+								for (links=0; links<(MAX_JOINT_AMOUNT-1); links++)
+								{
+									arrEndEff2Root[links+1] = pModelSkeleton->GetJointParentIDByID(arrEndEff2Root[links]);
+									error=arrEndEff2Root[links+1];
+									if (error<0)
+										break;
+									if (arrEndEff2Root[links+1]==0)
+										break;
+								}
+								if (error<0)
+									continue;
+								links+=2;
+								IKLimb.m_arrRootToEndEffector.resize(links);
+								int32 s=links-1;
+								for (int32 j=0; j<links; j++)
+									IKLimb.m_arrRootToEndEffector[s--] = arrEndEff2Root[j];
+
+								pModelSkeleton->m_IKLimbTypes.push_back( IKLimb );
+							} //if "2BIK"
+
+					//------------------------------------------------------------------------------------
+
+							if (IKLimb.m_nSolver==*(uint32*)"3BIK")  //check the Solver
+							{
+								const char* pRoot = nodePos->getAttr( "Root" );
+								if (pRoot==0)
+									continue;
+								int32 nRootIdx = pModelSkeleton->GetJointIDByName(pRoot);
+								if (nRootIdx<0)
+									continue;
+
+								const char* pEndEffector = nodePos->getAttr( "EndEffector" );
+								if (pEndEffector==0)
+									continue;
+								int32 nEndEffectorIdx = pModelSkeleton->GetJointIDByName(pEndEffector);
+								if (nEndEffectorIdx<0)
+									continue;
+
+								assert(nRootIdx<nEndEffectorIdx);
+								if (nRootIdx>=nEndEffectorIdx)
+									continue;
+
+								int32 nBaseRootIdx = pModelSkeleton->GetJointParentIDByID(nRootIdx);
+								if (nBaseRootIdx<0)
+									continue;
+								int32 nLeg03Idx = pModelSkeleton->GetJointParentIDByID(nEndEffectorIdx);
+								if (nLeg03Idx<0)
+									continue;
+								int32 nLeg02Idx = pModelSkeleton->GetJointParentIDByID(nLeg03Idx);
+								if (nLeg02Idx<0)
+									continue;
+								//do a simple verification
+								int32 idx  = pModelSkeleton->GetJointParentIDByID(nLeg02Idx);
+								const char* strRoot  = pModelSkeleton->GetJointNameByID(idx);
+								if (idx != nRootIdx)
+									continue;
+
+
+								IKLimb.m_arrJointChain.resize(5);
+								IKLimb.m_arrJointChain[0].m_idxJoint = nBaseRootIdx;
+								IKLimb.m_arrJointChain[0].m_strJoint = pModelSkeleton->GetJointNameByID(nBaseRootIdx);
+
+								IKLimb.m_arrJointChain[1].m_idxJoint = nRootIdx;
+								IKLimb.m_arrJointChain[1].m_strJoint = pModelSkeleton->GetJointNameByID(nRootIdx);
+
+								IKLimb.m_arrJointChain[2].m_idxJoint = nLeg02Idx;
+								IKLimb.m_arrJointChain[2].m_strJoint = pModelSkeleton->GetJointNameByID(nLeg02Idx);
+
+								IKLimb.m_arrJointChain[3].m_idxJoint = nLeg03Idx;
+								IKLimb.m_arrJointChain[3].m_strJoint = pModelSkeleton->GetJointNameByID(nLeg03Idx);
+
+								IKLimb.m_arrJointChain[4].m_idxJoint = nEndEffectorIdx;
+								IKLimb.m_arrJointChain[4].m_strJoint = pModelSkeleton->GetJointNameByID(nEndEffectorIdx);
+
+								uint32 numJoints = pModelSkeleton->GetNumJoints();
+								int16 arrIndices[MAX_JOINT_AMOUNT];
+								int32 icounter=0;
+								int32 start=nRootIdx;
+								for (uint32 i=start; i<numJoints; i++)
+								{
+									int32 c=i;
+									while(c>0)
+									{
+										if (nRootIdx==c) {	arrIndices[icounter++]=i;	break; }
+										else c = pModelSkeleton->m_arrModelJoints[c].m_idxParent;
+									}
+								}
+								if (icounter)
+								{
+									IKLimb.m_arrLimbChildren.resize(icounter);
+									for (int32 i=0; i<icounter; i++)
+										IKLimb.m_arrLimbChildren[i]=arrIndices[i];
+								}
+
+
+								int32 arrEndEff2Root[MAX_JOINT_AMOUNT];
+								arrEndEff2Root[0]=nEndEffectorIdx;
+
+								int32 error=-1;	uint32 links;
+								for (links=0; links<(MAX_JOINT_AMOUNT-1); links++)
+								{
+									arrEndEff2Root[links+1] = pModelSkeleton->GetJointParentIDByID(arrEndEff2Root[links]);
+									error=arrEndEff2Root[links+1];
+									if (error<0)
+										break;
+									if (arrEndEff2Root[links+1]==0)
+										break;
+								}
+								if (error<0)
+									continue;
+								links+=2;
+								IKLimb.m_arrRootToEndEffector.resize(links);
+								int32 s=links-1;
+								for (int32 j=0; j<links; j++)
+									IKLimb.m_arrRootToEndEffector[s--] = arrEndEff2Root[j];
+
+								pModelSkeleton->m_IKLimbTypes.push_back( IKLimb );
+							} //if "3BIK"
+
+
+							//--------------------------------------------------------------------------
+
+							if (IKLimb.m_nSolver==*(uint32*)"CCDX")  //check the Solver
+							{
+								const char* pRoot = nodePos->getAttr( "Root" );
+								if (pRoot==0)
+									continue;
+								int32 nRootIdx = pModelSkeleton->GetJointIDByName(pRoot);
+								if (nRootIdx<0)
+									continue;
+
+								const char* pEndEffector = nodePos->getAttr( "EndEffector" );
+								if (pEndEffector==0)
+									continue;
+								int32 nEndEffectorIdx = pModelSkeleton->GetJointIDByName(pEndEffector);
+								if (nEndEffectorIdx<0)
+									continue;
+
+								assert(nRootIdx<nEndEffectorIdx);
+								if (nRootIdx>=nEndEffectorIdx)
+									continue;
+
+								int32 nBaseRootIdx = pModelSkeleton->GetJointParentIDByID(nRootIdx);
+								if (nBaseRootIdx<0)
+									continue;
+
+								if (!nodePos->getAttr( "fStepSize",IKLimb.m_fStepSize))
+									continue;
+								if (!nodePos->getAttr( "fThreshold",IKLimb.m_fThreshold))
+									continue;
+								if (!nodePos->getAttr( "nMaxInteration",IKLimb.m_nInterations))
+									continue;
+
+								int32 arrCCDChainIdx[MAX_JOINT_AMOUNT];
+								const char* arrCCDChainStr[MAX_JOINT_AMOUNT];
+
+								arrCCDChainIdx[0]=nEndEffectorIdx;
+								arrCCDChainStr[0]=pModelSkeleton->GetJointNameByID(nEndEffectorIdx);
+
+								int32 error=-1;	uint32 links;
+								for (links=0; links<(MAX_JOINT_AMOUNT-1); links++)
+								{
+									arrCCDChainIdx[links+1] = pModelSkeleton->GetJointParentIDByID(arrCCDChainIdx[links]);
+									error=arrCCDChainIdx[links+1];
+									if (error<0)
+										break;
+									arrCCDChainStr[links+1] = pModelSkeleton->GetJointNameByID(arrCCDChainIdx[links+1]);
+									if (arrCCDChainIdx[links+1]==nRootIdx)
+										break;
+								}
+								if (error<0)
+									continue;
+								
+								links++;
+								arrCCDChainIdx[links+1] = nBaseRootIdx;
+								arrCCDChainStr[links+1] = pModelSkeleton->GetJointNameByID(arrCCDChainIdx[links+1]);
+
+								links+=2;
+								IKLimb.m_arrJointChain.resize(links);
+								int32 s=links-1;
+								for (int32 j=0; j<links; j++)
+								{
+									IKLimb.m_arrJointChain[s].m_idxJoint = arrCCDChainIdx[j];
+									IKLimb.m_arrJointChain[s].m_strJoint = arrCCDChainStr[j];
+									s--;
+								}
+
+
+								uint32 numJoints = pModelSkeleton->GetNumJoints();
+								int16 arrIndices[MAX_JOINT_AMOUNT];
+								int32 icounter=0;
+								for (uint32 i=nRootIdx; i<numJoints; i++)
+								{
+									int32 c=i;
+									while(c>0)
+									{
+										if (nRootIdx==c) {	arrIndices[icounter++]=i;	break; }
+										else c = pModelSkeleton->m_arrModelJoints[c].m_idxParent;
+									}
+								}
+								if (icounter)
+								{
+									IKLimb.m_arrLimbChildren.resize(icounter);
+									for (int32 i=0; i<icounter; i++)
+										IKLimb.m_arrLimbChildren[i]=arrIndices[i];
+								}
+
+
+								int32 arrEndEff2Root[MAX_JOINT_AMOUNT];
+								arrEndEff2Root[0]=nEndEffectorIdx;
+								error=-1;	
+								for (links=0; links<(MAX_JOINT_AMOUNT-1); links++)
+								{
+									arrEndEff2Root[links+1] = pModelSkeleton->GetJointParentIDByID(arrEndEff2Root[links]);
+									error=arrEndEff2Root[links+1];
+									if (error<0)
+										break;
+									if (arrEndEff2Root[links+1]==0)
+										break;
+								}
+								if (error<0)
+									continue;
+								links+=2;
+								IKLimb.m_arrRootToEndEffector.resize(links);
+								s=links-1;
+								for (int32 j=0; j<links; j++)
+									IKLimb.m_arrRootToEndEffector[s--] = arrEndEff2Root[j];
+
+								pModelSkeleton->m_IKLimbTypes.push_back( IKLimb );
+							} //if "CCDX"
+
+
+							//--------------------------------------------------------------------------
+
+							if (IKLimb.m_nSolver==*(uint32*)"CCD5")  //check the Solver
+							{
+								int32 varify=3;
+								IKLimb.m_arrJointChain.resize(5);
+
+								const char* pJ0 = nodePos->getAttr( "J0" );
+								if (pJ0) 
+								{
+									int32 nJ0Idx = pModelSkeleton->GetJointIDByName(pJ0);
+									if (nJ0Idx>0)
+									{
+										IKLimb.m_arrJointChain[0].m_idxJoint = nJ0Idx;
+										IKLimb.m_arrJointChain[0].m_strJoint = pModelSkeleton->GetJointNameByID(nJ0Idx);
+										varify--;
+									}
+									ANIM_ASSET_CHECK_TRACE(nJ0Idx>0, ("For J0 %s in file %s", pJ0, AimIK_FileName));
+								}
+								const char* pJ1 = nodePos->getAttr( "J1" );
+								if (pJ1) 
+								{
+									int32 nJ1Idx = pModelSkeleton->GetJointIDByName(pJ1);
+									if (nJ1Idx>0)
+									{
+										IKLimb.m_arrJointChain[1].m_idxJoint = nJ1Idx;
+										IKLimb.m_arrJointChain[1].m_strJoint = pModelSkeleton->GetJointNameByID(nJ1Idx);
+										varify--;
+									}
+									ANIM_ASSET_CHECK_TRACE(nJ1Idx>0, ("For J1 %s in file %s", pJ1, AimIK_FileName));
+								}
+
+								const char* pJ2 = nodePos->getAttr( "J2" );
+								if (pJ2) 
+								{
+									int32 nJ2Idx = pModelSkeleton->GetJointIDByName(pJ2);
+									if (nJ2Idx>0)
+									{
+										IKLimb.m_arrJointChain[2].m_idxJoint = nJ2Idx;
+										IKLimb.m_arrJointChain[2].m_strJoint = pModelSkeleton->GetJointNameByID(nJ2Idx);
+										varify--;
+									}
+									ANIM_ASSET_CHECK_TRACE(nJ2Idx>0, ("For J2 %s in file %s", pJ2, AimIK_FileName));
+								}
+
+								const char* pJ3 = nodePos->getAttr( "J3" );
+								if (pJ3) 
+								{
+									int32 nJ3Idx = pModelSkeleton->GetJointIDByName(pJ3);
+									if (nJ3Idx>0)
+									{
+										IKLimb.m_arrJointChain[3].m_idxJoint = nJ3Idx;
+										IKLimb.m_arrJointChain[3].m_strJoint = pModelSkeleton->GetJointNameByID(nJ3Idx);
+										varify--;
+									}
+									ANIM_ASSET_CHECK_TRACE(nJ3Idx>0, ("For J3 %s in file %s", pJ3, AimIK_FileName));
+								}
+								const char* pJ4 = nodePos->getAttr( "J4" );
+								if (pJ4) 
+								{
+									int32 nJ4Idx = pModelSkeleton->GetJointIDByName(pJ4);
+									if (nJ4Idx>0)
+									{
+										IKLimb.m_arrJointChain[4].m_idxJoint = nJ4Idx;
+										IKLimb.m_arrJointChain[4].m_strJoint = pModelSkeleton->GetJointNameByID(nJ4Idx);
+										varify--;
+									}
+									ANIM_ASSET_CHECK_TRACE(nJ4Idx>0, ("For J4 %s in file %s", pJ4, AimIK_FileName));
+								}
+
+								if (varify==-2)
+									pModelSkeleton->m_IKLimbTypes.push_back( IKLimb );
+
+							}
+							//--------------------------------------------------------------------------
+
+							//	}
+						}
+					}
+				}
+
+				//-----------------------------------------------------------
+				//check Animation-Driven IK-Targets  
+				//-----------------------------------------------------------
+				if (stricmp(IKTypeTAG,"Animation_Driven_IK_Targets")==0) 
+				{
+					uint32 num = IKNode->getChildCount();
+					for (uint32 i=0; i<num; i++) 
+					{
+						ADIKTarget IKTarget;
+						XmlNodeRef nodePos = IKNode->getChild(i);
+						const char* PosTag = nodePos->getTag();
+						if (stricmp(PosTag,"ADIKTarget")==0) 
+						{
+							uint32 varify=3;
+							const char* pHandle = nodePos->getAttr( "Handle" );
+							if (pHandle)
+							{
+								IKTarget.m_nHandle = *(uint64*)pHandle;
+								varify--;
+							}
+							const char* pTarget = nodePos->getAttr( "Target" );
+							if (pTarget) 
+							{
+								int32 nTargetIdx = pModelSkeleton->GetJointIDByName(pTarget);
+								if (nTargetIdx>0)
+								{
+									IKTarget.m_idxTarget  = nTargetIdx;
+									IKTarget.m_strTarget  = pModelSkeleton->GetJointNameByID(nTargetIdx);
+									varify--;
+								}
+								ANIM_ASSET_CHECK_TRACE(nTargetIdx>0, ("For target %s in file %s", pTarget, AimIK_FileName));
+							}
+
+							const char* pWeight = nodePos->getAttr( "Weight" );
+							if (pWeight) 
+							{
+								int32 nWeightIdx = pModelSkeleton->GetJointIDByName(pWeight);
+								if (nWeightIdx>0)
+								{
+									IKTarget.m_idxWeight  = nWeightIdx;
+									IKTarget.m_strWeight  = pModelSkeleton->GetJointNameByID(nWeightIdx);
+									varify--;
+								}
+								ANIM_ASSET_CHECK_TRACE(nWeightIdx>0, ("For weight %s in file %s", pWeight, AimIK_FileName));
+							}
+							if (varify==0)
+								pModelSkeleton->m_ADIKTargets.push_back( IKTarget );
+						}
+					}
+				}
+
+				//-----------------------------------------------------------
+				//check LookIK-Setup  
+				//-----------------------------------------------------------
+				if (strcmp(IKTypeTAG,"LookIK_Definition")==0) 
+				{
+					//not used yet
+					uint32 ddd=0;(void)ddd;
+				}
+
+
+			}
+
+		}
+
+
+	}
+
+
+
+
+	uint32 numRot = pModelSkeleton->m_AimIK_Rot.size();	
+	uint32 numPos = pModelSkeleton->m_AimIK_Pos.size();	
+	for (uint32 r=0; r<numRot; r++)
+	{
+		for (uint32 p=0; p<numPos; p++)
+		{
+			const char* pRotName = pModelSkeleton->m_AimIK_Rot[r].m_strJointName;
+			if (pRotName==0)
+				continue;
+			const char* pPosName = pModelSkeleton->m_AimIK_Pos[p].m_strJointName;
+			if (pPosName==0)
+				continue;
+			uint32 SameJoint = strcmp(pRotName,pPosName)==0;
+			if (SameJoint)
+			{
+				pModelSkeleton->m_AimIK_Rot[r].m_nPosIndex = p;
+				break;
+			}
+		}
+	}
+
+	return TOPROOT;
+}
+
+
+//------------------------------------------------------------------------------------------------------------
+// loads animations for already loaded model
+//------------------------------------------------------------------------------------------------------------
+bool CryCHRLoader::LoadAnimations( const char* calFileName, CCharacterModel* pModel )
+{
+	LOADING_TIME_PROFILE_SECTION(g_pISystem);
+
+	FUNCTION_PROFILER( gEnv->pSystem, PROFILE_ANIMATION );
+
+	// the number of animations loaded
+	uint32 numAnimAssets = 0;
+
+
+	CCalParser calFile;
+	calFile.m_arrAnimFiles.push_back( new SAnimFile(string(NULL_ANIM_FILE "/") + pModel->GetNameCStr(), "null", 0));
+
+	bool bParseSubFolders = false;
+
+	calFile.Parse(calFileName, GetDefaultAnimDir(), bParseSubFolders);
+
+	if (!calFile.m_animEventDatabase.empty())
+	{
+		pModel->SetModelAnimEventDatabase(calFile.m_animEventDatabase);
+	}
+
+	uint32 numTracksDataBases = calFile.m_modelTracksDatabases.size();
+	for (uint32 i=0; i<numTracksDataBases; ++i)
+	{
+	//	pModel->AddModelTracksDatabase(calFile.m_modelTracksDatabases[i]);
+		string tmp=calFile.m_modelTracksDatabases[i];
+		CryStringUtils::UnifyFilePath(tmp);
+		uint32 numDBAs = pModel->m_arrFilePathDBA.size();
+		for (int dba=0; dba<numDBAs; dba++)
+		{
+			if (pModel->m_arrFilePathDBA[dba].compareNoCase(tmp) == 0)
+				continue;
+		}
+		pModel->m_arrFilePathDBA.push_back(tmp);
+	}
+
+	if (!calFile.m_faceLibFile.empty())
+	{
+		LoadFaceLib(calFile.m_faceLibFile, calFile.m_faceLibDir, pModel);
+	}
+
+	uint32 numAnimNames = calFile.m_arrAnimFiles.size();
+	numAnimAssets = LoadAnimationArray(pModel, calFile.m_arrAnimFiles, calFile.m_facialAnimations, calFile.m_arrWildcardAnimFiles, bParseSubFolders);
+
+	// Store the list of facial animations in the model animation set.
+	pModel->m_AnimationSet.GetFacialAnimations().SwapElementsWithVector(calFile.m_facialAnimations);
+
+	AnimEventLoader::loadAnimationEventDatabase(pModel, pModel->GetModelAnimEventDatabaseCStr());
+
+	if (numAnimAssets > 1)
+		g_pILog->UpdateLoadingScreen("  %d animation-assets loaded (total assets: %d)", numAnimAssets, g_AnimationManager.m_arrGlobalCAF.size());
+
+	if (Console::GetInst().ca_MemoryUsageLog)
+	{
+		CryModuleMemoryInfo info;
+		CryGetMemoryInfoForModule(&info);
+		g_pILog->UpdateLoadingScreen("Memstat %i", (int)(info.allocated - info.freed));
+	}
+
+	CModelMesh* pModelMesh = pModel->GetModelMesh(0);
+	return  pModel->m_ModelSkeleton.m_arrModelJoints.size() || pModelMesh->m_morphTargets.size();
+}
+
+void CryCHRLoader::LoadFaceLib( const char* faceLibFile, const char* animDirName, CCharacterModel* pModel )
+{
+	// Facial expressions library.
+	_smart_ptr<IFacialEffectorsLibrary> pLib;		
+
+	pLib = g_pCharacterManager->GetIFacialAnimation()->LoadEffectorsLibrary(faceLibFile);
+	if (!pLib)
+	{
+		// Search in animation directory .chr file directory.
+		pLib = g_pCharacterManager->GetIFacialAnimation()->LoadEffectorsLibrary(
+			PathUtil::Make(animDirName, faceLibFile));
+	}
+	if (!pLib)
+	{
+		// Search in .chr file directory.					
+		pLib = g_pCharacterManager->GetIFacialAnimation()->LoadEffectorsLibrary(
+			PathUtil::Make(PathUtil::GetParentDirectory(m_strGeomFileNameNoExt), faceLibFile));
+	}
+	if (pLib)
+	{
+		if (pModel->GetFacialModel())
+		{
+			pModel->GetFacialModel()->AssignLibrary(pLib);
+		}
+	}
+	else
+	{
+		AnimWarning("Facial Effector Library %s not found (when loading %s.cal)", faceLibFile, m_strGeomFileNameNoExt.c_str());
+	}
+}
+
+
+struct FindByAliasName
+{
+	const string& _name;
+	FindByAliasName(const string& name) : _name(name) {}
+	bool operator () (const SAnimFile* animFile)
+	{
+		return _name.compareNoCase(animFile->m_animName) == 0;
+	}
+	bool operator () (const CAnimationSet::FacialAnimationEntry& facialAnimEntry)
+	{
+		return _name.compareNoCase(facialAnimEntry.name) == 0;
+	}
+};
+
+//#include "LoaderDBA.h"
+
+// loads the animations from the array: pre-allocates the necessary controller arrays
+// the 0th animation is the default animation
+uint32 CryCHRLoader::LoadAnimationArray( CCharacterModel* pModel, TAnimFilesVec& arrAnimFiles, CAnimationSet::FacialAnimationSet::container_type& arrFacialAnimations, const TAnimFilesVec& arrWildcardAnimFiles, const bool parseSubfolders = false)
+{
+	uint32 nAnimID = 0;
+	uint32 numAnims = arrAnimFiles.size();
+	if (numAnims==0)
+		return 0;
+
+	int nNullLen = strlen(NULL_ANIM_FILE);
+
+	uint32 numPath = pModel->m_arrFilePathDBA.size();
+	if (numPath)
+		g_AnimationManager.CreateGlobalHeaderDBA(pModel->m_arrFilePathDBA);
+
+	// insert all animations found in the DBA files
+	uint32 numDBALoaders = g_AnimationManager.m_arrGlobalHeaderDBA.size();
+	for ( uint32 j=0; j<numDBALoaders; j++ )
+	{
+		CGlobalHeaderDBA* pGlobalHeaderDBA = g_AnimationManager.m_arrGlobalHeaderDBA[j];
+		if (pGlobalHeaderDBA->m_pDatabaseInfo==0)
+		{
+			const char* pName  = pGlobalHeaderDBA->m_strFilePathDBA;
+			uint32 nDBACRC32 = gEnv->pSystem->GetCrc32Gen()->GetCRC32Lowercase(pName); 
+			uint32 numCAF = g_AnimationManager.m_arrGlobalCAF.size();
+			uint32 nFoundAssetsInAIF=0;
+			for (uint32 c=0; c<numCAF; c++)
+			{
+				if (g_AnimationManager.m_arrGlobalCAF[c].m_FilePathDBACRC32==nDBACRC32)
+				{
+					nFoundAssetsInAIF=1;
+					break;
+				}
+			}
+			if (nFoundAssetsInAIF==0)
+			{
+				pGlobalHeaderDBA->StreamDatabaseDBA();
+				if (pGlobalHeaderDBA->m_pDatabaseInfo==0)
+				{
+					const char* pname = pGlobalHeaderDBA->m_strFilePathDBA.c_str();
+					g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING,	VALIDATOR_FLAG_FILE,pModel->GetModelFilePath(),	"Failed loading DBA: %s",pname);
+					continue;
+				}
+			}
+		}
+	}
+
+
+
+	// expand wildcards
+	uint32 numWildcard = arrWildcardAnimFiles.size();
+	for ( uint32 i=0; i<numWildcard; ++i)
+	{
+		const char* szFileName = arrWildcardAnimFiles[i]->m_fileName.c_str();
+		const char* szFile = PathUtil::GetFile(szFileName);
+		const char* szExt = PathUtil::GetExt(szFileName);
+
+		char szAnimName[512]; strcpy( szAnimName, arrWildcardAnimFiles[i]->m_animName.c_str() );
+		uint32 nAnimFlags = arrWildcardAnimFiles[i]->m_animFlags;
+
+		const char* firstWildcard = strchr(szFileName,'*');
+		if ( const char* qm = strchr(szFileName,'?') )
+			if ( firstWildcard == NULL || firstWildcard > qm )
+				firstWildcard = qm;
+		int iFirstWildcard = (int)(firstWildcard - szFileName);
+		int iPathLength = (int)(szFile - szFileName);
+
+		// conversion to offset from beginning of name
+		int offset = (int)(firstWildcard - szFile);
+		if ( offset < 0 )
+		{
+			AnimWarning("Wildcards in animation file path are not supported - ignoring .CAL entry \"%s = %s\"", arrWildcardAnimFiles[i]->m_animName.c_str(), szFileName );
+			offset = 0;
+		}
+
+		string filepath = PathUtil::GetParentDirectory(szFileName);
+		char* starPos = strchr( szAnimName, '*' );
+		if ( starPos )
+			*starPos++ = 0;
+
+		// insert all animations found in the file system
+		_finddata_t fd;
+		intptr_t handle = g_pIPak->FindFirst( szFileName, &fd, ICryPak::FLAGS_NO_LOWCASE );
+		if ( handle != -1 )
+		{
+			do
+			{
+				string name = starPos == NULL ? szAnimName : string(szAnimName) + PathUtil::GetFileName(fd.name+offset) + starPos;
+				FindByAliasName pd(name);
+
+				// Check whether the filename is a facial animation, by checking the extension.
+				const char* szExtension = PathUtil::GetExt(fd.name);
+				if ( szExtension && stricmp("fsq", szExtension) == 0 )
+				{
+					// insert unique
+					if ( std::find_if(arrFacialAnimations.begin(), arrFacialAnimations.end(), pd) == arrFacialAnimations.end() )
+						arrFacialAnimations.push_back( CAnimationSet::FacialAnimationEntry(name.c_str(), filepath+"/"+fd.name) );
+				}
+				else
+				{
+					// insert unique
+					if ( std::find_if(arrAnimFiles.begin(), arrAnimFiles.end(), pd) == arrAnimFiles.end() )
+						arrAnimFiles.push_back( new SAnimFile(filepath+"/"+fd.name, name.c_str(), nAnimFlags) );
+				}
+			} while ( g_pIPak->FindNext( handle, &fd ) >= 0 );
+
+			g_pIPak->FindClose( handle );
+		}
+
+		// insert all animations found in the DBA files
+		for ( uint32 j=0; j<numDBALoaders; j++ )
+		{
+
+			CGlobalHeaderDBA* pGlobalHeaderDBA = g_AnimationManager.m_arrGlobalHeaderDBA[j];
+			if (pGlobalHeaderDBA->m_pDatabaseInfo==0)
+			{
+				const char* pName  = pGlobalHeaderDBA->m_strFilePathDBA;
+				uint32 nDBACRC32 = gEnv->pSystem->GetCrc32Gen()->GetCRC32Lowercase(pName); 
+				uint32 numCAF = g_AnimationManager.m_arrGlobalCAF.size();
+				uint32 nFoundAssetsInAIF=0;
+				for (uint32 c=0; c<numCAF; c++)
+				{
+					if (g_AnimationManager.m_arrGlobalCAF[c].m_FilePathDBACRC32==nDBACRC32)
+					{
+						nFoundAssetsInAIF++;
+
+						const char* currentFile = g_AnimationManager.m_arrGlobalCAF[c].m_FilePath.c_str();
+						const char* file = PathUtil::GetFile( currentFile );
+						const char* ext  = PathUtil::GetExt( currentFile );
+
+						if ( strnicmp(szFileName, currentFile, iPathLength) == 0 && PathUtil::MatchWildcard(file, szFile) )
+						{
+							string folderPathCurrentFile = PathUtil::GetParentDirectory(currentFile);
+							string folderPathFileName = PathUtil::GetParentDirectory(szFileName);
+
+							if( parseSubfolders || (!parseSubfolders && folderPathCurrentFile == folderPathFileName) )
+							{
+								string name = "";
+								if( starPos==NULL )
+									name = szAnimName;
+								else
+								{
+									string sa = 	string(szAnimName) + string(currentFile+iFirstWildcard, ext-currentFile-1-iFirstWildcard) + starPos;
+									//Get rid of "\" or "/". It's not allowed to be in the name
+									size_t pos = sa.find_last_of("/\\");
+									if(pos != string::npos)
+										name = string(sa.c_str() + pos +1);
+									else
+										name = sa;
+								}
+
+								FindByAliasName pd(name);
+								if ( std::find_if(arrAnimFiles.begin(), arrAnimFiles.end(), pd) == arrAnimFiles.end() )
+									arrAnimFiles.push_back( new SAnimFile(currentFile, name.c_str(), nAnimFlags) );
+							}
+						}
+					}
+				}
+
+				if (nFoundAssetsInAIF==0)
+				{
+					pGlobalHeaderDBA->StreamDatabaseDBA();
+					if (pGlobalHeaderDBA->m_pDatabaseInfo==0)
+					{
+						const char* pname = pGlobalHeaderDBA->m_strFilePathDBA.c_str();
+						g_pISystem->Warning( VALIDATOR_MODULE_ANIMATION,VALIDATOR_WARNING,	VALIDATOR_FLAG_FILE,pModel->GetModelFilePath(),	"Failed loading DBA: %s",pname);
+						continue;
+					}
+				}
+			}
+
+			uint32 numCafFiles=0;
+			if (pGlobalHeaderDBA->m_pDatabaseInfo)
+				numCafFiles = pGlobalHeaderDBA->m_pDatabaseInfo->m_AnimationNames.size();
+			for (uint32 f=0; f<numCafFiles; f++)
+			{
+				const char* currentFile = pGlobalHeaderDBA->m_pDatabaseInfo->m_AnimationNames[f];
+				const char* file = PathUtil::GetFile( currentFile );
+				const char* ext  = PathUtil::GetExt( currentFile );
+				if ( strnicmp(szFileName, currentFile, iPathLength) == 0 && PathUtil::MatchWildcard(file, szFile) )
+				{
+					string folderPathCurrentFile = PathUtil::GetParentDirectory(currentFile);
+					string folderPathFileName = PathUtil::GetParentDirectory(szFileName);
+
+					if( parseSubfolders || (!parseSubfolders && folderPathCurrentFile == folderPathFileName) )
+					{
+						string name = "";
+						if( starPos==NULL )
+							name = szAnimName;
+						else
+						{
+							string sa = 	string(szAnimName) + string(currentFile+iFirstWildcard, ext-currentFile-1-iFirstWildcard) + starPos;
+							//Get rid of "\" or "/". It's not allowed to be in the name
+							size_t pos = sa.find_last_of("/\\");
+							if(pos != string::npos)
+								name = string(sa.c_str() + pos +1);
+							else
+								name = sa;
+						}
+
+						FindByAliasName pd(name);
+
+						// Check whether the filename is a facial animation, by checking the extension.
+						if ( ext && stricmp("fsq", ext) == 0 )
+						{
+							// insert unique
+							if ( std::find_if(arrFacialAnimations.begin(), arrFacialAnimations.end(), pd) == arrFacialAnimations.end() )
+								arrFacialAnimations.push_back( CAnimationSet::FacialAnimationEntry(name.c_str(), currentFile) );
+						}
+						else
+						{
+							// insert unique
+							if ( std::find_if(arrAnimFiles.begin(), arrAnimFiles.end(), pd) == arrAnimFiles.end() )
+								arrAnimFiles.push_back( new SAnimFile(currentFile, name.c_str(), nAnimFlags) );
+						}
+					}
+				}
+
+
+			}
+		}
+	}
+
+	numAnims = arrAnimFiles.size();
+	pModel->m_AnimationSet.prepareLoadCAFs ( numAnims );
+	for (uint32 i=0; i<numAnims; i++)
+	{
+		const char* pFilePath = arrAnimFiles[i]->m_fileName.c_str();
+		const char* pAnimName = arrAnimFiles[i]->m_animName.c_str();
+		const char* fileExt = PathUtil::GetExt(pFilePath);
+
+		bool IsBAD = (0 == stricmp(fileExt,""));
+		if (IsBAD)
+			continue;
+		bool IsCHR = (0 == stricmp(fileExt,"chr"));
+		if (IsCHR)
+			continue;
+
+		uint32 IsCAF = (0 == stricmp(fileExt,"caf"));
+		uint32 IsLMG = (0 == stricmp(fileExt,"lmg"));
+		uint32 IsPMG = (0 == stricmp(fileExt,"pmg"));
+		assert(IsCAF+IsLMG+IsPMG);
+
+		bool IsAIM = 0; //	(CryStringUtils::stristr(pAnimName,"AimPoses") != 0);
+		if (IsCAF)
+		{
+			uint32 numDB = m_pModel->m_ModelSkeleton.m_DirectionalBlends.size();
+			for (uint32 d=0; d<numDB; d++)
+			{
+				const char* strAnimToken = m_pModel->m_ModelSkeleton.m_DirectionalBlends[d].m_AnimToken;
+				IsAIM = (CryStringUtils::stristr(pAnimName,strAnimToken) != 0);
+				if (IsAIM)
+					break;
+			}
+			if (IsAIM==0)
+			{
+				IsAIM = (CryStringUtils::stristr(pAnimName,"AimPoses") != 0);
+			}
+		}
+
+		if (IsCAF && IsAIM)
+			IsCAF=0;
+
+		int32 nGlobalAnimID=-1;
+		if (IsCAF)
+			nGlobalAnimID = pModel->m_AnimationSet.LoadCAF( pFilePath, pAnimName);
+		else if (IsAIM)
+			nGlobalAnimID = pModel->m_AnimationSet.LoadAIM( pFilePath, pAnimName);
+		else if (IsLMG)
+			nGlobalAnimID = pModel->m_AnimationSet.LoadLMG( pFilePath, pAnimName );
+		else if (IsPMG)
+			nGlobalAnimID = pModel->m_AnimationSet.LoadPMG( pFilePath, pAnimName );
+
+
+
+		uint32 numAimPoses = arrAnimFiles[i]->arrAimPoses.size();
+		if (numAimPoses)
+		{
+			int nAnimID0 = pModel->m_AnimationSet.GetAnimIDByName( pAnimName );
+			if (nAnimID0>=0)
+			{
+				ModelAnimationHeader* pAnim = (ModelAnimationHeader*)pModel->m_AnimationSet.GetModelAnimationHeader(nAnimID0);
+				if (pAnim)
+				{
+					//assert(arrAnimFiles[i]->arrAimPoses.size()>numAimPoses);
+					assert(pAnim!=0);
+					for (uint32 a=0; a<numAimPoses; a++)
+						PREFAST_SUPPRESS_WARNING(6386) pAnim->m_strAimPose1[a] = arrAnimFiles[i]->arrAimPoses[a].c_str();
+				}
+			}	
+		}
+
+		if (nGlobalAnimID >= 0)
+			nAnimID++;
+		else
+			AnimWarning("Animation (caf) file \"%s\" could not be read (it's an animation of \"%s.%s\")", arrAnimFiles[i]->m_fileName.c_str(), m_strGeomFileNameNoExt.c_str(),CRY_CHARACTER_FILE_EXT );
+	}
+
+	//------------------------------------------------------------------------------
+	// Create Dummy PMG for two motion blending test in Character editor
+	if ( gEnv->IsEditor() )
+	{
+		pModel->m_AnimationSet.CreateDummyPMG();	
+		nAnimID++;
+	}
+	return nAnimID;
+}
+
+
+
+
+// cleans up the resources allocated during load
+void CryCHRLoader::clear()
+{
+	m_strGeomFileNameNoExt = "";
+}
+
+
+const string CryCHRLoader::GetDefaultAnimDir()
+{
+	string animDirName = PathUtil::GetParentDirectory(m_strGeomFileNameNoExt, 3);
+	if (!animDirName.empty())
+		return animDirName += "/animations";
+	else
+		return animDirName += "animations";
+}
+
+

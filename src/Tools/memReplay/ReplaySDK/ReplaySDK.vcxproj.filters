@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{b826908e-ea19-40e5-a07f-144b8d970a77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Replay">
+      <UniqueIdentifier>{8a0e0a1e-3a1c-4cdc-a39a-59e13ff92549}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Excel">
+      <UniqueIdentifier>{f284f52f-fc39-4e3a-9af5-437c7f76fb92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Context Exporters">
+      <UniqueIdentifier>{6084d902-e983-4027-bba0-3822bef1a0e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Queries">
+      <UniqueIdentifier>{a3f65202-5ed4-411b-bcab-b17aa2a2bc89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{906c1c3e-d637-4082-bbbb-c7eec3cda087}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Replay">
+      <UniqueIdentifier>{8a57a73f-5d8d-4a82-9b5a-2864ff2d0853}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Excel">
+      <UniqueIdentifier>{82441335-adb0-4d8a-bee3-1d755965c13e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Context Exporters">
+      <UniqueIdentifier>{a4fc59b4-1624-4ad6-9492-31619f51d8f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Queries">
+      <UniqueIdentifier>{653543bb-a4f8-440d-a289-a9c410298f44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CallstackTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonCSVExporters.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ContextTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameUsageTracker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GenericTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IReplayDatabaseConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SizeInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CleanString.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="IInterfaceHooks.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Serialise.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="DistributionMap.cpp">
+      <Filter>Source Files\Replay</Filter>
+    </ClCompile>
+    <ClCompile Include="LST.cpp">
+      <Filter>Source Files\Replay</Filter>
+    </ClCompile>
+    <ClCompile Include="memHier2.cpp">
+      <Filter>Source Files\Replay</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplayCapture.cpp">
+      <Filter>Source Files\Replay</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplayDatabaseConnection.cpp">
+      <Filter>Source Files\Replay</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplayLogDefs.cpp">
+      <Filter>Source Files\Replay</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplayLogProgressTask.cpp">
+      <Filter>Source Files\Replay</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplayLogReader.cpp">
+      <Filter>Source Files\Replay</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplayTaskProcessor.cpp">
+      <Filter>Source Files\Replay</Filter>
+    </ClCompile>
+    <ClCompile Include="StringTable.cpp">
+      <Filter>Source Files\Replay</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolHelper.cpp">
+      <Filter>Source Files\Replay</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolTableBuilder.cpp">
+      <Filter>Source Files\Replay</Filter>
+    </ClCompile>
+    <ClCompile Include="CSVCollator.cpp">
+      <Filter>Source Files\Excel</Filter>
+    </ClCompile>
+    <ClCompile Include="ExcelExport.cpp">
+      <Filter>Source Files\Excel</Filter>
+    </ClCompile>
+    <ClCompile Include="CGFPhysicsExporter.cpp">
+      <Filter>Source Files\Context Exporters</Filter>
+    </ClCompile>
+    <ClCompile Include="RangedContextExporter.cpp">
+      <Filter>Source Files\Context Exporters</Filter>
+    </ClCompile>
+    <ClCompile Include="AllocValidationQuery.cpp">
+      <Filter>Source Files\Queries</Filter>
+    </ClCompile>
+    <ClCompile Include="BucketUsageQuery.cpp">
+      <Filter>Source Files\Queries</Filter>
+    </ClCompile>
+    <ClCompile Include="CodeUsageQuery.cpp">
+      <Filter>Source Files\Queries</Filter>
+    </ClCompile>
+    <ClCompile Include="ContextUsageQuery.cpp">
+      <Filter>Source Files\Queries</Filter>
+    </ClCompile>
+    <ClCompile Include="FreedSpaceQuery.cpp">
+      <Filter>Source Files\Queries</Filter>
+    </ClCompile>
+    <ClCompile Include="SizerCodeQuery.cpp">
+      <Filter>Source Files\Queries</Filter>
+    </ClCompile>
+    <ClCompile Include="SizerTreeQuery.cpp">
+      <Filter>Source Files\Queries</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CallstackTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonCSVExporters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ContextTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ContextTreeFunctors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameUsageTracker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IReplayDatabaseConnection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ISymbolTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplayQueryFuture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SizeInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeSymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidateError.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Allocator.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="CleanString.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="CriticalSection.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="FileRAII.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="IInterfaceHooks.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialise.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedPtr.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="DistributionMap.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="IReplayTask.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="LST.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="memHier2.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryMap.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplayCapture.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplayDatabaseConnection.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplayLogDefs.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplayLogProgressTask.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplayLogReader.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplayQuery.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplayTaskProcessor.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplayVisitor.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="StringTable.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolHelper.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolTableBuilder.h">
+      <Filter>Header Files\Replay</Filter>
+    </ClInclude>
+    <ClInclude Include="CSVCollator.h">
+      <Filter>Header Files\Excel</Filter>
+    </ClInclude>
+    <ClInclude Include="ExcelExport.h">
+      <Filter>Header Files\Excel</Filter>
+    </ClInclude>
+    <ClInclude Include="CGFPhysicsExporter.h">
+      <Filter>Header Files\Context Exporters</Filter>
+    </ClInclude>
+    <ClInclude Include="ICSVExporter.h">
+      <Filter>Header Files\Context Exporters</Filter>
+    </ClInclude>
+    <ClInclude Include="RangedContextExporter.h">
+      <Filter>Header Files\Context Exporters</Filter>
+    </ClInclude>
+    <ClInclude Include="AllocValidationQuery.h">
+      <Filter>Header Files\Queries</Filter>
+    </ClInclude>
+    <ClInclude Include="BucketUsageQuery.h">
+      <Filter>Header Files\Queries</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeTreeContextQuery.h">
+      <Filter>Header Files\Queries</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeTreeOffsetQuery.h">
+      <Filter>Header Files\Queries</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeUsageQuery.h">
+      <Filter>Header Files\Queries</Filter>
+    </ClInclude>
+    <ClInclude Include="ContextUsageQuery.h">
+      <Filter>Header Files\Queries</Filter>
+    </ClInclude>
+    <ClInclude Include="FreedSpaceQuery.h">
+      <Filter>Header Files\Queries</Filter>
+    </ClInclude>
+    <ClInclude Include="SizerCodeQuery.h">
+      <Filter>Header Files\Queries</Filter>
+    </ClInclude>
+    <ClInclude Include="SizerTreeQuery.h">
+      <Filter>Header Files\Queries</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

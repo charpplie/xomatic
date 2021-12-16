@@ -1,0 +1,28 @@
+{
+	"NoUberFile": 
+	{
+		"Header":
+		[
+			"LSAOEditorDialog.h",
+			"LSAOPlugin.h",
+			"LSAOPluginInterface.h",
+			"LSAOProcess/LSAOProcess.h",
+			"resource.h",
+			"stdafx.h",
+			"LSAOProcess/NetworkCommunication.h"
+		],
+		"Resources":
+		[
+			"LSAOPlugin.rc"
+		],
+		"Source":
+		[
+			"LSAOEditorDialog.cpp",
+			"LSAOPlugin.cpp",
+			"LSAOPluginInterface.cpp",
+			"LSAOProcess/LSAOShared.cpp",
+			"main.cpp",
+			"LSAOProcess/NetworkCommunication.cpp"
+		]
+	}
+}

@@ -1,0 +1,3221 @@
+#include "StdAfx.h"
+#include "MainFrm.h"
+#include "Controls/ConsoleSCB.h"
+#include "ViewPaneManager.h"
+#include "Commands/CommandManager.h"
+#include "CryEdit.h"
+#include "CryEditDoc.h"
+#include "MainTools.h"
+#include "TerrainPanel.h"
+#include "PanelDisplayHide.h"
+#include "PanelDisplayRender.h"
+#include "PanelDisplayLayer.h"
+#include "PanelDisplayStereo.h"
+#include "Mission.h"
+#include "ViewManager.h"
+#include "LayoutWnd.h"
+#include "ToolBox.h"
+#include "GridSettingsDialog.h"
+#include "UndoDropDown.h"
+#include "CharacterEditor/CharacterEditor.h"
+#include "SelectObjectDlg.h"
+#include "PanelDisplayLayer.h"
+#include "PropertiesPanel.h"
+#include "MusicInfoDlg.h"
+#include "Telemetry/Viewer/TelemetryViewDialog.h"
+#include "TrackView/TrackViewDialog.h"
+#include "DataBaseDialog.h"
+#include "ErrorReportDialog.h"
+#include "Material/MaterialDialog.h"
+#include "Material/MaterialManager.h"
+#include "LightmapCompiler/LightmapCompilerDialog.h"
+#include "Vehicles/VehicleEditorDialog.h"
+#include "SmartObjects/SmartObjectsEditorDialog.h"
+#include "AI\AIDebugger.h"
+#include "AI\AIManager.h"
+#include "HyperGraph/HyperGraphDialog.h"
+#include "LensFlareEditor/LensFlareEditor.h"
+#ifdef INCLUDE_ANIMATIONGRAPH
+#include "HyperGraph/AnimationGraphDialog.h"
+#include "HyperGraph/AnimationGraph2/AnimationGraphDialog_2.h"
+#endif
+#include "FacialEditor/FacialEditorDialog.h"
+#include "DialogEditor/DialogEditorDialog.h"
+#include "Modelling/ModellingToolsPanel.h"
+#include "TimeOfDayDialog.h"
+#include "VisualLogViewer/VisualLogWnd.h"
+#include "LiveMocap/LiveMocapDialog.h"
+#include "Texture Browser/TextureBrowserDialog.h"
+#include "Asset Browser/AssetBrowserDialog.h"
+#include "Mannequin/MannequinDialog.h"
+#include <IBudgetingSystem.h>
+#include <ISound.h>
+#include <IAudioDevice.h>
+#include "SoundBrowserDialog.h"
+#include "ProceduralCreationDialog.h"
+#include "ProcessInfo.h"
+#include "StringDlg.h"
+#include "Util/StringNoCasePredicate.h"
+#include "ControlMRU.h"
+#include "Controls/CrytekTheme.h"
+#include "Util/BoostPythonHelpers.h"
+#include "Objects/ObjectLayerManager.h"
+#include "Dialogs/PythonScriptsDialog.h"
+#include "LiveCreate/LiveCreateSettingsView.h"
+#include "LiveCreate/LiveCreateSettingsPanel.h"
+#include "LODGeneratorDialog.h"
+#include "MaterialLODGeneratorDialog.h"
+#include "IRenderer.h" // IAsyncTextureCompileListener
+#include "ResourceCompilerHelper.h" // ERcExitCode
+
+#include "ObjectCreateTool.h"
+#include "LevelIndependentFileMan.h"
+#include "AssetResolver/AssetResolverDialog.h"
+
+#define IDW_VIEW_ROLLUP_BAR (AFX_IDW_CONTROLBAR_FIRST + 20)
+#define IDW_VIEW_CONSOLE_BAR (AFX_IDW_CONTROLBAR_FIRST + 21)
+
+#define BAR_SECTION _T("Bars")
+
+#define AUTOSAVE_TIMER_EVENT 200
+#define AUTOREMIND_TIMER_EVENT 201
+#define NETWORK_AUDITION_UPDATE_TIMER_EVENT 202
+
+#define STYLES_PATH "Editor\\Styles"
+
+#define LAYOUTS_PATH "Editor\\Layouts\\"
+#define LAYOUTS_EXTENSION ".layout"
+#define LAYOUTS_WILDCARD "*.layout"
+#define DUMMY_LAYOUT_NAME "Dummy_Layout"
+
+static void PyOpenViewPane(const char *viewClassName)
+{
+	((CMainFrame*)AfxGetMainWnd())->GetViewPaneManager()->OpenPane(viewClassName, true);
+}
+
+static void PyCloseViewPane(const char *viewClassName)
+{
+	((CMainFrame*)AfxGetMainWnd())->GetViewPaneManager()->ClosePane(viewClassName);
+}
+
+static void PyExit()
+{
+	AfxGetMainWnd()->PostMessage(WM_CLOSE, NULL, NULL);	
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+IMPLEMENT_DYNCREATE(CMainFrame, CXTPFrameWnd)
+
+BEGIN_MESSAGE_MAP(CMainFrame, CXTPFrameWnd)
+	ON_WM_CREATE()
+
+	ON_COMMAND_EX(ID_VIEW_MENUBAR, OnBarCheck )
+	ON_UPDATE_COMMAND_UI(ID_VIEW_MENUBAR, OnUpdateControlBarMenu)
+
+	ON_COMMAND_EX(ID_VIEW_STATUS_BAR, OnBarCheck )
+	ON_UPDATE_COMMAND_UI(ID_VIEW_STATUS_BAR, OnUpdateControlBarMenu)
+
+	ON_COMMAND_EX(IDW_VIEW_ROLLUP_BAR, OnToggleBar )
+	ON_UPDATE_COMMAND_UI(IDW_VIEW_ROLLUP_BAR, OnUpdateControlBar )
+
+	ON_COMMAND_EX(IDW_VIEW_CONSOLE_BAR, OnToggleBar )
+	ON_UPDATE_COMMAND_UI(IDW_VIEW_CONSOLE_BAR, OnUpdateControlBar )
+
+	ON_COMMAND(ID_SOUND_SHOWMUSICINFO, OnMusicInfo)
+	ON_COMMAND(ID_SOUND_OPENSOUNDBROWSER, OnOpenSoundBrowser)
+	ON_COMMAND(ID_SOUND_OPENDIALOGBROWSER, OnOpenDialogBrowser)
+	ON_COMMAND(ID_SOUND_DISABLESOUND, OnDisableSound)
+	ON_UPDATE_COMMAND_UI(ID_SOUND_DISABLESOUND, OnUpdateDisableSound)
+	ON_COMMAND(ID_SOUND_DISABLEMUSIC, OnDisableMusic)
+	ON_UPDATE_COMMAND_UI(ID_SOUND_DISABLEMUSIC, OnUpdateDisableMusic)
+
+	ON_UPDATE_COMMAND_UI(ID_SNAP_TO_GRID, OnUpdateSnapToGrid)
+	ON_UPDATE_COMMAND_UI(ID_AI_NAVIGATION_DISPLAY_AGENT, OnAINavigationDisplayAgentUpdate)
+	ON_UPDATE_COMMAND_UI(ID_LAYER_SELECT, OnUpdateCurrentLayer)
+
+	ON_COMMAND_EX(ID_THEME_OFFICE2000, OnSwitchTheme)
+	ON_COMMAND_EX(ID_THEME_OFFICEXP, OnSwitchTheme)
+	ON_COMMAND_EX(ID_THEME_OFFICE2003, OnSwitchTheme)
+	ON_COMMAND_EX(ID_THEME_OFFICE2007, OnSwitchTheme)
+	ON_COMMAND_EX(ID_THEME_OFFICE2007SILVER, OnSwitchTheme)
+	ON_COMMAND_EX(ID_THEME_WINDOWSXP, OnSwitchTheme)
+	ON_COMMAND_EX(ID_THEME_EXPLORER, OnSwitchTheme)
+	ON_COMMAND_EX(ID_THEME_VISIO, OnSwitchTheme)
+	ON_COMMAND_EX(ID_THEME_VISUALSTUDIO2005, OnSwitchTheme)
+	ON_COMMAND_EX(ID_THEME_GRIPPERED, OnSwitchTheme)
+
+	ON_UPDATE_COMMAND_UI(ID_THEME_OFFICE2000, OnUpdateTheme)
+	ON_UPDATE_COMMAND_UI(ID_THEME_OFFICEXP, OnUpdateTheme)
+	ON_UPDATE_COMMAND_UI(ID_THEME_OFFICE2003, OnUpdateTheme)
+	ON_UPDATE_COMMAND_UI(ID_THEME_OFFICE2007SILVER, OnUpdateTheme)
+	ON_UPDATE_COMMAND_UI(ID_THEME_WINDOWSXP, OnUpdateTheme)
+	ON_UPDATE_COMMAND_UI(ID_THEME_EXPLORER, OnUpdateTheme)
+	ON_UPDATE_COMMAND_UI(ID_THEME_VISIO, OnUpdateTheme)
+	ON_UPDATE_COMMAND_UI(ID_THEME_VISUALSTUDIO2005, OnUpdateTheme)
+	ON_UPDATE_COMMAND_UI(ID_THEME_GRIPPERED, OnUpdateTheme)
+
+	ON_COMMAND(ID_VIEW_DOCKINGHELPERS, OnDockingHelpers)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_DOCKINGHELPERS, OnUpdateDockingHelpers)
+	ON_COMMAND(ID_VIEW_SKINING, OnSkining)
+	ON_UPDATE_COMMAND_UI(ID_VIEW_SKINING, OnUpdateSkining)
+	ON_COMMAND_EX(ID_SKINS_CRYDARK, OnSwitchSkin)
+	ON_COMMAND_EX(ID_SKINS_CRYLIGHT, OnSwitchSkin)
+	ON_UPDATE_COMMAND_UI(ID_SKINS_CRYDARK, OnUpdateSkin)
+	ON_UPDATE_COMMAND_UI(ID_SKINS_CRYLIGHT, OnUpdateSkin)
+
+	ON_UPDATE_COMMAND_UI(ID_INDICATOR_MEMORY,OnUpdateMemoryStatus)
+	ON_UPDATE_COMMAND_UI(ID_INDICATOR_BACKGROUNDACTIVITY,OnUpdateBackgroundActivity)
+	
+	ON_COMMAND_RANGE(ID_TOOL1,ID_TOOL_LAST,OnExecuteTool)
+	ON_COMMAND_RANGE(ID_VIEW_OPENPANE0,ID_VIEW_OPENPANE_LAST,OnOpenViewPane)
+
+	ON_COMMAND( ID_VIEW_SAVELAYOUT, OnViewSavePaneLayout )
+	ON_COMMAND( ID_VIEW_LAYOUT_LOAD_DEFAULT, OnViewRestoreDefaultLayout )
+	ON_COMMAND_RANGE( ID_VIEW_LAYOUT_FIRST, ID_VIEW_LAYOUT_LAST, OnViewLoadPaneLayout )
+	ON_COMMAND_RANGE( ID_VIEW_LAYOUT_LOAD_FIRST, ID_VIEW_LAYOUT_LOAD_LAST, OnViewLoadPaneLayout )
+	ON_COMMAND_RANGE( ID_VIEW_LAYOUT_RENAME_FIRST, ID_VIEW_LAYOUT_RENAME_LAST, OnViewRenamePaneLayout )
+	ON_COMMAND_RANGE( ID_VIEW_LAYOUT_DELETE_FIRST, ID_VIEW_LAYOUT_DELETE_LAST, OnViewDeletePaneLayout )
+	ON_COMMAND_RANGE( ID_VIEW_LAYOUT_SAVE_FIRST, ID_VIEW_LAYOUT_SAVE_LAST, OnViewSavePaneLayout )
+
+	ON_COMMAND_RANGE(CEditorCommandManager::CUSTOM_COMMAND_ID_FIRST,CEditorCommandManager::CUSTOM_COMMAND_ID_LAST,OnCustomUICommand )
+	ON_UPDATE_COMMAND_UI_RANGE(CEditorCommandManager::CUSTOM_COMMAND_ID_FIRST,CEditorCommandManager::CUSTOM_COMMAND_ID_LAST,OnCustomUICommandUpdate )
+
+	ON_COMMAND_RANGE(ID_SNAP_TO_ANGLE_RANGE_BEGIN,ID_SNAP_TO_ANGLE_RANGE_END,OnAngleSnapCommand )
+	ON_UPDATE_COMMAND_UI_RANGE(ID_SNAP_TO_ANGLE_RANGE_BEGIN,ID_SNAP_TO_ANGLE_RANGE_END,OnAngleSnapCommandUpdate )
+
+	ON_BN_CLICKED(ID_PROGRESSBAR_CANCEL,OnProgressCancelClicked)
+
+	ON_WM_SIZE()
+	ON_WM_GETMINMAXINFO()
+	ON_WM_COPYDATA()
+	ON_WM_CLOSE()
+	ON_WM_TIMER()
+	ON_COMMAND(ID_EDIT_NEXTSELECTIONMASK, OnEditNextSelectionMask)
+
+	//////////////////////////////////////////////////////////////////////////
+	// XT Commands.
+	ON_MESSAGE(XTPWM_DOCKINGPANE_NOTIFY, OnDockingPaneNotify)
+	
+	ON_XTP_EXECUTE(IDC_SELECTION, OnSelectionChanged)
+	ON_COMMAND(ID_SELECTION_DELETE, OnDeleteSelection)
+
+	ON_XTP_EXECUTE(IDC_SELECTION_MASK, OnSelectionMaskChanged)
+	ON_XTP_EXECUTE(ID_REF_COORDS_SYS, OnRefCoordSysChange)
+	ON_UPDATE_COMMAND_UI(IDC_SELECTION_MASK, OnUpdateSelectionMask)
+	ON_UPDATE_COMMAND_UI(ID_REF_COORDS_SYS, OnUpdateRefCoordSys)
+
+	ON_COMMAND_RANGE(ID_REF_COORD_SYS_RANGE_BEGIN,ID_REF_COORD_SYS_RANGE_END,OnRefCoordSysRange )
+	ON_UPDATE_COMMAND_UI_RANGE(ID_REF_COORD_SYS_RANGE_BEGIN,ID_REF_COORD_SYS_RANGE_END,OnRefCoordSysUpdateRange )
+
+	ON_COMMAND_RANGE(ID_SNAP_TO_GRID_RANGE_BEGIN,ID_SNAP_TO_GRID_RANGE_END,OnSnapCommand )
+	ON_UPDATE_COMMAND_UI_RANGE(ID_SNAP_TO_GRID_RANGE_BEGIN,ID_SNAP_TO_GRID_RANGE_END,OnSnapCommandUpdate )
+
+	ON_COMMAND_RANGE(ID_AI_NAVIGATION_SELECT_DISPLAY_AGENT_RANGE_BEGIN,ID_AI_NAVIGATION_SELECT_DISPLAY_AGENT_RANGE_END,
+		OnAINavigationSelectDisplayAgent)
+	ON_UPDATE_COMMAND_UI_RANGE(ID_AI_NAVIGATION_SELECT_DISPLAY_AGENT_RANGE_BEGIN,ID_AI_NAVIGATION_SELECT_DISPLAY_AGENT_RANGE_END,
+		OnAINavigationSelectDisplayAgentUpdate)
+
+	ON_COMMAND_RANGE(ID_SELECTION_MASK_RANGE_BEGIN,ID_SELECTION_MASK_RANGE_END,OnSelectionMaskPopup )
+	ON_UPDATE_COMMAND_UI_RANGE(ID_SELECTION_MASK_RANGE_BEGIN,ID_SELECTION_MASK_RANGE_END,OnSelectionMaskPopupUpdate )
+
+	ON_COMMAND(XTP_ID_CUSTOMIZE, OnCustomize)
+	ON_XTP_CREATECOMMANDBAR()
+	ON_XTP_CREATECONTROL()
+	ON_XTP_INITCOMMANDSPOPUP()
+
+	ON_MESSAGE(WM_MATEDITSEND, OnMatEditSend)
+	END_MESSAGE_MAP()
+
+static UINT s_statusBarIndicators[] =
+{
+	ID_SEPARATOR,
+	ID_INDICATOR_BACKGROUNDACTIVITY,
+	ID_INDICATOR_GAME_INFO,
+	ID_INDICATOR_MEMORY
+};
+
+namespace
+{
+	XTPPaintTheme s_themePaint = xtpThemeOffice2003;
+	XTPDockingPanePaintTheme s_themePane = xtpPaneThemeOffice2003;
+	BOOL s_bDockingHelpers = TRUE;
+	CString s_lpszSkinPath = "Editor\\Styles\\CryDark.cjstyles";
+}
+
+IMPLEMENT_XTP_CONTROL(CCustomControlSplitButtonPopup,CXTPControlPopup)
+IMPLEMENT_XTP_CONTROL(CCustomControlButtonPopup,CXTPControlPopup)
+
+//////////////////////////////////////////////////////////////////////////
+// Implements listeners for all background tasks and sums them for display
+//////////////////////////////////////////////////////////////////////////
+class CBackgroundTasksListener : public IAsyncTextureCompileListener
+{
+public:
+	CBackgroundTasksListener()
+		: m_bIdle(true)
+		, m_nTasksPending(0)
+		, m_bHasFailures(false)
+	{
+	}
+
+public:
+	virtual void OnCompilationStarted(const char* source, const char* target, int nPending)
+	{
+		m_bIdle = false;
+		m_nTasksPending = nPending;
+	}
+
+	virtual void OnCompilationFinished(const char* source, const char* target, ERcExitCode eReturnCode)
+	{
+		if (eReturnCode != eRcExitCode_Success)
+		{
+			m_sFailures.insert(target);
+		}
+		else 
+		{
+			m_sFailures.erase(target);
+		}
+
+		m_bHasFailures = (m_sFailures.size() != 0);
+	}
+
+
+	virtual void OnCompilationQueueTriggered(int nPending)
+	{
+		m_bIdle = false;
+		m_nTasksPending = nPending;
+	}
+
+	virtual void OnCompilationQueueDepleted()
+	{
+		m_bIdle = true;
+		m_nTasksPending = 0;
+	}
+
+public:
+	bool m_bIdle;
+	int m_nTasksPending;
+	bool m_bHasFailures;
+
+	std::set<string> m_sFailures;
+};
+
+//////////////////////////////////////////////////////////////////////////
+// Snap To Grid menu
+//////////////////////////////////////////////////////////////////////////
+class CSnapToGridMenu
+{
+public:
+	static void OnMenuChange( int nID )
+	{
+		ApplyMenuItem( nID - ID_SNAP_TO_GRID_RANGE_BEGIN );
+	}
+	static void OnMenuUpdate( CCmdUI* pCmdUI )
+	{
+		if (pCmdUI->m_nID == ID_VIEW_VERTEX_SNAPPING)
+		{
+			if (gSettings.vertexSnappingSettings.bOn)
+				pCmdUI->SetCheck(TRUE);
+			else
+				pCmdUI->SetCheck(FALSE);
+			return;
+		}
+		int nId = pCmdUI->m_nID - ID_SNAP_TO_GRID_RANGE_BEGIN;
+		nId = clamp_tpl(nId,0,10);
+		double startSize = 0.125;
+		double currentSize = GetIEditor()->GetViewManager()->GetGrid()->size;
+		int steps = 10;
+		double size = startSize;
+		for (int i = 0; i < nId; i++)
+		{
+			size *= 2;
+		}
+		if (size == currentSize)
+			pCmdUI->SetCheck(TRUE);
+		else
+			pCmdUI->SetCheck(FALSE);
+	}
+	static void CreateMenu( CMenu &menu )
+	{
+		menu.CreatePopupMenu();
+
+		double startSize = 0.125;
+		int steps = 10;
+
+		double size = startSize;
+		for (int i = 0; i < steps; i++)
+		{
+			CString str;
+			str.Format( "%g",size );
+			menu.AppendMenu( MF_STRING,ID_SNAP_TO_GRID_RANGE_BEGIN+i,str );
+			size *= 2;
+		}
+		menu.AppendMenu( MF_SEPARATOR );
+		int flag = MF_STRING;
+		if (gSettings.vertexSnappingSettings.bOn)
+			flag |= MF_CHECKED;
+		menu.AppendMenu( flag,ID_VIEW_VERTEX_SNAPPING,"Vertex snapping" );
+		menu.AppendMenu( MF_SEPARATOR );
+		menu.AppendMenu( MF_STRING,ID_VIEW_GRIDSETTINGS,_T("Setup Grid") );
+	}
+private:
+	static void ApplyMenuItem( int nId )
+	{
+		if (nId+ID_SNAP_TO_GRID_RANGE_BEGIN == ID_VIEW_VERTEX_SNAPPING)
+		{
+			gSettings.vertexSnappingSettings.bOn = !gSettings.vertexSnappingSettings.bOn;
+			return;
+		}
+		nId = clamp_tpl(nId,0,10);
+		double startSize = 0.125;
+		if (nId >= 0 && nId < 100)
+		{
+			double size = startSize;
+			for (int i = 0; i < nId; i++)
+			{
+				size *= 2;
+			}
+			// Set grid to size.
+			GetIEditor()->GetViewManager()->GetGrid()->size = size;
+		}
+	}
+};
+
+class CSnapToAngleMenu
+{
+public:
+	static void OnMenuChange( int nID )
+	{
+		ApplyMenuItem( nID - ID_SNAP_TO_ANGLE_RANGE_BEGIN );
+	}
+	static void OnMenuUpdate( CCmdUI* pCmdUI )
+	{
+		int nId = pCmdUI->m_nID - ID_SNAP_TO_ANGLE_RANGE_BEGIN;
+		nId = clamp_tpl(nId,0,ID_SNAP_TO_ANGLE_RANGE_END - ID_SNAP_TO_ANGLE_RANGE_BEGIN);
+		double startSize = 0.125;
+		double currentSize = GetIEditor()->GetViewManager()->GetGrid()->angleSnap;
+		if (anglesArray[nId] == currentSize)
+			pCmdUI->SetCheck(TRUE);
+		else
+			pCmdUI->SetCheck(FALSE);		
+	}
+	static void CreateMenu( CMenu &menu )
+	{
+		menu.CreatePopupMenu();
+
+		for (int i = 0; i < steps; i++)
+		{
+			CString str;
+			str.Format( "%d",anglesArray[i] );
+			menu.AppendMenu( MF_STRING,ID_SNAP_TO_ANGLE_RANGE_BEGIN+i,str );
+		}
+	}
+private:
+	static void ApplyMenuItem( int nId )
+	{
+		nId = clamp_tpl(nId,0,ID_SNAP_TO_ANGLE_RANGE_END - ID_SNAP_TO_ANGLE_RANGE_BEGIN);
+		GetIEditor()->GetViewManager()->GetGrid()->angleSnap = anglesArray[nId];
+	}
+
+	static const int anglesArray[];
+	static const int steps;
+};
+
+const int CSnapToAngleMenu::anglesArray[] = {1,5,30,45,90,180,270};
+const int CSnapToAngleMenu::steps = 7;
+
+//////////////////////////////////////////////////////////////////////////
+// Select Displayed Navigation Agent Type
+//////////////////////////////////////////////////////////////////////////
+class CNavigationAgentTypeMenu
+{
+public:
+	static void OnMenuChange( int nID )
+	{
+		const size_t newSelection = nID - ID_AI_NAVIGATION_SELECT_DISPLAY_AGENT_RANGE_BEGIN;
+
+		// Check if toggle/untoggle navigation displaying
+		CAIManager *pAIMgr = GetIEditor()->GetAI();
+		const bool shouldBeDisplayed = gSettings.navigationDebugAgentType != newSelection || !gSettings.bNavigationDebugDisplay;
+		pAIMgr->EnableNavigationDebugDisplay(shouldBeDisplayed);
+		gSettings.bNavigationDebugDisplay = pAIMgr->GetNavigationDebugDisplayState();
+
+		gSettings.navigationDebugAgentType = newSelection;
+		SetNavigationDebugDisplayAgent( newSelection);
+	}
+	static void OnMenuUpdate( CCmdUI* pCmdUI )
+	{
+		CAIManager *pAIMgr = GetIEditor()->GetAI();
+		const size_t current = pCmdUI->m_nID - ID_AI_NAVIGATION_SELECT_DISPLAY_AGENT_RANGE_BEGIN;
+		const bool shouldTheItemBeChecked = (current == gSettings.navigationDebugAgentType) && pAIMgr->GetNavigationDebugDisplayState();
+		pCmdUI->SetCheck(shouldTheItemBeChecked);
+	}
+	static void CreateMenu( CMenu &menu )
+	{
+		CAIManager* manager = GetIEditor()->GetAI();
+
+		menu.CreatePopupMenu();
+
+		const size_t agentTypeCount = manager->GetNavigationAgentTypeCount();
+
+		for (size_t i = 0; i < agentTypeCount; ++i)
+		{
+			const char* name = manager->GetNavigationAgentTypeName(i);
+			menu.AppendMenu(MF_STRING, ID_AI_NAVIGATION_SELECT_DISPLAY_AGENT_RANGE_BEGIN + i, name);
+		}
+	}
+
+private:
+	static void SetNavigationDebugDisplayAgent( int nId )
+	{
+		CAIManager* manager = GetIEditor()->GetAI();
+		manager->SetNavigationDebugDisplayAgentType(nId);
+	}
+};
+
+//////////////////////////////////////////////////////////////////////////
+// Selection Mask menu
+//////////////////////////////////////////////////////////////////////////
+class CSelectionMaskMenu
+{
+public:
+	struct Mask { const char *name; uint32 mask; };
+	static Mask s_selectionMasks[10];
+
+	static void OnMenuChange( int nID )
+	{
+		ApplyMenuItem( nID - ID_SELECTION_MASK_RANGE_BEGIN );
+	}
+	static void OnPopupButtonUpdate( CCmdUI* pCmdUI )
+	{
+		for (int i = 0; i < _countof(s_selectionMasks); i++)
+		{
+			if (s_selectionMasks[i].mask == gSettings.objectSelectMask)
+			{
+				pCmdUI->SetText( s_selectionMasks[i].name );
+				break;
+			}
+		}
+	}
+	static void OnMenuUpdate( CCmdUI* pCmdUI )
+	{
+		int nCheck = FALSE;
+		int nId = pCmdUI->m_nID - ID_SELECTION_MASK_RANGE_BEGIN;
+		if (nId >= 0 && nId < _countof(s_selectionMasks))
+		{
+			if (s_selectionMasks[nId].mask == gSettings.objectSelectMask)
+			{
+				nCheck = TRUE;
+			}
+		}
+		pCmdUI->SetCheck(nCheck);
+	}
+	static void CreateMenu( CMenu &menu )
+	{
+		menu.CreatePopupMenu();
+
+		for (int i = 0; i < _countof(s_selectionMasks); i++)
+		{
+			menu.AppendMenu( MF_STRING,ID_SELECTION_MASK_RANGE_BEGIN+i,s_selectionMasks[i].name );
+		}
+	}
+private:
+	static void ApplyMenuItem( int nId )
+	{
+		if (nId >= 0 && nId < _countof(s_selectionMasks))
+		{
+			gSettings.objectSelectMask = s_selectionMasks[nId].mask;
+		}
+	}
+};
+
+CSelectionMaskMenu::Mask CSelectionMaskMenu::s_selectionMasks[10] = 
+{
+	{ "Select All",OBJTYPE_ANY },
+	{ "Brushes",OBJTYPE_BRUSH },
+	{ "No Brushes",(~OBJTYPE_BRUSH) },
+	{ "Entities",OBJTYPE_ENTITY },
+	{ "Prefabs",OBJTYPE_PREFAB },
+	{ "Areas, Shapes",OBJTYPE_VOLUME | OBJTYPE_SHAPE },
+	{ "AI Points",OBJTYPE_AIPOINT },
+	{ "Decals",OBJTYPE_DECAL },
+	{ "Solids",OBJTYPE_SOLID },
+	{ "No Solids",(~OBJTYPE_SOLID) },
+};
+
+namespace
+{	
+	std::vector<_smart_ptr<CEditorObjectCreateCommand> > s_objCreateCmds;
+	std::vector<_smart_ptr<CEditorOpenViewCommand> > s_openViewCmds;
+}
+
+void CEditorObjectCreateCommand::Execute()
+{
+	if (!GetIEditor()->GetDocument()->IsDocumentReady())
+		return;
+
+	// Create browse mode for this category.
+	CObjectCreateTool *tool = new CObjectCreateTool;
+	GetIEditor()->SetEditTool( tool );
+	tool->StartCreation( m_className );
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// CMainFrame construction/destruction
+
+CMainFrame::CMainFrame()
+: m_viewPaneManager(new CViewPaneManager())
+, m_pConsole(new CConsoleSCB)
+{
+	m_autoSaveTimer = 0;
+	m_autoRemindTimer = 0;
+	m_networkAuditionTimer = 0;
+	m_bSkinLoaded = false;
+
+	m_currentMission = 0;
+	m_currentLayer = 0;
+
+	m_terrainPanel = 0;
+	m_mainTools = 0;
+	
+	m_coordSys = (RefCoordSys)-1;
+	m_objectSelectionMask = 0;
+
+	m_bAcceleratorsEnabled = true;
+
+	m_pEditToolBar=NULL;
+	m_pLiveCreateToolbar = NULL;
+	m_pRibbonBar = 0;
+	m_pLayoutWnd = 0;
+	m_pLayerPanel = 0;
+	m_pBGTasks = new CBackgroundTasksListener();
+
+	CXTRegistryManager regMgr;
+
+	s_themePaint = (XTPPaintTheme)regMgr.GetProfileInt(_T("Settings"), _T("PaintTheme"), s_themePaint );
+	s_themePane = (XTPDockingPanePaintTheme)regMgr.GetProfileInt(_T("Settings"), _T("PaneTheme"), s_themePane);
+	gSettings.gui.bSkining = regMgr.GetProfileInt(_T("Settings"), _T("Skining"),gSettings.gui.bSkining );
+	s_lpszSkinPath = regMgr.GetProfileString(_T("Settings"), _T("SkinPath"), s_lpszSkinPath);;
+	
+	if (strstr(s_lpszSkinPath,"Dark") != 0 && gSettings.gui.bSkining)
+		gSettings.gui.bDarkSkin = true;
+	else
+		gSettings.gui.bDarkSkin = false;
+ 
+	s_bDockingHelpers = regMgr.GetProfileInt(_T("Settings"), _T("DockingHelpers"), s_bDockingHelpers );	
+	RegisterStdViewClasses();
+	GetIEditor()->RegisterNotifyListener(this);
+	GetIEditor()->GetRenderer()->AddAsyncTextureCompileListener(m_pBGTasks);
+}
+
+CMainFrame::~CMainFrame()
+{
+	SAFE_DELETE(m_pLayoutWnd);
+	SAFE_DELETE(m_pLayerPanel);
+	
+	GetIEditor()->UnregisterNotifyListener(this);
+	GetIEditor()->GetRenderer()->RemoveAsyncTextureCompileListener(m_pBGTasks);
+
+	SAFE_DELETE(m_pBGTasks);
+}
+
+int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+	PyImport_AppendInittab("redirectstdout", PyScript::PyInitRedirecting);
+	Py_Initialize();
+	PyImport_ImportModule("redirectstdout");
+	PyScript::InitCppModules();
+
+	XTPOffice2007Images()->SetHandle( Path::Make(STYLES_PATH,"Office2007Scenic.dll") );
+
+#ifdef WIN64
+	m_strTitle += " (x64 Edition)";
+#endif //WIN64
+
+	if (__super::OnCreate(lpCreateStruct) == -1)
+		return -1;
+
+	m_networkAuditionTimer = SetTimer( NETWORK_AUDITION_UPDATE_TIMER_EVENT, 1000, 0 );
+
+	//////////////////////////////////////////////////////////////////////////
+	// Initialize the command bars
+	if (!InitCommandBars())
+		return -1;
+
+	// Get a pointer to the command bars object.
+	CXTPCommandBars* pCommandBars = GetCommandBars();
+	if(pCommandBars == NULL)
+	{
+		TRACE0("Failed to create command bars object.\n");
+		return -1;      // fail to create
+	}
+
+	// Initialize default accelerators.
+	pCommandBars->GetShortcutManager()->SetAccelerators(IDR_MAINFRAME);
+	// Turn this off to enable short keys while clicking the right mouse button.
+	pCommandBars->GetShortcutManager()->m_bDisableOnCapture = 0;
+
+	// Set pain theme and skin.
+	SwitchTheme(s_themePaint,s_themePane);
+	//////////////////////////////////////////////////////////////////////////
+
+	//////////////////////////////////////////////////////////////////////////
+	// Create the status bar
+	//////////////////////////////////////////////////////////////////////////
+	{
+		VERIFY(m_wndStatusBar.Create(this) );
+		VERIFY(m_wndStatusBar.SetIndicators( s_statusBarIndicators,sizeof(s_statusBarIndicators)/sizeof(UINT) ) );
+
+		m_wndStatusBar.GetImageManager()->SetIcon(IDI_BALL_DISABLED, IDI_BALL_DISABLED);
+		m_wndStatusBar.GetImageManager()->SetIcon(IDI_BALL_PENDING, IDI_BALL_PENDING);
+		m_wndStatusBar.GetImageManager()->SetIcon(IDI_BALL_OFFLINE, IDI_BALL_OFFLINE);
+	} 
+	//////////////////////////////////////////////////////////////////////////
+
+	if (!IsPreview())
+	{
+		if (!gSettings.gui.bRibbon)
+		{
+			// Add the menu bar
+			CXTPCommandBar* pMenuBar = pCommandBars->SetMenu( _T("Menu Bar"),IDR_MAINFRAME );
+			ASSERT(pMenuBar);
+		}
+		BOOL bStdToolsBarsVisible = (gSettings.gui.bRibbon) ? FALSE : TRUE;
+
+		//////////////////////////////////////////////////////////////////////////
+		// Create tool bars - TOP ROW
+		//////////////////////////////////////////////////////////////////////////
+
+		//////////////////////////////////////////////////////////////////////////
+		// Create standard toolbar - INVISIBLE
+		CXTPToolBar *pStdToolBar = pCommandBars->Add( _T("Standard ToolBar"),xtpBarTop );
+		pStdToolBar->SetVisible(FALSE);
+		VERIFY(pStdToolBar->LoadToolBar(IDR_MAINFRAME));
+		//////////////////////////////////////////////////////////////////////////
+
+		//////////////////////////////////////////////////////////////////////////
+		// Create EditMode Toolbar
+		CXTPToolBar *pEditToolBar = pCommandBars->Add( _T("EditMode ToolBar"),xtpBarTop );
+		pEditToolBar->SetVisible(bStdToolsBarsVisible);
+		pEditToolBar->EnableCustomization(FALSE);
+		VERIFY(pEditToolBar->LoadToolBar(IDR_EDIT_MODE));
+		m_pEditToolBar=pEditToolBar;
+		//DockRightOf(pEditToolBar, pStdToolBar);
+		//////////////////////////////////////////////////////////////////////////
+
+		//////////////////////////////////////////////////////////////////////////
+		// Object Modify Toolbar
+		CXTPToolBar *pObjectToolBar = pCommandBars->Add( _T("Object ToolBar"),xtpBarTop );
+		pObjectToolBar->SetVisible(bStdToolsBarsVisible);
+		VERIFY(pObjectToolBar->LoadToolBar(IDR_OBJECT_MODIFY));
+		DockRightOf(pObjectToolBar,pEditToolBar);
+		//////////////////////////////////////////////////////////////////////////
+
+		//////////////////////////////////////////////////////////////////////////
+		// AVI Toolbar - INVISIBLE
+		CXTPToolBar *pAviToolBar = pCommandBars->Add( _T("Video Recorder ToolBar"),xtpBarTop );
+		VERIFY(pAviToolBar->LoadToolBar(IDR_AVI_RECORDER_BAR));
+		pAviToolBar->SetVisible(FALSE);
+		//DockRightOf(pAviToolBar,pObjectToolBar);
+		//////////////////////////////////////////////////////////////////////////
+
+		//////////////////////////////////////////////////////////////////////////
+		// Create tool bars - BOTTOM ROW
+		//////////////////////////////////////////////////////////////////////////
+
+		//////////////////////////////////////////////////////////////////////////
+		// Terrain Toolbar
+		CXTPToolBar *pTerrainToolBar = pCommandBars->Add( _T("Terrain ToolBar"),xtpBarTop );
+		VERIFY(pTerrainToolBar->LoadToolBar(IDR_TERRAIN_BAR));
+		pTerrainToolBar->SetVisible(bStdToolsBarsVisible);
+		//DockRightOf(pTerrainToolBar,pMissionToolBar);
+		//////////////////////////////////////////////////////////////////////////
+
+		//////////////////////////////////////////////////////////////////////////
+		// Dialogs Toolbar
+		CXTPToolBar *pDialogsToolBar = pCommandBars->Add( _T("Dialogs ToolBar"),xtpBarTop );
+		pDialogsToolBar->SetVisible(bStdToolsBarsVisible);
+		VERIFY(pDialogsToolBar->LoadToolBar(IDR_STDVIEWS_BAR));
+		DockRightOf(pDialogsToolBar,pTerrainToolBar);
+		//////////////////////////////////////////////////////////////////////////
+	}
+
+  // Initialize the docking pane manager and set the
+	// initial them for the docking panes.  Do this only after all
+	// control bars objects have been created and docked.
+	m_viewPaneManager->Install(this, !gSettings.gui.bWindowsVista);
+	m_viewPaneManager->SetDockingHelpers(s_bDockingHelpers);
+	m_viewPaneManager->SetTheme(s_themePane);
+
+	// Create the console window.
+	m_pConsole->Create(NULL, NULL, WS_CHILD|WS_VISIBLE, CRect(0,0,0,0), this, 0);
+	m_viewPaneManager->CreatePane(m_pConsole.get(), IDW_VIEW_CONSOLE_BAR, CONSOLE_WINDOW_TITLE, CRect(0,0,500,70), dockBottomOf);
+	
+	CreateRollupBar();
+
+	if (IsPreview())
+	{
+		// Hide all menus.
+		//ShowControlBar( pMenuBar,FALSE,0 );
+		//ShowControlBar( &m_wndReBar,FALSE,0 );
+		//ShowControlBar( &m_wndTrackViewBar,FALSE,0 );
+		//ShowControlBar( &m_wndDataBaseBar,FALSE,0 );
+	}
+	else
+	{
+		// Update tools menu,
+		UpdateToolsMenu();
+
+		if (gSettings.gui.bRibbon)
+		{
+			CreateRibbonBar();
+		}
+		else
+		{
+			//! when the menu is a ribbon bar, the commands related to opening views are 
+			//! registered in CDynamicRibbonBar class.
+			RegisterOpenWndCommands();
+		}
+	}
+
+
+	// set the game info status text
+	{
+		CString strGameInfo;
+		ICVar* pCVar = gEnv->pConsole->GetCVar( "sys_game_folder" );
+		if (pCVar)
+		{
+			strGameInfo = "GameFolder: '" + ((CString)pCVar->GetString()) + "'";
+		}
+		pCVar = gEnv->pConsole->GetCVar( "sys_dll_game" );
+		if (pCVar)
+		{
+			strGameInfo += " - GameDLL: '" + ((CString)pCVar->GetString()) + "'";
+		}
+		int nIndex;
+		nIndex = m_wndStatusBar.CommandToIndex( ID_INDICATOR_GAME_INFO );
+
+		if( ( nIndex < 0 ) || ( nIndex >= m_wndStatusBar.GetPaneCount() ) )
+		{
+			assert( "CMainFrame::set game info status text" && false );
+		}
+		else
+		{
+			m_wndStatusBar.SetPaneText( nIndex, strGameInfo );
+		}
+	}
+
+	AdjustToolBarIconSize();
+	GetIEditor()->GetToolBoxManager()->Load();
+
+	return 0;
+}
+
+void CMainFrame::RegisterOpenWndCommands()
+{
+	//------------------------------------------------------------------------------
+	// Use a map to sort menu items alphabetically
+	std::vector<IClassDesc*> classes;
+	GetIEditor()->GetClassFactory()->GetClassesBySystemID( ESYSTEM_CLASS_VIEWPANE,classes );
+
+	std::map<CString, IViewPaneClass*> menuMap;	
+
+	size_t classCount = classes.size();
+	for (size_t i = 0; i < classCount; ++i)
+	{
+		IClassDesc *pClass = classes[i];
+		IViewPaneClass *pViewClass = NULL;
+		if (!FAILED(pClass->QueryInterface( __uuidof(IViewPaneClass),(void**)&pViewClass )))
+			menuMap[pViewClass->GetPaneTitle()] = pViewClass;
+	}
+
+	for(std::map<CString, IViewPaneClass*>::iterator it = menuMap.begin(); it != menuMap.end(); ++it)
+	{
+		CString menuTitle = it->second->GetPaneTitle();
+		CString className = it->second->ClassName();
+		CString category = it->second->Category();
+
+		if (category.IsEmpty())
+			continue;
+
+		// Make a open-view command for the class.
+		CString classNameLowered = className;
+		classNameLowered.MakeLower();
+		classNameLowered.Replace(' ', '_');
+		CString openCommandName = "open_";
+		openCommandName += classNameLowered;
+
+		CEditorOpenViewCommand *pCmd = new CEditorOpenViewCommand( className );
+		s_openViewCmds.push_back(pCmd);
+
+		CCommand0::SUIInfo cmdUI;
+		cmdUI.caption = className;
+		cmdUI.tooltip = CString("Open ") + className;
+		cmdUI.iconFilename = className;
+		GetIEditor()->GetCommandManager()->RegisterUICommand("editor", openCommandName.GetString(),
+			"", "", functor(*pCmd, &CEditorOpenViewCommand::Execute), cmdUI);
+		GetIEditor()->GetCommandManager()->GetUIInfo("editor", openCommandName.GetString(), cmdUI);
+	}
+}
+
+int CMainFrame::OnCreateControl(LPCREATECONTROLSTRUCT lpCreateControl)
+{
+	if (lpCreateControl->bToolBar)
+	{
+		if (lpCreateControl->nID == ID_TERRAIN
+			|| lpCreateControl->nID == ID_GENERATORS_TEXTURE
+			|| lpCreateControl->nID == ID_TERRAIN_TIMEOFDAY)
+		{
+			CXTPControlButton* pButton = (CXTPControlButton*)CXTPControlButton::CreateObject();		
+			
+			lpCreateControl->pControl = pButton;
+			pButton->SetID(lpCreateControl->nID);
+
+			if (lpCreateControl->nID == ID_TERRAIN)
+				pButton->SetCaption(_T("Terrain"));
+			
+			if (lpCreateControl->nID == ID_GENERATORS_TEXTURE)
+				pButton->SetCaption(_T("Texture"));
+			
+			if (lpCreateControl->nID == ID_TERRAIN_TIMEOFDAY)
+				pButton->SetCaption(_T("Time Of Day"));
+			
+			pButton->SetStyle(xtpButtonIconAndCaption);
+			
+			return TRUE;		
+		}
+		else if (lpCreateControl->nID == ID_LAYER_SELECT)
+		{
+			CXTPControlButton* pButton = (CXTPControlButton*)CXTPControlButton::CreateObject();		
+			
+			lpCreateControl->pControl = pButton;
+			pButton->SetID(lpCreateControl->nID);
+			pButton->SetStyle(xtpButtonIconAndCaption);
+			
+			return TRUE;
+		}
+		else if (lpCreateControl->nID == ID_SNAP_TO_GRID)
+		{
+			CCustomControlSplitButtonPopup* pCmdPopup = new CCustomControlSplitButtonPopup();
+			
+			lpCreateControl->pControl = pCmdPopup;
+			pCmdPopup->SetID(lpCreateControl->nID);
+			pCmdPopup->SetStyle(xtpButtonAutomatic);
+			
+			return TRUE;		
+		}
+		else if (lpCreateControl->nID == ID_SNAPANGLE)
+		{
+			CCustomControlSplitButtonPopup* pCmdPopup = new CCustomControlSplitButtonPopup();
+			lpCreateControl->pControl = pCmdPopup;
+			pCmdPopup->SetID(lpCreateControl->nID);
+			pCmdPopup->SetStyle(xtpButtonAutomatic);
+			return TRUE;		
+		}
+		else if (lpCreateControl->nID == ID_UNDO)
+		{
+			CCustomControlSplitButtonPopup* pCmdPopup = new CCustomControlSplitButtonPopup();
+			
+			lpCreateControl->pControl = pCmdPopup;
+			pCmdPopup->SetID(lpCreateControl->nID);
+			pCmdPopup->SetStyle(xtpButtonAutomatic);
+			
+			return TRUE;
+		}
+		else if (lpCreateControl->nID == ID_REDO)
+		{
+			CCustomControlSplitButtonPopup* pCmdPopup = new CCustomControlSplitButtonPopup();
+			
+			lpCreateControl->pControl = pCmdPopup;
+			pCmdPopup->SetID(lpCreateControl->nID);
+			pCmdPopup->SetStyle(xtpButtonAutomatic);
+			
+			return TRUE;
+		}
+		else if (lpCreateControl->nID == IDC_SELECTION)
+		{
+			CXTPControlComboBox* pComboBox = (CXTPControlComboBox*)CXTPControlComboBox::CreateObject();
+			
+			pComboBox->SetDropDownListStyle();			
+			pComboBox->SetWidth(100);
+			pComboBox->SetCaption(_T("Selection Set"));
+			pComboBox->SetStyle(xtpComboNormal);
+			pComboBox->SetFlags(xtpFlagManualUpdate);
+			lpCreateControl->pControl = pComboBox;
+			
+			return TRUE;
+		}
+		else if (lpCreateControl->nID == ID_REF_COORDS_SYS)
+		{
+			CXTPControlComboBox* pComboBox = (CXTPControlComboBox*)CXTPControlComboBox::CreateObject();
+
+			InitRefCoordControl( pComboBox );
+			pComboBox->SetWidth(70);
+			pComboBox->SetStyle(xtpComboNormal);
+			lpCreateControl->pControl = pComboBox;
+
+			return TRUE;
+		}
+		else if (lpCreateControl->nID == IDC_SELECTION_MASK)
+		{
+			CXTPControlComboBox* pComboBox = (CXTPControlComboBox*)CXTPControlComboBox::CreateObject();
+			InitSelectionMaskControl(pComboBox);
+			pComboBox->SetWidth(80);
+			pComboBox->SetStyle(xtpComboNormal);
+			lpCreateControl->pControl = pComboBox;
+			return TRUE;
+		}
+	}
+	
+	if (lpCreateControl->nID == ID_TOOLS_TOOL1)
+	{
+		CXTPControlPopup* pPopup = CXTPControlPopup::CreateControlPopup(xtpControlPopup);
+		pPopup->SetFlags(xtpFlagManualUpdate);
+		lpCreateControl->pControl = pPopup;
+		CXTPPopupBar* pToolsMenuBar = CXTPPopupBar::CreatePopupBar( GetCommandBars() );
+		pToolsMenuBar->SetTearOffPopup(_T("ToolBox Macros"), ID_TOOLS_TOOL1);
+		pPopup->SetCommandBar(pToolsMenuBar);
+		return TRUE;
+	}
+	if (lpCreateControl->nID == ID_VIEW_OPENVIEWPANE)
+	{
+		CXTPControlPopup* pPopup = CXTPControlPopup::CreateControlPopup(xtpControlPopup);
+		pPopup->SetFlags(xtpFlagManualUpdate);
+		lpCreateControl->pControl = pPopup;
+		CXTPPopupBar* pToolsMenuBar = CXTPPopupBar::CreatePopupBar( GetCommandBars() );
+		pPopup->SetCommandBar(pToolsMenuBar);
+		return TRUE;
+	}
+
+	if ( lpCreateControl->nID == ID_VIEW_LAYOUTS )
+	{
+		CXTPControlPopup* pPopup = CXTPControlPopup::CreateControlPopup( xtpControlPopup );
+		pPopup->SetFlags( xtpFlagManualUpdate );
+		lpCreateControl->pControl = pPopup;
+		CXTPPopupBar* pToolsMenuBar = CXTPPopupBar::CreatePopupBar( GetCommandBars() );
+		pPopup->SetCommandBar( pToolsMenuBar );
+		return TRUE;
+	}
+
+	if ( ID_VIEW_LAYOUT_FIRST <= lpCreateControl->nID && lpCreateControl->nID <= ID_VIEW_LAYOUT_LAST )
+	{
+		CXTPControlPopup* pPopup = CXTPControlPopup::CreateControlPopup( xtpControlPopup );
+		pPopup->SetFlags( xtpFlagManualUpdate );
+		lpCreateControl->pControl = pPopup;
+		CXTPPopupBar* pToolsMenuBar = CXTPPopupBar::CreatePopupBar( GetCommandBars() );
+		pPopup->SetCommandBar( pToolsMenuBar );
+		return TRUE;
+	}
+
+	if (lpCreateControl->nID == ID_FILE_MRU_FILE1)
+	{
+		CXTPControl* pControl = (CXTPControl*)CControlMRU::CreateObject();
+		if (pControl)
+		{
+			pControl->SetFlags(xtpFlagManualUpdate);
+			lpCreateControl->pControl = pControl;
+			return TRUE;
+		}
+	}
+
+	if (lpCreateControl->nID == ID_AI_NAVIGATION_DISPLAY_AGENT)
+	{
+		CXTPControlPopup* pPopup = CXTPControlPopup::CreateControlPopup( xtpControlPopup );
+		pPopup->SetFlags( xtpFlagManualUpdate );
+		lpCreateControl->pControl = pPopup;
+		CXTPPopupBar* pToolsMenuBar = CXTPPopupBar::CreatePopupBar( GetCommandBars() );
+		pPopup->SetCommandBar( pToolsMenuBar );
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+//////////////////////////////////////////////////////////////////////////
+int CMainFrame::OnCreateCommandBar(LPCREATEBARSTRUCT lpCreatePopup)
+{
+	return FALSE;
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnInitCommandsPopup( CXTPPopupBar* pPopupBar )
+{
+	if ( pPopupBar == NULL )
+	{
+		return;
+	}
+
+	CXTPControlPopup* pControlPopup = pPopupBar->GetControlPopup();
+	if ( pControlPopup == NULL )
+	{
+		return;
+	}
+
+	int controlId = pControlPopup->GetID();
+	if ( controlId == ID_TOOLS_TOOL1 )
+	{
+		UpdateToolsMenu();
+	}
+	else if ( controlId == ID_VIEW_OPENVIEWPANE )
+	{
+		UpdateViewPaneMenu();
+	}
+	else if ( controlId == ID_VIEW_LAYOUTS )
+	{
+		UpdateViewLayoutsPaneMenu( pControlPopup );
+	}
+	else if ( ID_VIEW_LAYOUT_FIRST <= controlId && controlId <= ID_VIEW_LAYOUT_LAST )
+	{
+		int layoutId = controlId - ID_VIEW_LAYOUT_FIRST;
+		UpdateViewLayoutsPaneSubMenu( pControlPopup, layoutId );
+	}
+	else if ( controlId == IDC_SELECTION )
+	{				
+		CXTPControl* poControl(NULL);
+		CXTPControlComboBox* poComboBox(NULL);
+
+		for (int nCurrent=0;nCurrent<m_pEditToolBar->GetControlCount();++nCurrent)
+		{
+			poControl=m_pEditToolBar->GetControl(nCurrent);
+
+			if (!poControl)
+				continue;
+
+			if (poControl->GetID()==controlId)
+			{
+				poComboBox=static_cast<CXTPControlComboBox*>(poControl);
+				poComboBox->ResetContent();
+
+				std::vector<CString> names;
+				GetIEditor()->GetObjectManager()->GetNameSelectionStrings(names);
+				for (int i=0;i<names.size();++i)
+					poComboBox->AddString(names[i]);
+
+				break;
+			}
+		}
+	}
+	else if (ID_REF_COORDS_SYS == controlId)
+	{
+		CMenu menu;
+		menu.CreatePopupMenu();
+		menu.AppendMenu( MF_STRING,ID_REF_COORD_SYS_RANGE_BEGIN+0,"View" );
+		menu.AppendMenu( MF_STRING,ID_REF_COORD_SYS_RANGE_BEGIN+1,"Local" );
+		menu.AppendMenu( MF_STRING,ID_REF_COORD_SYS_RANGE_BEGIN+2,"Parent" );
+		menu.AppendMenu( MF_STRING,ID_REF_COORD_SYS_RANGE_BEGIN+3,"World" );
+		menu.AppendMenu( MF_STRING,ID_REF_COORD_SYS_RANGE_BEGIN+4,"Custom" );
+		pPopupBar->LoadMenu(&menu);
+	}
+	else if (ID_SNAP_TO_GRID == controlId)
+	{
+		CMenu menu;
+		CSnapToGridMenu::CreateMenu(menu);
+		pPopupBar->LoadMenu(&menu);
+	}
+	else if (IDC_SELECTION_MASK == controlId)
+	{
+		CMenu menu;
+		CSelectionMaskMenu::CreateMenu(menu);
+		pPopupBar->LoadMenu(&menu);
+	}
+	else if (ID_AI_NAVIGATION_DISPLAY_AGENT == controlId)
+	{
+		CMenu menu;
+		CNavigationAgentTypeMenu::CreateMenu(menu);
+		pPopupBar->LoadMenu(&menu);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnEditorNotifyEvent( EEditorNotifyEvent event )
+{
+	switch (event)
+	{
+	case eNotify_OnIdleUpdate:
+		IdleUpdate();
+		break;
+	case eNotify_OnInvalidateControls:
+		InvalidateControls();
+		break;
+	case eNotify_OnBeginSceneOpen:
+	case eNotify_OnBeginNewScene:
+	case eNotify_OnCloseScene:
+		ResetAutoSaveTimers();
+		break;
+	case eNotify_OnEndSceneOpen:
+	case eNotify_OnEndNewScene:
+		ResetAutoSaveTimers(true);
+		break;
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+CViewPaneManager* CMainFrame::GetViewPaneManager()
+{
+	return m_viewPaneManager;
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::RegisterStdViewClasses()
+{
+	CTelemetryViewDialog::RegisterViewClass();
+	CTrackViewDialog::RegisterViewClass();
+	CDataBaseDialog::RegisterViewClass();
+	CMaterialDialog::RegisterViewClass();
+	CCharacterEditor::RegisterViewClass();
+	CHyperGraphDialog::RegisterViewClass();
+	CLensFlareEditor::RegisterViewClass();
+#ifdef INCLUDE_ANIMATIONGRAPH
+	CAnimationGraphDialog::RegisterViewClass();
+	CAnimationGraphDialog2::RegisterViewClass();
+#endif
+	CVehicleEditorDialog::RegisterViewClass();
+	CSmartObjectsEditorDialog::RegisterViewClass();
+	CAIDebugger::RegisterViewClass();	
+	CSelectObjectDlg::RegisterViewClass();
+	CTimeOfDayDialog::RegisterViewClass();
+	CFacialEditorDialog::RegisterViewClass();
+	CDialogEditorDialog::RegisterViewClass();
+	CVisualLogWnd::RegisterViewClass();
+	CLiveMocapDialog::RegisterViewClass();
+	CAssetBrowserDialog::RegisterViewClass();
+	CErrorReportDialog::RegisterViewClass();
+	CPanelDisplayLayer::RegisterViewClass();
+	CProceduralCreationDialog::RegisterViewClass();
+	CTextureBrowserDialog::RegisterViewClass();
+	CGeometryLodGeneratorDialog::RegisterViewClass();
+	CPythonScriptsDialog::RegisterViewClass();
+	CMissingAssetDialog::RegisterViewClass();
+
+	// if we have a true livecreate, then register the view
+#ifndef NO_LIVECREATE
+	if ((NULL != gEnv->pLiveCreateManager) && !gEnv->pLiveCreateManager->IsNullImplementation())
+	{
+		if (GetIEditor()->GetLiveCreate()->Initialize(gEnv->pLiveCreateManager))
+		{
+			CLiveCreateSettingsView::RegisterViewClass();
+		}
+	}
+#endif
+
+	if (gEnv->pGame && gEnv->pGame->GetIGameFramework())
+	{
+		CMannequinDialog::RegisterViewClass();
+	}
+
+	//These view dialogs aren't used anymore so they became disabled. 
+	//CLightmapCompilerDialog::RegisterViewClass();
+	//CLightmapCompilerDialog::RegisterViewClass();
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnSkinChanged()
+{
+	OnSysColorChange();
+	RedrawWindow(0, 0, RDW_INVALIDATE|RDW_UPDATENOW|RDW_ERASE|RDW_ALLCHILDREN);		
+
+	if (m_bSkinLoaded)
+	{
+		XTPPaintManager()->RefreshMetrics();
+	}
+
+	GetCommandBars()->GetPaintManager()->RefreshMetrics();
+	GetCommandBars()->RedrawCommandBars();	
+	m_viewPaneManager->RedrawPanes();
+
+	if (m_bSkinLoaded)
+	{
+		XTPSkinManager()->RedrawAllControls();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::SwitchTheme( XTPPaintTheme paintTheme,XTPDockingPanePaintTheme paneTheme )
+{
+	paintTheme = xtpThemeRibbon;
+	paneTheme = xtpPaneThemeWhidbey; // Force the same always.
+	s_themePaint = paintTheme;
+	s_themePane = paneTheme;
+	gSettings.gui.bDarkSkin = false;
+
+	if (gSettings.gui.bSkining)
+	{
+		if (strstr(s_lpszSkinPath,"Dark") != 0)
+		{
+			gSettings.gui.bDarkSkin = true;
+			XTPOffice2007Images()->SetHandle( Path::Make(STYLES_PATH,"Office2007Black.dll") );
+		}
+		else
+		{
+			XTPOffice2007Images()->SetHandle( Path::Make(STYLES_PATH,"Office2007Silver.dll") );
+		}
+	}
+	else
+	{
+		XTPOffice2007Images()->SetHandle( Path::Make(STYLES_PATH,"Office2007Scenic.dll") );
+	}
+
+	if (gSettings.gui.bRibbon)
+		paintTheme = xtpThemeRibbon;
+	else
+		paintTheme = xtpThemeOffice2003;
+	
+	CXTPPaintManager::SetTheme(paintTheme);
+
+	if (!gSettings.gui.bRibbon)
+	{
+		EnableOffice2007Frame(GetCommandBars());
+	}
+
+	if (gSettings.gui.bSkining)
+	{
+		LoadCrySkin();
+	}
+	else
+	{
+		if (m_bSkinLoaded)
+		{
+			XTPSkinManager()->LoadSkin( "","" );
+			XTPSkinManager()->SetApplyOptions( 0 );
+		}
+	}
+	if (GetCommandBars())
+	{
+		GetCommandBars()->GetPaintManager()->m_bEnableAnimation = TRUE;
+	}
+
+	XTP_COMMANDBARS_ICONSINFO* pIconsInfo = XTPPaintManager()->GetIconsInfo();
+
+	m_viewPaneManager->SetTheme(paneTheme);
+	OnSkinChanged();
+}
+
+//////////////////////////////////////////////////////////////////////////
+BOOL CMainFrame::OnSwitchTheme(UINT nID)
+{
+	switch (nID)
+	{
+	case ID_THEME_OFFICE2000:
+		SwitchTheme(xtpThemeOffice2000,xtpPaneThemeOffice);
+		break;
+	case ID_THEME_OFFICEXP:
+		SwitchTheme(xtpThemeOfficeXP,xtpPaneThemeOffice);
+		break;
+	case ID_THEME_OFFICE2003:
+		SwitchTheme(xtpThemeOffice2003,xtpPaneThemeOffice2003);
+		break;
+	case ID_THEME_OFFICE2007:
+		SwitchTheme(xtpThemeRibbon,xtpPaneThemeOffice2007);
+		break;
+	case ID_THEME_WINDOWSXP:
+		SwitchTheme(xtpThemeNativeWinXP,xtpPaneThemeNativeWinXP);
+		break;
+	case ID_THEME_EXPLORER:
+		SwitchTheme(xtpThemeNativeWinXP,xtpPaneThemeExplorer);
+		break;
+	case ID_THEME_VISIO:
+		SwitchTheme(xtpThemeNativeWinXP,xtpPaneThemeVisio);
+		break;
+	case ID_THEME_VISUALSTUDIO2005:
+		SwitchTheme(xtpThemeWhidbey,xtpPaneThemeVisualStudio2005);
+		break;
+	case ID_THEME_GRIPPERED:
+		SwitchTheme(xtpThemeNativeWinXP,xtpPaneThemeGrippered);
+		break;
+	}
+
+	return TRUE;
+}
+
+void CMainFrame::OnUpdateSkin(CCmdUI* pCmdUI)
+{
+	switch (pCmdUI->m_nID)
+	{
+	case ID_SKINS_CRYDARK:
+		pCmdUI->SetCheck(s_lpszSkinPath == "Editor\\Styles\\CryDark.cjstyles" && gSettings.gui.bSkining);
+		break;
+	case ID_SKINS_CRYLIGHT:
+		pCmdUI->SetCheck(s_lpszSkinPath == "Editor\\Styles\\CryLight.cjstyles"  && gSettings.gui.bSkining);
+		break;
+	}
+}
+
+BOOL CMainFrame::OnSwitchSkin(UINT nID)
+{
+	switch (nID)
+	{
+	case ID_SKINS_CRYDARK:
+		s_lpszSkinPath = "Editor\\Styles\\CryDark.cjstyles";
+		gSettings.gui.bSkining = true;
+		break;
+	case ID_SKINS_CRYLIGHT:
+		s_lpszSkinPath = "Editor\\Styles\\CryLight.cjstyles";
+		gSettings.gui.bSkining = true;
+		break;
+	}
+
+	SwitchTheme(s_themePaint,s_themePane);
+	return TRUE;
+}
+
+void CMainFrame::OnUpdateTheme(CCmdUI* pCmdUI)
+{
+	switch (pCmdUI->m_nID)
+	{
+	case ID_THEME_OFFICE2000:
+		pCmdUI->SetCheck(XTPPaintManager()->GetCurrentTheme() == xtpThemeOffice2000);
+		break;
+	case ID_THEME_OFFICEXP:
+		pCmdUI->SetCheck(XTPPaintManager()->GetCurrentTheme() == xtpThemeOfficeXP);
+		break;
+	case ID_THEME_OFFICE2003:
+		pCmdUI->SetCheck(s_themePane == xtpPaneThemeOffice2003);
+		break;
+	case ID_THEME_OFFICE2007:
+		pCmdUI->SetCheck(s_themePane == xtpPaneThemeOffice2007);
+		break;
+	case ID_THEME_WINDOWSXP:
+		pCmdUI->SetCheck(s_themePane == xtpPaneThemeNativeWinXP);
+		break;
+	case ID_THEME_EXPLORER:
+		pCmdUI->SetCheck(s_themePane == xtpPaneThemeExplorer);
+		break;
+	case ID_THEME_VISIO:
+		pCmdUI->SetCheck(s_themePane == xtpPaneThemeVisio);
+		break;
+	case ID_THEME_VISUALSTUDIO2005:
+		pCmdUI->SetCheck(s_themePane == xtpPaneThemeVisualStudio2005);
+		break;
+	case ID_THEME_GRIPPERED:
+		pCmdUI->SetCheck(s_themePane == xtpPaneThemeGrippered);
+		break;
+	}
+}
+
+void CMainFrame::OnDockingHelpers()
+{
+	s_bDockingHelpers = (s_bDockingHelpers) ? FALSE:TRUE;
+	m_viewPaneManager->SetDockingHelpers(s_bDockingHelpers);
+}
+
+void CMainFrame::OnUpdateDockingHelpers(CCmdUI* pCmdUI)
+{
+	pCmdUI->SetCheck( s_bDockingHelpers == TRUE );
+}
+
+void CMainFrame::OnSkining()
+{
+	if (gSettings.gui.bSkining)
+	{
+		gSettings.gui.bSkining = false;
+		SwitchTheme(s_themePaint,s_themePane);
+	}
+	SwitchTheme(s_themePaint,s_themePane);
+}
+
+void CMainFrame::UpdateSkinning(XTPDockingPanePaintTheme paneTheme, XTPPaintTheme paintTheme)
+{
+	s_themePane = paneTheme;
+	s_themePaint = paintTheme;
+	SwitchTheme(s_themePaint,s_themePane);
+}
+
+void CMainFrame::LoadCrySkin()
+{
+	//CXTPPaintManager::SetCustomTheme(new CCrytekTheme());
+	BOOL bLoaded = XTPSkinManager()->LoadSkin( s_lpszSkinPath );
+
+	// Apply skin, including metrics, coloring and frame
+	XTPSkinManager()->SetApplyOptions(xtpSkinApplyMetrics|xtpSkinApplyColors|xtpSkinApplyMenus);
+
+	// Apply skin to all new windows and threads
+
+	XTPSkinManager()->SetAutoApplyNewWindows(TRUE);
+
+	XTPSkinManager()->SetAutoApplyNewThreads(TRUE);
+
+	// Apply skin to current thread and window
+
+	XTPSkinManager()->EnableCurrentThread();
+
+	XTPSkinManager()->ApplyWindow(this->GetSafeHwnd());
+
+	bool test = XTPSkinManager()->IsColorFilterExists();
+	// Redraw everything
+
+	m_bSkinLoaded = true;
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnUpdateSkining( CCmdUI* pCmdUI )
+{
+	if (!gSettings.gui.bSkining)
+		pCmdUI->SetCheck(TRUE);
+	else
+		pCmdUI->SetCheck(FALSE);
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnMusicInfo()
+{
+	CMusicInfoDlg *pDlg = new CMusicInfoDlg;
+	pDlg->Create(CMusicInfoDlg::IDD, this);
+	pDlg->ShowWindow(SW_SHOW);
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnOpenSoundBrowser()
+{
+	CString file;
+	CString startPath =  Path::GetGameFolder()+"/Sounds/";
+	CFileUtil::SelectSingleFile( EFILE_TYPE_SOUND, file, "",startPath );
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnOpenDialogBrowser()
+{
+	CString file;
+	CString startPath = Path::GetAudioLocalizationFolder(true);
+	CFileUtil::SelectSingleFile( EFILE_TYPE_DIALOG, file, "",startPath );
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnDisableSound()
+{
+	ICVar* pCVar = gEnv->pConsole->GetCVar( "s_SoundEnable" );
+	if(pCVar)
+	{
+		if(pCVar->GetIVal() == 0)
+			pCVar->Set(1);
+		else
+			pCVar->Set(0);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnUpdateDisableSound(CCmdUI* pCmdUI)
+{
+	ICVar* pCVar = gEnv->pConsole->GetCVar( "s_SoundEnable" );
+	if(pCVar)
+	{
+		if(pCVar->GetIVal() == 0)
+			pCmdUI->SetText("Enable Sound");
+		else
+			pCmdUI->SetText("Disable Sound");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnDisableMusic()
+{
+	ICVar* pCVar = gEnv->pConsole->GetCVar( "s_MusicEnable" );
+	if(pCVar)
+	{
+		if(pCVar->GetIVal() == 0)
+			pCVar->Set(1);
+		else
+			pCVar->Set(0);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnUpdateDisableMusic(CCmdUI* pCmdUI)
+{
+	ICVar* pCVar = gEnv->pConsole->GetCVar( "s_MusicEnable" );
+	if(pCVar)
+	{
+		if(pCVar->GetIVal() == 0)
+			pCmdUI->SetText("Enable Music");
+		else
+			pCmdUI->SetText("Disable Music");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+BOOL CMainFrame::PreTranslateMessage(MSG* pMsg)
+{
+	if (GetIEditor()->IsInGameMode() && (pMsg->message >= WM_KEYFIRST && pMsg->message <= WM_KEYLAST))
+	{
+		return TRUE;
+	}
+
+	// Prevent accelerators active inside ComboBox or NumberEdit in toolbar.
+	if ((pMsg->message >= WM_KEYFIRST && pMsg->message <= WM_KEYLAST)
+		&& (pMsg->wParam != VK_RETURN && pMsg->wParam != VK_TAB && pMsg->wParam != VK_ESCAPE))
+	{
+		CWnd* pWnd = CWnd::GetFocus();
+		if (pWnd && pWnd->IsKindOf(RUNTIME_CLASS(CXTPEdit)))
+			return FALSE;
+		if (pWnd && pWnd->IsKindOf(RUNTIME_CLASS(CNumberCtrlEdit)))
+			return FALSE;
+	}
+
+	if (pMsg->message==WM_KEYDOWN && pMsg->wParam == VK_ESCAPE)
+	{
+		CWnd* pWnd = CWnd::GetFocus();
+		if (pWnd && pWnd->IsKindOf(RUNTIME_CLASS(CViewport)))
+		{
+			((CCryEditApp*)AfxGetApp())->OnEditEscape();
+			return TRUE;
+		}
+	}
+
+	/*
+	if (pMsg->message == WM_INPUT)
+	{
+		static int d = 0;
+
+		CWnd *pFocus = GetFocus();
+		if (pFocus->IsKindOf( RUNTIME_CLASS(CViewport) ))
+		{
+			// We are in viewport.
+			static int d = 0;
+			CryLog( "WM_INPUT in viewport %d",d++ );
+		}
+	}
+	*/
+
+	return __super::PreTranslateMessage(pMsg);
+}
+
+//////////////////////////////////////////////////////////////////////////
+BOOL CMainFrame::DestroyWindow()
+{
+	if (m_autoSaveTimer)
+		KillTimer( m_autoSaveTimer );
+	if (m_autoRemindTimer)
+		KillTimer( m_autoRemindTimer );
+	if (m_networkAuditionTimer)
+		KillTimer( m_networkAuditionTimer );
+
+	return __super::DestroyWindow();
+}
+
+void CMainFrame::LoadConfig()
+{
+	m_viewPaneManager->StoreDefaultLayout();
+
+	if (!IsPreview())
+	{
+		// Load the previous state for docking panes.
+		if (m_viewPaneManager->LoadLayoutFromRegistry(MAINFRM_LAYOUT_NORMAL))
+			GetIEditor()->GetSettingsManager()->AddToolName(_T(MAINFRM_LAYOUT_NORMAL), _T("Sandbox Layout"));
+
+		// Load the previous state for toolbars and menus.
+		if (gSettings.gui.bRibbon)
+			LoadCommandBars(_T("CommandBarsRibbon"),TRUE);
+		else
+			LoadCommandBars(_T("CommandBars"),TRUE);
+
+		XTPShortcutManager()->LoadShortcuts( "Shortcuts" );
+		if(!XTPShortcutManager()->GetDefaultAccelerator())
+			XTPShortcutManager()->Reset();
+
+		// Kill original accelerator table.
+		if (m_hAccelTable)
+			DestroyAcceleratorTable( m_hAccelTable );
+		m_hAccelTable = NULL;
+		///
+		
+	}
+	else
+	{
+		// Load the previous state for docking panes.
+		if (m_viewPaneManager->LoadLayoutFromRegistry(MAINFRM_LAYOUT_PREVIEW))
+			GetIEditor()->GetSettingsManager()->AddToolName(_T(MAINFRM_LAYOUT_PREVIEW), _T("Sandbox Layout"));
+	}
+
+	m_viewPaneManager->LoadPaneHistoryFromRegistry();
+}
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::EnableMenu( bool bEnable )
+{
+	CXTPMenuBar *pMenuBar = GetCommandBars()->GetMenuBar();
+
+	pMenuBar->EnableWindow(bEnable?TRUE:FALSE);
+
+}
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::SaveConfig()
+{
+	// Save global settings.
+	gSettings.Save();
+
+	// Restore accelerators.
+	if (!m_bAcceleratorsEnabled)
+		EnableAccelerator( true );
+
+	// Save frame window size and position.
+	m_wndPosition.SaveWindowPos(this);
+
+	{
+		CXTRegistryManager regMgr;
+		//regMgr.WriteProfileInt(_T("Settings"), _T("bXPMode"), xtAfxData.bXPMode);
+		regMgr.WriteProfileInt(_T("Settings"), _T("DockingHelpers"), s_bDockingHelpers );
+		regMgr.WriteProfileInt(_T("Settings"), _T("Skining"), gSettings.gui.bSkining );
+		regMgr.WriteProfileString(_T("Settings"), _T("SkinPath"),s_lpszSkinPath);
+	}
+
+	if (!IsPreview())
+	{
+		// Save control bar position.
+		if (gSettings.gui.bRibbon)
+			SaveCommandBars(_T("CommandBarsRibbon"));
+		else
+			SaveCommandBars(_T("CommandBars"));
+
+		XTPShortcutManager()->SaveShortcuts( "Shortcuts" );
+	}
+
+
+	SaveCurrentLayout();
+
+	m_viewPaneManager->SavePaneHistoryToRegistry();
+
+	if (m_pLayoutWnd)
+		m_pLayoutWnd->SaveConfig();
+
+	GetIEditor()->GetToolBoxManager()->Save();
+}
+
+void CMainFrame::SaveCurrentLayout()
+{
+	const char* sectionName = GetIEditor()->IsInPreviewMode() ? MAINFRM_LAYOUT_PREVIEW : MAINFRM_LAYOUT_NORMAL;
+
+	if (!IsPreview())
+		m_viewPaneManager->SaveLayoutToRegistry(sectionName);
+	else
+		m_viewPaneManager->SaveLayoutToRegistry(sectionName);
+
+}
+
+//////////////////////////////////////////////////////////////////////////
+// WARNING uses undocumented MFC code!!!
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::DockControlBarNextTo(CControlBar* pBar,
+                                      CControlBar* pTargetBar)
+{
+    ASSERT(pBar != NULL);
+    ASSERT(pTargetBar != NULL);
+    ASSERT(pBar != pTargetBar);
+
+    // the neighbour must be already docked
+    CDockBar* pDockBar = pTargetBar->m_pDockBar;
+    ASSERT(pDockBar != NULL);
+    UINT nDockBarID = pTargetBar->m_pDockBar->GetDlgCtrlID();
+    ASSERT(nDockBarID != AFX_IDW_DOCKBAR_FLOAT);
+
+    bool bHorz = (nDockBarID == AFX_IDW_DOCKBAR_TOP ||
+        nDockBarID == AFX_IDW_DOCKBAR_BOTTOM);
+
+    // dock normally (inserts a new row)
+    DockControlBar(pBar, nDockBarID);
+
+    // delete the new row (the bar pointer and the row end mark)
+    pDockBar->m_arrBars.RemoveAt(pDockBar->m_arrBars.GetSize() - 1);
+    pDockBar->m_arrBars.RemoveAt(pDockBar->m_arrBars.GetSize() - 1);
+
+    // find the target bar
+    for (int i = 0; i < pDockBar->m_arrBars.GetSize(); i++)
+    {
+        void* p = pDockBar->m_arrBars[i];
+        if (p == pTargetBar) // and insert the new bar after it
+            pDockBar->m_arrBars.InsertAt(i + 1, pBar);
+    }
+
+    // move the new bar into position
+    CRect rBar;
+    pTargetBar->GetWindowRect(rBar);
+    rBar.OffsetRect(bHorz ? 1 : 0, bHorz ? 0 : 1);
+    pBar->MoveWindow(rBar);
+}
+
+//////////////////////////////////////////////////////////////////////////
+BOOL CMainFrame::VerifyBarState( CDockState &state )
+{
+	for (int i = 0; i < state.m_arrBarInfo.GetSize(); i++)
+	{
+		CControlBarInfo* pInfo = (CControlBarInfo*)state.m_arrBarInfo[i];
+		ASSERT(pInfo != NULL);
+		int nDockedCount = pInfo->m_arrBarID.GetSize();
+		if (nDockedCount > 0)
+		{
+			// dockbar
+			for (int j = 0; j < nDockedCount; j++)
+			{
+				UINT_PTR nID = (UINT_PTR) pInfo->m_arrBarID[j];
+				if (nID == 0) continue; // row separator
+				if (nID > 0xFFFF)
+					nID &= 0xFFFF; // placeholder - get the ID
+				if (GetControlBar(nID) == NULL)
+					return FALSE;
+			}
+		}
+
+		if (!pInfo->m_bFloating) // floating dockbars can be created later
+			if (GetControlBar(pInfo->m_nBarID) == NULL)
+				return FALSE; // invalid bar ID
+	}
+	return TRUE;
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::CreateRollupBar()
+{
+	m_wndRollUp.Create(NULL, NULL, WS_CHILD|WS_VISIBLE, CRect(0,0,1,1), this, 0);
+	m_viewPaneManager->CreatePane(&m_wndRollUp, IDW_VIEW_ROLLUP_BAR, ROLLUP_BAR_WINDOW_TITLE, CRect(0, 0,  255, 500), dockRightOf);
+
+	//////////////////////////////////////////////////////////////////////////
+	// Create our RollupCtrl into DialogBar and register it
+	m_objectRollupCtrl.Create(WS_VISIBLE | WS_CHILD, CRect(4, 4, 255, 362), &m_wndRollUp, NULL);
+	m_wndRollUp.SetRollUpCtrl( ROLLUP_OBJECTS,&m_objectRollupCtrl,"Create" );
+
+	if (!IsPreview())
+	{
+		m_terrainRollupCtrl.Create(WS_VISIBLE | WS_CHILD, CRect(4, 4, 255, 362), &m_wndRollUp, NULL);
+		m_wndRollUp.SetRollUpCtrl( ROLLUP_TERRAIN,&m_terrainRollupCtrl,"Terrain Editing" );
+
+		m_modellingRollupCtrl.Create(WS_VISIBLE | WS_CHILD, CRect(4, 4, 255, 362), &m_wndRollUp, NULL);
+		m_wndRollUp.SetRollUpCtrl( ROLLUP_MODELLING,&m_modellingRollupCtrl,"Modeling" );
+
+		m_displayRollupCtrl.Create(WS_VISIBLE | WS_CHILD, CRect(4, 4, 255, 362), &m_wndRollUp, NULL);
+		m_wndRollUp.SetRollUpCtrl( ROLLUP_DISPLAY,&m_displayRollupCtrl,"Display Settings" );
+
+		//////////////////////////////////////////////////////////////////////////
+		// Insert the main rollup
+		m_mainTools = new CMainTools;
+		m_mainTools->Create(MAKEINTRESOURCE(CMainTools::IDD),this);
+		m_objectRollupCtrl.InsertPage("Objects",m_mainTools);
+
+		//	m_objectRollupCtrl.InsertPage("Main Tools",MAKEINTRESOURCE(CMainTools::IDD),RUNTIME_CLASS(CMainTools) );
+
+		CModellingToolsPanel *pModellingToolsPanel = new CModellingToolsPanel;
+		pModellingToolsPanel->Create(MAKEINTRESOURCE(CModellingToolsPanel::IDD),this);
+		m_modellingRollupCtrl.InsertPage("Modelling",pModellingToolsPanel);
+		pModellingToolsPanel->InitDefaultModellingPanels();
+
+		m_terrainPanel = new CTerrainPanel(this);
+		m_terrainRollupCtrl.InsertPage("Terrain",m_terrainPanel );
+
+		CPanelDisplayHide *hidePanel = new CPanelDisplayHide(this);
+		m_displayRollupCtrl.InsertPage("Hide by Category",hidePanel );
+
+		CPanelDisplayRender *renderPanel = new CPanelDisplayRender(this);
+		m_displayRollupCtrl.InsertPage("Render Settings",renderPanel );
+
+		CPanelDisplayStereo *stereoPanel = new CPanelDisplayStereo(this);
+		m_displayRollupCtrl.InsertPage("Stereo Settings",stereoPanel );
+
+#ifndef NO_LIVECREATE
+		CLiveCreateSettingsPanel* liveCreateSettings = new CLiveCreateSettingsPanel(this);
+		m_displayRollupCtrl.InsertPage("LiveCreate Settings",liveCreateSettings );
+#endif
+
+		m_pLayerPanel = new CPanelDisplayLayer(&m_wndRollUp);
+		m_pLayerPanel->ShowWindow(SW_SHOW);
+		m_pLayerPanel->RedrawWindow();
+		m_wndRollUp.SetRollUpCtrl(ROLLUP_LAYERS,m_pLayerPanel,"Layers");
+
+		m_objectRollupCtrl.ExpandAllPages( TRUE );
+		m_terrainRollupCtrl.ExpandAllPages(TRUE);
+		m_modellingRollupCtrl.ExpandAllPages(TRUE);
+		m_displayRollupCtrl.ExpandAllPages(TRUE);
+
+		SelectRollUpBar( ROLLUP_OBJECTS );
+	}
+	else
+	{
+		// Hide all menus.
+	}
+	m_wndRollUp.Select(ROLLUP_OBJECTS);
+}
+
+//////////////////////////////////////////////////////////////////////////
+BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
+{
+	// Use our own window class (Needed to detect single application instance).
+	cs.lpszClass = _T("CryEditorClass");
+
+	WNDCLASS wndcls;
+	BOOL bResult = AfxCtxGetClassInfo( AfxGetInstanceHandle(), cs.lpszClass, &wndcls);
+
+	// Init the window with the lowest possible resolution
+	RECT rc;
+	SystemParametersInfo( SPI_GETWORKAREA,0,&rc,0 );
+	cs.x = rc.left;
+	cs.y = rc.top;
+	cs.cx = rc.right - rc.left;
+	cs.cy = rc.bottom - rc.top;
+
+	if( !__super::PreCreateWindow(cs) )
+		return FALSE;
+
+	cs.dwExStyle = 0;
+
+	//cs.lpszClass = AfxRegisterWndClass( 0, NULL, NULL,AfxGetApp()->LoadIcon(IDR_MAINFRAME));
+	//cs.style &= ~FWS_ADDTOTITLE;
+
+	return TRUE;
+}
+
+void CMainFrame::IdleUpdate()
+{
+}
+
+void CMainFrame::DockControlBarLeftOf(CControlBar *Bar, CControlBar *LeftOf)
+{
+	////////////////////////////////////////////////////////////////////////
+	// Dock a control bar left of another
+	////////////////////////////////////////////////////////////////////////
+
+	CRect rect;
+	DWORD dw;
+	UINT n;
+
+	// Get MFC to adjust the dimensions of all docked ToolBars
+	// so that GetWindowRect will be accurate
+	RecalcLayout(TRUE);
+
+	LeftOf->GetWindowRect(&rect);
+	rect.OffsetRect(1, 0);
+	dw = LeftOf->GetBarStyle();
+	n = 0;
+	n = (dw & CBRS_ALIGN_TOP) ? AFX_IDW_DOCKBAR_TOP : n;
+	n = (dw & CBRS_ALIGN_BOTTOM && n == 0) ? AFX_IDW_DOCKBAR_BOTTOM : n;
+	n = (dw & CBRS_ALIGN_LEFT && n == 0) ? AFX_IDW_DOCKBAR_LEFT : n;
+	n = (dw & CBRS_ALIGN_RIGHT && n == 0) ? AFX_IDW_DOCKBAR_RIGHT : n;
+
+	// When we take the default parameters on rect, DockControlBar will dock
+	// each Toolbar on a seperate line. By calculating a rectangle, we
+	// are simulating a Toolbar being dragged to that location and docked.
+	DockControlBar(Bar, n, &rect);
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// CMainFrame diagnostics
+
+#ifdef _DEBUG
+void CMainFrame::AssertValid() const
+{
+	__super::AssertValid();
+}
+
+void CMainFrame::Dump(CDumpContext& dc) const
+{
+	__super::Dump(dc);
+}
+
+#endif //_DEBUG
+
+/////////////////////////////////////////////////////////////////////////////
+// CMainFrame message handlers
+
+void CMainFrame::OnSize(UINT nType, int cx, int cy)
+{
+	__super::OnSize(nType, cx, cy);
+}
+
+void CMainFrame::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
+{
+	__super::OnGetMinMaxInfo( lpMMI );
+
+	if( lpMMI )
+	{
+		const int kMaxWindowSize = 10000;
+		lpMMI->ptMaxTrackSize.x = kMaxWindowSize;
+		lpMMI->ptMaxTrackSize.y = kMaxWindowSize;
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+BOOL CMainFrame::OnToggleBar( UINT nID )
+{
+	return m_viewPaneManager->TogglePane(nID) ? TRUE : FALSE;
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnUpdateControlBar(CCmdUI* pCmdUI)
+{
+	CXTPCommandBars* pCommandBars = GetCommandBars();
+	if(pCommandBars != NULL)
+	{
+		CXTPToolBar *pBar = pCommandBars->GetToolBar(pCmdUI->m_nID);
+		if (pBar)
+		{
+			pCmdUI->SetCheck( (pBar->IsVisible()) ? 1 : 0 );
+			return;
+		}
+	}
+
+	pCmdUI->SetCheck(m_viewPaneManager->IsPaneOpen(pCmdUI->m_nID));
+}
+
+//////////////////////////////////////////////////////////////////////////
+BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
+{
+	// TODO: Add your specialized code here and/or call the base class
+	//m_layoutWnd.Create( this,2,2,CSize(10,10),pContext );
+	m_pLayoutWnd = new CLayoutWnd;
+	CRect rc(0,0,1000,800);
+	m_pLayoutWnd->CreateEx( 0,NULL,NULL,WS_CHILD|WS_VISIBLE|WS_CLIPSIBLINGS|WS_CLIPCHILDREN,rc,this,AFX_IDW_PANE_FIRST );
+	if (IsPreview())
+	{
+		m_pLayoutWnd->CreateLayout( ET_Layout0,true,ET_ViewportModel );
+	}
+	else
+	{
+		if (!m_pLayoutWnd->LoadConfig())
+			m_pLayoutWnd->CreateLayout( ET_Layout0 );
+	}
+
+	return TRUE;
+	//return __super::OnCreateClient(lpcs, pContext);
+}
+
+//////////////////////////////////////////////////////////////////////////
+BOOL CMainFrame::OnCopyData(CWnd* pWnd, COPYDATASTRUCT* pCopyDataStruct)
+{
+	// TODO: Add your message handler code here and/or call default
+	if (pCopyDataStruct->dwData == 100 && pCopyDataStruct->lpData != NULL)
+	{
+		char str[1024];
+		memcpy( str,pCopyDataStruct->lpData,pCopyDataStruct->cbData );
+		str[pCopyDataStruct->cbData] = 0;
+
+		// Load this file.
+		((CCryEditApp*)AfxGetApp())->LoadFile( str );
+	}
+
+	return __super::OnCopyData(pWnd, pCopyDataStruct);
+}
+
+//////////////////////////////////////////////////////////////////////////
+int CMainFrame::SelectRollUpBar( int rollupBarId )
+{
+	if (m_wndRollUp.m_hWnd)
+		m_wndRollUp.Select( rollupBarId );
+	return rollupBarId;
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnClose()
+{
+	if(!GetIEditor()->GetLevelIndependentFileMan()->PromptChangedFiles())
+		return;
+
+	SaveConfig();
+
+	if (!GetIEditor()->GetDocument()->CanCloseFrame(this))
+		return;
+	
+	GetIEditor()->GetDocument()->SetModifiedFlag(FALSE);
+	GetIEditor()->GetDocument()->SetModifiedModules(eModifiedNothing);
+
+	// Close all edit panels.
+	GetIEditor()->ClearSelection();
+	GetIEditor()->SetEditTool(0);
+	GetIEditor()->GetObjectManager()->EndEditParams();
+
+	Py_Finalize();
+
+	if (!m_viewPaneManager->CloseAllPanes())
+		return;
+
+	//__super::OnClose();
+	AfxPostQuitMessage(0);
+}
+
+//////////////////////////////////////////////////////////////////////////
+CRollupCtrl* CMainFrame::GetRollUpControl( int rollupBarId )
+{
+	if (m_hWnd == 0)
+		return 0;
+	if (rollupBarId == ROLLUP_OBJECTS)
+	{
+		return &m_objectRollupCtrl;
+	} else if (rollupBarId == ROLLUP_TERRAIN)
+	{
+		return &m_terrainRollupCtrl;
+	} else if (rollupBarId == ROLLUP_MODELLING)
+	{
+		return &m_modellingRollupCtrl;
+	} else if (rollupBarId == ROLLUP_DISPLAY)
+	{
+		return &m_displayRollupCtrl;
+	}
+	// Default.
+	return &m_objectRollupCtrl;
+}
+/////////////////////////////////////////////////////////////////////////
+void CMainFrame::SetStatusText( LPCTSTR pszText)
+{
+	if (m_wndStatusBar.m_hWnd)
+		m_wndStatusBar.SetPaneText(0, pszText);
+
+	UpdateWindow();
+};
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::SetItemStatusText(int nItemIdentifier,LPCTSTR pszText )
+{
+	if (!m_wndStatusBar.m_hWnd)
+	{
+		return;
+	}
+
+	int nIndex(-1);
+	nIndex = m_wndStatusBar.CommandToIndex(nItemIdentifier);
+	if((nIndex<0)||(nIndex>=m_wndStatusBar.GetPaneCount()))
+	{
+		assert("CMainFrame::SetItemStatusText"&&false);
+		return;
+	}
+	m_wndStatusBar.SetPaneText(nIndex,pszText);
+}
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::ActivateFrame(int nCmdShow)
+{
+	__super::ActivateFrame(nCmdShow);
+}
+
+void CMainFrame::ShowWindowEx(int nCmdShow)
+{
+	// Restore frame window size and position.
+ 	if (!m_wndPosition.LoadWindowPos(this))
+	{
+		nCmdShow = m_wndPosition.showCmd;
+	}
+	LoadConfig();
+
+	__super::ShowWindow(nCmdShow);
+}
+
+//////////////////////////////////////////////////////////////////////////
+bool CMainFrame::IsPreview() const
+{
+	return GetIEditor()->IsInPreviewMode();
+}
+
+//////////////////////////////////////////////////////////////////////////
+BOOL CMainFrame::LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd* pParentWnd, CCreateContext* pContext)
+{
+	if (!__super::LoadFrame(nIDResource, dwDefaultStyle, pParentWnd, pContext))
+		return FALSE;
+
+	/*
+	// Initialize accelerator key manager.
+	//accelManager.Init(this, IDR_MAINFRAME, _T("Main Frame"), _T("MainFrameKeys"));
+	// initialize accelerator manager.
+	if (!InitAccelManager() )
+	{
+		return FALSE;
+	}
+	*/
+
+	return TRUE;
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::EnableAccelerator( bool bEnable )
+{
+	m_bAcceleratorsEnabled = bEnable;
+	if (bEnable)
+	{
+		if (m_hAccelTable)
+			DestroyAcceleratorTable( m_hAccelTable );
+		m_hAccelTable = NULL;
+
+		XTPShortcutManager()->DisableShortcuts(FALSE);
+		XTPShortcutManager()->LoadShortcuts( "Shortcuts" );
+		//CXTAccelManager &accelManager = CXTAccelManager::Get();
+		//LoadAccelTable( MAKEINTRESOURCE(IDR_MAINFRAME) );
+		//accelManager.UpdateWindowAccelerator();
+		CLogFile::WriteLine( "Enable Accelerators" );
+	}
+	else
+	{
+		XTPShortcutManager()->DisableShortcuts(TRUE);
+		if (m_hAccelTable)
+			DestroyAcceleratorTable( m_hAccelTable );
+		m_hAccelTable = NULL;
+		LoadAccelTable( MAKEINTRESOURCE(IDR_GAMEACCELERATOR) );
+		CLogFile::WriteLine( "Disable Accelerators" );
+	}
+
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::EditAccelerator()
+{
+	// Open accelerator key manager dialog.
+	//accelManager.EditKeyboardShortcuts(this);
+	OnCustomize();
+}
+
+//////////////////////////////////////////////////////////////////////////
+bool CMainFrame::FindMenuPos(CMenu *pBaseMenu, UINT myID, CMenu * & pMenu, int & mpos)
+{
+	// REMARK: pMenu is a pointer to a Cmenu-Pointer
+	int myPos;
+	if( pBaseMenu == NULL )
+	{
+		// Sorry, Wrong Number
+		pMenu = NULL;
+		mpos = -1;
+		return false;
+	}
+	for( myPos = pBaseMenu->GetMenuItemCount() -1; myPos >= 0; myPos-- )
+	{
+		int Status = pBaseMenu->GetMenuState( myPos, MF_BYPOSITION);
+		CMenu* mNewMenu;
+
+		if( Status == 0xFFFFFFFF )
+		{
+			// That was not an legal Menu/Position-Combination
+			pMenu = NULL;
+			mpos = -1;
+			return false;
+		}
+		// Is this the real one?
+		if( pBaseMenu->GetMenuItemID(myPos) == myID )
+		{
+			// Yep!
+			pMenu = pBaseMenu;
+			mpos = myPos;
+			return true;
+		}
+		// Maybe a subMenu?
+		mNewMenu = pBaseMenu->GetSubMenu(myPos);
+		// This function will return NULL if ther is NO SubMenu
+		if( mNewMenu != NULL )
+		{
+			// recursive
+			bool found = FindMenuPos( mNewMenu, myID, pMenu, mpos);
+			if(found)
+				return true;	// return this loop
+		}
+		// I have to check the next in my loop
+	}
+	return false; // iterate in the upper stackframe
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::UpdateToolsMenu()
+{
+	CXTPMenuBar *pMenuBar = GetCommandBars()->GetMenuBar();
+	if (!pMenuBar)
+		return;
+	CXTPControl *pControl = pMenuBar->GetControls()->FindControl(xtpControlError,ID_TOOLS_TOOL1,FALSE,TRUE);
+	if (pControl && pControl->GetType() == xtpControlPopup)
+	{
+		CMenu menu;
+		menu.CreatePopupMenu();
+		CToolBoxManager *pTools = GetIEditor()->GetToolBoxManager();
+		for (int i = 0; i < pTools->GetMacroCount(); i++)
+		{
+			menu.AppendMenu( MF_STRING, ID_TOOL1+i, pTools->GetMacro(i)->GetTitle() );
+		}
+		pControl->GetCommandBar()->LoadMenu( &menu );
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnExecuteTool( UINT nID )
+{
+	GetIEditor()->GetToolBoxManager()->ExecuteMacro( nID-ID_TOOL1 );
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::UpdateViewPaneMenu()
+{
+	CXTPMenuBar *pMenuBar = GetCommandBars()->GetMenuBar();
+	CXTPControl *pControl = pMenuBar->GetControls()->FindControl(xtpControlError,ID_VIEW_OPENVIEWPANE,FALSE,TRUE);
+	if (pControl && pControl->GetType() == xtpControlPopup)
+	{
+		CMenu menu;
+		menu.CreatePopupMenu();
+		std::vector<IClassDesc*> classes;
+		GetIEditor()->GetClassFactory()->GetClassesBySystemID( ESYSTEM_CLASS_VIEWPANE,classes );
+
+		for ( int i = 0; i < classes.size(); i++ )
+		{
+			IClassDesc* pClass = classes[ i ];
+			IViewPaneClass *pViewClass = NULL;
+			if ( SUCCEEDED( pClass->QueryInterface( __uuidof( IViewPaneClass ), ( void** ) &pViewClass ) ) )
+			{
+				menu.AppendMenu( MF_STRING, ID_VIEW_OPENPANE0 + i, pViewClass->GetPaneTitle() );
+			}
+		}
+
+		pControl->GetCommandBar()->LoadMenu( &menu );
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnOpenViewPane( UINT nID )
+{
+	int nIndex = nID-ID_VIEW_OPENPANE0;
+	std::vector<IClassDesc*> classes;
+	GetIEditor()->GetClassFactory()->GetClassesBySystemID( ESYSTEM_CLASS_VIEWPANE,classes );
+	for (int i = 0; i < classes.size(); i++)
+	{
+		IClassDesc *pClass = classes[i];
+		IViewPaneClass *pViewClass = NULL;
+		if (!FAILED(pClass->QueryInterface( __uuidof(IViewPaneClass),(void**)&pViewClass )))
+		{
+			if (i == nIndex)
+			{
+				// NickH: Allow multiple anim graph windows. Nasty hack, but this is the recommended approach for now :-(
+				if(0==strncmp("Animation Graph",pViewClass->ClassName(),sizeof("Animation Graph")-1))
+				{
+					m_viewPaneManager->OpenPane( pViewClass->ClassName(), false );
+				}
+				else
+					GetIEditor()->ExecuteCommand("general.open_pane '%s'", pViewClass->ClassName());
+				break;
+			}
+		}
+	}
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::UpdateViewLayoutsPaneMenu( CXTPControl* pLayoutMenuControl )
+{
+	if ( pLayoutMenuControl == NULL )
+	{
+		return;
+	}
+
+	if ( pLayoutMenuControl->GetType() != xtpControlPopup )
+	{
+		return;
+	}
+
+	CMenu menu;
+	menu.CreatePopupMenu();
+
+	m_layoutFilenames.clear();
+	CFileEnum::ScanDirectory( LAYOUTS_PATH, LAYOUTS_WILDCARD, m_layoutFilenames, false );
+
+	std::sort( m_layoutFilenames.begin(), m_layoutFilenames.end(), CStringNoCasePredicate::LessThan() );
+
+	const int MAX_LAYOUTS = ID_VIEW_LAYOUT_LAST - ID_VIEW_LAYOUT_FIRST;
+
+	for ( int i = 0; i < m_layoutFilenames.size() && i <= MAX_LAYOUTS; i++ )
+	{
+		CString layoutFilename = m_layoutFilenames[ i ];
+		CString layoutName = Path::RemoveExtension( layoutFilename );
+
+		menu.AppendMenu( MF_STRING, ID_VIEW_LAYOUT_FIRST + i, layoutName );
+	}
+
+	menu.AppendMenu( MF_SEPARATOR );
+	menu.AppendMenu( MF_STRING, ID_VIEW_SAVELAYOUT, "Save Layout..." );
+	menu.AppendMenu( MF_STRING, ID_VIEW_LAYOUT_LOAD_DEFAULT, "Restore Default Layout" );
+
+	pLayoutMenuControl->GetCommandBar()->LoadMenu( &menu );
+
+}
+
+void CMainFrame::UpdateViewLayoutsPaneSubMenu( CXTPControl* pLayoutSubMenuControl, int layoutId )
+{
+	assert( pLayoutSubMenuControl != NULL );
+	if ( pLayoutSubMenuControl == NULL )
+	{
+		return;
+	}
+
+	CMenu menu;
+	menu.CreatePopupMenu();
+
+	menu.AppendMenu( MF_STRING, ID_VIEW_LAYOUT_LOAD_FIRST + layoutId, "Load" );
+	menu.AppendMenu( MF_STRING, ID_VIEW_LAYOUT_SAVE_FIRST + layoutId, "Save" );
+	menu.AppendMenu( MF_STRING, ID_VIEW_LAYOUT_RENAME_FIRST + layoutId, "Rename..." );
+	menu.AppendMenu( MF_STRING, ID_VIEW_LAYOUT_DELETE_FIRST + layoutId, "Delete" );
+
+	
+	CXTPCommandBar* pSubMenuCommandBar = pLayoutSubMenuControl->GetCommandBar();
+	assert( pSubMenuCommandBar != NULL );
+	if ( pSubMenuCommandBar == NULL )
+	{
+		return;
+	}
+
+	pSubMenuCommandBar->LoadMenu( &menu );
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnViewSavePaneLayout()
+{
+	static CString s_lastLayoutName = "";
+
+	CStringDlg askLayoutNameDialog( "Layout Name" );
+	askLayoutNameDialog.SetString( s_lastLayoutName );
+	INT_PTR result = askLayoutNameDialog.DoModal();
+	if ( result != IDOK )
+	{
+		return;
+	}
+
+	CreateDirectory( LAYOUTS_PATH, NULL );
+
+	CString layoutName = askLayoutNameDialog.GetString();
+	layoutName = Path::GetFile( layoutName ); // Remove any path data that the user might add.
+	CString layoutFilename = layoutName + LAYOUTS_EXTENSION;
+	CString layoutFullFilename = LAYOUTS_PATH + layoutFilename;
+
+	s_lastLayoutName = layoutName;
+
+	bool layoutNameExists = ( std::find_if( m_layoutFilenames.begin(), m_layoutFilenames.end(), CStringNoCasePredicate::Equal( layoutFilename ) ) != m_layoutFilenames.end() );
+	if ( layoutNameExists )
+	{	
+		int overwriteMessageResult = MessageBox( _T( "The chosen layout name already exists. Do you want to overwrite it?" ), _T( "Overwrite Layout?" ), MB_YESNO );
+		if ( overwriteMessageResult != IDYES )
+		{
+			OnViewSavePaneLayout();
+			return;
+		}
+	}
+
+	m_viewPaneManager->SaveLayoutToFile(layoutFullFilename, DUMMY_LAYOUT_NAME);
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnViewRestoreDefaultLayout()
+{
+	m_viewPaneManager->RestoreDefaultLayout();
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnViewLoadPaneLayout( UINT nID )
+{
+	int layoutId = nID - ID_VIEW_LAYOUT_LOAD_FIRST;
+
+	bool layoutIdIsValid = ( 0 <= layoutId && layoutId < m_layoutFilenames.size() );
+	if ( ! layoutIdIsValid )
+	{
+		return;
+	}
+
+	CString layoutFilename = m_layoutFilenames[ layoutId ];
+	CString layoutFullFilename = LAYOUTS_PATH + layoutFilename;
+
+	m_viewPaneManager->LoadLayoutFromFile(layoutFullFilename, DUMMY_LAYOUT_NAME);
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnViewSavePaneLayout( UINT nID )
+{
+	int layoutId = nID - ID_VIEW_LAYOUT_SAVE_FIRST;
+
+	bool layoutIdIsValid = ( 0 <= layoutId && layoutId < m_layoutFilenames.size() );
+	if ( ! layoutIdIsValid )
+	{
+		return;
+	}
+
+	CString layoutFilename = m_layoutFilenames[ layoutId ];
+	CString layoutName = Path::RemoveExtension( layoutFilename );
+	CString layoutFullFilename = LAYOUTS_PATH + layoutFilename;
+
+	int saveConfirmationMessageResult = MessageBox( _T( "Do you want to overwrite the layout '" + layoutName + "' with the current one?" ), _T( "Overwrite Layout?" ), MB_YESNO );
+	if ( saveConfirmationMessageResult != IDYES )
+	{
+		return;
+	}
+
+	m_viewPaneManager->SaveLayoutToFile(layoutFullFilename, DUMMY_LAYOUT_NAME);
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnViewRenamePaneLayout( UINT nID )
+{
+	int layoutId = nID - ID_VIEW_LAYOUT_RENAME_FIRST;
+
+	bool layoutIdIsValid = ( 0 <= layoutId && layoutId < m_layoutFilenames.size() );
+	if ( ! layoutIdIsValid )
+	{
+		return;
+	}
+
+	CString layoutFilename = m_layoutFilenames[ layoutId ];
+	CString layoutName = Path::RemoveExtension( layoutFilename );
+
+	CStringDlg askLayoutNameDialog( "Rename layout '" + layoutName + "'" );
+	askLayoutNameDialog.SetString( layoutName );
+	INT_PTR result = askLayoutNameDialog.DoModal();
+	if ( result != IDOK )
+	{
+		return;
+	}
+
+	CString newLayoutName = askLayoutNameDialog.GetString();
+	newLayoutName = Path::GetFile( newLayoutName ); // Remove any path data that the user might add.
+	CString newLayoutFilename = newLayoutName + LAYOUTS_EXTENSION;
+
+	bool newLayoutNameExists = ( std::find_if( m_layoutFilenames.begin(), m_layoutFilenames.end(), CStringNoCasePredicate::Equal( newLayoutFilename ) ) != m_layoutFilenames.end() );
+
+	if ( newLayoutNameExists )
+	{
+		MessageBox( _T( "The layout name '" + newLayoutName +"' already exists, please choose a different name" ), _T( "Layout name already exists" ), MB_OK );
+		OnViewRenamePaneLayout( nID );
+		return;
+	}
+
+	CString layoutFullFilename = LAYOUTS_PATH + layoutFilename;
+	CString newLayoutFullFilename = LAYOUTS_PATH + newLayoutFilename;
+
+	CFile::Rename( layoutFullFilename, newLayoutFullFilename );
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnViewDeletePaneLayout( UINT nID )
+{
+	int layoutId = nID - ID_VIEW_LAYOUT_DELETE_FIRST;
+
+	bool layoutIdIsValid = ( 0 <= layoutId && layoutId < m_layoutFilenames.size() );
+	if ( ! layoutIdIsValid )
+	{
+		return;
+	}
+
+	CString layoutFilename = m_layoutFilenames[ layoutId ];
+	CString layoutFullFilename = LAYOUTS_PATH + layoutFilename;
+	CString layoutName = Path::RemoveExtension( layoutFilename );
+
+	int confirmationMessageResult = MessageBox( _T( "Are you sure you want to delete the layout '" + layoutName +"'?" ), _T( "Delete Layout?" ), MB_YESNO );
+	if ( confirmationMessageResult != IDYES )
+	{
+		return;
+	}
+
+	CFile::Remove( layoutFullFilename );
+}
+
+////////////////////////////////////////////////////////////////////////////
+////implementation of the callback for removing recently used files
+//void CMainFrame::OnFileMRURemove( UINT nID )
+//{
+//	int nIndex = nID - ID_FILE_MRU_REMOVE_FIRST;
+//
+//	bool bIndexIsValid = ( 0 <= nIndex && nIndex < 16 );
+//	if (!bIndexIsValid)
+//		return;
+//
+//	CRecentFileList *pRecentFileList = ((CCryEditApp *) (AfxGetApp()))->GetRecentFileList();
+//	if (!pRecentFileList)
+//	{
+//		pRecentFileList->Remove(nIndex);
+//		pRecentFileList->WriteList();
+//	}
+//}
+
+void CMainFrame::OnAINavigationDisplayAgentUpdate(CCmdUI* pCmdUI)
+{
+	CAIManager* manager = GetIEditor()->GetAI();
+
+	pCmdUI->SetCheck(gSettings.bNavigationDebugDisplay);
+
+	size_t selected = 0;
+	if (manager->GetNavigationDebugDisplayAgent(&selected))
+		pCmdUI->SetText(manager->GetNavigationAgentTypeName(selected));
+	else
+		pCmdUI->SetText("None");
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnUpdateSnapToGrid(CCmdUI* pCmdUI)
+{
+	bool bEnabled = gSettings.pGrid->IsEnabled();
+	if (bEnabled)
+		pCmdUI->SetCheck(1);
+	else
+		pCmdUI->SetCheck(0);
+
+	float gridSize = gSettings.pGrid->size;
+	CString str;
+	if (gSettings.vertexSnappingSettings.bOn)
+		str.Format( "%gv",gridSize );
+	else
+		str.Format( "%g",gridSize );
+	pCmdUI->SetText( str );
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnUpdateCurrentLayer(CCmdUI* pCmdUI)
+{
+	if (GetIEditor()->GetObjectManager()->GetLayersManager()->GetCurrentLayer() != m_currentLayer)
+	{
+		m_currentLayer = GetIEditor()->GetObjectManager()->GetLayersManager()->GetCurrentLayer();
+		if (m_currentLayer)
+		{
+			CString text = CString(" ")+m_currentLayer->GetName();
+			if(m_currentLayer->IsModified())
+				text+="*";
+				pCmdUI->SetText( text );
+		}
+		else
+			pCmdUI->SetText( CString("") );
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnToolbarDropDown( int idCommand,CRect &rcControl )
+{
+	CPoint pos;
+	GetCursorPos( &pos );
+	
+	pos.x = rcControl.left;
+	pos.y = rcControl.bottom;
+
+/*
+	NMTOOLBAR* pnmtb = (NMTOOLBAR*)pnhdr;
+
+	//GetItemRect( pnmtb->iItem,rc );
+	rc = pnmtb->rcButton;
+	ClientToScreen( rc );
+	pos.x = rc.left;
+	pos.y = rc.bottom;
+	*/
+
+	// Switch on button command id's.
+	switch (idCommand)
+	{
+	case ID_UNDO:
+		{
+			CUndoDropDown undoDialog( pos,true,AfxGetMainWnd() );
+			undoDialog.DoModal();
+		}
+		break;
+	case ID_REDO:
+		{
+			CUndoDropDown undoDialog( pos,false,AfxGetMainWnd() );
+			undoDialog.DoModal();
+		}
+		break;
+	case ID_SNAP_TO_GRID:
+		{
+			CMenu menu;
+			CSnapToGridMenu::CreateMenu(menu);
+			menu.TrackPopupMenu( 0, rcControl.left, rcControl.bottom, this );
+		}
+		break;
+	case ID_SNAPANGLE:
+		{
+			CMenu menu;
+			CSnapToAngleMenu::CreateMenu(menu);
+			menu.TrackPopupMenu( 0, rcControl.left, rcControl.bottom, this );
+		}
+		break;
+	case ID_AI_NAVIGATION_DISPLAY_AGENT:
+		{
+			CMenu menu;
+			CNavigationAgentTypeMenu::CreateMenu(menu);
+			menu.TrackPopupMenu( 0, rcControl.left, rcControl.bottom, this );
+		}
+		break;
+	case ID_SELECT_AXIS_TERRAIN:
+		//OnAxisTerrainMenu(pos);
+		break;
+	default:
+		return;
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnTimer(UINT_PTR nIDEvent)
+{
+	switch(nIDEvent)
+	{
+	case AUTOSAVE_TIMER_EVENT:
+		{
+			if( gSettings.autoBackupEnabled )
+			{
+				// Call autosave function of CryEditApp.
+				((CCryEditApp*)AfxGetApp())->SaveAutoBackup();
+			}
+			break;
+		}
+	case AUTOREMIND_TIMER_EVENT:
+		{
+			if( gSettings.autoRemindTime > 0 )
+			{
+				// Remind to save.
+				((CCryEditApp*)AfxGetApp())->SaveAutoRemind();
+			}
+			break;
+		}
+	case NETWORK_AUDITION_UPDATE_TIMER_EVENT:
+		{
+			if (GetISystem())
+				if (gEnv->pSoundSystem->GetIAudioDevice())
+					gEnv->pSoundSystem->GetIAudioDevice()->Update();
+			break;
+		}
+	default:
+		{
+		}
+	}
+
+	__super::OnTimer(nIDEvent);
+}
+
+//////////////////////////////////////////////////////////////////////////
+LRESULT CMainFrame::OnDockingPaneNotify(WPARAM wParam, LPARAM lParam)
+{
+	return m_viewPaneManager->OnDockingPaneNotify(wParam, lParam);
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnCustomize()
+{
+	// Get a pointer to the command bars object.
+	CXTPCommandBars* pCommandBars = GetCommandBars();
+	if(pCommandBars != NULL)
+	{
+		// Instantiate the customize dialog object.
+		CXTPCustomizeSheet dlg(pCommandBars);
+
+		// Add the options page to the customize dialog.
+		CXTPCustomizeOptionsPage pageOptions(&dlg);
+		dlg.AddPage(&pageOptions);
+
+		// Add the commands page to the customize dialog.
+		CXTPCustomizeCommandsPage* pCommands = dlg.GetCommandsPage();
+		pCommands->AddCategories(IDR_MAINFRAME);
+
+		// Use the command bar manager to initialize the 
+		// customize dialog.
+		pCommands->InsertAllCommandsCategory();
+		pCommands->InsertBuiltInMenus(IDR_MAINFRAME);
+		pCommands->InsertNewMenuCategory();
+
+		// Add the options page to the customize dialog.
+		CXTPCustomizeKeyboardPage pageKeyboard(&dlg);
+		dlg.AddPage(&pageKeyboard);
+		pageKeyboard.AddCategories(IDR_MAINFRAME,TRUE);
+		//pageKeyboard.InsertCategory(()
+
+
+		// Display the dialog.
+		dlg.DoModal();
+	}
+	SaveConfig();
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnSelectionChanged(NMHDR* pNMHDR, LRESULT* pResult)
+{
+	NMXTPCONTROL* tagNMCONTROL = (NMXTPCONTROL*)pNMHDR;
+	CXTPControlComboBox* pControl = (CXTPControlComboBox*)tagNMCONTROL->pControl;
+	if (pControl->GetType() == xtpControlComboBox)
+	{
+		CString selection = pControl->GetEditText();
+
+		if (!selection.IsEmpty())
+		{
+			if (GetIEditor()->GetObjectManager()->GetSelection( selection ))
+				GetIEditor()->GetObjectManager()->SetSelection( selection );
+			else
+			{
+				GetIEditor()->GetObjectManager()->NameSelection( selection );
+				if (pControl->FindStringExact(0,selection.GetBuffer())==CB_ERR)
+				{
+					pControl->AddString(selection.GetBuffer());
+				}				
+			}
+		}
+	}
+	*pResult = 1;
+}
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnDeleteSelection()
+{
+	CXTPControlComboBox* poComboBox = (CXTPControlComboBox*)GetCommandBars()->FindControl(xtpControlComboBox,IDC_SELECTION,TRUE,TRUE);
+	if (!poComboBox)
+		return;
+
+	CString selString(poComboBox->GetEditText());
+
+	if(selString.IsEmpty())
+		return;
+
+	CUndo undo( "Del Selection Group" );
+
+
+	GetIEditor()->BeginUndo();
+	GetIEditor()->GetObjectManager()->RemoveSelection(selString);
+	GetIEditor()->SetModifiedFlag();
+	GetIEditor()->SetModifiedModule(eModifiedBrushes);
+	GetIEditor()->Notify( eNotify_OnInvalidateControls );
+
+	int nItemIndex=poComboBox->FindStringExact(0,selString.GetBuffer());
+	if (nItemIndex!=CB_ERR)
+	{
+		poComboBox->DeleteItem(nItemIndex);
+		poComboBox->SetEditText("");
+	}		
+}
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnSelectionMaskChanged(NMHDR* pNMHDR, LRESULT* pResult)
+{
+	NMXTPCONTROL* tagNMCONTROL = (NMXTPCONTROL*)pNMHDR;
+	CXTPControlComboBox* pControl = (CXTPControlComboBox*)tagNMCONTROL->pControl;
+	if (pControl->GetType() == xtpControlComboBox)
+	{
+		int sel = pControl->GetCurSel();
+		if (sel != CB_ERR)
+		{
+			gSettings.objectSelectMask = pControl->GetItemData(sel);
+			m_objectSelectionMask = gSettings.objectSelectMask;
+		}
+	}
+	*pResult = 1;
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnRefCoordSysChange(NMHDR* pNMHDR, LRESULT* pResult)
+{
+	NMXTPCONTROL* tagNMCONTROL = (NMXTPCONTROL*)pNMHDR;
+	CXTPControlComboBox* pControl = (CXTPControlComboBox*)tagNMCONTROL->pControl;
+	if (pControl->GetType() == xtpControlComboBox)
+	{
+		int sel = pControl->GetCurSel();
+		if (sel != CB_ERR)
+		{
+			OnRefCoordSysRange( ID_REF_COORD_SYS_RANGE_BEGIN + sel );
+		}
+	}
+	*pResult = 1;
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnEditNextSelectionMask()
+{
+	CXTPControlComboBox* pControl = (CXTPControlComboBox*)GetCommandBars()->FindControl(xtpControlComboBox,IDC_SELECTION_MASK,TRUE,TRUE);
+	if (!pControl)
+		return;
+
+	int sel = pControl->GetCurSel();
+	if (sel == LB_ERR || sel == pControl->GetCount()-1)
+	{
+		sel = 0;
+	}
+	else
+		sel++;
+	pControl->SetCurSel(sel);
+
+	if (sel != LB_ERR)
+	{
+		gSettings.objectSelectMask = pControl->GetItemData(sel);
+		m_objectSelectionMask = gSettings.objectSelectMask;
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnMissionChanged( NMHDR* pNMHDR, LRESULT* pResult )
+{
+	if (IsPreview())
+		return;
+
+	NMXTPCONTROL* tagNMCONTROL = (NMXTPCONTROL*)pNMHDR;
+	CXTPControlComboBox* pControl = (CXTPControlComboBox*)tagNMCONTROL->pControl;
+	if (pControl->GetType() == xtpControlComboBox)
+	{
+		int sel = pControl->GetCurSel();
+		if (sel != CB_ERR)
+		{
+			CString str;
+			pControl->GetLBText(sel,str);
+			CCryEditDoc *doc = (CCryEditDoc*)GetActiveDocument();
+			CMission *mission = doc->FindMission(str);
+			if (mission)
+			{
+				doc->SetCurrentMission( mission );
+				m_currentMission = 0;
+			}	
+		}
+	}
+	*pResult = 1;
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::InvalidateControls()
+{
+	m_currentLayer = 0;
+	m_currentMission = 0;
+	m_coordSys = (RefCoordSys)-1;
+	m_objectSelectionMask = -1;
+}
+
+//////////////////////////////////////////////////////////////////////////
+LRESULT CMainFrame::OnMatEditSend(WPARAM w, LPARAM l)
+{
+	if (w == eMSM_Init)
+		return 0;
+	CWnd *pDlg = GetIEditor()->OpenView( "Material Editor" );
+	if( pDlg )
+	{
+		GetIEditor()->GetMaterialManager()->SyncMaterialEditor();
+	}
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnProgressCancelClicked()
+{
+	CWaitProgress::CancelCurrent();
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnUpdateBackgroundActivity( CCmdUI *pCmdUI )
+{
+	int index = m_wndStatusBar.CommandToIndex(ID_INDICATOR_BACKGROUNDACTIVITY);
+
+	if (!m_pBGTasks || m_pBGTasks->m_bIdle)
+	{
+		m_wndStatusBar.GetPane(index)->SetText("Idle");
+		m_wndStatusBar.GetPane(index)->SetTooltip("No background tasks running");
+		m_wndStatusBar.GetPane(index)->SetIconIndex(IDI_BALL_DISABLED);
+	}
+	else if (m_pBGTasks->m_bHasFailures)
+	{
+		CString bginfo;	
+		CString fails;
+
+		bginfo.Format("%d/%d", m_pBGTasks->m_nTasksPending, m_pBGTasks->m_sFailures.size());
+		fails.Format("%d background tasks running\n%d failed compiles:\n", m_pBGTasks->m_nTasksPending, m_pBGTasks->m_sFailures.size());
+
+		std::set<string>::const_iterator walk;
+		for (walk = m_pBGTasks->m_sFailures.begin(); walk != m_pBGTasks->m_sFailures.end(); walk++)
+		{
+			fails += *walk + "\n";
+		}
+
+		m_wndStatusBar.GetPane(index)->SetText(bginfo);
+		m_wndStatusBar.GetPane(index)->SetTooltip(fails);
+		m_wndStatusBar.GetPane(index)->SetIconIndex(m_pBGTasks->m_bHasFailures ? IDI_BALL_OFFLINE : IDI_BALL_PENDING);
+	}
+	else
+	{
+		CString bginfo;
+
+		bginfo.Format("%d", m_pBGTasks->m_nTasksPending);
+
+		m_wndStatusBar.GetPane(index)->SetText(bginfo);
+		m_wndStatusBar.GetPane(index)->SetTooltip(bginfo + " background tasks running");
+		m_wndStatusBar.GetPane(index)->SetIconIndex(m_pBGTasks->m_bHasFailures ? IDI_BALL_OFFLINE : IDI_BALL_PENDING);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnUpdateMemoryStatus( CCmdUI *pCmdUI )
+{
+	static uint64 nPrevSize = 0;
+	
+	ProcessMemInfo mi;
+	CProcessInfo::QueryMemInfo( mi );
+
+	//MEMORYSTATUS ms;
+	//ms.dwLength = sizeof(MEMORYSTATUS);
+	//GlobalMemoryStatus(&ms);
+	CString info;
+	//ms.dwAvailVirtual/(1024*1024),ms.dwTotalVirtual/(1024*1024) 
+
+	uint64 nSizeMb = (uint64)(mi.PagefileUsage/(1024*1024));
+	info.Format( "%d Mb",(uint32)nSizeMb );
+	pCmdUI->SetText( info );
+
+	if (nPrevSize != nSizeMb)
+	{
+#ifndef WIN64
+		nPrevSize = nSizeMb;
+		if (nSizeMb > 1250)
+		{
+			//m_wndStatusIconPane.SetPaneIcon( IDI_STATUS_MEM_VERY_LOW );
+			m_wndStatusBar.Invalidate();
+		}
+		else if (nSizeMb > 1000)
+		{
+			//m_wndStatusIconPane.SetPaneIcon( IDI_STATUS_MEM_LOW );
+			m_wndStatusBar.Invalidate();
+		}
+		else
+		{
+			//m_wndStatusIconPane.SetPaneIcon( IDI_STATUS_MEM_OK );
+		}
+#else //WIN64
+		//m_wndStatusIconPane.SetPaneIcon( IDI_STATUS_MEM_OK );
+#endif
+	}
+	/*
+	BOOL bMemStatus;
+	QueryMemoryResourceNotification( hLowMemSignal,&bMemStatus );
+	if (bMemStatus)
+	{
+		pCmdUI->SetText( CString("Low Memory!!!") + info );
+	}
+	*/
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::ResetAutoSaveTimers(bool bForceInit)
+{
+	if (m_autoSaveTimer)
+		KillTimer( m_autoSaveTimer );
+	if (m_autoRemindTimer)
+		KillTimer( m_autoRemindTimer );
+	m_autoSaveTimer = 0;
+	m_autoRemindTimer = 0;
+
+	if(bForceInit)
+	{
+		if (gSettings.autoBackupTime > 0 && gSettings.autoBackupEnabled)
+			m_autoSaveTimer = SetTimer( AUTOSAVE_TIMER_EVENT,gSettings.autoBackupTime*1000*60,0 );
+		if (gSettings.autoRemindTime > 0)
+			m_autoRemindTimer = SetTimer( AUTOREMIND_TIMER_EVENT,gSettings.autoRemindTime*1000*60,0 );
+	}
+}
+
+XTPDockingPanePaintTheme CMainFrame::GetDockingPaneTheme() { return s_themePane; }
+BOOL CMainFrame::GetDockingHelpers() { return s_bDockingHelpers; }
+XTPPaintTheme CMainFrame::GetPaintTheme() { return s_themePaint; }
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnCustomUICommand( UINT nID )
+{
+	GetIEditor()->GetCommandManager()->Execute( nID );
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnCustomUICommandUpdate( CCmdUI *pCmdUI )
+{
+	
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::InitSelectionMaskControl( CXTPControlComboBox *pComboBox )
+{
+
+	pComboBox->SetDropDownListStyle(FALSE);
+	int id;
+	id = pComboBox->AddString("Select All"); pComboBox->SetItemData( id,OBJTYPE_ANY );
+	id = pComboBox->AddString("Brushes"); pComboBox->SetItemData( id,OBJTYPE_BRUSH );
+	id = pComboBox->AddString("No Brushes"); pComboBox->SetItemData( id,(~OBJTYPE_BRUSH) );
+	id = pComboBox->AddString("Entities"); pComboBox->SetItemData( id,OBJTYPE_ENTITY );
+	id = pComboBox->AddString("Prefabs"); pComboBox->SetItemData( id,OBJTYPE_PREFAB );
+	id = pComboBox->AddString("Areas, Shapes"); pComboBox->SetItemData( id,OBJTYPE_VOLUME | OBJTYPE_SHAPE );
+	id = pComboBox->AddString("AI Points"); pComboBox->SetItemData( id,OBJTYPE_AIPOINT );
+	id = pComboBox->AddString("Decals"); pComboBox->SetItemData( id,OBJTYPE_DECAL );
+	id = pComboBox->AddString("Solids"); pComboBox->SetItemData( id,OBJTYPE_SOLID );
+	id = pComboBox->AddString("No Solids"); pComboBox->SetItemData( id,(~OBJTYPE_SOLID) );
+	pComboBox->SetCurSel(0);
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::InitRefCoordControl( CXTPControlComboBox *pComboBox )
+{
+	pComboBox->SetDropDownListStyle(FALSE);
+	pComboBox->AddString("View");
+	pComboBox->AddString("Local");
+	pComboBox->AddString("Parent");
+	pComboBox->AddString("World");
+	pComboBox->AddString("Custom");
+	pComboBox->SetCurSel(0);
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnRefCoordSysUpdateRange( CCmdUI* pCmdUI )
+{
+	int nId = pCmdUI->m_nID - ID_REF_COORD_SYS_RANGE_BEGIN;
+	int sel = -1;
+	m_coordSys = GetIEditor()->GetReferenceCoordSys();
+	switch (m_coordSys)
+	{
+	case COORDS_VIEW:
+		sel = 0;
+		break;
+	case COORDS_LOCAL:
+		sel = 1;
+		break;
+	case COORDS_PARENT:
+		sel = 2;
+		break;
+	case COORDS_WORLD:
+		sel = 3;
+		break;
+	case COORDS_USERDEFINED:
+		sel = 4;
+		break;
+	};
+	if (sel == nId)
+	{
+		pCmdUI->SetCheck(TRUE);
+	}
+	else
+		pCmdUI->SetCheck(FALSE);
+}
+
+void CMainFrame::OnRefCoordSysRange( UINT nID )
+{
+	int nId = nID - ID_REF_COORD_SYS_RANGE_BEGIN;
+	switch (nId)
+	{
+	case 0:
+		GetIEditor()->SetReferenceCoordSys( COORDS_VIEW );
+		break;
+	case 1:
+		GetIEditor()->SetReferenceCoordSys( COORDS_LOCAL );
+		break;
+	case 2:
+		GetIEditor()->SetReferenceCoordSys( COORDS_PARENT );
+		break;
+	case 3:
+		GetIEditor()->SetReferenceCoordSys( COORDS_WORLD );
+		break;
+	case 4:
+		GetIEditor()->SetReferenceCoordSys( COORDS_USERDEFINED );
+		break;
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnUpdateRefCoordSys(CCmdUI *pCmdUI)
+{
+	const char *sText = "";
+
+	pCmdUI->Enable(TRUE);
+	if (m_coordSys != GetIEditor()->GetReferenceCoordSys())
+	{
+		int sel = CB_ERR;
+		m_coordSys = GetIEditor()->GetReferenceCoordSys();
+		switch (m_coordSys)
+		{
+		case COORDS_VIEW:
+			sel = 0;
+			sText = _T("View");
+			break;
+		case COORDS_LOCAL:
+			sel = 1;
+			sText = _T("Local");
+			break;
+		case COORDS_PARENT:
+			sel = 2;
+			sText = _T("Parent");
+			break;
+		case COORDS_WORLD:
+			sel = 3;
+			sText = _T("World");
+			break;
+		case COORDS_USERDEFINED:
+			sel = 4;
+			sText = _T("Custom");
+			break;
+		};
+		CXTPControlComboBox* pControl = (CXTPControlComboBox*)GetCommandBars()->FindControl(xtpControlComboBox,ID_REF_COORDS_SYS,TRUE,TRUE);
+		if (sel != CB_ERR && pControl && sel != pControl->GetCurSel())
+		{
+			pControl->SetCurSel(sel);
+		}
+		pCmdUI->SetText(sText);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnSnapCommand( UINT nID )
+{
+	CSnapToGridMenu::OnMenuChange(nID);
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnSnapCommandUpdate( CCmdUI* pCmdUI )
+{
+	CSnapToGridMenu::OnMenuUpdate(pCmdUI);
+}
+
+void CMainFrame::OnAngleSnapCommand( UINT nID )
+{
+	CSnapToAngleMenu::OnMenuChange(nID);
+}
+
+void CMainFrame::OnAngleSnapCommandUpdate( CCmdUI* pCmdUI )
+{
+	CSnapToAngleMenu::OnMenuUpdate(pCmdUI);
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnAINavigationSelectDisplayAgent( UINT nID )
+{
+	CNavigationAgentTypeMenu::OnMenuChange(nID);
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnAINavigationSelectDisplayAgentUpdate( CCmdUI* pCmdUI )
+{
+	CNavigationAgentTypeMenu::OnMenuUpdate(pCmdUI);
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnSelectionMaskPopup( UINT nID )
+{
+	CSelectionMaskMenu::OnMenuChange(nID);
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnSelectionMaskPopupUpdate( CCmdUI* pCmdUI )
+{
+	CSelectionMaskMenu::OnMenuUpdate(pCmdUI);
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnUpdateSelectionMask(CCmdUI *pCmdUI)
+{
+	pCmdUI->Enable(TRUE);
+	CSelectionMaskMenu::OnPopupButtonUpdate(pCmdUI);
+
+	if (m_objectSelectionMask != gSettings.objectSelectMask)
+	{
+		CXTPControlComboBox* pControl = (CXTPControlComboBox*)GetCommandBars()->FindControl(xtpControlComboBox,IDC_SELECTION_MASK,TRUE,TRUE);
+		if (!pControl)
+			return;
+		m_objectSelectionMask = gSettings.objectSelectMask;
+		int sel = LB_ERR;
+		for (int i = 0; i < pControl->GetCount(); i++)
+		{
+			if (pControl->GetItemData(i) == gSettings.objectSelectMask)
+			{
+				sel = i;
+				break;
+			}
+		}
+		if (sel != CB_ERR && sel != pControl->GetCurSel())
+		{
+			pControl->SetCurSel(sel);
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+void CMainFrame::AdjustToolBarIconSize()
+{
+	if (gSettings.gui.nToolbarIconSize != 0)
+	{
+		CXTPCommandBars* pCommandBars = GetCommandBars();
+		for (int i = 0; i < pCommandBars->GetCount(); i++)
+		{
+			CXTPCommandBar *pBar = pCommandBars->GetAt(i);
+			if (pBar->IsKindOf(RUNTIME_CLASS(CXTPToolBar)))
+			{
+				int w = gSettings.gui.nToolbarIconSize;
+				pBar->SetIconSize( CSize(w,w) );
+			}
+		}
+	}
+}
+
+REGISTER_PYTHON_COMMAND(PyOpenViewPane, general, open_pane, "Opens a view pane specified by the pane class name.");
+REGISTER_PYTHON_COMMAND(PyCloseViewPane, general, close_pane, "Closes a view pane specified by the pane class name.");
+REGISTER_PYTHON_COMMAND(PyExit, general, exit, "Exits the editor.");

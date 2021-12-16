@@ -1,0 +1,14 @@
+{
+	"NoUberFile": 
+	{
+		"Root":
+		[
+			"FFMPEGPlugin.cpp",
+			"FFMPEGPlugin.h",
+			"FFMPEGPlugin.rc",
+			"main.cpp",
+			"resource.h",
+			"stdafx.h"
+		]
+	}
+}

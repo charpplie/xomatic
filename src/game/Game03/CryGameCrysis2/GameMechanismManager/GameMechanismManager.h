@@ -1,0 +1,31 @@
+#ifndef __GAMEMECHANISMMANAGER_H__
+#define __GAMEMECHANISMMANAGER_H__
+
+class CGameMechanismBase;
+
+class CGameMechanismManager
+{
+	public:
+	CGameMechanismManager();
+	~CGameMechanismManager();
+	void Update(float dt);
+	void RegisterMechanism(CGameMechanismBase * mechanism);
+	void UnregisterMechanism(CGameMechanismBase * mechanism);
+
+	static ILINE CGameMechanismManager * GetInstance()
+	{
+		assert (s_instance);
+		return s_instance;
+	}
+
+	private:
+	static CGameMechanismManager * s_instance;
+	CGameMechanismBase * m_firstMechanism;
+
+#if !defined(_RELEASE)
+	int m_cvarWatchEnabled;
+	int m_cvarLogEnabled;
+#endif
+};
+
+#endif //__GAMEMECHANISMMANAGER_H__

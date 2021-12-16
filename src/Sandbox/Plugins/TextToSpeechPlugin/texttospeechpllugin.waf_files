@@ -1,0 +1,20 @@
+{
+	"NoUberFile": 
+	{
+		"Root":
+		[
+			"main.cpp",
+			"moc.cpp",
+			"stdafx.cpp",
+			"stdafx.h",
+			"TextToSpeechPanel.cpp",
+			"TextToSpeechPanel.h",
+			"TextToSpeechWebSocket.cpp",
+			"TextToSpeechWebSocket.h",
+			"../WebShared/QCryWebPage.cpp",
+			"../WebShared/QCryWebPage.h",
+			"../WebShared/QCryWebView.cpp",
+			"../WebShared/QCryWebView.h"
+		]
+	}
+}

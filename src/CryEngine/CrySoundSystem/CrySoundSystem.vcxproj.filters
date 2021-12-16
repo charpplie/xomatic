@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ea79e7b7-e4ef-41f5-a4b7-dfc412bba09b}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{7ab2ec77-1cb2-4f69-b954-f95195c52da2}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{e9c5b1d5-7f96-4e0f-8eb0-d192b08f6785}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="MusicSystem">
+      <UniqueIdentifier>{04ca9b63-4a51-468b-abd1-f2273fb65627}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MusicSystem\Pattern">
+      <UniqueIdentifier>{d55e9247-280c-43c0-a633-886f50c59126}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MusicSystem\System">
+      <UniqueIdentifier>{5689ecce-180f-4979-a3d7-3358bf0d96a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MusicSystem\RandGen">
+      <UniqueIdentifier>{2f9217ce-839a-4ddf-ab00-8469faff778e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MusicSystem\Decoder">
+      <UniqueIdentifier>{53881655-899b-404e-9bd3-aad84857ed4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XenonUtil">
+      <UniqueIdentifier>{f8e41877-9085-4164-8aaf-f2e87768575f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ReverbManager">
+      <UniqueIdentifier>{b025f052-011d-47f4-b6f1-14acff253eaf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AudioDeviceFmodEx400.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioDeviceXenon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandPlayerFmodEx400.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrySoundSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugLogger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Microphone.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MicrophoneStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoodManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformSoundFmodEx400.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformSoundFmodEx400Event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformSoundXenon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundAssetManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundBufferFmodEx400.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundBufferFmodEx400Event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundBufferFmodEx400Micro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundBufferFmodEx400Network.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundBufferXenon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundSystemCommon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicSystem\MusicCVars.cpp">
+      <Filter>MusicSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicSystem\MusicSystem.cpp">
+      <Filter>MusicSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicSystem\Pattern\MusicPattern.cpp">
+      <Filter>MusicSystem\Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicSystem\Pattern\MusicPatternInstance.cpp">
+      <Filter>MusicSystem\Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicSystem\RandGen\RandGen.cpp">
+      <Filter>MusicSystem\RandGen</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicSystem\Decoder\ADPCMDecoder.cpp">
+      <Filter>MusicSystem\Decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicSystem\Decoder\FMODBankDecoder.cpp">
+      <Filter>MusicSystem\Decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicSystem\Decoder\OGGDecoder.cpp">
+      <Filter>MusicSystem\Decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicSystem\Decoder\PCMDecoder.cpp">
+      <Filter>MusicSystem\Decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="XenonUtil\AtgApp.cpp">
+      <Filter>XenonUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="XenonUtil\AtgAudio.cpp">
+      <Filter>XenonUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="XenonUtil\AtgUtil.cpp">
+      <Filter>XenonUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="ReverbInstance_Classic_Reverb.cpp">
+      <Filter>ReverbManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ReverbInstance_FreeVerb.cpp">
+      <Filter>ReverbManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ReverbInstance_Princeton2016.cpp">
+      <Filter>ReverbManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ReverbInstance_RoomMachine844.cpp">
+      <Filter>ReverbManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ReverbManager.cpp">
+      <Filter>ReverbManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ReverbManagerDSP.cpp">
+      <Filter>ReverbManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ReverbManagerEAX.cpp">
+      <Filter>ReverbManager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CrySoundSystem.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AudioDeviceFmodEx400.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioDeviceXenon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandPlayerFmodEx400.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugLogger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eax.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IPlatformSound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IReverbInstance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ISoundAssetManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ISoundBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Microphone.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MicrophoneStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoodManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicLoadSink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformSoundFmodEx400.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformSoundFmodEx400Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformSoundXenon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReverbInstance_Classic_Reverb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReverbInstance_FreeVerb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReverbInstance_Princeton2016.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReverbInstance_RoomMachine844.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReverbManagerDSP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReverbManagerEAX.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundAssetManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundBufferFmodEx400.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundBufferFmodEx400Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundBufferFmodEx400Micro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundBufferFmodEx400Network.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundBufferXenon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundSystemCommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSystem\MusicCVars.h">
+      <Filter>MusicSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSystem\MusicSystem.h">
+      <Filter>MusicSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSystem\Pattern\MusicPattern.h">
+      <Filter>MusicSystem\Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSystem\Pattern\MusicPatternInstance.h">
+      <Filter>MusicSystem\Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSystem\RandGen\RandGen.h">
+      <Filter>MusicSystem\RandGen</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSystem\Decoder\ADPCMDecoder.h">
+      <Filter>MusicSystem\Decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSystem\Decoder\ADPCMDecoder_info.h">
+      <Filter>MusicSystem\Decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSystem\Decoder\FMODBankDecoder.h">
+      <Filter>MusicSystem\Decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSystem\Decoder\OGGDecoder.h">
+      <Filter>MusicSystem\Decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSystem\Decoder\PatternDecoder.h">
+      <Filter>MusicSystem\Decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSystem\Decoder\PCMDecoder.h">
+      <Filter>MusicSystem\Decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSystem\Decoder\PCMDecoder_info.h">
+      <Filter>MusicSystem\Decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="XenonUtil\AtgApp.h">
+      <Filter>XenonUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="XenonUtil\AtgAudio.h">
+      <Filter>XenonUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="XenonUtil\AtgUtil.h">
+      <Filter>XenonUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="ReverbManager.h">
+      <Filter>ReverbManager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="FmodEx\lib\x64\fmod_event_net64.lib" />
+    <Library Include="FmodEx\lib\x64\fmod_event64.lib" />
+    <Library Include="FmodEx\lib\x64\fmodex64_vc.lib" />
+    <Library Include="oggvorbis\lib\ogg\ogg_static_x64.lib" />
+    <Library Include="oggvorbis\lib\vorbis\vorbis_static_x64.lib" />
+    <Library Include="oggvorbis\lib\vorbis\vorbisfile_static_x64.lib" />
+  </ItemGroup>
+</Project>

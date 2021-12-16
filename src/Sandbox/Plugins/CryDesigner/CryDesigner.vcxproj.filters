@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{4660eb39-48b3-447a-afc7-7d7b1b08e4c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{a2a7877c-f884-45f6-b66a-950b825add56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{25faacc1-95d5-4b4e-ad09-40fc592fafce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools">
+      <UniqueIdentifier>{bffd2410-6eaa-40f1-a28f-d99c986f56e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI_MFC">
+      <UniqueIdentifier>{49e747a1-77ca-4df4-b2fb-6d19ebb8807b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI_Qt">
+      <UniqueIdentifier>{b361ffbe-5998-4d3d-94db-4f5b7ddb4708}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\BaseBrush.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BaseBrushCreator.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushArgument.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushArgumentEx.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushBSPTree2D.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushBSPTree3D.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushCommonInterface.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesigner.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerAdjustHeightHelper.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerBinarySaveLoad.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerBooleanCompiler.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerConverter.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerDB.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerEdgesSharpnessManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerElementManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerExtrudeSnappingHelper.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerGlobalSettings.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerHalfEdgeMesh.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerPolygonDecomposer.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerSmoothingGroup.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerSmoothingGroupManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerSpotManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerTestCodeSet.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushDesignerUndo.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushExporter.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushPrimitive.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushRegion.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushRegionMesh.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushSubdivisionModifier.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\BrushUtil.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_BooleanToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_BrushDesignerEditToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_BrushSolidFlagsPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_CloneToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_CreateBoxToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_CreateConeToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_CreateCurvePanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_CreateCylinderToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_CreateDiscPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_CreateRectangleToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_CreateSphereToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_CreateStairProfileToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_CreateStairToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_CubeEditorPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_DesignerRegionDebuggerDlg.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_ExportToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_MirrorToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_PivotToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_RemoveDoubleToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_ResetXFormToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_SliceToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_SmoothingGroupToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_SubdivisionToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_MFC\MFC_TextureMappingToolPanel.cpp">
+      <Filter>UI_MFC</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\AreaSolidEditTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerBaseTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerBevelTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerBooleanTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerCloneTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerCopyTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerCreateBoxTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerCreateConeTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerCreateCylinderTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerCreateSphereTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerCubeEditor.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerDebuggerTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerDrawCurveTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerDrawDiscTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerDrawLineTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerDrawRectangleTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerDrawTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerEditTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerExportTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerExtrudeTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerFillSpaceTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerFlipTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerHideFace.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerInvertSelectionTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerLatheTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerLoopSelectionTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerMagnetTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerMergeTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerMirrorTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerMovePipeline.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerMoveTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerObjectModeTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerOffsetTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerPivot2BottomTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerPivotTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerRemoveDoubles.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerRemoveTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerResetXFormTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerRingSelectionTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerSelectAllNoneTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerSelectConnectedTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerSelectGrowTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerSelectTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerSeparateTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerSliceTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerSmoothingGroupTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerSnapToGrid.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerStairProfileTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerStairTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerSubdivisionTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerTextureMappingTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\BrushDesignerWeldTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\ClipVolumeEditTool.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\PythonBrushDesignerBasic.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\PythonBrushDesignerCreateShapesFuncs.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\PythonBrushDesignerEditFuncs.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\PythonBrushDesignerModifyFuncs.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\PythonBrushDesignerSelectionFuncs.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\AreaSolidObject.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\ClipVolumeObject.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\DesignerBrushObject.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\BaseBrush.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BaseBrushCreator.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushArgument.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushArgumentEx.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushBSPTree2D.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushBSPTree3D.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushCommonInterface.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushConvexes.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDeclaration.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesigner.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerAdjustHeightHelper.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerBinarySaveLoad.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerConverter.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerDB.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerEdgesSharpnessManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerElementManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerExtrudeSnappingHelper.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerGlobalSettings.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerHalfEdgeMesh.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerPolygonDecomposer.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerSmoothingGroup.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerSmoothingGroupManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerSpotManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerTestCodeSet.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushDesignerUndo.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushExporter.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushLine.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushPlane.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushPrimitive.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushRegion.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushRegionMesh.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushSubdivisionModifier.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushTriangles.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\BrushUtil.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_BooleanToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_BrushDesignerEditToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_BrushSolidFlagsPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_CloneToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_CreateBoxToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_CreateConeToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_CreateCurvePanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_CreateCylinderToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_CreateDiscPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_CreateRectangleToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_CreateSphereToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_CreateStairProfileToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_CreateStairToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_CubeEditorPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_DesignerRegionDebuggerDlg.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_ExportToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_MirrorToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_PivotToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_RemoveDoubleToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_ResetXFormToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_SliceToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_SmoothingGroupToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_SubdivisionToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_MFC\MFC_TextureMappingToolPanel.h">
+      <Filter>UI_MFC</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\AreaSolidEditTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerBaseTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerBevelTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerBooleanTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerCloneTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerCopyTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerCreateBoxTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerCreateConeTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerCreateCylinderTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerCreateSphereTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerCubeEditor.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerDebuggerTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerDrawCurveTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerDrawDiscTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerDrawLineTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerDrawRectangleTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerDrawTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerEditTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerExportTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerExtrudeTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerFillSpaceTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerFlipTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerHideFace.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerInvertSelectionTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerLatheTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerLoopSelectionTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerMagnetTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerMergeTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerMirrorTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerMovePipeline.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerMoveTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerObjectModeTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerOffsetTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerPivot2BottomTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerPivotTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerRemoveDoubles.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerRemoveTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerResetXFormTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerRingSelectionTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerSelectAllNoneTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerSelectConnectedTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerSelectGrowTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerSelectTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerSeparateTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerSliceTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerSmoothingGroupTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerSnapToGrid.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerStairProfileTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerStairTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerSubdivisionTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerTextureMappingTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\BrushDesignerWeldTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\ClipVolumeEditTool.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\PythonBrushDesignerBasic.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\AreaSolidObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\ClipVolumeObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\DesignerBaseObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\DesignerBaseObject_Impl.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\DesignerBrushObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="IBaseToolPanel.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="StdAfx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CryDesigner.rc" />
+  </ItemGroup>
+</Project>

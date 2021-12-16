@@ -1,0 +1,736 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="StatObj">
+      <UniqueIdentifier>{1d83cf30-cf16-4da9-b354-7928448e0246}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effects">
+      <UniqueIdentifier>{c9027c77-53df-4b25-aa27-5390aad79634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effects\Decals">
+      <UniqueIdentifier>{09f7ffc6-1e49-49c2-a7ac-76dbb1f7f4c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effects\Particles">
+      <UniqueIdentifier>{7119c27c-b446-4cfb-8a8c-eaabe5d250da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effects\PostProcess">
+      <UniqueIdentifier>{5c57900d-4551-4dbd-a68c-eb22eda43e84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effects\Skylight">
+      <UniqueIdentifier>{9b53c36e-c0cc-4cb0-b8ef-812bdee84763}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effects\Clouds">
+      <UniqueIdentifier>{25eeaaa5-a37f-4c75-b674-a950802cfea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effects\FogVolumes">
+      <UniqueIdentifier>{deabc109-db5a-4989-a149-b7e6fb18351c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effects\VolumeObject">
+      <UniqueIdentifier>{7389a8c6-5a6f-49cb-b526-0829aba78703}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effects\IrradianceVolume">
+      <UniqueIdentifier>{2d5c2218-8f26-4a37-8a77-85aac3277ffe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Terrain">
+      <UniqueIdentifier>{2178cc12-e42f-4e19-8376-1dba3a9c1070}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Terrain\Sector">
+      <UniqueIdentifier>{c7ee240b-505d-433d-8ef7-82d92df2be63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Water">
+      <UniqueIdentifier>{d498d0f8-2df4-45d3-b38f-d17a458bfaf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vegetation">
+      <UniqueIdentifier>{5375b450-9793-4a9d-a94b-edc45f7b5e50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Brush">
+      <UniqueIdentifier>{1ab923a6-3bc3-4ac0-8588-3f8df8676ae3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ObjManager">
+      <UniqueIdentifier>{c1e02418-33e7-4be3-aada-f91adfd41c98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3DEngine">
+      <UniqueIdentifier>{f1744b0d-bc9a-417b-89d0-b4e42605fabc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VisAreas">
+      <UniqueIdentifier>{909b7422-ba25-4a59-a7c0-5b802cd6ed9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CVars">
+      <UniqueIdentifier>{f3d7fec9-17a0-474a-a28d-ccaba6c9c151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CBuffer">
+      <UniqueIdentifier>{c3c325fd-812f-4c33-99db-0b3aa099e7e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers">
+      <UniqueIdentifier>{946a538f-e586-4fb2-8800-d46270d54809}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{dfeb6b8a-b6c7-4f44-bb8c-dd74fbfbc8a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Voxel">
+      <UniqueIdentifier>{ac603563-d6be-48cd-ba9d-26a995fbdb20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Voxel\VoxNodeTerrain">
+      <UniqueIdentifier>{6f16f49d-a0af-4a88-a533-80a7d01e4aa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Voxel\VoxNodeTerrain\IsoOctree">
+      <UniqueIdentifier>{d8a90420-0d7e-4e5a-b708-2cee81b7b1df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Material">
+      <UniqueIdentifier>{89744120-346c-4c7b-abad-5be6e3be98bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CGF">
+      <UniqueIdentifier>{b7c6b326-bf89-4757-9bf7-f83b2907030d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCompiler">
+      <UniqueIdentifier>{45492b2a-42f5-4544-84de-226816d1f936}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCompiler\NvTriStrip">
+      <UniqueIdentifier>{f1502e17-512f-4376-8bb5-675a3306775d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderMeshUtils">
+      <UniqueIdentifier>{1fe06acb-065a-4fc7-bf68-888fb1e2032e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ObjectsTree">
+      <UniqueIdentifier>{d69b9e50-5760-43b2-84ba-6df1b322e636}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LightEntity">
+      <UniqueIdentifier>{64ee57d7-cb81-4548-bde1-d338b59b0722}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderNodes">
+      <UniqueIdentifier>{d5aa8901-cc91-4a29-8ca6-6e7738acba04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderNodes\AutoCubeMap">
+      <UniqueIdentifier>{c6a8e62c-7a74-4c67-ad43-f6e5eb43a4e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderNodes\Roads">
+      <UniqueIdentifier>{d924975f-c7f8-47e3-8301-4428439d2b1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderNodes\Ropes">
+      <UniqueIdentifier>{ff408ebd-1d8b-494b-a1cb-be2dede14db0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="IndexedMesh.cpp">
+      <Filter>StatObj</Filter>
+    </ClCompile>
+    <ClCompile Include="StatObjConstr.cpp">
+      <Filter>StatObj</Filter>
+    </ClCompile>
+    <ClCompile Include="StatObjFar.cpp">
+      <Filter>StatObj</Filter>
+    </ClCompile>
+    <ClCompile Include="StatObjLoad.cpp">
+      <Filter>StatObj</Filter>
+    </ClCompile>
+    <ClCompile Include="StatObjPhys.cpp">
+      <Filter>StatObj</Filter>
+    </ClCompile>
+    <ClCompile Include="StatObjRend.cpp">
+      <Filter>StatObj</Filter>
+    </ClCompile>
+    <ClCompile Include="StatObjStream.cpp">
+      <Filter>StatObj</Filter>
+    </ClCompile>
+    <ClCompile Include="Decal.cpp">
+      <Filter>Effects\Decals</Filter>
+    </ClCompile>
+    <ClCompile Include="DecalManager.cpp">
+      <Filter>Effects\Decals</Filter>
+    </ClCompile>
+    <ClCompile Include="DecalRenderNode.cpp">
+      <Filter>Effects\Decals</Filter>
+    </ClCompile>
+    <ClCompile Include="particle.cpp">
+      <Filter>Effects\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleContainer.cpp">
+      <Filter>Effects\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleEffect.cpp">
+      <Filter>Effects\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleEmitter.cpp">
+      <Filter>Effects\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleEnviron.cpp">
+      <Filter>Effects\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="partman.cpp">
+      <Filter>Effects\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="partpolygon.cpp">
+      <Filter>Effects\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="PostProcessEffects.cpp">
+      <Filter>Effects\PostProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyLightManager.cpp">
+      <Filter>Effects\Skylight</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyLightNishita.cpp">
+      <Filter>Effects\Skylight</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeOfDay.cpp">
+      <Filter>Effects\Skylight</Filter>
+    </ClCompile>
+    <ClCompile Include="CloudRenderNode.cpp">
+      <Filter>Effects\Clouds</Filter>
+    </ClCompile>
+    <ClCompile Include="CloudsManager.cpp">
+      <Filter>Effects\Clouds</Filter>
+    </ClCompile>
+    <ClCompile Include="DistanceCloudRenderNode.cpp">
+      <Filter>Effects\Clouds</Filter>
+    </ClCompile>
+    <ClCompile Include="FogVolumeRenderNode.cpp">
+      <Filter>Effects\FogVolumes</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeObjectDataCreate.cpp">
+      <Filter>Effects\VolumeObject</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeObjectRenderNode.cpp">
+      <Filter>Effects\VolumeObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorBleeding.cpp">
+      <Filter>Effects\IrradianceVolume</Filter>
+    </ClCompile>
+    <ClCompile Include="IrradianceVolumeRenderNode.cpp">
+      <Filter>Effects\IrradianceVolume</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_compile.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_damage.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_det_tex.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_hmap.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_hmap_occlusion.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_init.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_light.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_load.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_panorama.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_render.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="TerrainModifications.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="TerrainTextureCache.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terran_edit.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_node.cpp">
+      <Filter>Terrain\Sector</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_node_compile.cpp">
+      <Filter>Terrain\Sector</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_sector.cpp">
+      <Filter>Terrain\Sector</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_sector_beach.cpp">
+      <Filter>Terrain\Sector</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_sector_render.cpp">
+      <Filter>Terrain\Sector</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_sector_tex.cpp">
+      <Filter>Terrain\Sector</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_water_quad.cpp">
+      <Filter>Water</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterVolumeRenderNode.cpp">
+      <Filter>Water</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterVolumes.cpp">
+      <Filter>Water</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterWaveRenderNode.cpp">
+      <Filter>Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Vegetation.cpp">
+      <Filter>Vegetation</Filter>
+    </ClCompile>
+    <ClCompile Include="Brush.cpp">
+      <Filter>Brush</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMan.cpp">
+      <Filter>ObjManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjManCullQueue.cpp">
+      <Filter>ObjManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjManDraw.cpp">
+      <Filter>ObjManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjManDrawEntity.cpp">
+      <Filter>ObjManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjManFar.cpp">
+      <Filter>ObjManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjManShadows.cpp">
+      <Filter>ObjManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjManStreaming.cpp">
+      <Filter>ObjManager</Filter>
+    </ClCompile>
+    <ClCompile Include="3dEngine.cpp">
+      <Filter>3DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="3DEngineLight.cpp">
+      <Filter>3DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="3dEngineLoad.cpp">
+      <Filter>3DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="3dEngineMerge.cpp">
+      <Filter>3DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="3DEngineRender.cpp">
+      <Filter>3DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineUtils.cpp">
+      <Filter>3DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysCallbacks.cpp">
+      <Filter>3DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicArea.cpp">
+      <Filter>VisAreas</Filter>
+    </ClCompile>
+    <ClCompile Include="CRAMSolution.cpp">
+      <Filter>VisAreas</Filter>
+    </ClCompile>
+    <ClCompile Include="VisAreaCompile.cpp">
+      <Filter>VisAreas</Filter>
+    </ClCompile>
+    <ClCompile Include="VisAreaMan.cpp">
+      <Filter>VisAreas</Filter>
+    </ClCompile>
+    <ClCompile Include="VisAreaManCompile.cpp">
+      <Filter>VisAreas</Filter>
+    </ClCompile>
+    <ClCompile Include="VisAreas.cpp">
+      <Filter>VisAreas</Filter>
+    </ClCompile>
+    <ClCompile Include="cvars.cpp">
+      <Filter>CVars</Filter>
+    </ClCompile>
+    <ClCompile Include="cbuffer.cpp">
+      <Filter>CBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="COcclusionCuller.cpp">
+      <Filter>CBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="COcclusionCullerClipper.cpp">
+      <Filter>CBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="COcclusionCullerPoly.cpp">
+      <Filter>CBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="CullBuffer.cpp">
+      <Filter>CBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="CZBufferCuller.cpp">
+      <Filter>CBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="polygonize.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain_voxel.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxLM.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxMan.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxManMatGroup.cpp">
+      <Filter>Voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="CVoxDataNode.cpp">
+      <Filter>Voxel\VoxNodeTerrain</Filter>
+    </ClCompile>
+    <ClCompile Include="CVoxMeshNode.cpp">
+      <Filter>Voxel\VoxNodeTerrain</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxNodeSerialize.cpp">
+      <Filter>Voxel\VoxNodeTerrain</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxTerrain.cpp">
+      <Filter>Voxel\VoxNodeTerrain</Filter>
+    </ClCompile>
+    <ClCompile Include="IsoMesh.cpp">
+      <Filter>Voxel\VoxNodeTerrain\IsoOctree</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="MatMan.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="SurfaceTypeManager.cpp">
+      <Filter>Material</Filter>
+    </ClCompile>
+    <ClCompile Include="CGF\CGFLoader.cpp">
+      <Filter>CGF</Filter>
+    </ClCompile>
+    <ClCompile Include="CGF\CGFSaver.cpp">
+      <Filter>CGF</Filter>
+    </ClCompile>
+    <ClCompile Include="CGF\ChunkFile.cpp">
+      <Filter>CGF</Filter>
+    </ClCompile>
+    <ClCompile Include="CGF\ReadOnlyChunkFile.cpp">
+      <Filter>CGF</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshCompiler\MeshCompiler.cpp">
+      <Filter>MeshCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshCompiler\NvTriStrip\NvTriStrip.cpp">
+      <Filter>MeshCompiler\NvTriStrip</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshCompiler\NvTriStrip\NvTriStripObjects.cpp">
+      <Filter>MeshCompiler\NvTriStrip</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderMeshMerger.cpp">
+      <Filter>RenderMeshUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderMeshUtils.cpp">
+      <Filter>RenderMeshUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectsTree.cpp">
+      <Filter>ObjectsTree</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectsTree_MT.cpp">
+      <Filter>ObjectsTree</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectsTree_Serialize.cpp">
+      <Filter>ObjectsTree</Filter>
+    </ClCompile>
+    <ClCompile Include="LightEntity.cpp">
+      <Filter>LightEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="PrismRenderNode.cpp">
+      <Filter>RenderNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoCubeMapRenderNode.cpp">
+      <Filter>RenderNodes\AutoCubeMap</Filter>
+    </ClCompile>
+    <ClCompile Include="RoadRenderNode.cpp">
+      <Filter>RenderNodes\Roads</Filter>
+    </ClCompile>
+    <ClCompile Include="RopeRenderNode.cpp">
+      <Filter>RenderNodes\Ropes</Filter>
+    </ClCompile>
+    <ClCompile Include="Cry3DEngine.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IndexedMesh.h">
+      <Filter>StatObj</Filter>
+    </ClInclude>
+    <ClInclude Include="StatObj.h">
+      <Filter>StatObj</Filter>
+    </ClInclude>
+    <ClInclude Include="DecalManager.h">
+      <Filter>Effects\Decals</Filter>
+    </ClInclude>
+    <ClInclude Include="DecalRenderNode.h">
+      <Filter>Effects\Decals</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Effects\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleContainer.h">
+      <Filter>Effects\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEffect.h">
+      <Filter>Effects\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEmitter.h">
+      <Filter>Effects\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEmitterGPU.h">
+      <Filter>Effects\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEnviron.h">
+      <Filter>Effects\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleUtils.h">
+      <Filter>Effects\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="partman.h">
+      <Filter>Effects\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyLightManager.h">
+      <Filter>Effects\Skylight</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyLightNishita.h">
+      <Filter>Effects\Skylight</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyLightNishita_info.h">
+      <Filter>Effects\Skylight</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeOfDay.h">
+      <Filter>Effects\Skylight</Filter>
+    </ClInclude>
+    <ClInclude Include="CloudRenderNode.h">
+      <Filter>Effects\Clouds</Filter>
+    </ClInclude>
+    <ClInclude Include="CloudsManager.h">
+      <Filter>Effects\Clouds</Filter>
+    </ClInclude>
+    <ClInclude Include="DistanceCloudRenderNode.h">
+      <Filter>Effects\Clouds</Filter>
+    </ClInclude>
+    <ClInclude Include="FogVolumeRenderNode.h">
+      <Filter>Effects\FogVolumes</Filter>
+    </ClInclude>
+    <ClInclude Include="VolumeObjectDataCreate.h">
+      <Filter>Effects\VolumeObject</Filter>
+    </ClInclude>
+    <ClInclude Include="VolumeObjectRenderNode.h">
+      <Filter>Effects\VolumeObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorBleeding.h">
+      <Filter>Effects\IrradianceVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="IrradianceVolumeRenderNode.h">
+      <Filter>Effects\IrradianceVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain.h">
+      <Filter>Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain_compile_info.h">
+      <Filter>Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="TerrainModifications.h">
+      <Filter>Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain_sector.h">
+      <Filter>Terrain\Sector</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain_sector_info.h">
+      <Filter>Terrain\Sector</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain_water.h">
+      <Filter>Water</Filter>
+    </ClInclude>
+    <ClInclude Include="WaterVolumeRenderNode.h">
+      <Filter>Water</Filter>
+    </ClInclude>
+    <ClInclude Include="WaterVolumes.h">
+      <Filter>Water</Filter>
+    </ClInclude>
+    <ClInclude Include="WaterWaveRenderNode.h">
+      <Filter>Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Vegetation.h">
+      <Filter>Vegetation</Filter>
+    </ClInclude>
+    <ClInclude Include="Brush.h">
+      <Filter>Brush</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMan.h">
+      <Filter>ObjManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjManCullQueue.h">
+      <Filter>ObjManager</Filter>
+    </ClInclude>
+    <ClInclude Include="3dEngine.h">
+      <Filter>3DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineUtils.h">
+      <Filter>3DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysCallbacks.h">
+      <Filter>3DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicArea.h">
+      <Filter>VisAreas</Filter>
+    </ClInclude>
+    <ClInclude Include="CRAMSolution.h">
+      <Filter>VisAreas</Filter>
+    </ClInclude>
+    <ClInclude Include="VisAreaCompile_info.h">
+      <Filter>VisAreas</Filter>
+    </ClInclude>
+    <ClInclude Include="VisAreas.h">
+      <Filter>VisAreas</Filter>
+    </ClInclude>
+    <ClInclude Include="cvars.h">
+      <Filter>CVars</Filter>
+    </ClInclude>
+    <ClInclude Include="cbuffer.h">
+      <Filter>CBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="COcclusionCuller.h">
+      <Filter>CBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="COcclusionCullerClipper.h">
+      <Filter>CBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="COcclusionCullerClipperPimpl.h">
+      <Filter>CBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="COcclusionCullerPoly.h">
+      <Filter>CBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="CullBuffer.h">
+      <Filter>CBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="CZBufferCuller.h">
+      <Filter>CBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="Array2d.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommon\I3DEngine.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommon\IEntityRenderState.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxMan.h">
+      <Filter>Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxMan_info.h">
+      <Filter>Voxel</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxTerrain.h">
+      <Filter>Voxel\VoxNodeTerrain</Filter>
+    </ClInclude>
+    <ClInclude Include="IsoOctree\BinaryNode.h">
+      <Filter>Voxel\VoxNodeTerrain\IsoOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="IsoOctree\Geometry.h">
+      <Filter>Voxel\VoxNodeTerrain\IsoOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="IsoMesh.h">
+      <Filter>Voxel\VoxNodeTerrain\IsoOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="IsoOctree\IsoOctree.h">
+      <Filter>Voxel\VoxNodeTerrain\IsoOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="IsoOctree\MarchingCubes.h">
+      <Filter>Voxel\VoxNodeTerrain\IsoOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="IsoOctree\MAT.h">
+      <Filter>Voxel\VoxNodeTerrain\IsoOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="IsoOctree\Octree.h">
+      <Filter>Voxel\VoxNodeTerrain\IsoOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="MatMan.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="SurfaceTypeManager.h">
+      <Filter>Material</Filter>
+    </ClInclude>
+    <ClInclude Include="CGF\CGFLoader.h">
+      <Filter>CGF</Filter>
+    </ClInclude>
+    <ClInclude Include="CGF\CGFSaver.h">
+      <Filter>CGF</Filter>
+    </ClInclude>
+    <ClInclude Include="CGF\ChunkFile.h">
+      <Filter>CGF</Filter>
+    </ClInclude>
+    <ClInclude Include="CGF\ReadOnlyChunkFile.h">
+      <Filter>CGF</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCompiler\MeshCompiler.h">
+      <Filter>MeshCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCompiler\TangentSpaceCalculation.h">
+      <Filter>MeshCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCompiler\NvTriStrip\NvTriStrip.h">
+      <Filter>MeshCompiler\NvTriStrip</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCompiler\NvTriStrip\NvTriStripObjects.h">
+      <Filter>MeshCompiler\NvTriStrip</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCompiler\NvTriStrip\VertexCache.h">
+      <Filter>MeshCompiler\NvTriStrip</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderMeshMerger.h">
+      <Filter>RenderMeshUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderMeshUtils.h">
+      <Filter>RenderMeshUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectsTree.h">
+      <Filter>ObjectsTree</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectsTree_Serialize_info.h">
+      <Filter>ObjectsTree</Filter>
+    </ClInclude>
+    <ClInclude Include="LightEntity.h">
+      <Filter>LightEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="PrismRenderNode.h">
+      <Filter>RenderNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoCubeMapRenderNode.h">
+      <Filter>RenderNodes\AutoCubeMap</Filter>
+    </ClInclude>
+    <ClInclude Include="RoadRenderNode.h">
+      <Filter>RenderNodes\Roads</Filter>
+    </ClInclude>
+    <ClInclude Include="RopeRenderNode.h">
+      <Filter>RenderNodes\Ropes</Filter>
+    </ClInclude>
+    <ClInclude Include="Cry3DEngineBase.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="StdAfx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IsoOctree\Geometry.inl">
+      <Filter>Voxel\VoxNodeTerrain\IsoOctree</Filter>
+    </None>
+    <None Include="IsoOctree\IsoOctree.inl">
+      <Filter>Voxel\VoxNodeTerrain\IsoOctree</Filter>
+    </None>
+    <None Include="IsoOctree\MarchingCubes.inl">
+      <Filter>Voxel\VoxNodeTerrain\IsoOctree</Filter>
+    </None>
+    <None Include="IsoOctree\MAT.inl">
+      <Filter>Voxel\VoxNodeTerrain\IsoOctree</Filter>
+    </None>
+    <None Include="IsoOctree\Octree.inl">
+      <Filter>Voxel\VoxNodeTerrain\IsoOctree</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Cry3DEngine.rc" />
+  </ItemGroup>
+</Project>

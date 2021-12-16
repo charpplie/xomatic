@@ -1,0 +1,12 @@
+{
+	"NoUberFile": 
+	{
+		"Root":
+		[
+			"main.cpp",
+			"moc.cpp",
+			"WebPanel.cpp",
+			"WebPanel.h"
+		]
+	}
+}

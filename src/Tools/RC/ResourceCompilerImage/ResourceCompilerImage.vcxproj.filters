@@ -1,0 +1,784 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="SRFFormat">
+      <UniqueIdentifier>{1e1c8b35-0b5c-47bb-9148-288b116dd50d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hidden">
+      <UniqueIdentifier>{22507110-83e5-4f38-847f-2fab90430e03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hidden\TIFFLib">
+      <UniqueIdentifier>{b7488c12-615e-4a5f-b7db-748c4a47417f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Filtering">
+      <UniqueIdentifier>{13599374-950b-4b12-99bb-4c9e320e17d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageFormats">
+      <UniqueIdentifier>{94bb312d-62d0-4f38-9d60-1033d66c92a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ATILib">
+      <UniqueIdentifier>{c645627c-1ea2-4dfd-aee9-de5899ddc92e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVidiaLib">
+      <UniqueIdentifier>{870c1f55-4a23-461d-b07b-1e3f0d337268}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windowing">
+      <UniqueIdentifier>{e4904ee8-fb1d-405f-898c-faf93b70eae5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SimpleLib">
+      <UniqueIdentifier>{36391518-e6a0-4839-a596-63ff8f544bfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Streaming">
+      <UniqueIdentifier>{4ac17a35-1122-4b8b-8e2b-03c2bee90cd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AtiCubemapGen">
+      <UniqueIdentifier>{ba8348b3-b59a-4197-8804-357213b43475}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CryCommonTools">
+      <UniqueIdentifier>{fac369f0-086c-4f61-af65-7142cefa10fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ColorChart">
+      <UniqueIdentifier>{05b6bc8a-459c-4ebc-9a73-d188b6c22f11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVidia">
+      <UniqueIdentifier>{045c4397-5d15-49ed-8925-3d66d1451c24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVidia\nvtt">
+      <UniqueIdentifier>{b2b41642-e2a1-4e5b-b3a5-ef8c8183cd2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVidia\nvtt\squish">
+      <UniqueIdentifier>{3bcfb170-6731-427c-95f0-4feebd31d85d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVidia\nvtt\squsih_include">
+      <UniqueIdentifier>{4a591a18-dc30-4245-b278-3f1075f85e92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVidia\nvcore">
+      <UniqueIdentifier>{ddad2cd5-6c47-41bf-9cf3-f044d5f987de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVidia\nvcore\poshlib">
+      <UniqueIdentifier>{41ae2a3a-8532-4d3a-8d8e-75c2d380c55a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVidia\nvcore_include">
+      <UniqueIdentifier>{395eabda-6882-48e1-ad21-e5124dd074ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVidia\nvtt_include">
+      <UniqueIdentifier>{14979572-b509-4b5d-b368-a48c123e7184}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVidia\nvmath">
+      <UniqueIdentifier>{bcf6814c-4d89-4b44-8a3f-f2c207b03b84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVidia\nvmath_include">
+      <UniqueIdentifier>{367c2f11-ff61-4626-9771-8604b44605a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVidia\nvimage">
+      <UniqueIdentifier>{fda82337-eeaf-48a2-80d4-ff1defffdee1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVidia\nvimage_include">
+      <UniqueIdentifier>{87af662b-f631-4feb-88bc-7042759f25a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CryTextureCompressor">
+      <UniqueIdentifier>{1901667a-020c-47e1-96b4-7733d33f081d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\CryEngine\CryCommon\BitmapDilation.h">
+      <Filter>SRFFormat</Filter>
+    </ClInclude>
+    <ClInclude Include="SRFCompiler.h">
+      <Filter>SRFFormat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\SRFData.h">
+      <Filter>SRFFormat</Filter>
+    </ClInclude>
+    <ClInclude Include="SRFProperties.h">
+      <Filter>SRFFormat</Filter>
+    </ClInclude>
+    <ClInclude Include="SRFUserDialog.h">
+      <Filter>SRFFormat</Filter>
+    </ClInclude>
+    <ClInclude Include="Monitor.h">
+      <Filter>hidden</Filter>
+    </ClInclude>
+    <ClInclude Include="neuquant.h">
+      <Filter>hidden</Filter>
+    </ClInclude>
+    <ClInclude Include="RelativeMouseInput.h">
+      <Filter>hidden</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>hidden</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceCompilerImage.h">
+      <Filter>hidden</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\SimpleBitmap.h">
+      <Filter>hidden</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>hidden</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\SuffixUtil.h">
+      <Filter>hidden</Filter>
+    </ClInclude>
+    <ClInclude Include="TinyDocument.h">
+      <Filter>hidden</Filter>
+    </ClInclude>
+    <ClInclude Include="tools.h">
+      <Filter>hidden</Filter>
+    </ClInclude>
+    <ClInclude Include="TIFFLib\include\tiff.h">
+      <Filter>hidden\TIFFLib</Filter>
+    </ClInclude>
+    <ClInclude Include="TIFFLib\include\tiffconf.h">
+      <Filter>hidden\TIFFLib</Filter>
+    </ClInclude>
+    <ClInclude Include="TIFFLib\include\tiffio.h">
+      <Filter>hidden\TIFFLib</Filter>
+    </ClInclude>
+    <ClInclude Include="TIFFLib\include\tiffvers.h">
+      <Filter>hidden\TIFFLib</Filter>
+    </ClInclude>
+    <ClInclude Include="AngularCubemapFilter.h">
+      <Filter>Filtering</Filter>
+    </ClInclude>
+    <ClInclude Include="SummedAreaFilterKernel.h">
+      <Filter>Filtering</Filter>
+    </ClInclude>
+    <ClInclude Include="WeightFilterSet.h">
+      <Filter>Filtering</Filter>
+    </ClInclude>
+    <ClInclude Include="GenerationProgress.h">
+      <Filter>ImageFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageCompiler.h">
+      <Filter>ImageFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageConvertor.h">
+      <Filter>ImageFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\CryCommon\ImageExtensionHelper.h">
+      <Filter>ImageFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageObject.h">
+      <Filter>ImageFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageProperties.h">
+      <Filter>ImageFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageUserDialog.h">
+      <Filter>ImageFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="IPTCHeader.h">
+      <Filter>ImageFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelFormats.h">
+      <Filter>ImageFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureFallbackSystem.h">
+      <Filter>ImageFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="ATICompressorLib\ATI_Compress.h">
+      <Filter>ATILib</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidiaLib\colorconvert.h">
+      <Filter>NVidiaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidiaLib\ddsTypes.h">
+      <Filter>NVidiaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidiaLib\dxtlib.h">
+      <Filter>NVidiaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidiaLib\nvdxt_options.h">
+      <Filter>NVidiaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidiaLib\tPixel.h">
+      <Filter>NVidiaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidiaLib\tVector.h">
+      <Filter>NVidiaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckBoxView.h">
+      <Filter>Windowing</Filter>
+    </ClInclude>
+    <ClInclude Include="EditSliderPair.h">
+      <Filter>Windowing</Filter>
+    </ClInclude>
+    <ClInclude Include="FloatEditView.h">
+      <Filter>Windowing</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollableDialog.h">
+      <Filter>Windowing</Filter>
+    </ClInclude>
+    <ClInclude Include="SliderView.h">
+      <Filter>Windowing</Filter>
+    </ClInclude>
+    <ClInclude Include="Streaming\TextureSplitter.h">
+      <Filter>Streaming</Filter>
+    </ClInclude>
+    <ClInclude Include="AtiCubemapGen\CCubeMapProcessor.h">
+      <Filter>AtiCubemapGen</Filter>
+    </ClInclude>
+    <ClInclude Include="AtiCubemapGen\CImageSurface.h">
+      <Filter>AtiCubemapGen</Filter>
+    </ClInclude>
+    <ClInclude Include="AtiCubemapGen\ErrorMsg.h">
+      <Filter>AtiCubemapGen</Filter>
+    </ClInclude>
+    <ClInclude Include="AtiCubemapGen\Types.h">
+      <Filter>AtiCubemapGen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\PathHelpers.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorChart\ColorChart.h">
+      <Filter>ColorChart</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorChart\ColorChartBase.h">
+      <Filter>ColorChart</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvconfig.h">
+      <Filter>NVidia</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\alpha.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\clusterfit.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\colourblock.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\colourfit.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\colourset.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\config.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\fastclusterfit.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\maths.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\rangefit.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\simd.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\simd_3dnow.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\simd_sse.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\simd_ve.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\singlechannelfit.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\singlecolourfit.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\squish.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\squish\weightedclusterfit.h">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\poshlib\posh.h">
+      <Filter>NVidia\nvcore\poshlib</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\BitArray.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\Containers.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\Debug.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\DefsGnucDarwin.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\DefsGnucLinux.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\DefsGnucWin32.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\DefsVcWin32.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\Library.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\Memory.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\nvcore.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\Prefetch.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\Ptr.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\Radix.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\StdStream.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\Stream.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\StrLib.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\TextReader.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\TextWriter.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvcore\Tokenizer.h">
+      <Filter>NVidia\nvcore_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\CompressDXT.h">
+      <Filter>NVidia\nvtt_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\CompressionOptions.h">
+      <Filter>NVidia\nvtt_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\Compressor.h">
+      <Filter>NVidia\nvtt_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\CompressRGB.h">
+      <Filter>NVidia\nvtt_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\InputOptions.h">
+      <Filter>NVidia\nvtt_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\nvtt.h">
+      <Filter>NVidia\nvtt_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\nvtt_wrapper.h">
+      <Filter>NVidia\nvtt_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\OptimalCompressDXT.h">
+      <Filter>NVidia\nvtt_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\OutputOptions.h">
+      <Filter>NVidia\nvtt_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\QuickCompressDXT.h">
+      <Filter>NVidia\nvtt_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvtt\SingleColorLookup.h">
+      <Filter>NVidia\nvtt_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvmath\Basis.h">
+      <Filter>NVidia\nvmath_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvmath\Box.h">
+      <Filter>NVidia\nvmath_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvmath\Color.h">
+      <Filter>NVidia\nvmath_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvmath\Matrix.h">
+      <Filter>NVidia\nvmath_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvmath\Montecarlo.h">
+      <Filter>NVidia\nvmath_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvmath\nvmath.h">
+      <Filter>NVidia\nvmath_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvmath\Plane.h">
+      <Filter>NVidia\nvmath_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvmath\Quaternion.h">
+      <Filter>NVidia\nvmath_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvmath\Random.h">
+      <Filter>NVidia\nvmath_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvmath\SphericalHarmonic.h">
+      <Filter>NVidia\nvmath_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvmath\Triangle.h">
+      <Filter>NVidia\nvmath_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvmath\Vector.h">
+      <Filter>NVidia\nvmath_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\BlockDXT.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\ColorBlock.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\ConeMap.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\DirectDrawSurface.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\Filter.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\FloatImage.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\HoleFilling.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\Image.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\ImageIO.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\NormalMap.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\NormalMipmap.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\nvimage.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\PixelFormat.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\PsdFile.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\Quantize.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="NVidia\nvimage\TgaFile.h">
+      <Filter>NVidia\nvimage_include</Filter>
+    </ClInclude>
+    <ClInclude Include="CryTextureCompressor\ClusterCompressor.h">
+      <Filter>CryTextureCompressor</Filter>
+    </ClInclude>
+    <ClInclude Include="CryTextureCompressor\ColorBlock4x4.h">
+      <Filter>CryTextureCompressor</Filter>
+    </ClInclude>
+    <ClInclude Include="CryTextureCompressor\ColorSet.h">
+      <Filter>CryTextureCompressor</Filter>
+    </ClInclude>
+    <ClInclude Include="CryTextureCompressor\ColorTypes.h">
+      <Filter>CryTextureCompressor</Filter>
+    </ClInclude>
+    <ClInclude Include="CryTextureCompressor\CryTextureCompressor.h">
+      <Filter>CryTextureCompressor</Filter>
+    </ClInclude>
+    <ClInclude Include="CryTextureCompressor\DXTBlocks.h">
+      <Filter>CryTextureCompressor</Filter>
+    </ClInclude>
+    <ClInclude Include="CryTextureCompressor\OptimalCompressor.h">
+      <Filter>CryTextureCompressor</Filter>
+    </ClInclude>
+    <ClInclude Include="UIBumpmapPanel.h" />
+    <ClInclude Include="UIMIPControlPanel.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SRFCompiler.cpp">
+      <Filter>SRFFormat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\SRFData.cpp">
+      <Filter>SRFFormat</Filter>
+    </ClCompile>
+    <ClCompile Include="SRFUserDialog.cpp">
+      <Filter>SRFFormat</Filter>
+    </ClCompile>
+    <ClCompile Include="Monitor.cpp">
+      <Filter>hidden</Filter>
+    </ClCompile>
+    <ClCompile Include="neuquant.cpp">
+      <Filter>hidden</Filter>
+    </ClCompile>
+    <ClCompile Include="RelativeMouseInput.cpp">
+      <Filter>hidden</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceCompilerImage.cpp">
+      <Filter>hidden</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>hidden</Filter>
+    </ClCompile>
+    <ClCompile Include="tools.cpp">
+      <Filter>hidden</Filter>
+    </ClCompile>
+    <ClCompile Include="AngularCubemapFilter.cpp">
+      <Filter>Filtering</Filter>
+    </ClCompile>
+    <ClCompile Include="SummedAreaFilterKernel.cpp">
+      <Filter>Filtering</Filter>
+    </ClCompile>
+    <ClCompile Include="WeightFilterSet.cpp">
+      <Filter>Filtering</Filter>
+    </ClCompile>
+    <ClCompile Include="GenerationProgress.cpp">
+      <Filter>ImageFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageCompiler.cpp">
+      <Filter>ImageFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageConvertor.cpp">
+      <Filter>ImageFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageObject.cpp">
+      <Filter>ImageFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageUserDialog.cpp">
+      <Filter>ImageFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="IPTCHeader.cpp">
+      <Filter>ImageFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="pixelformats.cpp">
+      <Filter>ImageFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureFallbackSystem.cpp">
+      <Filter>ImageFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckBoxView.cpp">
+      <Filter>Windowing</Filter>
+    </ClCompile>
+    <ClCompile Include="EditSliderPair.cpp">
+      <Filter>Windowing</Filter>
+    </ClCompile>
+    <ClCompile Include="FloatEditView.cpp">
+      <Filter>Windowing</Filter>
+    </ClCompile>
+    <ClCompile Include="SliderView.cpp">
+      <Filter>Windowing</Filter>
+    </ClCompile>
+    <ClCompile Include="Streaming\TextureSplitter.cpp">
+      <Filter>Streaming</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\PathHelpers.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorChart\ColorChart3dLut.cpp">
+      <Filter>ColorChart</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorChart\ColorChartBase.cpp">
+      <Filter>ColorChart</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorChart\ColorChartLsqLin.cpp">
+      <Filter>ColorChart</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\CompressDXT.cpp">
+      <Filter>NVidia\nvtt</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\CompressionOptions.cpp">
+      <Filter>NVidia\nvtt</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\Compressor.cpp">
+      <Filter>NVidia\nvtt</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\CompressRGB.cpp">
+      <Filter>NVidia\nvtt</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvimage\ConeMap.cpp">
+      <Filter>NVidia\nvtt</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\InputOptions.cpp">
+      <Filter>NVidia\nvtt</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\nvtt.cpp">
+      <Filter>NVidia\nvtt</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\nvtt_wrapper.cpp">
+      <Filter>NVidia\nvtt</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\OptimalCompressDXT.cpp">
+      <Filter>NVidia\nvtt</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\OutputOptions.cpp">
+      <Filter>NVidia\nvtt</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\QuickCompressDXT.cpp">
+      <Filter>NVidia\nvtt</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\squish\alpha.cpp">
+      <Filter>NVidia\nvtt\squish</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\squish\clusterfit.cpp">
+      <Filter>NVidia\nvtt\squish</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\squish\colourblock.cpp">
+      <Filter>NVidia\nvtt\squish</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\squish\colourfit.cpp">
+      <Filter>NVidia\nvtt\squish</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\squish\colourset.cpp">
+      <Filter>NVidia\nvtt\squish</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\squish\fastclusterfit.cpp">
+      <Filter>NVidia\nvtt\squish</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\squish\maths.cpp">
+      <Filter>NVidia\nvtt\squish</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\squish\rangefit.cpp">
+      <Filter>NVidia\nvtt\squish</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\squish\singlechannelfit.cpp">
+      <Filter>NVidia\nvtt\squish</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\squish\singlecolourfit.cpp">
+      <Filter>NVidia\nvtt\squish</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\squish\squish.cpp">
+      <Filter>NVidia\nvtt\squish</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvtt\squish\weightedclusterfit.cpp">
+      <Filter>NVidia\nvtt\squish</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvcore\Debug.cpp">
+      <Filter>NVidia\nvcore</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvcore\Library.cpp">
+      <Filter>NVidia\nvcore</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvcore\Memory.cpp">
+      <Filter>NVidia\nvcore</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvcore\Radix.cpp">
+      <Filter>NVidia\nvcore</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvcore\StrLib.cpp">
+      <Filter>NVidia\nvcore</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvcore\TextReader.cpp">
+      <Filter>NVidia\nvcore</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvcore\TextWriter.cpp">
+      <Filter>NVidia\nvcore</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvcore\Tokenizer.cpp">
+      <Filter>NVidia\nvcore</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvmath\Basis.cpp">
+      <Filter>NVidia\nvmath</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvmath\Montecarlo.cpp">
+      <Filter>NVidia\nvmath</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvmath\Plane.cpp">
+      <Filter>NVidia\nvmath</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvmath\Random.cpp">
+      <Filter>NVidia\nvmath</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvmath\SphericalHarmonic.cpp">
+      <Filter>NVidia\nvmath</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvmath\Triangle.cpp">
+      <Filter>NVidia\nvmath</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvmath\TriBox.cpp">
+      <Filter>NVidia\nvmath</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvimage\BlockDXT.cpp">
+      <Filter>NVidia\nvimage</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvimage\ColorBlock.cpp">
+      <Filter>NVidia\nvimage</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvimage\DirectDrawSurface.cpp">
+      <Filter>NVidia\nvimage</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvimage\Filter.cpp">
+      <Filter>NVidia\nvimage</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvimage\FloatImage.cpp">
+      <Filter>NVidia\nvimage</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvimage\HoleFilling.cpp">
+      <Filter>NVidia\nvimage</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvimage\Image.cpp">
+      <Filter>NVidia\nvimage</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvimage\ImageIO.cpp">
+      <Filter>NVidia\nvimage</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvimage\NormalMap.cpp">
+      <Filter>NVidia\nvimage</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvimage\NormalMipmap.cpp">
+      <Filter>NVidia\nvimage</Filter>
+    </ClCompile>
+    <ClCompile Include="NVidia\nvimage\Quantize.cpp">
+      <Filter>NVidia\nvimage</Filter>
+    </ClCompile>
+    <ClCompile Include="CryTextureCompressor\ClusterCompressor.cpp">
+      <Filter>CryTextureCompressor</Filter>
+    </ClCompile>
+    <ClCompile Include="CryTextureCompressor\ColorBlock4x4.cpp">
+      <Filter>CryTextureCompressor</Filter>
+    </ClCompile>
+    <ClCompile Include="CryTextureCompressor\ColorSet.cpp">
+      <Filter>CryTextureCompressor</Filter>
+    </ClCompile>
+    <ClCompile Include="CryTextureCompressor\CryTextureCompressor.cpp">
+      <Filter>CryTextureCompressor</Filter>
+    </ClCompile>
+    <ClCompile Include="CryTextureCompressor\DXTBlocks.cpp">
+      <Filter>CryTextureCompressor</Filter>
+    </ClCompile>
+    <ClCompile Include="CryTextureCompressor\OptimalCompressor.cpp">
+      <Filter>CryTextureCompressor</Filter>
+    </ClCompile>
+    <ClCompile Include="UIBumpmapPanel.cpp" />
+    <ClCompile Include="UIMIPControlPanel.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ImageExports.def">
+      <Filter>hidden</Filter>
+    </None>
+    <None Include="NVidia\nvtt\squish\fastclusterlookup.inl">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </None>
+    <None Include="NVidia\nvtt\squish\singlecolourlookup.inl">
+      <Filter>NVidia\nvtt\squsih_include</Filter>
+    </None>
+    <None Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ResourceCompilerImage.rc">
+      <Filter>hidden</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="TIFFLib\lib\libtiff.lib">
+      <Filter>hidden\TIFFLib</Filter>
+    </Library>
+    <Library Include="ATICompressorLib\ATI_Compress.lib">
+      <Filter>ATILib</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuildStep Include="NVidiaLib\nvDXTlibMT.lib">
+      <Filter>NVidiaLib</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="NVidiaLib\nvDXTlibMTd.lib">
+      <Filter>NVidiaLib</Filter>
+    </CustomBuildStep>
+  </ItemGroup>
+</Project>

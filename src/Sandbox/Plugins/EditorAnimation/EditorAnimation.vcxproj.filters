@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="CharacterTool\CharacterToolForm.cpp">
+      <Filter>CharacterTool</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\CafCompressionHelper.cpp">
+      <Filter>CharacterTool</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\CompressionMachine.cpp">
+      <Filter>CharacterTool</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\AnimationFilter.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\AnimSettings.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\DBATable.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EditorCommon\Serialization\BinArchive.cpp">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EditorCommon\QPropertyTree\Unicode.cpp">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EditorCommon\QPropertyTree\ConstStringList.cpp">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EditorCommon\Serialization\JSONIArchive.cpp">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EditorCommon\Serialization\JSONOArchive.cpp">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EditorCommon\Serialization\MemoryReader.cpp">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EditorCommon\Serialization\MemoryWriter.cpp">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\CryCommon\SettingsManagerHelpers.cpp">
+      <Filter>CryCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\CryCommon\ResourceCompilerHelper.cpp">
+      <Filter>CryCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="Serialization.cpp" />
+    <ClCompile Include="..\..\..\CryEngine\CryCommon\EngineSettingsManager.cpp">
+      <Filter>CryCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="Shared\CompressionPresetTable.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\ModeCharacter.cpp">
+      <Filter>CharacterTool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\Cry3DEngine\CGF\CGFLoader.cpp">
+      <Filter>Cry3DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\Cry3DEngine\CGF\ReadOnlyChunkFile.cpp">
+      <Filter>Cry3DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\Cry3DEngine\CGF\ChunkFile.cpp">
+      <Filter>Cry3DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\JointNameSelector.cpp">
+      <Filter>CharacterTool</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\DisplayParametersPanel.cpp">
+      <Filter>CharacterTool\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\SceneParametersPanel.cpp">
+      <Filter>CharacterTool\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\BlockPalette.cpp">
+      <Filter>CharacterTool\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\BlendSpacePreview.cpp">
+      <Filter>CharacterTool\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\PropertiesPanel.cpp">
+      <Filter>CharacterTool\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\PlaybackPanel.cpp">
+      <Filter>CharacterTool\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\CharacterPhysics.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\CharacterRig.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\CharacterDefinition.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\SkeletonParameters.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\ExplorerPanel.cpp">
+      <Filter>CharacterTool\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\EditorCompressionPresetTable.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\EditorDBATable.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\SplitViewport.cpp">
+      <Filter>CharacterTool\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\AnimEvent.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\AnimationTagList.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\DisplayParameters.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\UndoStack.cpp">
+      <Filter>CharacterTool\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\GizmoSink.cpp">
+      <Filter>CharacterTool\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\Explorer.cpp">
+      <Filter>CharacterTool\Explorer</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\ExplorerModel.cpp">
+      <Filter>CharacterTool\Explorer</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\ExplorerNavigationProvider.cpp">
+      <Filter>CharacterTool\Explorer</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\CharacterDocument.cpp">
+      <Filter>CharacterTool</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\ResaveAnimSettingsTool.cpp">
+      <Filter>CharacterTool\Modal Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\CleanCompiledAnimationsTool.cpp">
+      <Filter>CharacterTool\Modal Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\AnimationList.cpp">
+      <Filter>CharacterTool\Explorer Data Providers</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\CharacterList.cpp">
+      <Filter>CharacterTool\Explorer Data Providers</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\SkeletonList.cpp">
+      <Filter>CharacterTool\Explorer Data Providers</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\ExplorerFileList.cpp">
+      <Filter>CharacterTool\Explorer Data Providers</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\EntryList.cpp">
+      <Filter>CharacterTool\Explorer Data Providers</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\FilterAnimationList.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\AnimEventPresetPanel.cpp">
+      <Filter>CharacterTool\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\FeatureTestWeaponSwitch.cpp">
+      <Filter>CharacterTool\Feature Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\AudioPlayer.cpp">
+      <Filter>CharacterTool</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\EffectPlayer.cpp">
+      <Filter>CharacterTool</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\AnimEventFootstepGenerator.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\AnimationContent.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\SceneContent.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\CharacterToolSystem.cpp">
+      <Filter>CharacterTool</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\CharacterGizmoManager.cpp">
+      <Filter>CharacterTool</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationCompressionManager.cpp" />
+    <ClCompile Include="Expected.cpp">
+      <Filter>CharacterTool\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\SourceAssetContent.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\DependencyManager.cpp">
+      <Filter>CharacterTool\Explorer</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\ScanAndLoadFilesTask.cpp">
+      <Filter>CharacterTool\Modal Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\DockWidgetManager.cpp">
+      <Filter>CharacterTool\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\Cry3DEngine\CGF\ChunkFileReaders.cpp">
+      <Filter>Cry3DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\Cry3DEngine\CGF\ChunkFileWriters.cpp">
+      <Filter>Cry3DEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\SkeletonContent.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\BlendSpace.cpp">
+      <Filter>CharacterTool\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTool\TransformPanel.cpp">
+      <Filter>CharacterTool\Panels</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="CharacterTool\CafCompressionHelper.h">
+      <Filter>CharacterTool</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization.h" />
+    <ClInclude Include="Shared\AnimationFilter.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\AnimSettings.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\DBATable.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\Strings.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EditorCommon\Serialization\BinArchive.h">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EditorCommon\QPropertyTree\Unicode.h">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EditorCommon\QPropertyTree\Color.h">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EditorCommon\QPropertyTree\ConstStringList.h">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EditorCommon\QPropertyTree\Factory.h">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EditorCommon\Serialization\JSONIArchive.h">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EditorCommon\Serialization\JSONOArchive.h">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EditorCommon\Serialization\MemoryReader.h">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EditorCommon\Serialization\MemoryWriter.h">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EditorCommon\Serialization\Pointers.h">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EditorCommon\Serialization\PointersImpl.h">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EditorCommon\Serialization\QtImpl.h">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EditorCommon\Serialization\Token.h">
+      <Filter>Serialization %28EditorCommon%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\CryCommon\EngineSettingsManager.h">
+      <Filter>CryCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\CryCommon\ResourceCompilerHelper.h">
+      <Filter>CryCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\CryCommon\SettingsManagerHelpers.h">
+      <Filter>CryCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\CompressionPresetTable.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\ViewportMode.h">
+      <Filter>CharacterTool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\Cry3DEngine\CGF\CGFLoader.h">
+      <Filter>Cry3DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\Cry3DEngine\CGF\ReadOnlyChunkFile.h">
+      <Filter>Cry3DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\Cry3DEngine\CGF\ChunkFile.h">
+      <Filter>Cry3DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\BlockPaletteContent.h">
+      <Filter>CharacterTool\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\CharacterRig.h">
+      <Filter>CharacterTool\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\CharacterPhysics.h">
+      <Filter>CharacterTool\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\CharacterDefinition.h">
+      <Filter>CharacterTool\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\SkeletonParameters.h">
+      <Filter>CharacterTool\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\AnimEvent.h">
+      <Filter>CharacterTool\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\DisplayParameters.h">
+      <Filter>CharacterTool\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\UndoStack.h">
+      <Filter>CharacterTool\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\GizmoSink.h">
+      <Filter>CharacterTool\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\ExplorerNavigationProvider.h">
+      <Filter>CharacterTool\Explorer</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\EntryListImpl.h">
+      <Filter>CharacterTool\Explorer Data Providers</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\EntryList.h">
+      <Filter>CharacterTool\Explorer Data Providers</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\FilterAnimationList.h">
+      <Filter>CharacterTool\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\FeatureTest.h">
+      <Filter>CharacterTool\Feature Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\AudioPlayer.h">
+      <Filter>CharacterTool</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\EffectPlayer.h">
+      <Filter>CharacterTool</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\AnimEventFootstepGenerator.h">
+      <Filter>CharacterTool\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\AnimationContent.h">
+      <Filter>CharacterTool\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationCompressionManager.h" />
+    <ClInclude Include="Expected.h">
+      <Filter>CharacterTool\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\SourceAssetContent.h">
+      <Filter>CharacterTool\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\DependencyManager.h">
+      <Filter>CharacterTool\Explorer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\Cry3DEngine\CGF\ChunkFileReaders.h">
+      <Filter>Cry3DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\Cry3DEngine\CGF\ChunkFileWriters.h">
+      <Filter>Cry3DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\SourceAssetScene.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared\SourceAssetSettings.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\SkeletonContent.h">
+      <Filter>CharacterTool\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\BlendSpace.h">
+      <Filter>CharacterTool\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\Cry3DEngine\CGF\ChunkData.h">
+      <Filter>Cry3DEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="CharacterTool\Strings.h">
+      <Filter>CharacterTool</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\Pointers.h">
+      <Filter>CharacterTool</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\PlaybackLayers.h">
+      <Filter>CharacterTool</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTool\CAFReference.h">
+      <Filter>CharacterTool</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CharacterTool">
+      <UniqueIdentifier>{6ecd23a5-c35d-4efc-a336-a4b714fa56ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Serialization %28EditorCommon%29">
+      <UniqueIdentifier>{459d978e-c6fc-4f1b-99cd-f8489e610ed1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CryCommon">
+      <UniqueIdentifier>{8a223962-d719-4a67-8d10-dca85c554620}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared">
+      <UniqueIdentifier>{8b50bf7a-b9c3-4da8-8710-d8140849d86e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cry3DEngine">
+      <UniqueIdentifier>{839d26e1-14e2-4583-8e8e-a80813c7e415}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterTool\Widgets">
+      <UniqueIdentifier>{ae563080-8494-4b20-a1b4-50d79251f2c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterTool\Content">
+      <UniqueIdentifier>{263f2be6-4dac-4cbd-aec9-46cc4441a3a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterTool\Utilities">
+      <UniqueIdentifier>{89c4e5aa-6966-4001-a83f-8782c922231d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterTool\Modal Tools">
+      <UniqueIdentifier>{a83e9320-0d14-4ce3-8b82-286695d2583f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterTool\Explorer">
+      <UniqueIdentifier>{15bace3d-1a04-424f-b9ad-0dd88af2273b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterTool\Explorer Data Providers">
+      <UniqueIdentifier>{f72169b8-cdf3-4e3a-9f10-7e30ccefd1c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterTool\Panels">
+      <UniqueIdentifier>{cf1cc90b-e1b3-4f8b-a287-41efa34e650a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterTool\Feature Tests">
+      <UniqueIdentifier>{ab1a4adf-d570-476e-81c8-3409f7e495a8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMOC Include="CharacterTool\CompressionMachine.h">
+      <Filter>CharacterTool</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\CharacterToolForm.h">
+      <Filter>CharacterTool</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\ModeCharacter.h">
+      <Filter>CharacterTool</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\JointNameSelector.h">
+      <Filter>CharacterTool</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\DisplayParametersPanel.h">
+      <Filter>CharacterTool\Panels</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\SceneParametersPanel.h">
+      <Filter>CharacterTool\Panels</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\BlockPalette.h">
+      <Filter>CharacterTool\Widgets</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\BlendSpacePreview.h">
+      <Filter>CharacterTool\Panels</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\PropertiesPanel.h">
+      <Filter>CharacterTool\Panels</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\PlaybackPanel.h">
+      <Filter>CharacterTool\Panels</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\ExplorerDataProvider.h">
+      <Filter>CharacterTool\Explorer</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\ExplorerPanel.h">
+      <Filter>CharacterTool\Panels</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\EditorDBATable.h">
+      <Filter>CharacterTool\Content</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\EditorCompressionPresetTable.h">
+      <Filter>CharacterTool\Content</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\SplitViewport.h">
+      <Filter>CharacterTool\Panels</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\AnimationTagList.h">
+      <Filter>CharacterTool\Content</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\Explorer.h">
+      <Filter>CharacterTool\Explorer</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\ExplorerModel.h">
+      <Filter>CharacterTool\Explorer</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\CharacterDocument.h">
+      <Filter>CharacterTool</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\ResaveAnimSettingsTool.h">
+      <Filter>CharacterTool\Modal Tools</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\CleanCompiledAnimationsTool.h">
+      <Filter>CharacterTool\Modal Tools</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\AnimationList.h">
+      <Filter>CharacterTool\Explorer Data Providers</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\CharacterList.h">
+      <Filter>CharacterTool\Explorer Data Providers</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\SkeletonList.h">
+      <Filter>CharacterTool\Explorer Data Providers</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\ExplorerFileList.h">
+      <Filter>CharacterTool\Explorer Data Providers</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\AnimEventPresetPanel.h">
+      <Filter>CharacterTool\Panels</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\SceneContent.h">
+      <Filter>CharacterTool\Content</Filter>
+    </QtMOC>
+    <QtMOC Include="charactertool\CharacterToolSystem.h">
+      <Filter>CharacterTool</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\ScanAndLoadFilesTask.h">
+      <Filter>CharacterTool\Modal Tools</Filter>
+    </QtMOC>
+    <QtMOC Include="CharacterTool\CharacterGizmoManager.h" />
+    <QtMOC Include="CharacterTool\DockWidgetManager.h" />
+    <QtMOC Include="CharacterTool\TransformPanel.h">
+      <Filter>CharacterTool\Panels</Filter>
+    </QtMOC>
+  </ItemGroup>
+</Project>

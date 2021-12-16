@@ -1,0 +1,23 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2013, Crytek Studios
+##
+## Creator: Christopher Bolte
+## Date: Oct 31, 2013
+## Description: WAF  based build system
+#############################################################################
+
+def build(bld):	
+	files = bld.read_file_list('lsaoplugin.waf_files')
+	
+	bld.CryPlugin(
+		target = 'LSAOPlugin',
+		source = files,
+		pch = 'stdAfx.cpp',
+		includes = '../../',
+		lib = 'Python27',
+		use = 'Editor',
+	)
+
+	bld.recurse('LSAOProcess')
+

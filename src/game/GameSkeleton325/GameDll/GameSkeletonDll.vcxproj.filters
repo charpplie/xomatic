@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="GameCore">
+      <UniqueIdentifier>{14da8f2b-0718-4d94-9b0d-0fd9e0a9d17e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameFramework">
+      <UniqueIdentifier>{a393b55a-78ea-4275-bca3-610a958e8cc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameFramework\Level">
+      <UniqueIdentifier>{a20e657a-e9cb-4f03-8170-dc8c024be0a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LiveCreate">
+      <UniqueIdentifier>{b4d34f84-8533-4b40-bb7b-bdfc643cad6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameGlobals">
+      <UniqueIdentifier>{ecbb68d1-208b-446b-b676-0928a24210ae}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameCore\EditorGame.cpp">
+      <Filter>GameCore</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCore\Game.cpp">
+      <Filter>GameCore</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCore\GameDll.cpp">
+      <Filter>GameCore</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCore\GameDLL_PRX.cpp">
+      <Filter>GameCore</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCore\GameStartup.cpp">
+      <Filter>GameCore</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\MiniGameContext.cpp">
+      <Filter>GameFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\MiniGameFramework.cpp">
+      <Filter>GameFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\Level\MiniLevel.cpp">
+      <Filter>GameFramework\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\Level\MiniLevelInfo.cpp">
+      <Filter>GameFramework\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\Level\MiniLevelRotation.cpp">
+      <Filter>GameFramework\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\Level\MiniLevelSystem.cpp">
+      <Filter>GameFramework\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="LiveCreate\GameRealtimeRemoteUpdate.cpp">
+      <Filter>LiveCreate</Filter>
+    </ClCompile>
+    <ClCompile Include="GameGlobals\GameCCmds.cpp">
+      <Filter>GameGlobals</Filter>
+    </ClCompile>
+    <ClCompile Include="GameGlobals\GameCVars.cpp">
+      <Filter>GameGlobals</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSkeleton_GameCore_uber.cpp" />
+    <ClCompile Include="GameSkeleton_GameFramework_uber.cpp" />
+    <ClCompile Include="GameSkeleton_GameGlobals_uber.cpp" />
+    <ClCompile Include="GameSkeleton_LiveCreate_uber.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameCore\EditorGame.h">
+      <Filter>GameCore</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCore\Game.h">
+      <Filter>GameCore</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCore\GameConfig.h">
+      <Filter>GameCore</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCore\GameStartup.h">
+      <Filter>GameCore</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\MiniGameContext.h">
+      <Filter>GameFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\MiniGameFramework.h">
+      <Filter>GameFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\Level\MiniLevel.h">
+      <Filter>GameFramework\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\Level\MiniLevelInfo.h">
+      <Filter>GameFramework\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\Level\MiniLevelRotation.h">
+      <Filter>GameFramework\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\Level\MiniLevelSystem.h">
+      <Filter>GameFramework\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="LiveCreate\GameRealtimeRemoteUpdate.h">
+      <Filter>LiveCreate</Filter>
+    </ClInclude>
+    <ClInclude Include="GameGlobals\GameCCmds.h">
+      <Filter>GameGlobals</Filter>
+    </ClInclude>
+    <ClInclude Include="GameGlobals\GameCVars.h">
+      <Filter>GameGlobals</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="StdAfx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GameSkeletonDll.rc" />
+  </ItemGroup>
+</Project>

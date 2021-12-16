@@ -1,0 +1,905 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{d79f1e75-f19e-451e-8869-7803fa465d57}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{33dc9007-147f-4d4b-9806-d720fd51aab6}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="MemoryManager">
+      <UniqueIdentifier>{1dc8b4c9-5052-471e-83ab-7b7ec51a55c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StreamEngine">
+      <UniqueIdentifier>{93701700-e76d-4196-9c25-e14ed4d90732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XML">
+      <UniqueIdentifier>{eb572711-06cb-4d0a-8dea-f5796d05e464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XML\Expat">
+      <UniqueIdentifier>{1458e603-ab7a-4a75-837a-d4cfdd741463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XML\XMLSink">
+      <UniqueIdentifier>{ef0dc3a4-03ce-4bd2-94fe-b6d76bc4a08e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zlib">
+      <UniqueIdentifier>{d0c30623-7f24-4674-baa6-20ecc5e431f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ZipDir">
+      <UniqueIdentifier>{69c9dc03-1bec-49ae-952f-28d947b5279e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HTTPDownloader">
+      <UniqueIdentifier>{1d9b777b-00c9-42d8-aef9-7c716e4b234a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CheatProtection">
+      <UniqueIdentifier>{afbc730f-2e24-459c-a591-9f5ffe0cc3cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{c0451e69-d126-4656-8128-4c6776014ec3}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="Profiler">
+      <UniqueIdentifier>{491edb79-5511-4caa-9fb3-9e5a5ed1d018}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Localization">
+      <UniqueIdentifier>{6ea14b6f-fc9c-42db-bea9-c509b63f4b4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scaleform">
+      <UniqueIdentifier>{4f296ea9-0fa5-4781-b9fd-e697c1f3bec7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TestSystem">
+      <UniqueIdentifier>{270d4716-6426-4ecd-9d02-a5bd9cb1f5f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windows">
+      <UniqueIdentifier>{b8fef9a9-e32d-4a2e-bcba-3cecf7eaeb14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Threading">
+      <UniqueIdentifier>{0d7943e1-ce50-4fe3-a412-fa95bae6a8a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NullImplementation">
+      <UniqueIdentifier>{13c3eb85-2699-4d0e-8e99-a40669cdc7b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ExtensionSystem">
+      <UniqueIdentifier>{308c6c2b-7a32-40af-89f7-55467df80e6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ExtensionSystem\TestCases">
+      <UniqueIdentifier>{064e9316-a117-4aac-ba39-30d040964db4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EnginePropertyBlending">
+      <UniqueIdentifier>{7e198cc7-164f-47fb-9dff-23d2e698ba30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MiniGUI">
+      <UniqueIdentifier>{7a833bd0-33a4-4832-9535-47e76ae7a9ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Statistics">
+      <UniqueIdentifier>{f09efba1-c086-4be7-b6c4-a5dfba2a6ce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformOS">
+      <UniqueIdentifier>{2bb11270-315e-4127-8f79-14b0ecc264a3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AutoDetectCPUTestSuit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoDetectSpec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AVI_Reader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BudgetingSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdLineArg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CompressedFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleBatchFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleHelpGen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPUDetect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="crc32system.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CryPak.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrySizerImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrySizerStats.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugCallStack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DllMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommon\EngineSettingsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="getdxver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HardwareMouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IDebugCallStack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JiraClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MemReplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NotificationNetwork.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CryCommon\ResourceCompilerHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerThrottle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemCFG.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemEventDispatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemInit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemRender.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemWin32.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnixConsole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XConsole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XConsoleVariable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XenonDebugCallStack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CryMemoryManager.cpp">
+      <Filter>MemoryManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CryMTrace.cpp">
+      <Filter>MemoryManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryManager.cpp">
+      <Filter>MemoryManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MTSafeAllocator.cpp">
+      <Filter>MemoryManager</Filter>
+    </ClCompile>
+    <ClCompile Include="RefReadStream.cpp">
+      <Filter>StreamEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RefReadStreamProxy.cpp">
+      <Filter>StreamEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RefStreamEngine.cpp">
+      <Filter>StreamEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamEngine.cpp">
+      <Filter>StreamEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\SerializeXMLReader.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\SerializeXMLWriter.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\xml.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\XMLBinaryNode.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\XMLBinaryReader.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\XMLBinaryWriter.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\XmlUtils.cpp">
+      <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\Expat\xmlparse.c">
+      <Filter>XML\Expat</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\Expat\xmlrole.c">
+      <Filter>XML\Expat</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\Expat\xmltok.c">
+      <Filter>XML\Expat</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\ReadXMLSink.cpp">
+      <Filter>XML\XMLSink</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\WriteXMLSource.cpp">
+      <Filter>XML\XMLSink</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\adler32.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\compress.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\crc32.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\deflate.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\gzio.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\infback.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\inffast.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\inflate.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\inftrees.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\trees.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\uncompr.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\zlib_spu.cpp">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\zutil.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipDirCache.cpp">
+      <Filter>ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipDirCacheFactory.cpp">
+      <Filter>ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipDirCacheRW.cpp">
+      <Filter>ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipDirFind.cpp">
+      <Filter>ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipDirFindRW.cpp">
+      <Filter>ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipDirList.cpp">
+      <Filter>ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipDirStructures.cpp">
+      <Filter>ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipDirTree.cpp">
+      <Filter>ZipDir</Filter>
+    </ClCompile>
+    <ClCompile Include="DownloadManager.cpp">
+      <Filter>HTTPDownloader</Filter>
+    </ClCompile>
+    <ClCompile Include="HTTPDownloader.cpp">
+      <Filter>HTTPDownloader</Filter>
+    </ClCompile>
+    <ClCompile Include="DataProbe.cpp">
+      <Filter>CheatProtection</Filter>
+    </ClCompile>
+    <ClCompile Include="md5.c">
+      <Filter>CheatProtection</Filter>
+    </ClCompile>
+    <ClCompile Include="RandGen.cpp">
+      <Filter>CheatProtection</Filter>
+    </ClCompile>
+    <ClCompile Include="DiskProfiler.cpp">
+      <Filter>Profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameProfileRender.cpp">
+      <Filter>Profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameProfileSystem.cpp">
+      <Filter>Profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingProfiler.cpp">
+      <Filter>Profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="PerfHUD.cpp">
+      <Filter>Profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="ProfileLogSystem.cpp">
+      <Filter>Profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Sampler.cpp">
+      <Filter>Profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="LocalizedStringManager.cpp">
+      <Filter>Localization</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\ConfigScaleform.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\FlashPlayerInstance.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\GAllocatorCryMem.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\GFileCryPak.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\GImageInfoXRender.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\GRendererXRender.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\GTextureXRender.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\SharedResources.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\SharedStates.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="ExcelExport.cpp">
+      <Filter>TestSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Statistics.cpp">
+      <Filter>TestSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TestSystemLegacy.cpp">
+      <Filter>TestSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitTestExcelReporter.cpp">
+      <Filter>TestSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitTestSystem.cpp">
+      <Filter>TestSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="VisRegTest.cpp">
+      <Filter>TestSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsErrorReporting.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadProfiler.cpp">
+      <Filter>Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadTask.cpp">
+      <Filter>Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="XenonThreadSampler.cpp">
+      <Filter>Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtensionSystem\CryFactoryRegistryImpl.cpp">
+      <Filter>ExtensionSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtensionSystem\TestCases\TestExtensions.cpp">
+      <Filter>ExtensionSystem\TestCases</Filter>
+    </ClCompile>
+    <ClCompile Include="EnginePropertyBlending.cpp">
+      <Filter>EnginePropertyBlending</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGUI\DrawContext.cpp">
+      <Filter>MiniGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGUI\MiniButton.cpp">
+      <Filter>MiniGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGUI\MiniGUI.cpp">
+      <Filter>MiniGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGUI\MiniInfoBox.cpp">
+      <Filter>MiniGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGUI\MiniMenu.cpp">
+      <Filter>MiniGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGUI\MiniTable.cpp">
+      <Filter>MiniGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Statistics\LocalMemoryUsage.cpp">
+      <Filter>Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformOS\PlatformOS_PC.cpp">
+      <Filter>PlatformOS</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformOS\PlatformOS_PS3.cpp">
+      <Filter>PlatformOS</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformOS\PlatformOS_Xenon.cpp">
+      <Filter>PlatformOS</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformOS\SaveReaderWriter_CryPak.cpp">
+      <Filter>PlatformOS</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformOS\SaveReaderWriter_Xenon.cpp">
+      <Filter>PlatformOS</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AutoDetectCPUTestSuit.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoDetectSpec.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AVI_Reader.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DxDiag.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JiraClient.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysRenderer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerThrottle.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnixConsole.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryFragmentationProfiler.h">
+      <Filter>MemoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryManager.h">
+      <Filter>MemoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MemReplay.h">
+      <Filter>MemoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MTSafeAllocator.h">
+      <Filter>MemoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CritSection.h">
+      <Filter>StreamEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommon\IStreamEngine.h">
+      <Filter>StreamEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RefReadStream.h">
+      <Filter>StreamEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RefReadStreamProxy.h">
+      <Filter>StreamEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RefStreamEngine.h">
+      <Filter>StreamEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamEngine.h">
+      <Filter>StreamEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\SerializeXMLReader.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\SerializeXMLWriter.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\xml.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\xml_string.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\XMLBinaryNode.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\XMLBinaryReader.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\XMLBinaryWriter.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\XmlUtils.h">
+      <Filter>XML</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\Expat\ascii.h">
+      <Filter>XML\Expat</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\Expat\asciitab.h">
+      <Filter>XML\Expat</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\Expat\config.h">
+      <Filter>XML\Expat</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\Expat\expat.h">
+      <Filter>XML\Expat</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\Expat\iasciitab.h">
+      <Filter>XML\Expat</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\Expat\latin1tab.h">
+      <Filter>XML\Expat</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\Expat\nametab.h">
+      <Filter>XML\Expat</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\Expat\utf8tab.h">
+      <Filter>XML\Expat</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\Expat\winconfig.h">
+      <Filter>XML\Expat</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\Expat\xmlrole.h">
+      <Filter>XML\Expat</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\Expat\xmltok.h">
+      <Filter>XML\Expat</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\Expat\xmltok_impl.h">
+      <Filter>XML\Expat</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\ReadWriteXMLSink.h">
+      <Filter>XML\XMLSink</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\crc32.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\deflate.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inffast.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inffixed.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inflate.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inftrees.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\trees.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zconf.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zconf.in.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zlib.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zlib_spu.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zutil.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipDir.h">
+      <Filter>ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipDirCache.h">
+      <Filter>ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipDirCacheFactory.h">
+      <Filter>ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipDirCacheRW.h">
+      <Filter>ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipDirFind.h">
+      <Filter>ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipDirFindRW.h">
+      <Filter>ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipDirList.h">
+      <Filter>ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipDirStructures.h">
+      <Filter>ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipDirTree.h">
+      <Filter>ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipFile.h">
+      <Filter>ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipFileFormat.h">
+      <Filter>ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipFileFormat_info.h">
+      <Filter>ZipDir</Filter>
+    </ClInclude>
+    <ClInclude Include="DownloadManager.h">
+      <Filter>HTTPDownloader</Filter>
+    </ClInclude>
+    <ClInclude Include="HTTPDownloader.h">
+      <Filter>HTTPDownloader</Filter>
+    </ClInclude>
+    <ClInclude Include="DataProbe.h">
+      <Filter>CheatProtection</Filter>
+    </ClInclude>
+    <ClInclude Include="md5.h">
+      <Filter>CheatProtection</Filter>
+    </ClInclude>
+    <ClInclude Include="RandGen.h">
+      <Filter>CheatProtection</Filter>
+    </ClInclude>
+    <ClInclude Include="BudgetingSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdLine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdLineArg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleBatchFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleHelpGen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPUDetect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CryPak.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CryPakHandleCache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CrySizerImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CrySizerStats.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CryWaterMark.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugCallStack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CryCommon\EngineSettingsManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HardwareMouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HotUpdate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IDebugCallStack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NotificationNetwork.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PakVars.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ParseEngineConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleStringPool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemCFG.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemEventDispatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Validator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XConsole.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XConsoleVariable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XenonDebugCallStack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DiskProfiler.h">
+      <Filter>Profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameProfileSystem.h">
+      <Filter>Profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadingProfiler.h">
+      <Filter>Profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="PerfHUD.h">
+      <Filter>Profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="ProfileLogSystem.h">
+      <Filter>Profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Sampler.h">
+      <Filter>Profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="LocalizedStringManager.h">
+      <Filter>Localization</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\ConfigScaleform.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\FlashPlayerInstance.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\GAllocatorCryMem.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\GFileCryPak.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\GImageInfoXRender.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\GRendererXRender.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\GTextureXRender.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\SharedResources.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\SharedStates.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="ExcelExport.h">
+      <Filter>TestSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Statistics.h">
+      <Filter>TestSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TestSystemLegacy.h">
+      <Filter>TestSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitTestExcelReporter.h">
+      <Filter>TestSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitTestSystem.h">
+      <Filter>TestSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="VisRegTest.h">
+      <Filter>TestSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadProfiler.h">
+      <Filter>Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadTask.h">
+      <Filter>Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="XenonThreadSampler.h">
+      <Filter>Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="NullImplementation\NULLInput.h">
+      <Filter>NullImplementation</Filter>
+    </ClInclude>
+    <ClInclude Include="NullImplementation\NULLMusicSystem.h">
+      <Filter>NullImplementation</Filter>
+    </ClInclude>
+    <ClInclude Include="NullImplementation\NULLSoundSystem.h">
+      <Filter>NullImplementation</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtensionSystem\CryFactoryRegistryImpl.h">
+      <Filter>ExtensionSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtensionSystem\TestCases\TestExtensions.h">
+      <Filter>ExtensionSystem\TestCases</Filter>
+    </ClInclude>
+    <ClInclude Include="EnginePropertyBlending.h">
+      <Filter>EnginePropertyBlending</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGUI\DrawContext.h">
+      <Filter>MiniGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGUI\MiniButton.h">
+      <Filter>MiniGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGUI\MiniGUI.h">
+      <Filter>MiniGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGUI\MiniInfoBox.h">
+      <Filter>MiniGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGUI\MiniMenu.h">
+      <Filter>MiniGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGUI\MiniTable.h">
+      <Filter>MiniGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Statistics\LocalMemoryUsage.h">
+      <Filter>Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformOS\PlatformOS_PC.h">
+      <Filter>PlatformOS</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformOS\PlatformOS_PS3.h">
+      <Filter>PlatformOS</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformOS\PlatformOS_Xenon.h">
+      <Filter>PlatformOS</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformOS\SaveReaderWriter_CryPak.h">
+      <Filter>PlatformOS</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformOS\SaveReaderWriter_Xenon.h">
+      <Filter>PlatformOS</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CrySystem.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Scaleform">
+      <UniqueIdentifier>{da5ef736-942a-463e-930c-dcbeaff2f380}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zlib">
+      <UniqueIdentifier>{bb3343c1-4f2b-4f8c-ab11-8b31e20719d0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Scaleform\ConfigScaleform.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\FlashPlayerInstance.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\GAllocatorCryMem.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\GFileCryPak.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\GImageInfoXRender.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\GRendererXRender.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\GTextureXRender.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\SharedResources.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="Scaleform\SharedStates.cpp">
+      <Filter>Scaleform</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\adler32.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\compress.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\crc32.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\deflate.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\example.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\gzio.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\infback.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\inffast.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\inflate.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\inftrees.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\trees.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\uncompr.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\zlib_spu.cpp">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="zlib\zutil.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="CryScaleformDLL.cpp" />
+    <ClCompile Include="ScaleformGFx.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Scaleform\ConfigScaleform.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\FlashPlayerInstance.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\GAllocatorCryMem.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\GFileCryPak.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\GImageInfoXRender.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\GRendererXRender.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\GTextureXRender.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\SharedResources.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="Scaleform\SharedStates.h">
+      <Filter>Scaleform</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\crc32.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\deflate.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inffast.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inffixed.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inflate.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\inftrees.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\trees.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zconf.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zconf.in.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zlib.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zlib_spu.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib\zutil.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="ScaleformGFx.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="resource1.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CryScaleformGFx1.rc" />
+  </ItemGroup>
+</Project>

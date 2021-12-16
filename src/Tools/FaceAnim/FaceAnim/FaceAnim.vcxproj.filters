@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\OpenCV">
+      <UniqueIdentifier>{790f412e-9863-4bfa-8485-1e892511f33e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Wlm">
+      <UniqueIdentifier>{b7fc9642-eb36-464e-b12a-895fc79cac78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AutoDetector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CalibrationAVI5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FaceAnim.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FaceAnimDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FaceAnimView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FaceCreation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FeaturesProcessing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FilteredFolderDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FolderDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLoader2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Old.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StructureFromMotion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\bitstrm.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\cvcap.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\cvcap_vfw.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\dummy.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_base.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_bmp.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_exr.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_jpeg.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_jpeg2000.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_png.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_pxm.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_sunras.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\grfmt_tiff.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\image.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\loadsave.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\precomp.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\utils.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\window.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCV\window_w32.cpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClCompile>
+    <ClCompile Include="Wlm\WmlDelaunay2a.cpp">
+      <Filter>Source Files\Wlm</Filter>
+    </ClCompile>
+    <ClCompile Include="Wlm\WmlLine3.cpp">
+      <Filter>Source Files\Wlm</Filter>
+    </ClCompile>
+    <ClCompile Include="Wlm\WmlMath.cpp">
+      <Filter>Source Files\Wlm</Filter>
+    </ClCompile>
+    <ClCompile Include="Wlm\WmlPlane3.cpp">
+      <Filter>Source Files\Wlm</Filter>
+    </ClCompile>
+    <ClCompile Include="Wlm\WmlPoint4.cpp">
+      <Filter>Source Files\Wlm</Filter>
+    </ClCompile>
+    <ClCompile Include="Wlm\WmlSystem.cpp">
+      <Filter>Source Files\Wlm</Filter>
+    </ClCompile>
+    <ClCompile Include="Wlm\WmlVector2.cpp">
+      <Filter>Source Files\Wlm</Filter>
+    </ClCompile>
+    <ClCompile Include="Wlm\WmlVector3.cpp">
+      <Filter>Source Files\Wlm</Filter>
+    </ClCompile>
+    <ClCompile Include="Wlm\WmlWinSystem.cpp">
+      <Filter>Source Files\Wlm</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CalibrationAVI4.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cvUtils.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FilteredFolderDlg.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FolderDlg.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\_highgui.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\bitstrm.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cv.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cv.hpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cvaux.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cvaux.hpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cvcompat.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cvmat.hpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cvstreams.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cvtypes.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\cvvidsurv.hpp">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_base.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_bmp.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_exr.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_jpeg.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_jpeg2000.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_png.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_pxm.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_sunras.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmt_tiff.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\grfmts.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\highgui.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\resource.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCV\utils.h">
+      <Filter>Source Files\OpenCV</Filter>
+    </ClInclude>
+    <ClInclude Include="Wlm\WmlDelaunay2a.h">
+      <Filter>Source Files\Wlm</Filter>
+    </ClInclude>
+    <ClInclude Include="Wlm\WmlLine3.h">
+      <Filter>Source Files\Wlm</Filter>
+    </ClInclude>
+    <ClInclude Include="Wlm\WmlMath.h">
+      <Filter>Source Files\Wlm</Filter>
+    </ClInclude>
+    <ClInclude Include="Wlm\WmlPlane3.h">
+      <Filter>Source Files\Wlm</Filter>
+    </ClInclude>
+    <ClInclude Include="Wlm\WmlPoint.h">
+      <Filter>Source Files\Wlm</Filter>
+    </ClInclude>
+    <ClInclude Include="Wlm\WmlPoint4.h">
+      <Filter>Source Files\Wlm</Filter>
+    </ClInclude>
+    <ClInclude Include="Wlm\WmlSystem.h">
+      <Filter>Source Files\Wlm</Filter>
+    </ClInclude>
+    <ClInclude Include="Wlm\WmlVector.h">
+      <Filter>Source Files\Wlm</Filter>
+    </ClInclude>
+    <ClInclude Include="Wlm\WmlVector2.h">
+      <Filter>Source Files\Wlm</Filter>
+    </ClInclude>
+    <ClInclude Include="Wlm\WmlVector3.h">
+      <Filter>Source Files\Wlm</Filter>
+    </ClInclude>
+    <ClInclude Include="Wlm\WmlWinSystem.h">
+      <Filter>Source Files\Wlm</Filter>
+    </ClInclude>
+    <ClInclude Include="FaceAnim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FaceAnimDoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FaceAnimView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PBMatrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PBVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="OpenCV\cv.lib">
+      <Filter>Source Files\OpenCV</Filter>
+    </Library>
+    <Library Include="OpenCV\cvaux.lib">
+      <Filter>Source Files\OpenCV</Filter>
+    </Library>
+    <Library Include="OpenCV\cvcam.lib">
+      <Filter>Source Files\OpenCV</Filter>
+    </Library>
+    <Library Include="OpenCV\cvhaartraining.lib">
+      <Filter>Source Files\OpenCV</Filter>
+    </Library>
+    <Library Include="OpenCV\cxcore.lib">
+      <Filter>Source Files\OpenCV</Filter>
+    </Library>
+    <Library Include="OpenCV\cxts.lib">
+      <Filter>Source Files\OpenCV</Filter>
+    </Library>
+    <Library Include="OpenCV\highgui.lib">
+      <Filter>Source Files\OpenCV</Filter>
+    </Library>
+    <Library Include="OpenCV\ml.lib">
+      <Filter>Source Files\OpenCV</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Wlm\WmlPoint.inl">
+      <Filter>Source Files\Wlm</Filter>
+    </None>
+    <None Include="Wlm\WmlPoint4.inl">
+      <Filter>Source Files\Wlm</Filter>
+    </None>
+    <None Include="Wlm\WmlSystem.inl">
+      <Filter>Source Files\Wlm</Filter>
+    </None>
+    <None Include="Wlm\WmlSystem.mcr">
+      <Filter>Source Files\Wlm</Filter>
+    </None>
+    <None Include="Wlm\WmlVector.inl">
+      <Filter>Source Files\Wlm</Filter>
+    </None>
+    <None Include="res\FaceAnim.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\FaceAnim.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\FaceAnimDoc.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+    <None Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="FaceAnim.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuildStep Include="res\FaceAnim.manifest" />
+  </ItemGroup>
+</Project>

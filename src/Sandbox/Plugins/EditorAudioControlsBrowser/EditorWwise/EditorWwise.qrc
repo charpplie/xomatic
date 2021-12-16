@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/event_nor.png</file>
+        <file>icons/auxbus_nor.png</file>
+        <file>icons/switch_nor.png</file>
+        <file>icons/switchgroup_nor.png</file>
+        <file>icons/gameparameter_nor.png</file>
+        <file>icons/soundbank_nor.png</file>
+    </qresource>
+</RCC>

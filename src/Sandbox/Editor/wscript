@@ -1,0 +1,82 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2013, Crytek Studios
+##
+## Creator: Christopher Bolte
+## Date: Oct 31, 2013
+## Description: WAF  based build system
+#############################################################################
+
+def build(bld):	
+
+	tsk_gen = bld.CryEditor(
+		target      = 'Editor',
+		vs_filter   = 'Sandbox',		
+		file_list   = 'editor.waf_files',
+		
+		includes    = [	
+			'.',
+			'..',
+			Path('Code/CryEngine/CryCommon'),	
+			Path('Code/SDKs/XT_13_4/Include'),			
+			'Include',
+			Path('Code/CryEngine/CryAction'),			
+			Path('Code/Tools/'),
+			Path('Code/SDKs/boost'),			
+			Path('Code/Sandbox/SDKs/python27/x64/include'),			
+			Path('Code/Sandbox/Editor'),	
+			Path('Code/Sandbox/Editor'),	
+			Path('Code/Tools/SDKs/squish-ccr'),
+			Path('Code/SDKs/Microsoft Visual Studio Compiler/include'),
+			Path('Code/SDKs/Microsoft Visual Studio Compiler/atlmfc/include'),
+			Path('Code/SDKs/Microsoft Windows SDK/Include'),
+			Path('Code/SDKs/tiff-3.9.5/libtiff'),	
+			Path('Code/SDKs/FbxSdk/include'),	
+			],
+		defines     = [
+			'_AFXDLL',
+			'SANDBOX_EXPORTS',
+			'DONT_BAN_STD_STRING',
+			'FBXSDK_NEW_API=1',
+			'USE_MEM_ALLOCATOR',
+			'IS_NEW_AUDIO_BRANCH',
+			'_XTPLIB_VISUALSTUDIO_VERSION="vc110"'
+			],
+		linkflags   = '/SUBSYSTEM:WINDOWS',
+		pch         = 'StdAfx.cpp',		
+		cxxflags    = [ '/Zm200' ],
+
+		win_lib     = [ 'libfbxsdk-md', 'libtiff64' ],
+		win_libpath = [
+			Path('Code/SDKs/XT_13_4/lib_vc11'),
+			Path('Code/Sandbox/SDKs/Python27/x64/libs'),
+			Path('Code/SDKs/Microsoft Visual Studio Compiler/atlmfc/lib/amd64'),
+			Path('Code/SDKs/boost/lib/64bit'),
+			Path('Code/Sandbox/Editor/Lib'),
+			Path('Code/Tools/PRT/VC11'),
+			],
+
+		win_debug_lib               = ['PRT_DEBUG_x64'],
+		win_profile_lib             = ['PRT_x64'],
+		win_release_lib             = ['PRT_x64'],
+		win_performance_lib         = ['PRT_x64'],
+
+		win_x86_debug_libpath       = [ Path('Code/SDKs/FbxSdk/lib/vs2012/x86/debug') ],
+		win_x86_profile_libpath     = [ Path('Code/SDKs/FbxSdk/lib/vs2012/x86/release') ],
+		win_x86_release_libpath     = [ Path('Code/SDKs/FbxSdk/lib/vs2012/x86/release') ],
+		win_x86_performance_libpath = [ Path('Code/SDKs/FbxSdk/lib/vs2012/x86/release') ],
+		
+		win_x64_debug_libpath       = [ Path('Code/SDKs/FbxSdk/lib/vs2012/x64/debug') ],		
+		win_x64_profile_libpath     = [ Path('Code/SDKs/FbxSdk/lib/vs2012/x64/release') ],
+		win_x64_release_libpath     = [ Path('Code/SDKs/FbxSdk/lib/vs2012/x64/release') ],
+		win_x64_performance_libpath = [ Path('Code/SDKs/FbxSdk/lib/vs2012/x64/release') ],
+
+		winres_includes             = [ Path('Code/SDKs/XT_13_4/Include'), Path('Code/SDKs/boost') ],
+		winres_defines              = [ 'NDEBUG', '_AFXDLL' ]
+
+	)
+
+	# Copy Resource.g for Ribbon UI	
+	if tsk_gen != None:
+		tsk_gen.create_task('copy_outputs', tsk_gen.path.make_node('Resource.h'), bld.srcnode.make_node('Editor/UI/Resource.h') )			
+					

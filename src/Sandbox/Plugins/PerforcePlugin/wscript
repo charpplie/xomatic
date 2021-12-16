@@ -1,0 +1,36 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2013, Crytek Studios
+##
+## Creator: Christopher Bolte
+## Date: Oct 31, 2013
+## Description: WAF  based build system
+#############################################################################
+
+def build(bld):	
+	
+	bld.CryPlugin(
+		target      = 'PerforcePlugin',
+		vs_filter	= 'Sandbox/Plugins',
+		file_list   = 'perforceplugin.waf_files',
+		
+		pch                = 'stdafx.cpp',
+		force_static_crt   = True,
+		force_disable_mfc  = True,
+		lib                = [ 'libclient', 'libp4sslstub', 'librpc', 'libsupp' ],
+		includes           = Path('Code/SDKs/p4api/include'),
+
+		win_x86_debug_libpath       = Path('Code/SDKs/p4api/x86/Debug'),
+		win_x86_profile_libpath     = Path('Code/SDKs/p4api/x86/Release'),
+		win_x86_performance_libpath = Path('Code/SDKs/p4api/x86/Release'),
+		win_x86_release_libpath     = Path('Code/SDKs/p4api/x86/Release'),
+
+		win_x64_debug_libpath       = Path('Code/SDKs/p4api/x64/Debug'),
+		win_x64_profile_libpath     = Path('Code/SDKs/p4api/x64/Release'),
+		win_x64_performance_libpath = Path('Code/SDKs/p4api/x64/Release'),
+		win_x64_release_libpath     = Path('Code/SDKs/p4api/x64/Release'),
+		
+		
+		
+	)
+	

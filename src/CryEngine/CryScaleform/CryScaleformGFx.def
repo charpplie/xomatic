@@ -1,0 +1,4 @@
+LIBRARY      CryScaleformGFx
+EXPORTS
+	ModuleInitISystem      @2
+	CryModuleGetMemoryInfo @8

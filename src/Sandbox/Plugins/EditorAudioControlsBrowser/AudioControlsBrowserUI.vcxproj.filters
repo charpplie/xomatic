@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="common\ACBTypes.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioControlsWriter.h" />
+    <ClInclude Include="AudioLibrary.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="ATLControlsModel.h" />
+    <ClInclude Include="AudioControl.h" />
+    <ClInclude Include="AudioControlsBrowserPlugin.h" />
+    <ClInclude Include="AudioControlsBrowserUndo.h" />
+    <ClInclude Include="AudioControlsLoader.h" />
+    <ClInclude Include="QAudioControlBrowserIcons.h">
+      <Filter>qt</Filter>
+    </ClInclude>
+    <ClInclude Include="QTreeWidgetFilter.h">
+      <Filter>qt</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioControlFilters.h">
+      <Filter>qt</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioControlMimeData.h">
+      <Filter>qt</Filter>
+    </ClInclude>
+    <ClInclude Include="common\IAudioSystemEditor.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\IAudioSystemControl.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\IAudioConnection.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\IAudioConnectionInspectorPanel.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{2590c59c-9b68-4a98-9aa3-d744693f4d6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Icons">
+      <UniqueIdentifier>{05466512-0820-4c3d-9610-2d283ccf0f96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="qt">
+      <UniqueIdentifier>{719a1209-c481-4e2c-87e8-3d75897f89d5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AudioLibrary.cpp" />
+    <ClCompile Include="AudioResourceSelectors.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+    <ClCompile Include="AudioControl.cpp" />
+    <ClCompile Include="AudioControlsBrowserPlugin.cpp" />
+    <ClCompile Include="AudioControlsBrowserUndo.cpp" />
+    <ClCompile Include="AudioControlsBrowserWindow.cpp" />
+    <ClCompile Include="AudioControlsLoader.cpp" />
+    <ClCompile Include="AudioControlsWriter.cpp" />
+    <ClCompile Include="ATLControlsModel.cpp" />
+    <ClCompile Include="QAudioControlTreeWidget.cpp">
+      <Filter>qt</Filter>
+    </ClCompile>
+    <ClCompile Include="QAudioControlTreeWidgetDelegate.cpp">
+      <Filter>qt</Filter>
+    </ClCompile>
+    <ClCompile Include="QSimpleAudioControlListWidget.cpp">
+      <Filter>qt</Filter>
+    </ClCompile>
+    <ClCompile Include="QTreeWidgetFilter.cpp">
+      <Filter>qt</Filter>
+    </ClCompile>
+    <ClCompile Include="InspectorPanel.cpp">
+      <Filter>qt</Filter>
+    </ClCompile>
+    <ClCompile Include="ATLControlsPanel.cpp">
+      <Filter>qt</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioControlFilters.cpp">
+      <Filter>qt</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioSystemPanel.cpp">
+      <Filter>qt</Filter>
+    </ClCompile>
+    <ClCompile Include="ATLControlsResourceDialog.cpp">
+      <Filter>qt</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUIC Include="AudioControlsBrowserMainWindow.ui">
+      <Filter>qt</Filter>
+    </QtUIC>
+    <QtUIC Include="InspectorPanel.ui">
+      <Filter>qt</Filter>
+    </QtUIC>
+    <QtUIC Include="ATLControlsPanel.ui">
+      <Filter>qt</Filter>
+    </QtUIC>
+    <QtUIC Include="AudioSystemPanel.ui">
+      <Filter>qt</Filter>
+    </QtUIC>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMOC Include="AudioControlsBrowserWindow.h" />
+    <QtMOC Include="QAudioControlTreeWidget.h">
+      <Filter>qt</Filter>
+    </QtMOC>
+    <QtMOC Include="QAudioControlTreeWidgetDelegate.h">
+      <Filter>qt</Filter>
+    </QtMOC>
+    <QtMOC Include="QSimpleAudioControlListWidget.h">
+      <Filter>qt</Filter>
+    </QtMOC>
+    <QtMOC Include="InspectorPanel.h">
+      <Filter>qt</Filter>
+    </QtMOC>
+    <QtMOC Include="ATLControlsPanel.h">
+      <Filter>qt</Filter>
+    </QtMOC>
+    <QtMOC Include="AudioSystemPanel.h">
+      <Filter>qt</Filter>
+    </QtMOC>
+    <QtMOC Include="ATLControlsResourceDialog.h">
+      <Filter>qt</Filter>
+    </QtMOC>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Icons\Bank_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Config_Blue_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Config_Green_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Config_Purple_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Config_Red_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Config_Yellow_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Enviroment_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Folder_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Load_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Preload_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Property_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\RTPC_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Save_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Search_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Switch_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+    <Image Include="Icons\Trigger_Icon.png">
+      <Filter>Icons</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRCC Include="AudioControlsBrowserUI.qrc">
+      <Filter>qt</Filter>
+    </QtRCC>
+  </ItemGroup>
+</Project>

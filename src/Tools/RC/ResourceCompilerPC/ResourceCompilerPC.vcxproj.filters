@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{3aa0a92a-062b-4ad9-ad1a-e1c33265de09}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{100e0483-62e0-43c9-a76b-544e9bf571d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CGF">
+      <UniqueIdentifier>{0caa5caf-e752-4b3e-8b59-b133884cae3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{7b2a2311-7658-4a8e-8c67-91dfa6657dd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCompiler">
+      <UniqueIdentifier>{858fe068-1ced-42ce-96db-6b61bad06dd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCompiler\NvTriStrip">
+      <UniqueIdentifier>{36a4aafe-14a1-4b70-a8b6-4778b547c968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StaticCompiler">
+      <UniqueIdentifier>{7cab9346-277a-4412-b74e-63d1a100e8e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterCompiler">
+      <UniqueIdentifier>{d003304b-ae7a-4235-b894-03b0d0c197ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ColladaCompiler">
+      <UniqueIdentifier>{7c6f45ff-37de-4e10-94e2-f9d1b77bc9bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationCompiler">
+      <UniqueIdentifier>{91db2161-4785-415b-84fa-9dbf0c82d127}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationCompiler\Controllers">
+      <UniqueIdentifier>{ecb634d6-5d08-4930-aec2-ec4cf64849da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Wavelet">
+      <UniqueIdentifier>{a9e0ce04-1b5f-4e02-95d2-e8ff0a9a8c27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CryCommonTools">
+      <UniqueIdentifier>{199a73ca-72a7-452f-a692-eb2527b198a3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ResourceCompilerPlugin.def">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ChunkFileHelpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceCompilerPC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CGF\AnimSaver.cpp">
+      <Filter>CGF</Filter>
+    </ClCompile>
+    <ClCompile Include="CGF\ANMSaver.cpp">
+      <Filter>CGF</Filter>
+    </ClCompile>
+    <ClCompile Include="CGF\CAFSaver.cpp">
+      <Filter>CGF</Filter>
+    </ClCompile>
+    <ClCompile Include="CGF\CGFNodeMerger.cpp">
+      <Filter>CGF</Filter>
+    </ClCompile>
+    <ClCompile Include="CGF\CGFSaver.cpp">
+      <Filter>CGF</Filter>
+    </ClCompile>
+    <ClCompile Include="CGF\LoaderCAF.cpp">
+      <Filter>CGF</Filter>
+    </ClCompile>
+    <ClCompile Include="CGF\LoaderDBA.cpp">
+      <Filter>CGF</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshCompiler\MeshCompiler.cpp">
+      <Filter>MeshCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshCompiler\NvTriStrip\NvTriStrip.cpp">
+      <Filter>MeshCompiler\NvTriStrip</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshCompiler\NvTriStrip\NvTriStripObjects.cpp">
+      <Filter>MeshCompiler\NvTriStrip</Filter>
+    </ClCompile>
+    <ClCompile Include="StatCGFCompiler.cpp">
+      <Filter>StaticCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="StatCGFPhysicalize.cpp">
+      <Filter>StaticCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="StatCGFSHCompiler.cpp">
+      <Filter>StaticCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticObjectCompiler.cpp">
+      <Filter>StaticCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterCompiler.cpp">
+      <Filter>CharacterCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="ColladaCompiler.cpp">
+      <Filter>ColladaCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="ColladaLoader.cpp">
+      <Filter>ColladaCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\AnimationCompiler.cpp">
+      <Filter>AnimationCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\AnimationInfoLoader.cpp">
+      <Filter>AnimationCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\AnimationLoader.cpp">
+      <Filter>AnimationCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\ModelAimIK.cpp">
+      <Filter>AnimationCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonInfo.cpp">
+      <Filter>AnimationCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\TrackStorage.cpp">
+      <Filter>AnimationCompiler</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\CompressionController.cpp">
+      <Filter>AnimationCompiler\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\ControllerPQ.cpp">
+      <Filter>AnimationCompiler\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\ControllerPQLog.cpp">
+      <Filter>AnimationCompiler\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\ControllerTCB.cpp">
+      <Filter>AnimationCompiler\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\wavelets\CompressedData.cpp">
+      <Filter>Wavelet</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\wavelets\Compression.cpp">
+      <Filter>Wavelet</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\wavelets\DaubechiWavelet.cpp">
+      <Filter>Wavelet</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\wavelets\LiftingWavelet.cpp">
+      <Filter>Wavelet</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\wavelets\MeyerWavelet.cpp">
+      <Filter>Wavelet</Filter>
+    </ClCompile>
+    <ClCompile Include="CGA\wavelets\Wavelet.cpp">
+      <Filter>Wavelet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\Decompose.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\PathHelpers.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\PropertyHelpers.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\StringHelpers.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\TempFilePakExtraction.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\Cry3DEngine\CGF\CGFLoader.cpp" />
+    <ClCompile Include="..\..\..\CryEngine\Cry3DEngine\CGF\ChunkFile.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ChunkFileHelpers.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceCompilerPC.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CGF\AnimSaver.h">
+      <Filter>CGF</Filter>
+    </ClInclude>
+    <ClInclude Include="CGF\ANMSaver.h">
+      <Filter>CGF</Filter>
+    </ClInclude>
+    <ClInclude Include="CGF\CAFSaver.h">
+      <Filter>CGF</Filter>
+    </ClInclude>
+    <ClInclude Include="CGF\CGFLoader.h">
+      <Filter>CGF</Filter>
+    </ClInclude>
+    <ClInclude Include="CGF\CGFNodeMerger.h">
+      <Filter>CGF</Filter>
+    </ClInclude>
+    <ClInclude Include="CGF\CGFSaver.h">
+      <Filter>CGF</Filter>
+    </ClInclude>
+    <ClInclude Include="CGF\ChunkFile.h">
+      <Filter>CGF</Filter>
+    </ClInclude>
+    <ClInclude Include="CGF\LoaderCAF.h">
+      <Filter>CGF</Filter>
+    </ClInclude>
+    <ClInclude Include="CGF\LoaderDBA.h">
+      <Filter>CGF</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysWorld.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCompiler\MeshCompiler.h">
+      <Filter>MeshCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCompiler\TangentSpaceCalculation.h">
+      <Filter>MeshCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCompiler\NvTriStrip\NvTriStrip.h">
+      <Filter>MeshCompiler\NvTriStrip</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCompiler\NvTriStrip\NvTriStripObjects.h">
+      <Filter>MeshCompiler\NvTriStrip</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCompiler\NvTriStrip\VertexCache.h">
+      <Filter>MeshCompiler\NvTriStrip</Filter>
+    </ClInclude>
+    <ClInclude Include="StatCGFCompiler.h">
+      <Filter>StaticCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="StatCGFPhysicalize.h">
+      <Filter>StaticCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="StatCGFSHCompiler.h">
+      <Filter>StaticCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticObjectCompiler.h">
+      <Filter>StaticCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterCompiler.h">
+      <Filter>CharacterCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="AdjustRotLog.h">
+      <Filter>ColladaCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="ColladaCompiler.h">
+      <Filter>ColladaCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="ColladaLoader.h">
+      <Filter>ColladaCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\AnimationCompiler.h">
+      <Filter>AnimationCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\AnimationInfoLoader.h">
+      <Filter>AnimationCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\AnimationLoader.h">
+      <Filter>AnimationCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\AnimationManager.h">
+      <Filter>AnimationCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\GlobalAnimationHeader.h">
+      <Filter>AnimationCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\GlobalAnimationHeaderAIM.h">
+      <Filter>AnimationCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\GlobalAnimationHeaderCAF.h">
+      <Filter>AnimationCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonInfo.h">
+      <Filter>AnimationCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\TrackStorage.h">
+      <Filter>AnimationCompiler</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\CompressionController.h">
+      <Filter>AnimationCompiler\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\Controller.h">
+      <Filter>AnimationCompiler\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\ControllerPQ.h">
+      <Filter>AnimationCompiler\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\ControllerPQLog.h">
+      <Filter>AnimationCompiler\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\ControllerTCB.h">
+      <Filter>AnimationCompiler\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\QuatQuantization.h">
+      <Filter>AnimationCompiler\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\TCBSpline.h">
+      <Filter>AnimationCompiler\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\wavelets\CompressedData.h">
+      <Filter>Wavelet</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\wavelets\Compression.h">
+      <Filter>Wavelet</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\wavelets\DaubechiWavelet.h">
+      <Filter>Wavelet</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\wavelets\LiftingWavelet.h">
+      <Filter>Wavelet</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\wavelets\MeyerWavelet.h">
+      <Filter>Wavelet</Filter>
+    </ClInclude>
+    <ClInclude Include="CGA\wavelets\Wavelet.h">
+      <Filter>Wavelet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\Decompose.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\PathHelpers.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\PropertyHelpers.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\StringHelpers.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\TempFilePakExtraction.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

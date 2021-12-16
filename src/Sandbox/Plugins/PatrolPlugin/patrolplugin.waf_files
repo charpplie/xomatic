@@ -1,0 +1,29 @@
+{
+	"NoUberFile": 
+	{
+		"Root":
+		[
+			"main.cpp",
+			"PatrolEditorManager.cpp",
+			"PatrolEditorManager.h",
+			"PatrolPlugin.cpp",
+			"PatrolPlugin.h",
+			"resource.h",
+			"stdafx.h"
+		],
+		"Objects":
+		[
+			"Objects/AIPatrolObject.cpp",
+			"Objects/AIPatrolObject.h"
+		],
+		"Panels":
+		[		
+			"Panels/AIPatrolPanel.cpp",
+			"Panels/AIPatrolPanel.h"
+		],
+		"Resources":
+		[		
+			"PatrolPlugin.rc"
+		]
+	}
+}

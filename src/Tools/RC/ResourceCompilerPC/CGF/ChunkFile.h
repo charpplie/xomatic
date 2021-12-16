@@ -1,0 +1,12 @@
+//////////////////////////////////////////////////////////////////////
+//
+//  CryEngine Source code
+//	
+//	File:ChunkFile.h
+//  Declaration of class CChunkFile
+//
+//	History:
+//	06/26/2002 :Created by Sergiy Migdalskiy <sergiy@crytek.de>
+//
+//////////////////////////////////////////////////////////////////////
+#include "..\..\..\CryEngine\Cry3DEngine\CGF\ChunkFile.h"

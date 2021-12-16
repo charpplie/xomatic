@@ -1,0 +1,35 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2014, Crytek Studios
+##
+## Creator: Benito Gangoso Rodriguez
+## Date: April 25, 2014
+## Description: WAF  based build system
+#############################################################################
+QT_TO_MOC_FILES = [
+	'MainEditorWindow.h',
+	'Database.h',
+	'DatabaseModel.h',
+	'AppDocument.h',
+	'DatabaseExplorer.h',
+	'InputDialog.h',
+	'PropertiesPanel.h',
+	'FilterMenuButton.h',
+	]
+
+def build(bld):	
+	files = bld.read_file_list('editorgamedatabase.waf_files')
+
+	bld.CryPlugin(
+		target = 'EditorGameDatabase',
+		vs_filter = 'Sandbox/Plugins',
+		file_list = 'editorgamedatabase.waf_files',
+		features = 'qt',
+		includes = [
+			'.',
+			'..',
+			Path('Code/Game_Hunt/DescriptorFramework/Interface')
+		],						
+		qt_to_moc_files = QT_TO_MOC_FILES,
+		use=['Editor', 'EditorCommon' ]
+	)

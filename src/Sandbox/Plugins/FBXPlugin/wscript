@@ -1,0 +1,20 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2013, Crytek Studios
+##
+## Creator: Christopher Bolte
+## Date: Oct 31, 2013
+## Description: WAF  based build system
+#############################################################################
+
+def build(bld):	
+	files = bld.read_file_list('fbxplugin.waf_files')
+	
+	bld.CryPlugin(
+		target = 'FBXPlugin',
+		source = files,				
+		pch = 'StdAfx.cpp',
+		includes = bld.CreateRootRelativePath('Code/Sandbox/SDKs/FbxSDK/include'),	
+		lib = [ 'fbxsdk-2012.1-md', 'Wininet' ],
+		libpath = bld.CreateRootRelativePath('Code/Sandbox/SDKs/FbxSDK/lib/vs2010/x64'),					
+	)

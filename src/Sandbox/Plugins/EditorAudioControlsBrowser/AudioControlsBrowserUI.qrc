@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Icons/Bank_Icon.png</file>
+        <file>Icons/Config_Blue_Icon.png</file>
+        <file>Icons/Config_Green_Icon.png</file>
+        <file>Icons/Config_Purple_Icon.png</file>
+        <file>Icons/Config_Red_Icon.png</file>
+        <file>Icons/Config_Yellow_Icon.png</file>
+        <file>Icons/Enviroment_Icon.png</file>
+        <file>Icons/Folder_Icon.png</file>
+        <file>Icons/Property_Icon.png</file>
+        <file>Icons/RTPC_Icon.png</file>
+        <file>Icons/Search_Icon.png</file>
+        <file>Icons/Switch_Icon.png</file>
+        <file>Icons/Trigger_Icon.png</file>
+        <file>Icons/Preload_Icon.png</file>
+        <file>Icons/Load_Icon.png</file>
+        <file>Icons/Save_Icon.png</file>
+    </qresource>
+</RCC>

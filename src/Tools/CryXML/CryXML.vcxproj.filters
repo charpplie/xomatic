@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\XML">
+      <UniqueIdentifier>{9d04d23e-ecdf-4139-bfa9-49c53fb65e24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\XML\expat">
+      <UniqueIdentifier>{01786788-8b03-46f5-b697-bfceca74276a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CryXML.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLSerializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XML\xml.cpp">
+      <Filter>Source Files\XML</Filter>
+    </ClCompile>
+    <ClCompile Include="Xml\Expat\xmlparse.c">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClCompile>
+    <ClCompile Include="Xml\Expat\xmlrole.c">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClCompile>
+    <ClCompile Include="Xml\Expat\xmltok.c">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CryXML.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ICryXML.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IXml.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IXMLSerializer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLSerializer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XML\xml.h">
+      <Filter>Source Files\XML</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\ascii.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\asciitab.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\config.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\expat.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\iasciitab.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\latin1tab.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\nametab.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\utf8tab.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\winconfig.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\xmlrole.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\xmltok.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\xmltok_impl.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\xmltok_impl_inc.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+    <ClInclude Include="Xml\Expat\xmltok_ns.h">
+      <Filter>Source Files\XML\expat</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,17 @@
+{
+	"NoUberFile": 
+	{
+		"Root":
+		[
+			"main.cpp",
+			"MissionPanel.cpp",
+			"MissionPanel.h",
+			"moc.cpp",
+			"stdafx.h",
+			"../WebShared/QCryWebPage.cpp",
+			"../WebShared/QCryWebPage.h",
+			"../WebShared/QCryWebView.cpp",
+			"../WebShared/QCryWebView.h"
+		]
+	}
+}

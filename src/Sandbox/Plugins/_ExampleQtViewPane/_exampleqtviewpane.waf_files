@@ -1,0 +1,12 @@
+{
+	"NoUberFile":
+	{
+		"Root":
+		[
+			"main.cpp",
+			"ExampleWindow.cpp",
+			"ExampleWindow.h",
+			"stdafx.h"
+		]
+	}
+}

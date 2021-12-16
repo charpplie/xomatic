@@ -1,0 +1,632 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CharacterInstance">
+      <UniqueIdentifier>{e548a0d7-2570-4c64-a321-73c57c31d41f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterInstance\SkeletonPose">
+      <UniqueIdentifier>{ff0144fd-5405-4604-9089-f3d14048040f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterInstance\SkeletonAnim">
+      <UniqueIdentifier>{0522577b-505b-4d33-9712-f3d979acc6e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterInstance\SkeletonAnim\LMG">
+      <UniqueIdentifier>{f7fed05e-b5fd-4f97-b71d-d4a54566d670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterInstance\SkeletonAnim\PMG">
+      <UniqueIdentifier>{d0665227-0f91-469c-84e6-b4e0d569e991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterInstance\FacialAnimation">
+      <UniqueIdentifier>{c0aefeb8-eccb-489f-963d-70ca46592e6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterInstance\CommandBuffer">
+      <UniqueIdentifier>{b3f0af8a-6d34-431c-ad07-f81aeaeefe41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterInstance\PoseModifier">
+      <UniqueIdentifier>{21480976-c192-4275-ada5-919b9b8377e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterInstance\Command">
+      <UniqueIdentifier>{ab731322-77eb-4711-b2e8-17d8499def87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterInstance\Skeleton">
+      <UniqueIdentifier>{be969de7-7b18-453e-800c-1efb4a631f71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterManager">
+      <UniqueIdentifier>{c3044847-0339-4836-8b76-c392974e60e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterManager\Wavelets">
+      <UniqueIdentifier>{608d67bd-5440-495e-9b88-58afdbc61316}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterManager\ModelRig">
+      <UniqueIdentifier>{bc60d67b-8ac1-4427-8d75-a30242519b95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CharacterManager\AnimLoader">
+      <UniqueIdentifier>{cf4f74a7-1300-4a08-bcb0-7d9c89de3a53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{ae24c475-fc3b-49d5-a45d-070c058f454f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="320_dep">
+      <UniqueIdentifier>{6204ba29-4105-4d9e-9bb2-ea4300f07025}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="320_dep\NewFilter1">
+      <UniqueIdentifier>{1ba1b06d-82fb-4315-8871-15487d8ca713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="320_dep\NewFilter2">
+      <UniqueIdentifier>{2c7ce3e6-c25c-48f9-b8ac-7fc4ae3d4cb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="320_dep\NewFilter3">
+      <UniqueIdentifier>{6362bb96-4148-4adf-9f9d-88f8023db38b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="_Render.cpp">
+      <Filter>CharacterInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="_RenderSkins.cpp">
+      <Filter>CharacterInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="AttachmentManager.cpp">
+      <Filter>CharacterInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterInstance.cpp">
+      <Filter>CharacterInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="DecalManager.cpp">
+      <Filter>CharacterInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="Morphing.cpp">
+      <Filter>CharacterInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="PathExpansion.cpp">
+      <Filter>CharacterInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonEffectManager.cpp">
+      <Filter>CharacterInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinInstance.cpp">
+      <Filter>CharacterInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonPose.cpp">
+      <Filter>CharacterInstance\SkeletonPose</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonPose_Debug.cpp">
+      <Filter>CharacterInstance\SkeletonPose</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonPose_FA.cpp">
+      <Filter>CharacterInstance\SkeletonPose</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonPose_IK2B.cpp">
+      <Filter>CharacterInstance\SkeletonPose</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonPose_IKCCD.cpp">
+      <Filter>CharacterInstance\SkeletonPose</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonPose_IKLook.cpp">
+      <Filter>CharacterInstance\SkeletonPose</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonPose_Physics.cpp">
+      <Filter>CharacterInstance\SkeletonPose</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonPose_Process.cpp">
+      <Filter>CharacterInstance\SkeletonPose</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonAnim.cpp">
+      <Filter>CharacterInstance\SkeletonAnim</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonAnim_BlendMan.cpp">
+      <Filter>CharacterInstance\SkeletonAnim</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonAnim_Params.cpp">
+      <Filter>CharacterInstance\SkeletonAnim</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonAnim_Queue.cpp">
+      <Filter>CharacterInstance\SkeletonAnim</Filter>
+    </ClCompile>
+    <ClCompile Include="LMG_ComputeWeight.cpp">
+      <Filter>CharacterInstance\SkeletonAnim\LMG</Filter>
+    </ClCompile>
+    <ClCompile Include="LMG_ExtractParameters.cpp">
+      <Filter>CharacterInstance\SkeletonAnim\LMG</Filter>
+    </ClCompile>
+    <ClCompile Include="LMG_GetCapabilities.cpp">
+      <Filter>CharacterInstance\SkeletonAnim\LMG</Filter>
+    </ClCompile>
+    <ClCompile Include="LMG_Parse.cpp">
+      <Filter>CharacterInstance\SkeletonAnim\LMG</Filter>
+    </ClCompile>
+    <ClCompile Include="SDI.cpp">
+      <Filter>CharacterInstance\SkeletonAnim\PMG</Filter>
+    </ClCompile>
+    <ClCompile Include="CryModEffMorph.cpp">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="FacialAnimation\EyeMovementFaceAnim.cpp">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="FacialAnimation\FaceAnimation.cpp">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="FacialAnimation\FaceAnimSequence.cpp">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="FacialAnimation\FaceChannelKeyCleanup.cpp">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="FacialAnimation\FaceChannelSmoothing.cpp">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="FacialAnimation\FaceEffector.cpp">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="FacialAnimation\FaceEffectorLibrary.cpp">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="FacialAnimation\FaceJoystick.cpp">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="FacialAnimation\FaceState.cpp">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="FacialAnimation\FacialInstance.cpp">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="FacialAnimation\FacialModel.cpp">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="FacialAnimation\LipSync.cpp">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandBuffer_Create.cpp">
+      <Filter>CharacterInstance\CommandBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="PoseModifier\FeetLock.cpp">
+      <Filter>CharacterInstance\PoseModifier</Filter>
+    </ClCompile>
+    <ClCompile Include="PoseModifier\LookAt.cpp">
+      <Filter>CharacterInstance\PoseModifier</Filter>
+    </ClCompile>
+    <ClCompile Include="PoseModifier\PoseBlenderAim.cpp">
+      <Filter>CharacterInstance\PoseModifier</Filter>
+    </ClCompile>
+    <ClCompile Include="PoseModifier\PoseBlenderAim2.cpp">
+      <Filter>CharacterInstance\PoseModifier</Filter>
+    </ClCompile>
+    <ClCompile Include="PoseModifier\PoseModifierHelper.cpp">
+      <Filter>CharacterInstance\PoseModifier</Filter>
+    </ClCompile>
+    <ClCompile Include="Command_Buffer.cpp">
+      <Filter>CharacterInstance\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Command_Commands.cpp">
+      <Filter>CharacterInstance\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Skeleton.cpp">
+      <Filter>CharacterInstance\Skeleton</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimEventLoader.cpp">
+      <Filter>CharacterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CalParser.cpp">
+      <Filter>CharacterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterManager.cpp">
+      <Filter>CharacterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="LoaderCAF.cpp">
+      <Filter>CharacterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="LoaderCGA.cpp">
+      <Filter>CharacterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="LoaderCHR.cpp">
+      <Filter>CharacterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="LoaderDBA.cpp">
+      <Filter>CharacterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="LoaderLMG.cpp">
+      <Filter>CharacterManager</Filter>
+    </ClCompile>
+    <ClCompile Include="wavelets\CompressedData.cpp">
+      <Filter>CharacterManager\Wavelets</Filter>
+    </ClCompile>
+    <ClCompile Include="wavelets\Compression.cpp">
+      <Filter>CharacterManager\Wavelets</Filter>
+    </ClCompile>
+    <ClCompile Include="wavelets\DaubechiWavelet.cpp">
+      <Filter>CharacterManager\Wavelets</Filter>
+    </ClCompile>
+    <ClCompile Include="wavelets\MeyerWavelet.cpp">
+      <Filter>CharacterManager\Wavelets</Filter>
+    </ClCompile>
+    <ClCompile Include="wavelets\Wavelet.cpp">
+      <Filter>CharacterManager\Wavelets</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>CharacterManager\ModelRig</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelAimIK.cpp">
+      <Filter>CharacterManager\ModelRig</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelAnimationSet.cpp">
+      <Filter>CharacterManager\ModelRig</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelMesh.cpp">
+      <Filter>CharacterManager\ModelRig</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelSkeleton.cpp">
+      <Filter>CharacterManager\ModelRig</Filter>
+    </ClCompile>
+    <ClCompile Include="PrototypeCode.cpp">
+      <Filter>CharacterManager\ModelRig</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationManager.cpp">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ControllerPQ.cpp">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ControllerPQLog.cpp">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ControllerTCB.cpp">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationBase.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationThreadTask.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="cvars.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="CryAnimation_PRX.cpp">
+      <Filter>320_dep</Filter>
+    </ClCompile>
+    <ClCompile Include="FileMapping.cpp">
+      <Filter>320_dep</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalAnimationHeaderAIM.cpp">
+      <Filter>320_dep</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalAnimationHeaderCAF.cpp">
+      <Filter>320_dep</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalAnimationHeaderLMG.cpp">
+      <Filter>320_dep</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelData.cpp">
+      <Filter>320_dep</Filter>
+    </ClCompile>
+    <ClCompile Include="ParamLoader.cpp">
+      <Filter>320_dep</Filter>
+    </ClCompile>
+    <ClCompile Include="PS3PPU_Animation.cpp">
+      <Filter>320_dep</Filter>
+    </ClCompile>
+    <ClCompile Include="PS3PPU_AnimationExt.cpp">
+      <Filter>320_dep</Filter>
+    </ClCompile>
+    <ClCompile Include="PS3SPU_CommandBuffer.cpp">
+      <Filter>320_dep</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonPose_Physics_SPU.cpp">
+      <Filter>320_dep</Filter>
+    </ClCompile>
+    <ClCompile Include="SubsamplingCPM.cpp">
+      <Filter>320_dep</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimAction\AALocomotion.cpp">
+      <Filter>320_dep\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimAction\AARandom.cpp">
+      <Filter>320_dep\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimAction\AASequence.cpp">
+      <Filter>320_dep\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimAction\AnimActionActor.cpp">
+      <Filter>320_dep\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimAction\AnimActionManager.cpp">
+      <Filter>320_dep\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="Memory\Memory.cpp">
+      <Filter>320_dep\NewFilter2</Filter>
+    </ClCompile>
+    <ClCompile Include="Memory\Pool.cpp">
+      <Filter>320_dep\NewFilter2</Filter>
+    </ClCompile>
+    <ClCompile Include="PoseModifier\GroundAlignment.cpp">
+      <Filter>320_dep\NewFilter3</Filter>
+    </ClCompile>
+    <ClCompile Include="PoseModifier\LimbIk.cpp">
+      <Filter>320_dep\NewFilter3</Filter>
+    </ClCompile>
+    <ClCompile Include="PoseModifier\PoseBlenderLook.cpp">
+      <Filter>320_dep\NewFilter3</Filter>
+    </ClCompile>
+    <ClCompile Include="PoseModifier\Recoil.cpp">
+      <Filter>320_dep\NewFilter3</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonAnim_Commands.cpp" />
+    <ClCompile Include="LoaderTCB.cpp">
+      <Filter>320_dep</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AttachmentManager.h">
+      <Filter>CharacterInstance</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterInstance.h">
+      <Filter>CharacterInstance</Filter>
+    </ClInclude>
+    <ClInclude Include="DecalManager.h">
+      <Filter>CharacterInstance</Filter>
+    </ClInclude>
+    <ClInclude Include="Morphing.h">
+      <Filter>CharacterInstance</Filter>
+    </ClInclude>
+    <ClInclude Include="PathExpansion.h">
+      <Filter>CharacterInstance</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonEffectManager.h">
+      <Filter>CharacterInstance</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinInstance.h">
+      <Filter>CharacterInstance</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonPose.h">
+      <Filter>CharacterInstance\SkeletonPose</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonAnim.h">
+      <Filter>CharacterInstance\SkeletonAnim</Filter>
+    </ClInclude>
+    <ClInclude Include="LMG.h">
+      <Filter>CharacterInstance\SkeletonAnim\LMG</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>CharacterInstance\SkeletonAnim\PMG</Filter>
+    </ClInclude>
+    <ClInclude Include="SDI.h">
+      <Filter>CharacterInstance\SkeletonAnim\PMG</Filter>
+    </ClInclude>
+    <ClInclude Include="CryModEffMorph.h">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="FacialAnimation\EyeMovementFaceAnim.h">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="FacialAnimation\FaceAnimation.h">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="FacialAnimation\FaceAnimSequence.h">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="FacialAnimation\FaceChannelKeyCleanup.h">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="FacialAnimation\FaceChannelSmoothing.h">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="FacialAnimation\FaceEffector.h">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="FacialAnimation\FaceEffectorLibrary.h">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="FacialAnimation\FaceJoystick.h">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="FacialAnimation\FaceState.h">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="FacialAnimation\FacialInstance.h">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="FacialAnimation\FacialModel.h">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="FacialAnimation\LipSync.h">
+      <Filter>CharacterInstance\FacialAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandBuffer.h">
+      <Filter>CharacterInstance\CommandBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="PoseModifier\FeetLock.h">
+      <Filter>CharacterInstance\PoseModifier</Filter>
+    </ClInclude>
+    <ClInclude Include="PoseModifier\LookAt.h">
+      <Filter>CharacterInstance\PoseModifier</Filter>
+    </ClInclude>
+    <ClInclude Include="PoseModifier\PoseBlenderAim.h">
+      <Filter>CharacterInstance\PoseModifier</Filter>
+    </ClInclude>
+    <ClInclude Include="PoseModifier\PoseModifierHelper.h">
+      <Filter>CharacterInstance\PoseModifier</Filter>
+    </ClInclude>
+    <ClInclude Include="Command_Buffer.h">
+      <Filter>CharacterInstance\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Command_Commands.h">
+      <Filter>CharacterInstance\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Skeleton.h">
+      <Filter>CharacterInstance\Skeleton</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimEventLoader.h">
+      <Filter>CharacterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CalParser.h">
+      <Filter>CharacterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterManager.h">
+      <Filter>CharacterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="LoaderCAF.h">
+      <Filter>CharacterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="LoaderCGA.h">
+      <Filter>CharacterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="LoaderCHR.h">
+      <Filter>CharacterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="LoaderDBA.h">
+      <Filter>CharacterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="LoaderLMG.h">
+      <Filter>CharacterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="StringUtils.h">
+      <Filter>CharacterManager</Filter>
+    </ClInclude>
+    <ClInclude Include="wavelets\CompressedData.h">
+      <Filter>CharacterManager\Wavelets</Filter>
+    </ClInclude>
+    <ClInclude Include="wavelets\Compression.h">
+      <Filter>CharacterManager\Wavelets</Filter>
+    </ClInclude>
+    <ClInclude Include="wavelets\DaubechiWavelet.h">
+      <Filter>CharacterManager\Wavelets</Filter>
+    </ClInclude>
+    <ClInclude Include="wavelets\MeyerWavelet.h">
+      <Filter>CharacterManager\Wavelets</Filter>
+    </ClInclude>
+    <ClInclude Include="wavelets\Wavelet.h">
+      <Filter>CharacterManager\Wavelets</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>CharacterManager\ModelRig</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelAnimationSet.h">
+      <Filter>CharacterManager\ModelRig</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelJoint.h">
+      <Filter>CharacterManager\ModelRig</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelMesh.h">
+      <Filter>CharacterManager\ModelRig</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelSkeleton.h">
+      <Filter>CharacterManager\ModelRig</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationManager.h">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ControllerOpt.h">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ControllerPQ.h">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ControllerPQLog.h">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ControllerTCB.h">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalAnimationHeader.h">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalAnimationHeaderAIM.h">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalAnimationHeaderCAF.h">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalAnimationHeaderLMG.h">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalAnimationHeaderPMG.h">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="QuatQuantization.h">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="TCBSpline.h">
+      <Filter>CharacterManager\AnimLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationBase.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationThreadTask.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="cvars.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Helper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="FileMapping.h">
+      <Filter>320_dep</Filter>
+    </ClInclude>
+    <ClInclude Include="LoaderTCB.h">
+      <Filter>320_dep</Filter>
+    </ClInclude>
+    <ClInclude Include="ParamLoader.h">
+      <Filter>320_dep</Filter>
+    </ClInclude>
+    <ClInclude Include="QuatQuantization_info.h">
+      <Filter>320_dep</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimAction\AALocomotion.h">
+      <Filter>320_dep\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimAction\AARandom.h">
+      <Filter>320_dep\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimAction\AASequence.h">
+      <Filter>320_dep\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimAction\AnimActionActor.h">
+      <Filter>320_dep\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimAction\AnimActionManager.h">
+      <Filter>320_dep\NewFilter1</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory\Memory.h">
+      <Filter>320_dep\NewFilter2</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory\Pool.h">
+      <Filter>320_dep\NewFilter2</Filter>
+    </ClInclude>
+    <ClInclude Include="PoseModifier\GroundAlignment.h">
+      <Filter>320_dep\NewFilter3</Filter>
+    </ClInclude>
+    <ClInclude Include="PoseModifier\LimbIk.h">
+      <Filter>320_dep\NewFilter3</Filter>
+    </ClInclude>
+    <ClInclude Include="PoseModifier\PoseBlenderLook.h">
+      <Filter>320_dep\NewFilter3</Filter>
+    </ClInclude>
+    <ClInclude Include="PoseModifier\Recoil.h">
+      <Filter>320_dep\NewFilter3</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LMG_Types.inc">
+      <Filter>CharacterInstance\SkeletonAnim\LMG</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CryAnimation.rc">
+      <Filter>Common</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

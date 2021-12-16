@@ -1,0 +1,30 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2013, Crytek Studios
+##
+## Creator: Christopher Bolte
+## Date: Oct 31, 2013
+## Description: WAF  based build system
+#############################################################################
+
+def build(bld):
+	files = bld.read_file_list('lsaoprocess.waf_files')
+	
+	bld.CryPluginTool(
+		target = 'LSAOProcess',
+		source = files,
+		pch = 'stdAfx.cpp',
+		priority_includes = [ 
+			'DXSDK', 
+			bld.CreateRootRelativePath('Code/CryEngine/CryCommon'),
+			],
+		lib = [
+			'Ws2_32',
+			'D3D11',
+			'd3dx11',
+			'd3dcompiler',
+			'dxguid',
+			],
+		libpath = bld.CreateRootRelativePath('Code/Sandbox/Plugins/LSAOPlugin/LSAOProcess/DXSDK/lib64'),
+		#use = 'Editor',
+	)

@@ -1,0 +1,3876 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{b9417b18-0ac6-4ff2-a68c-cb9668e5cc6e}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Calendar">
+      <UniqueIdentifier>{d7e0e92c-0989-462d-94e2-14c5dcc78db3}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Chart">
+      <UniqueIdentifier>{957547c8-ce6f-4ab8-b4eb-d373c2f8bdd5}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Chart\Appearance">
+      <UniqueIdentifier>{3a94addc-fec0-40f1-b8a5-c31e4ee100ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Drawing">
+      <UniqueIdentifier>{4a8e2c6f-2f65-46a4-b69c-9a04bdb88c44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Types">
+      <UniqueIdentifier>{f456d152-35f0-40c0-8f60-93a0da92ed34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Utils">
+      <UniqueIdentifier>{466916c4-5477-4fb1-9f37-7d2991e97424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Styles">
+      <UniqueIdentifier>{51f073d1-4c09-47fd-aa02-8080f3758396}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Styles\Pie">
+      <UniqueIdentifier>{572b166c-adcf-4599-b7f2-fa73e61e2078}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Styles\Point">
+      <UniqueIdentifier>{7ccae1cb-c3b3-4bc4-b3e5-8b3c9faf79d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Styles\Bar">
+      <UniqueIdentifier>{a563f56c-0a3a-4d22-aef0-e929fa3ebfb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Styles\Area">
+      <UniqueIdentifier>{e7774d30-c668-4348-b859-04c1d32df211}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Styles\Financial">
+      <UniqueIdentifier>{b67ac8ca-17e3-4099-aaf7-5eb84247d6ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Styles\Line">
+      <UniqueIdentifier>{8ac3cb3b-3fce-445c-94da-4a8e87668eae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Styles\Funnel">
+      <UniqueIdentifier>{7406002e-3bb6-4ca5-afbf-5d3babd773c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Styles\Pyramid">
+      <UniqueIdentifier>{8f13139a-c98d-40aa-9d02-8bbe77ca5120}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Styles\Range">
+      <UniqueIdentifier>{ecf974f2-2809-4559-b196-64ed4fb546b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Styles\Radar">
+      <UniqueIdentifier>{f00087f8-ed46-4fb2-b0ab-186a23115c4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Diagram">
+      <UniqueIdentifier>{5b1ab96e-6386-4051-90ec-4caf435549ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Diagram\Axis">
+      <UniqueIdentifier>{2e2b5dfa-df3c-4941-8c22-bb22932e6c24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Diagram\Diagram2D">
+      <UniqueIdentifier>{6be97388-73ab-443f-881d-ee5308fe1702}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Chart\Diagram\RadarDiagram">
+      <UniqueIdentifier>{2a56a7f3-e7e0-4156-bd64-23025735415a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\CommandBars">
+      <UniqueIdentifier>{7b9b9972-86e8-4ffd-a1ca-2d1ffe5cf927}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Common">
+      <UniqueIdentifier>{c4749bcc-61cb-4144-8997-00cbe24ee1ae}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Common\Base">
+      <UniqueIdentifier>{5468356d-5dd2-468c-b5a4-4741ef2482a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Common\Base\Base/Types">
+      <UniqueIdentifier>{cd156b2c-bbdc-4b7e-9ba8-1701229df1c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Controls">
+      <UniqueIdentifier>{d9871858-c6a0-4f8f-9e0e-8c8b56797a81}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Button">
+      <UniqueIdentifier>{6179fbaa-1a0e-43b6-afb2-346ded0cb476}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Combo">
+      <UniqueIdentifier>{c99e329e-f31a-4538-a763-5cd73155c71e}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Dialog">
+      <UniqueIdentifier>{27be0e4e-a276-47c4-b00f-0ecfd930a935}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Edit">
+      <UniqueIdentifier>{db233fc7-93d9-4295-8b61-3ceca638719a}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Header">
+      <UniqueIdentifier>{2dc1458d-f8f2-4c23-a80a-5f9a2cbf2dbf}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\List">
+      <UniqueIdentifier>{28e22246-90f5-4b1a-b352-be0f3dceafdc}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\ListBox">
+      <UniqueIdentifier>{e42a5847-4432-4141-9015-f239a7297e6c}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Popup">
+      <UniqueIdentifier>{9737adf8-1ddf-4ffb-a58d-aa4665e1221b}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Progress">
+      <UniqueIdentifier>{c9c536b2-b1c7-43f3-935b-7d9d5a92d7fb}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Resize">
+      <UniqueIdentifier>{05b57a53-03fd-42e2-963f-70d866773225}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Scroll">
+      <UniqueIdentifier>{9544abe6-981c-4afd-98d1-30e6dfd6b6a4}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Shell">
+      <UniqueIdentifier>{dfdde9db-862b-4b61-bdf2-04a567bce8a3}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Spin">
+      <UniqueIdentifier>{43d53d2f-10ce-4529-9d07-9818117ec735}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Splitter">
+      <UniqueIdentifier>{91f790f7-d6e9-43b2-814d-cf76469ac731}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Static">
+      <UniqueIdentifier>{616b4952-4de1-4142-b209-452efa32c465}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Tab">
+      <UniqueIdentifier>{5963db01-7243-4cc1-bd12-f9133f1cb73d}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Tree">
+      <UniqueIdentifier>{fa0cf8f6-ee67-4aee-ae60-99d7aa6cd40e}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Util">
+      <UniqueIdentifier>{de63a28f-4572-4dbc-9b33-bf0bb8b96e14}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Controls\Deprecated">
+      <UniqueIdentifier>{9ae3b81b-cbfb-4eab-89aa-180559d00570}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Controls\View">
+      <UniqueIdentifier>{38e0eab0-0984-4596-b3cf-b20b99c0ed08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Controls\CoreTree">
+      <UniqueIdentifier>{8a8bdeb2-3adb-48ea-b2d8-818bf3b0f4aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DockingPane">
+      <UniqueIdentifier>{4bd54ce0-107d-4e8c-a9d9-920c781c808d}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\FlowGraph">
+      <UniqueIdentifier>{aacc22f4-5030-4741-a443-dcfeea84eed4}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\GraphicLibrary">
+      <UniqueIdentifier>{d906dfad-3f54-4598-b70a-d1cdc1330d15}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\GraphicLibrary\zlib">
+      <UniqueIdentifier>{9e7e20f2-dfe3-472c-8286-68f505d82900}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\GraphicLibrary\libpng">
+      <UniqueIdentifier>{809d8977-86f8-4be6-aeb0-0db98398beca}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Markup">
+      <UniqueIdentifier>{a785708b-29a3-4ff6-8243-f9fcecdec783}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\Markup\Objects">
+      <UniqueIdentifier>{61bf72c7-7ee2-4011-a5ce-7b5c34f3167c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Markup\Grid">
+      <UniqueIdentifier>{e6c2d819-2f18-4fc6-be93-b1c56992474d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Markup\Transform">
+      <UniqueIdentifier>{925faa23-5eed-4ff6-8666-32ccd1927d65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Markup\Text">
+      <UniqueIdentifier>{d8e723b0-21a2-4d6e-8109-68eb20fe7c29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Markup\Path">
+      <UniqueIdentifier>{b9c0b5c0-c230-4a77-ab1e-241dfc409419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\PropertyGrid">
+      <UniqueIdentifier>{29053b06-c3ad-40b4-8a3d-c96a882bbd13}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\ReportControl">
+      <UniqueIdentifier>{10be3ce8-c036-42c6-9537-496a62607952}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\ReportControl\TrackControl">
+      <UniqueIdentifier>{e70da5bc-0fcb-4629-a667-232d6ffa4a63}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\ReportControl\ItemTypes">
+      <UniqueIdentifier>{e4c16949-2a5e-459d-ab49-ee29e9c1e963}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\ReportControl\Behavior">
+      <UniqueIdentifier>{beb10987-28bc-4ff3-9cd7-076d426ef3d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\ReportControl\Inplace">
+      <UniqueIdentifier>{caed5957-d411-4360-9db5-0422dd372ae2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Ribbon">
+      <UniqueIdentifier>{82f9b9ba-4037-474d-815a-36cc258a1fd1}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\ShortcutBar">
+      <UniqueIdentifier>{b2f109eb-71ab-449a-841e-5ef6218c7620}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\SkinFramework">
+      <UniqueIdentifier>{5fc5f63a-3608-47a9-b820-8405a8ad3e02}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\SyntaxEdit">
+      <UniqueIdentifier>{24a676b2-1338-497d-bd54-7ec266ef8c5f}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\TabManager">
+      <UniqueIdentifier>{dc082707-a967-4be7-842f-bb6578a3af1e}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+    <Filter Include="Source\TaskPanel">
+      <UniqueIdentifier>{18f55221-9805-45e5-b305-a32900e5e637}</UniqueIdentifier>
+      <Extensions>cpp;c;h;hpp;rc;rc2;inl;</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ToolkitPro.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarCaptionBarControl.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarControl.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarController.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarControlView.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarCustomDataProvider.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarCustomProperties.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarData.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarDatabaseDataProvider.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarDayView.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarDayViewDay.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarDayViewEvent.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarDayViewTimeScale.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarEvent.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarEventLabel.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarEventPropertiesDlg.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarEventRecurrenceDlg.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarEvents.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarMAPIDataProvider.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarMAPIWrapper.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarMemoryDataProvider.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarMonthView.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarMonthViewDay.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarMonthViewEvent.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarMsgNotifier.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarOccurSeriesChooseDlg.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarOptions.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarPaintManager.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarRecurrencePattern.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarRemindersDialog.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarRemindersManager.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarResource.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarResourcesManager.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarTheme.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarThemeOffice2007.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarTimeLineView.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarTimeLineViewGroup.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarTimeLineViewTimeScale.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarTimeZoneHelper.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarTip.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarUtils.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarView.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarViewDay.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarViewEvent.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarViewPart.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarWeekView.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarWeekViewDay.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPCalendarWeekViewEvent.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPDatePickerControl.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPDatePickerDaysCollection.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPDatePickerItemDay.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPDatePickerItemMonth.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPDatePickerList.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Calendar\XTPDatePickerPaintManager.cpp">
+      <Filter>Source\Calendar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartContent.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartContentView.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartControl.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartDiagram.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartElement.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartElementView.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartLegend.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartLegendItem.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartLegendView.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartPanel.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartSeries.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartSeriesLabel.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartSeriesLabelView.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartSeriesPoint.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartSeriesPointView.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartSeriesStyle.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartSeriesView.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartTitle.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\XTPChartTitleView.cpp">
+      <Filter>Source\Chart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Appearance\XTPChartAppearance.cpp">
+      <Filter>Source\Chart\Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Appearance\XTPChartBorder.cpp">
+      <Filter>Source\Chart\Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Appearance\XTPChartFillStyle.cpp">
+      <Filter>Source\Chart\Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Appearance\XTPChartLineStyle.cpp">
+      <Filter>Source\Chart\Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Appearance\XTPChartPalette.cpp">
+      <Filter>Source\Chart\Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Drawing\XTPChartCircleDeviceCommand.cpp">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Drawing\XTPChartDeviceCommand.cpp">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Drawing\XTPChartDeviceContext.cpp">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Drawing\XTPChartDrawThread.cpp">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Drawing\XTPChartLineDeviceCommand.cpp">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Drawing\XTPChartPieDeviceCommand.cpp">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Drawing\XTPChartPolygonDeviceCommand.cpp">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Drawing\XTPChartRectangleDeviceCommand.cpp">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Drawing\XTPChartTextDeviceCommand.cpp">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Drawing\XTPChartTransformationDeviceCommand.cpp">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Types\XTPChartPie.cpp">
+      <Filter>Source\Chart\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Types\XTPChartTypes.cpp">
+      <Filter>Source\Chart\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Utils\XTPChartNumberFormat.cpp">
+      <Filter>Source\Chart\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Utils\XTPChartTextPainter.cpp">
+      <Filter>Source\Chart\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Pie\XTPChartPieDiagram.cpp">
+      <Filter>Source\Chart\Styles\Pie</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Pie\XTPChartPieSeriesLabel.cpp">
+      <Filter>Source\Chart\Styles\Pie</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Pie\XTPChartPieSeriesPointView.cpp">
+      <Filter>Source\Chart\Styles\Pie</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Pie\XTPChartPieSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Pie</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Pie\XTPChartPieSeriesView.cpp">
+      <Filter>Source\Chart\Styles\Pie</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Point\XTPChartBubbleSeriesLabel.cpp">
+      <Filter>Source\Chart\Styles\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Point\XTPChartBubbleSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Point\XTPChartMarker.cpp">
+      <Filter>Source\Chart\Styles\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Point\XTPChartPointSeriesLabel.cpp">
+      <Filter>Source\Chart\Styles\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Point\XTPChartPointSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Bar\XTPChartBarSeriesLabel.cpp">
+      <Filter>Source\Chart\Styles\Bar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Bar\XTPChartBarSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Bar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Bar\XTPChartStackedBarSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Bar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Area\XTPChartAreaSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Area\XTPChartRangeAreaSeriesLabel.cpp">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Area\XTPChartRangeSplineAreaSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Area\XTPChartSplineAreaSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Area\XTPChartStackedAreaSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Area\XTPChartStackedSplineAreaSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Area\XTPChartStepAreaSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Financial\XTPChartCandleStickSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Financial</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Financial\XTPChartHighLowSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Financial</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Line\XTPChartFastLineSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Line\XTPChartLineSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Line\XTPChartScatterLineSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Line\XTPChartSplineSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Line\XTPChartStepLineSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Funnel\XTPChartFunnelDiagram.cpp">
+      <Filter>Source\Chart\Styles\Funnel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Funnel\XTPChartFunnelSeriesLabel.cpp">
+      <Filter>Source\Chart\Styles\Funnel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Funnel\XTPChartFunnelSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Funnel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Pyramid\XTPChartPyramidDiagram.cpp">
+      <Filter>Source\Chart\Styles\Pyramid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Pyramid\XTPChartPyramidSeriesLabel.cpp">
+      <Filter>Source\Chart\Styles\Pyramid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Pyramid\XTPChartPyramidSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Pyramid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Range\XTPChartGanttSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Range</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Range\XTPChartRangeBarSeriesLabel.cpp">
+      <Filter>Source\Chart\Styles\Range</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Range\XTPChartRangeBarSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Range</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarAreaSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarAreaSeriesView.cpp">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarLineSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarLineSeriesView.cpp">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarPointSeriesLabel.cpp">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarPointSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarPointSeriesView.cpp">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarSplineAreaSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarSplineSeriesStyle.cpp">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxis.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisConstantLines.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisCustomLabels.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisGridLines.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisLabel.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisRange.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisStrips.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisTickMarks.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisTitle.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisView.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartRadarAxis.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartRadarAxisXView.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartRadarAxisYView.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Axis\XTPChartScaleTypeMap.cpp">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Diagram2D\XTPChartDiagram2D.cpp">
+      <Filter>Source\Chart\Diagram\Diagram2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Diagram2D\XTPChartDiagram2DPane.cpp">
+      <Filter>Source\Chart\Diagram\Diagram2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Diagram2D\XTPChartDiagram2DSeriesLabel.cpp">
+      <Filter>Source\Chart\Diagram\Diagram2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Diagram2D\XTPChartDiagram2DSeriesStyle.cpp">
+      <Filter>Source\Chart\Diagram\Diagram2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Diagram2D\XTPChartDiagram2DSeriesView.cpp">
+      <Filter>Source\Chart\Diagram\Diagram2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\Diagram2D\XTPChartDiagram2DView.cpp">
+      <Filter>Source\Chart\Diagram\Diagram2D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\RadarDiagram\XTPChartRadarDiagram.cpp">
+      <Filter>Source\Chart\Diagram\RadarDiagram</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\RadarDiagram\XTPChartRadarDiagramSeriesStyle.cpp">
+      <Filter>Source\Chart\Diagram\RadarDiagram</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\RadarDiagram\XTPChartRadarDiagramSeriesView.cpp">
+      <Filter>Source\Chart\Diagram\RadarDiagram</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Chart\Diagram\RadarDiagram\XTPChartRadarDiagramView.cpp">
+      <Filter>Source\Chart\Diagram\RadarDiagram</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPCommandBar.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPCommandBarAnimation.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPCommandBars.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPCommandBarsFrameHook.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControl.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControlButton.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControlComboBox.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControlComboBoxExt.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControlCustom.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControlEdit.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControlExt.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControlGallery.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControlListBox.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControlPopup.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControlPopupColor.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControlProgress.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControls.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControlScrollBar.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPControlSlider.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPCustomizeCommandsPage.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPCustomizeKeyboardPage.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPCustomizeMenusPage.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPCustomizeOptionsPage.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPCustomizeSheet.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPCustomizeToolbarsPage.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPCustomizeTools.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPDefaultTheme.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPDialogBar.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPDockBar.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPDockContext.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPDockState.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPFrameWnd.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPGalleryListBox.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPImageEditor.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPKeyboardManager.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPMenuBar.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPMessageBar.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPMiniToolBar.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPMouseManager.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPNativeXPTheme.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPOffice2003Theme.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPOfficeTheme.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPPaintManager.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPPopupBar.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPPreviewView.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPReBar.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPRecentFileList.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPResourceTheme.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPScrollBase.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPShortcutManager.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPStatusBar.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPTabClientWnd.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPTabToolBar.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CommandBars\XTPToolBar.cpp">
+      <Filter>Source\CommandBars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPColorManager.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPDrawHelpers.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPHookManager.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPImageManager.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPMarkupRender.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPMathUtils.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPNotifyConnection.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPNumberFormat.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPPropExchange.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPResourceImage.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPResourceManager.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPRichRender.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPSystemHelpers.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPToolTipContext.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\XTPWinThemeWrapper.cpp">
+      <Filter>Source\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\Base\Types\XTPPoint2.cpp">
+      <Filter>Source\Common\Base\Base/Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Common\Base\Types\XTPPoint3.cpp">
+      <Filter>Source\Common\Base\Base/Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Button\XTPButton.cpp">
+      <Filter>Source\Controls\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Button\XTPButtonTheme.cpp">
+      <Filter>Source\Controls\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Button\XTPColorPicker.cpp">
+      <Filter>Source\Controls\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Combo\XTPComboBox.cpp">
+      <Filter>Source\Controls\Combo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Combo\XTPFontComboBox.cpp">
+      <Filter>Source\Controls\Combo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPBrowseDialog.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPColorDialog.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPColorPageCustom.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPColorPageStandard.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPPropertyPage.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPPropertyPageNavigator.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPPropertySheet.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPTaskDialog.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPTaskDialogAPI.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPTaskDialogClient.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPTaskDialogControls.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPTaskDialogFrame.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPTipOfTheDay.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Dialog\XTPWindowList.cpp">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Edit\XTPBrowseEdit.cpp">
+      <Filter>Source\Controls\Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Edit\XTPEdit.cpp">
+      <Filter>Source\Controls\Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Edit\XTPHexEdit.cpp">
+      <Filter>Source\Controls\Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Edit\XTPMaskEdit.cpp">
+      <Filter>Source\Controls\Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Header\XTPHeaderCtrl.cpp">
+      <Filter>Source\Controls\Header</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Header\XTPHeaderCtrlTheme.cpp">
+      <Filter>Source\Controls\Header</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\List\XTPListBase.cpp">
+      <Filter>Source\Controls\List</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\List\XTPListCtrlView.cpp">
+      <Filter>Source\Controls\List</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\List\XTPSortClass.cpp">
+      <Filter>Source\Controls\List</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\ListBox\XTPCheckListBox.cpp">
+      <Filter>Source\Controls\ListBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\ListBox\XTPEditListBox.cpp">
+      <Filter>Source\Controls\ListBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\ListBox\XTPListBox.cpp">
+      <Filter>Source\Controls\ListBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\ListBox\XTPMarkupListBox.cpp">
+      <Filter>Source\Controls\ListBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\ListBox\XTPShortcutListBox.cpp">
+      <Filter>Source\Controls\ListBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\ListBox\XTPShortcutListBoxTheme.cpp">
+      <Filter>Source\Controls\ListBox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Popup\XTPColorPopup.cpp">
+      <Filter>Source\Controls\Popup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Popup\XTPColorSelectorCtrl.cpp">
+      <Filter>Source\Controls\Popup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Popup\XTPPopupControl.cpp">
+      <Filter>Source\Controls\Popup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Popup\XTPPopupItem.cpp">
+      <Filter>Source\Controls\Popup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Popup\XTPPopupPaintManager.cpp">
+      <Filter>Source\Controls\Popup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Popup\XTPTipWindow.cpp">
+      <Filter>Source\Controls\Popup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Progress\XTPMarqueeCtrl.cpp">
+      <Filter>Source\Controls\Progress</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Progress\XTPProgressCtrl.cpp">
+      <Filter>Source\Controls\Progress</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Resize\XTPResize.cpp">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Resize\XTPResizeDialog.cpp">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Resize\XTPResizeFormView.cpp">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Resize\XTPResizeGroupBox.cpp">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Resize\XTPResizePoint.cpp">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Resize\XTPResizePropertyPage.cpp">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Resize\XTPResizePropertySheet.cpp">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Resize\XTPResizeRect.cpp">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Scroll\XTPPageScroller.cpp">
+      <Filter>Source\Controls\Scroll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Scroll\XTPScrollBar.cpp">
+      <Filter>Source\Controls\Scroll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Shell\XTPDirWatcher.cpp">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Shell\XTPDropSource.cpp">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Shell\XTPShellListBase.cpp">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Shell\XTPShellListCtrlView.cpp">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Shell\XTPShellPidl.cpp">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Shell\XTPShellSettings.cpp">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Shell\XTPShellTreeBase.cpp">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Shell\XTPShellTreeCtrlView.cpp">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Shell\XTPTaskbarManager.cpp">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Shell\XTPTrayIcon.cpp">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Spin\XTPSpinButtonCtrl.cpp">
+      <Filter>Source\Controls\Spin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Splitter\XTPSplitterWnd.cpp">
+      <Filter>Source\Controls\Splitter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Splitter\XTPSplitterWndTheme.cpp">
+      <Filter>Source\Controls\Splitter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Static\XTPCaption.cpp">
+      <Filter>Source\Controls\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Static\XTPCaptionPopupWnd.cpp">
+      <Filter>Source\Controls\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Static\XTPCaptionTheme.cpp">
+      <Filter>Source\Controls\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Static\XTPHyperLink.cpp">
+      <Filter>Source\Controls\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Static\XTPMarkupStatic.cpp">
+      <Filter>Source\Controls\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Static\XTPSearchOptionsCtrl.cpp">
+      <Filter>Source\Controls\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Tab\XTPExcelTabCtrl.cpp">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Tab\XTPExcelTabCtrlTheme.cpp">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Tab\XTPMDIWndTab.cpp">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Tab\XTPTabBase.cpp">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Tab\XTPTabBaseTheme.cpp">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Tab\XTPTabCtrl.cpp">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Tab\XTPTabCtrlButtons.cpp">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Tab\XTPTabView.cpp">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Tree\XTPMarkupTreeCtrl.cpp">
+      <Filter>Source\Controls\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Tree\XTPTreeBase.cpp">
+      <Filter>Source\Controls\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Tree\XTPTreeCtrlView.cpp">
+      <Filter>Source\Controls\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Util\XTPAnimationDC.cpp">
+      <Filter>Source\Controls\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Util\XTPControlTheme.cpp">
+      <Filter>Source\Controls\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Util\XTPFunctions.cpp">
+      <Filter>Source\Controls\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Util\XTPGlobal.cpp">
+      <Filter>Source\Controls\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Util\XTPMemFile.cpp">
+      <Filter>Source\Controls\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Util\XTPRegistryManager.cpp">
+      <Filter>Source\Controls\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Util\XTPUtil.cpp">
+      <Filter>Source\Controls\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Util\XTPWindowPos.cpp">
+      <Filter>Source\Controls\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Deprecated\XTButton.cpp">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Deprecated\XTButtonTheme.cpp">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Deprecated\XTColorRef.cpp">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Deprecated\XTComboBoxEx.cpp">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Deprecated\XTDateTimeCtrl.cpp">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Deprecated\XTFlatComboBox.cpp">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Deprecated\XTFlatControlsTheme.cpp">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Deprecated\XTHtmlView.cpp">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Deprecated\XTMemDC.cpp">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Deprecated\XTOutBarCtrl.cpp">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Deprecated\XTOutBarCtrlTheme.cpp">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Deprecated\XTThemeManager.cpp">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\Deprecated\XTVC50Helpers.cpp">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\View\XTPMarkupView.cpp">
+      <Filter>Source\Controls\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\CoreTree\XTPCoreTreeControl.cpp">
+      <Filter>Source\Controls\CoreTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\CoreTree\XTPCoreTreeItem.cpp">
+      <Filter>Source\Controls\CoreTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Controls\CoreTree\XTPCoreTreePaintManager.cpp">
+      <Filter>Source\Controls\CoreTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DockingPane\XTPDockingPane.cpp">
+      <Filter>Source\DockingPane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DockingPane\XTPDockingPaneAutoHidePanel.cpp">
+      <Filter>Source\DockingPane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DockingPane\XTPDockingPaneBase.cpp">
+      <Filter>Source\DockingPane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DockingPane\XTPDockingPaneBaseContainer.cpp">
+      <Filter>Source\DockingPane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DockingPane\XTPDockingPaneContext.cpp">
+      <Filter>Source\DockingPane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DockingPane\XTPDockingPaneKeyboardHook.cpp">
+      <Filter>Source\DockingPane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DockingPane\XTPDockingPaneLayout.cpp">
+      <Filter>Source\DockingPane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DockingPane\XTPDockingPaneManager.cpp">
+      <Filter>Source\DockingPane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DockingPane\XTPDockingPaneMiniWnd.cpp">
+      <Filter>Source\DockingPane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DockingPane\XTPDockingPanePaintManager.cpp">
+      <Filter>Source\DockingPane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DockingPane\XTPDockingPaneSidePanel.cpp">
+      <Filter>Source\DockingPane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DockingPane\XTPDockingPaneSplitterContainer.cpp">
+      <Filter>Source\DockingPane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DockingPane\XTPDockingPaneTabbedContainer.cpp">
+      <Filter>Source\DockingPane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphConnection.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphConnectionPoint.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphConnectionPoints.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphConnections.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphControl.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphDrawContext.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphDrawContextGdiPlus.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphEditItem.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphElement.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphImage.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphMetallicTheme.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphNode.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphNodeGroup.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphNodeGroups.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphNodes.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphPage.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphPageHistory.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphPages.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphPaintManager.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphSelectedElements.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FlowGraph\XTPFlowGraphUndoManager.cpp">
+      <Filter>Source\FlowGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\XTPGraphicBitmapPng.cpp">
+      <Filter>Source\GraphicLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\zlib\adler32.c">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\zlib\compress.c">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\zlib\crc32.c">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\zlib\deflate.c">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\zlib\gzio.c">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\zlib\infback.c">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\zlib\inffast.c">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\zlib\inflate.c">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\zlib\inftrees.c">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\zlib\trees.c">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\zlib\uncompr.c">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\zlib\zutil.c">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\png.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngerror.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngget.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngmem.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngpread.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngread.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngrio.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngrtran.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngrutil.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngset.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngtrans.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngwio.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngwrite.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngwtran.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\GraphicLibrary\libpng\pngwutil.c">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupBorder.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupBuilder.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupButton.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupCanvas.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupContext.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupControl.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupDecorator.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupDeviceContext.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupDrawingContext.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupFrameworkElement.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupGrid.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupImage.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupInputElement.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupKeyboardNavigation.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupObject.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupPage.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupPanel.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupParser.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupResourceDictionary.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupScrollViewer.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupShape.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupStackPanel.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupTextBlock.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupThickness.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\XTPMarkupUIElement.cpp">
+      <Filter>Source\Markup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Objects\XTPMarkupBrush.cpp">
+      <Filter>Source\Markup\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Objects\XTPMarkupGradientStop.cpp">
+      <Filter>Source\Markup\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Objects\XTPMarkupLinearGradientBrush.cpp">
+      <Filter>Source\Markup\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Objects\XTPMarkupPoint.cpp">
+      <Filter>Source\Markup\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Objects\XTPMarkupSolidColorBrush.cpp">
+      <Filter>Source\Markup\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Grid\XTPMarkupColumnDefinition.cpp">
+      <Filter>Source\Markup\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Grid\XTPMarkupDefinitionBase.cpp">
+      <Filter>Source\Markup\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Grid\XTPMarkupDefinitionCollection.cpp">
+      <Filter>Source\Markup\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Grid\XTPMarkupGridLength.cpp">
+      <Filter>Source\Markup\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Grid\XTPMarkupRowDefinition.cpp">
+      <Filter>Source\Markup\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Transform\XTPMarkupRenderTransform.cpp">
+      <Filter>Source\Markup\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Transform\XTPMarkupRotateTransform.cpp">
+      <Filter>Source\Markup\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Text\XTPMarkupInline.cpp">
+      <Filter>Source\Markup\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Text\XTPMarkupRun.cpp">
+      <Filter>Source\Markup\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Path\XTPMarkupPath.cpp">
+      <Filter>Source\Markup\Path</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Path\XTPMarkupPathData.cpp">
+      <Filter>Source\Markup\Path</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Path\XTPMarkupPathGeometry.cpp">
+      <Filter>Source\Markup\Path</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Path\XTPMarkupPathGeometryBuilder.cpp">
+      <Filter>Source\Markup\Path</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Markup\Path\XTPMarkupPathGeometryFigures.cpp">
+      <Filter>Source\Markup\Path</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGrid.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGridInplaceButton.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGridInplaceEdit.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGridInplaceList.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGridItem.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGridItemBool.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGridItemColor.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGridItemExt.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGridItemFont.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGridItemNumber.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGridItemOption.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGridItemSize.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGridPaintManager.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PropertyGrid\XTPPropertyGridView.cpp">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportBorder.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportColumn.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportColumns.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportControl.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportControlLocale.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportDataManager.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportDeprecated.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportDragDrop.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportFilterEditControl.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportGroupRow.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportHeader.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportHitTestInfo.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportHyperlink.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportIconNavigator.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportNavigator.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportPageSetupDialog.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportPaintManager.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportRecord.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportRecordItem.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportRecordItemControls.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportRecordItemRange.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportRecords.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportRow.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportRows.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportSection.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportSections.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportSelectedRows.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportSubListControl.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportThickness.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportTip.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportView.cpp">
+      <Filter>Source\ReportControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\TrackControl\XTPTrackBlock.cpp">
+      <Filter>Source\ReportControl\TrackControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\TrackControl\XTPTrackControl.cpp">
+      <Filter>Source\ReportControl\TrackControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\TrackControl\XTPTrackControlItem.cpp">
+      <Filter>Source\ReportControl\TrackControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\TrackControl\XTPTrackHeader.cpp">
+      <Filter>Source\ReportControl\TrackControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\TrackControl\XTPTrackPaintManager.cpp">
+      <Filter>Source\ReportControl\TrackControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\TrackControl\XTPTrackUndoManager.cpp">
+      <Filter>Source\ReportControl\TrackControl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportRecordItemConstraint.cpp">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\ItemTypes\XTPReportRecordItemDateTime.cpp">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportRecordItemEditOptions.cpp">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\ItemTypes\XTPReportRecordItemIcon.cpp">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\ItemTypes\XTPReportRecordItemNumber.cpp">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\ItemTypes\XTPReportRecordItemPreview.cpp">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\ItemTypes\XTPReportRecordItemText.cpp">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\ItemTypes\XTPReportRecordItemVariant.cpp">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\Behavior\XTPReportBehavior.cpp">
+      <Filter>Source\ReportControl\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\Behavior\XTPReportBehaviorRowModifier.cpp">
+      <Filter>Source\ReportControl\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\Behavior\XTPReportBehaviorRowMouse.cpp">
+      <Filter>Source\ReportControl\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\Behavior\XTPReportBehaviorRowMouseButton.cpp">
+      <Filter>Source\ReportControl\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\Behavior\XTPReportBehaviorSchemeOutlook.cpp">
+      <Filter>Source\ReportControl\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportInplaceControls.cpp">
+      <Filter>Source\ReportControl\Inplace</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReportControl\XTPReportInplaceEdit.cpp">
+      <Filter>Source\ReportControl\Inplace</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonBackstageControls.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonBackstagePage.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonBackstageView.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonBar.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonBuilder.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonControlTab.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonCustomizePage.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonCustomizeQuickAccessPage.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonGroup.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonGroups.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonPaintManager.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonPopups.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonQuickAccessControls.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonSystemButton.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonSystemTheme.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonTab.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ribbon\XTPRibbonTheme.cpp">
+      <Filter>Source\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ShortcutBar\XTPShortcutBar.cpp">
+      <Filter>Source\ShortcutBar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ShortcutBar\XTPShortcutBarAnimation.cpp">
+      <Filter>Source\ShortcutBar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ShortcutBar\XTPShortcutBarPaintManager.cpp">
+      <Filter>Source\ShortcutBar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ShortcutBar\XTPShortcutBarPane.cpp">
+      <Filter>Source\ShortcutBar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ShortcutBar\XTPShortcutBarPopup.cpp">
+      <Filter>Source\ShortcutBar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinDrawTools.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinImage.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinManager.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinManagerApiHook.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinManagerColorFilter.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinManagerModuleList.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinManagerResource.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinManagerSchema.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObject.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectButton.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectComboBox.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectEdit.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectFrame.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectHeader.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectListBox.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectListView.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectMDI.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectMenu.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectProgress.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectScrollBar.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectSpin.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectStatusBar.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectTab.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectToolBar.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectTrackBar.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SkinFramework\XTPSkinObjectTreeView.cpp">
+      <Filter>Source\SkinFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditAutoCompleteWnd.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditBufferManager.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditColorComboBox.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditColorSampleText.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditCtrl.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditDoc.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditDrawTextProcessor.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditFindReplaceDlg.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditGoToLineDlg.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditLexCfgFileReader.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditLexClass.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditLexColorFileReader.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditLexParser.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditLineMarksManager.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditPaintManager.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditPropertiesDlg.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditPropertiesPage.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditPropertiesPageColor.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditPropertiesPageEdit.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditPropertiesPageFont.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditSectionManager.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditSelection.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditStruct.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditTextIterator.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditTipWnd.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditToolTipCtrl.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditUndoManager.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SyntaxEdit\XTPSyntaxEditView.cpp">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TabManager\XTPTabControl.cpp">
+      <Filter>Source\TabManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TabManager\XTPTabManager.cpp">
+      <Filter>Source\TabManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TabManager\XTPTabPaintManager.cpp">
+      <Filter>Source\TabManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TabManager\XTPTabPaintManagerAppearance.cpp">
+      <Filter>Source\TabManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TabManager\XTPTabPaintManagerColors.cpp">
+      <Filter>Source\TabManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TaskPanel\XTPTaskPanel.cpp">
+      <Filter>Source\TaskPanel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TaskPanel\XTPTaskPanelAnimation.cpp">
+      <Filter>Source\TaskPanel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TaskPanel\XTPTaskPanelGroup.cpp">
+      <Filter>Source\TaskPanel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TaskPanel\XTPTaskPanelGroupItem.cpp">
+      <Filter>Source\TaskPanel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TaskPanel\XTPTaskPanelItem.cpp">
+      <Filter>Source\TaskPanel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TaskPanel\XTPTaskPanelItems.cpp">
+      <Filter>Source\TaskPanel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TaskPanel\XTPTaskPanelPaintManager.cpp">
+      <Filter>Source\TaskPanel</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarCaptionBarControl.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarControl.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarController.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarControlView.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarCustomDataProvider.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarCustomProperties.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarData.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarDatabaseDataProvider.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarDayView.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarDayViewDay.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarDayViewEvent.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarDayViewTimeScale.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarDefines.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarEvent.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarEventLabel.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarEventPropertiesDlg.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarEventRecurrenceDlg.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarEvents.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarMAPIDataProvider.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarMAPIWrapper.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarMemoryDataProvider.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarMonthView.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarMonthViewDay.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarMonthViewEvent.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarMsgNotifier.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarNotifications.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarOccurSeriesChooseDlg.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarOptions.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarPaintManager.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarPtrCollectionT.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarRecurrencePattern.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarRemindersDialog.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarRemindersManager.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarResource.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarResourcesManager.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarTheme.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarThemeOffice2007.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarTimeLineView.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarTimeLineViewGroup.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarTimeLineViewTimeScale.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarTimeZoneHelper.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarTip.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarUtils.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarView.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarViewDay.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarViewEvent.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarViewPart.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarWeekView.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarWeekViewDay.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPCalendarWeekViewEvent.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPDatePickerControl.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPDatePickerDaysCollection.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPDatePickerItemDay.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPDatePickerItemMonth.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPDatePickerList.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPDatePickerNotifications.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Calendar\XTPDatePickerPaintManager.h">
+      <Filter>Source\Calendar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartContent.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartContentView.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartControl.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartDefines.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartDiagram.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartDiagramView.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartElement.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartElementView.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartLegend.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartLegendItem.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartLegendView.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartPanel.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartSeries.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartSeriesLabel.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartSeriesPoint.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartSeriesPointView.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartSeriesStyle.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartSeriesView.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartTitle.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\XTPChartTitleView.h">
+      <Filter>Source\Chart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Appearance\XTPChartAppearance.h">
+      <Filter>Source\Chart\Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Appearance\XTPChartBorder.h">
+      <Filter>Source\Chart\Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Appearance\XTPChartFillStyle.h">
+      <Filter>Source\Chart\Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Appearance\XTPChartLineStyle.h">
+      <Filter>Source\Chart\Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Appearance\XTPChartPalette.h">
+      <Filter>Source\Chart\Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Drawing\XTPChartCircleDeviceCommand.h">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Drawing\XTPChartDeviceCommand.h">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Drawing\XTPChartDeviceContext.h">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Drawing\XTPChartDrawThread.h">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Drawing\XTPChartLineDeviceCommand.h">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Drawing\XTPChartPolygonDeviceCommand.h">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Drawing\XTPChartRectangleDeviceCommand.h">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Drawing\XTPChartTextDeviceCommand.h">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Drawing\XTPChartTransformationDeviceCommand.h">
+      <Filter>Source\Chart\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Types\XTPChartPie.h">
+      <Filter>Source\Chart\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Types\XTPChartTypes.h">
+      <Filter>Source\Chart\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Utils\XTPChartNumberFormat.h">
+      <Filter>Source\Chart\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Utils\XTPChartTextPainter.h">
+      <Filter>Source\Chart\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Pie\XTPChartPieDiagram.h">
+      <Filter>Source\Chart\Styles\Pie</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Pie\XTPChartPieDiagramView.h">
+      <Filter>Source\Chart\Styles\Pie</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Pie\XTPChartPieSeriesLabel.h">
+      <Filter>Source\Chart\Styles\Pie</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Pie\XTPChartPieSeriesPointView.h">
+      <Filter>Source\Chart\Styles\Pie</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Pie\XTPChartPieSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Pie</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Pie\XTPChartPieSeriesView.h">
+      <Filter>Source\Chart\Styles\Pie</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Point\XTPChartBubbleSeriesLabel.h">
+      <Filter>Source\Chart\Styles\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Point\XTPChartBubbleSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Point\XTPChartMarker.h">
+      <Filter>Source\Chart\Styles\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Point\XTPChartPointSeriesLabel.h">
+      <Filter>Source\Chart\Styles\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Point\XTPChartPointSeriesLabelView.h">
+      <Filter>Source\Chart\Styles\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Point\XTPChartPointSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Point\XTPChartPointSeriesView.h">
+      <Filter>Source\Chart\Styles\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Bar\XTPChartBarSeriesLabel.h">
+      <Filter>Source\Chart\Styles\Bar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Bar\XTPChartBarSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Bar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Bar\XTPChartBarSeriesView.h">
+      <Filter>Source\Chart\Styles\Bar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Bar\XTPChartStackedBarSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Bar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Area\XTPChartAreaSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Area\XTPChartAreaSeriesView.h">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Area\XTPChartRangeAreaSeriesLabel.h">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Area\XTPChartRangeSplineAreaSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Area\XTPChartSplineAreaSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Area\XTPChartStackedAreaSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Area\XTPChartStackedSplineAreaSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Area\XTPChartStepAreaSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Area</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Financial\XTPChartCandleStickSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Financial</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Financial\XTPChartHighLowSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Financial</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Line\XTPChartFastLineSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Line\XTPChartLineSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Line\XTPChartScatterLineSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Line\XTPChartSplineSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Line\XTPChartStepLineSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Funnel\XTPChartFunnelDiagram.h">
+      <Filter>Source\Chart\Styles\Funnel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Funnel\XTPChartFunnelSeriesLabel.h">
+      <Filter>Source\Chart\Styles\Funnel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Funnel\XTPChartFunnelSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Funnel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Funnel\XTPChartFunnelSeriesView.h">
+      <Filter>Source\Chart\Styles\Funnel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Pyramid\XTPChartPyramidDiagram.h">
+      <Filter>Source\Chart\Styles\Pyramid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Pyramid\XTPChartPyramidSeriesLabel.h">
+      <Filter>Source\Chart\Styles\Pyramid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Pyramid\XTPChartPyramidSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Pyramid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Range\XTPChartGanttSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Range</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Range\XTPChartRangeBarSeriesLabel.h">
+      <Filter>Source\Chart\Styles\Range</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Range\XTPChartRangeBarSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Range</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Range\XTPChartRangeBarSeriesView.h">
+      <Filter>Source\Chart\Styles\Range</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarAreaSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarAreaSeriesView.h">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarLineSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarLineSeriesView.h">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarPointSeriesLabel.h">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarPointSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarPointSeriesView.h">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarSplineAreaSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Styles\Radar\XTPChartRadarSplineSeriesStyle.h">
+      <Filter>Source\Chart\Styles\Radar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxis.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisConstantLines.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisCustomLabels.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisGridLines.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisLabel.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisRange.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisStrips.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisTickMarks.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisTitle.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartAxisView.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartRadarAxis.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartRadarAxisView.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartRadarAxisXView.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartRadarAxisYView.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Axis\XTPChartScaleTypeMap.h">
+      <Filter>Source\Chart\Diagram\Axis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Diagram2D\XTPChartDiagram2D.h">
+      <Filter>Source\Chart\Diagram\Diagram2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Diagram2D\XTPChartDiagram2DPane.h">
+      <Filter>Source\Chart\Diagram\Diagram2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Diagram2D\XTPChartDiagram2DSeriesLabel.h">
+      <Filter>Source\Chart\Diagram\Diagram2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Diagram2D\XTPChartDiagram2DSeriesStyle.h">
+      <Filter>Source\Chart\Diagram\Diagram2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Diagram2D\XTPChartDiagram2DSeriesView.h">
+      <Filter>Source\Chart\Diagram\Diagram2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\Diagram2D\XTPChartDiagram2DView.h">
+      <Filter>Source\Chart\Diagram\Diagram2D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\RadarDiagram\XTPChartRadarDiagram.h">
+      <Filter>Source\Chart\Diagram\RadarDiagram</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\RadarDiagram\XTPChartRadarDiagramSeriesStyle.h">
+      <Filter>Source\Chart\Diagram\RadarDiagram</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\RadarDiagram\XTPChartRadarDiagramSeriesView.h">
+      <Filter>Source\Chart\Diagram\RadarDiagram</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Chart\Diagram\RadarDiagram\XTPChartRadarDiagramView.h">
+      <Filter>Source\Chart\Diagram\RadarDiagram</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPCommandBar.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPCommandBarAnimation.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPCommandBars.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPCommandBarsDefines.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPCommandBarsFrameHook.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControl.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlButton.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlComboBox.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlComboBoxExt.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlComboBoxGalleryPopupBar.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlCustom.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlEdit.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlExt.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlGallery.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlListBox.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlPopup.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlPopupColor.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlProgress.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControls.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlScrollBar.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPControlSlider.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPCustomizeCommandsPage.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPCustomizeKeyboardPage.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPCustomizeMenusPage.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPCustomizeOptionsPage.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPCustomizeSheet.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPCustomizeToolbarsPage.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPCustomizeTools.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPDialogBar.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPDialogBase.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPDockBar.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPDockContext.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPDockState.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPFrameWnd.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPGalleryListBox.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPImageEditor.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPKeyboardManager.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPMenuBar.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPMessageBar.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPMiniToolBar.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPMouseManager.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPOffice2003Theme.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPPaintManager.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPPopupBar.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPPreviewView.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPReBar.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPRecentFileList.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPResourceTheme.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPScrollBase.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPShortcutManager.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPStatusBar.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPTabClientWnd.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPTabToolBar.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CommandBars\XTPToolBar.h">
+      <Filter>Source\CommandBars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPColorManager.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPCustomHeap.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPDLLExports.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPDrawHelpers.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPHookManager.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPImageManager.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPIntel80Helpers.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPMacros.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPMarkupRender.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPMaskEditT.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPMathUtils.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPNotifyConnection.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPNumberFormat.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPPropExchange.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPRegExp.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPResourceImage.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPResourceManager.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPRichRender.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPSmartPtrInternalT.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPSystemHelpers.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPToolTipContext.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPvc90Helpers.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPVersion.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPWinThemeWrapper.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\XTPXMLHelpers.h">
+      <Filter>Source\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\Base\Types\XTPPoint2.h">
+      <Filter>Source\Common\Base\Base/Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\Base\Types\XTPPoint3.h">
+      <Filter>Source\Common\Base\Base/Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\Base\Types\XTPRect.h">
+      <Filter>Source\Common\Base\Base/Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Common\Base\Types\XTPSize.h">
+      <Filter>Source\Common\Base\Base/Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Defines.h">
+      <Filter>Source\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Includes.h">
+      <Filter>Source\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Resource.h">
+      <Filter>Source\Controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Button\XTPButton.h">
+      <Filter>Source\Controls\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Button\XTPButtonTheme.h">
+      <Filter>Source\Controls\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Button\XTPColorPicker.h">
+      <Filter>Source\Controls\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Combo\XTPComboBox.h">
+      <Filter>Source\Controls\Combo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Combo\XTPFontComboBox.h">
+      <Filter>Source\Controls\Combo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPBrowseDialog.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPColorDialog.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPColorPageCustom.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPColorPageStandard.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPPropertyPage.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPPropertyPageNavigator.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPPropertySheet.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPTaskDialog.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPTaskDialogAPI.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPTaskDialogClient.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPTaskDialogControls.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPTaskDialogFrame.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPTipOfTheDay.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Dialog\XTPWindowList.h">
+      <Filter>Source\Controls\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Edit\XTPBrowseEdit.h">
+      <Filter>Source\Controls\Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Edit\XTPEdit.h">
+      <Filter>Source\Controls\Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Edit\XTPHexEdit.h">
+      <Filter>Source\Controls\Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Edit\XTPMaskEdit.h">
+      <Filter>Source\Controls\Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Header\XTPHeaderCtrl.h">
+      <Filter>Source\Controls\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Header\XTPHeaderCtrlTheme.h">
+      <Filter>Source\Controls\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\List\XTPListBase.h">
+      <Filter>Source\Controls\List</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\List\XTPListCtrlView.h">
+      <Filter>Source\Controls\List</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\List\XTPSortClass.h">
+      <Filter>Source\Controls\List</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\ListBox\XTPCheckListBox.h">
+      <Filter>Source\Controls\ListBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\ListBox\XTPEditListBox.h">
+      <Filter>Source\Controls\ListBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\ListBox\XTPListBox.h">
+      <Filter>Source\Controls\ListBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\ListBox\XTPMarkupListBox.h">
+      <Filter>Source\Controls\ListBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\ListBox\XTPShortcutListBox.h">
+      <Filter>Source\Controls\ListBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\ListBox\XTPShortcutListBoxTheme.h">
+      <Filter>Source\Controls\ListBox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Popup\XTPColorPopup.h">
+      <Filter>Source\Controls\Popup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Popup\XTPColorSelectorCtrl.h">
+      <Filter>Source\Controls\Popup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Popup\XTPPopupControl.h">
+      <Filter>Source\Controls\Popup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Popup\XTPPopupItem.h">
+      <Filter>Source\Controls\Popup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Popup\XTPPopupPaintManager.h">
+      <Filter>Source\Controls\Popup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Popup\XTPTipWindow.h">
+      <Filter>Source\Controls\Popup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Progress\XTPMarqueeCtrl.h">
+      <Filter>Source\Controls\Progress</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Progress\XTPProgressCtrl.h">
+      <Filter>Source\Controls\Progress</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Resize\XTPResize.h">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Resize\XTPResizeDialog.h">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Resize\XTPResizeFormView.h">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Resize\XTPResizeGroupBox.h">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Resize\XTPResizePoint.h">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Resize\XTPResizePropertyPage.h">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Resize\XTPResizePropertySheet.h">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Resize\XTPResizeRect.h">
+      <Filter>Source\Controls\Resize</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Scroll\XTPPageScroller.h">
+      <Filter>Source\Controls\Scroll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Scroll\XTPScrollBar.h">
+      <Filter>Source\Controls\Scroll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Shell\XTPDirWatcher.h">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Shell\XTPDropSource.h">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Shell\XTPShellListBase.h">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Shell\XTPShellListCtrlView.h">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Shell\XTPShellPidl.h">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Shell\XTPShellSettings.h">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Shell\XTPShellTreeBase.h">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Shell\XTPShellTreeCtrlView.h">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Shell\XTPTaskbarManager.h">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Shell\XTPTrayIcon.h">
+      <Filter>Source\Controls\Shell</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Spin\XTPSpinButtonCtrl.h">
+      <Filter>Source\Controls\Spin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Splitter\XTPSplitterWnd.h">
+      <Filter>Source\Controls\Splitter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Splitter\XTPSplitterWndTheme.h">
+      <Filter>Source\Controls\Splitter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Static\XTPCaption.h">
+      <Filter>Source\Controls\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Static\XTPCaptionPopupWnd.h">
+      <Filter>Source\Controls\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Static\XTPCaptionTheme.h">
+      <Filter>Source\Controls\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Static\XTPHyperLink.h">
+      <Filter>Source\Controls\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Static\XTPMarkupStatic.h">
+      <Filter>Source\Controls\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Static\XTPSearchOptionsCtrl.h">
+      <Filter>Source\Controls\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Tab\XTPExcelTabCtrl.h">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Tab\XTPExcelTabCtrlTheme.h">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Tab\XTPMDIWndTab.h">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Tab\XTPTabBase.h">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Tab\XTPTabBaseTheme.h">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Tab\XTPTabCtrl.h">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Tab\XTPTabCtrlButtons.h">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Tab\XTPTabView.h">
+      <Filter>Source\Controls\Tab</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Tree\XTPMarkupTreeCtrl.h">
+      <Filter>Source\Controls\Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Tree\XTPTreeBase.h">
+      <Filter>Source\Controls\Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Tree\XTPTreeCtrlView.h">
+      <Filter>Source\Controls\Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Util\XTPAnimationDC.h">
+      <Filter>Source\Controls\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Util\XTPControlTheme.h">
+      <Filter>Source\Controls\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Util\XTPFunctions.h">
+      <Filter>Source\Controls\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Util\XTPGlobal.h">
+      <Filter>Source\Controls\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Util\XTPHelpers.h">
+      <Filter>Source\Controls\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Util\XTPMemFile.h">
+      <Filter>Source\Controls\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Util\XTPRegistryManager.h">
+      <Filter>Source\Controls\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Util\XTPUtil.h">
+      <Filter>Source\Controls\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Util\XTPWindowPos.h">
+      <Filter>Source\Controls\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\Deprecated.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\XTButton.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\XTButtonTheme.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\XTColorRef.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\XTComboBoxEx.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\XTDateTimeCtrl.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\XTFlatComboBox.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\XTFlatControlsTheme.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\XTHtmlView.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\XTMemDC.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\XTOutBarCtrl.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\XTOutBarCtrlTheme.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\XTThemeManager.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\Deprecated\XTVC50Helpers.h">
+      <Filter>Source\Controls\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\View\XTPMarkupView.h">
+      <Filter>Source\Controls\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\CoreTree\XTPCoreTreeControl.h">
+      <Filter>Source\Controls\CoreTree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\CoreTree\XTPCoreTreeItem.h">
+      <Filter>Source\Controls\CoreTree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Controls\CoreTree\XTPCoreTreePaintManager.h">
+      <Filter>Source\Controls\CoreTree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPane.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPaneAutoHidePanel.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPaneBase.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPaneBaseContainer.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPaneContext.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPaneDefines.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPaneKeyboardHook.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPaneLayout.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPaneManager.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPaneMiniWnd.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPanePaintManager.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPaneSidePanel.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPaneSplitterContainer.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DockingPane\XTPDockingPaneTabbedContainer.h">
+      <Filter>Source\DockingPane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphConnection.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphConnectionPoint.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphConnectionPoints.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphConnections.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphControl.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphDrawContext.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphDrawContextGdiPlus.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphEditItem.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphElement.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphImage.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphMessages.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphMetallicTheme.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphNode.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphNodeGroup.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphNodeGroups.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphNodes.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphPage.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphPageHistory.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphPages.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphPaintManager.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphSelectedElements.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphTools.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\FlowGraph\XTPFlowGraphUndoManager.h">
+      <Filter>Source\FlowGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GraphicLibrary\XTPGraphicBitmapPng.h">
+      <Filter>Source\GraphicLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GraphicLibrary\zlib\crc32.h">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GraphicLibrary\zlib\deflate.h">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GraphicLibrary\zlib\inffast.h">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GraphicLibrary\zlib\inffixed.h">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GraphicLibrary\zlib\inflate.h">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GraphicLibrary\zlib\inftrees.h">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GraphicLibrary\zlib\trees.h">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GraphicLibrary\zlib\zconf.h">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GraphicLibrary\zlib\zlib.h">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GraphicLibrary\zlib\zutil.h">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GraphicLibrary\libpng\png.h">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\GraphicLibrary\libpng\pngconf.h">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupBorder.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupBuilder.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupButton.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupCanvas.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupContext.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupControl.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupDecorator.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupDeviceContext.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupDrawingContext.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupFrameworkElement.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupGrid.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupImage.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupInputElement.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupKeyboardNavigation.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupObject.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupPage.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupPanel.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupParser.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupResourceDictionary.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupScrollViewer.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupShape.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupStackPanel.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupTextBlock.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupThickness.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\XTPMarkupUIElement.h">
+      <Filter>Source\Markup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\Transform\XTPMarkupRenderTransform.h">
+      <Filter>Source\Markup\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\Transform\XTPMarkupRotateTransform.h">
+      <Filter>Source\Markup\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\Text\XTPMarkupInline.h">
+      <Filter>Source\Markup\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\Text\XTPMarkupRun.h">
+      <Filter>Source\Markup\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\Text\XTPMarkupSpan.h">
+      <Filter>Source\Markup\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\Path\XTPMarkupPath.h">
+      <Filter>Source\Markup\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\Path\XTPMarkupPathData.h">
+      <Filter>Source\Markup\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\Path\XTPMarkupPathGeometry.h">
+      <Filter>Source\Markup\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Markup\Path\XTPMarkupPathGeometryFigures.h">
+      <Filter>Source\Markup\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGrid.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridDefines.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridInplaceButton.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridInplaceEdit.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridInplaceList.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridItem.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridItemBool.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridItemColor.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridItemExt.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridItemFont.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridItemNumber.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridItemOption.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridItemSize.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridPaintManager.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PropertyGrid\XTPPropertyGridView.h">
+      <Filter>Source\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportBorder.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportColumn.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportColumns.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportControl.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportDataManager.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportDefines.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportDragDrop.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportFilterEditControl.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportGroupRow.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportHeader.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportHitTestInfo.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportHyperlink.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportNavigator.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportPageSetupDialog.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportPaintManager.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportRecord.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportRecordItem.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportRecordItemControls.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportRecordItemRange.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportRecords.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportRow.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportRows.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportSection.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportSections.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportSelectedRows.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportSubListControl.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportThickness.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportTip.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportView.h">
+      <Filter>Source\ReportControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\TrackControl\XTPTrackBlock.h">
+      <Filter>Source\ReportControl\TrackControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\TrackControl\XTPTrackControl.h">
+      <Filter>Source\ReportControl\TrackControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\TrackControl\XTPTrackControlItem.h">
+      <Filter>Source\ReportControl\TrackControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\TrackControl\XTPTrackHeader.h">
+      <Filter>Source\ReportControl\TrackControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\TrackControl\XTPTrackPaintManager.h">
+      <Filter>Source\ReportControl\TrackControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\TrackControl\XTPTrackUndoManager.h">
+      <Filter>Source\ReportControl\TrackControl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportRecordItemConstraint.h">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\ItemTypes\XTPReportRecordItemDateTime.h">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\ItemTypes\XTPReportRecordItemIcon.h">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\ItemTypes\XTPReportRecordItemNumber.h">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\ItemTypes\XTPReportRecordItemPreview.h">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\ItemTypes\XTPReportRecordItemText.h">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\ItemTypes\XTPReportRecordItemVariant.h">
+      <Filter>Source\ReportControl\ItemTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\Behavior\XTPReportBehavior.h">
+      <Filter>Source\ReportControl\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReportControl\XTPReportInplaceControls.h">
+      <Filter>Source\ReportControl\Inplace</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonBackstageControls.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonBackstageView.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonBar.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonBuilder.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonControlTab.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonCustomizePage.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonCustomizeQuickAccessPage.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonGroup.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonGroups.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonPaintManager.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonPopups.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonQuickAccessControls.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonSystemButton.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonSystemTheme.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonTab.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ribbon\XTPRibbonTheme.h">
+      <Filter>Source\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ShortcutBar\XTPShortcutBar.h">
+      <Filter>Source\ShortcutBar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ShortcutBar\XTPShortcutBarAnimation.h">
+      <Filter>Source\ShortcutBar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ShortcutBar\XTPShortcutBarPaintManager.h">
+      <Filter>Source\ShortcutBar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ShortcutBar\XTPShortcutBarPane.h">
+      <Filter>Source\ShortcutBar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ShortcutBar\XTPShortcutBarPopup.h">
+      <Filter>Source\ShortcutBar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinDrawTools.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinImage.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinManager.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinManagerApiHook.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinManagerColorFilter.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinManagerModuleList.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinManagerResource.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinManagerSchema.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObject.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectButton.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectComboBox.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectEdit.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectFrame.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectHeader.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectListBox.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectListView.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectMDI.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectMenu.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectProgress.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectScrollBar.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectSpin.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectStatusBar.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectTab.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectToolBar.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectTrackBar.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SkinFramework\XTPSkinObjectTreeView.h">
+      <Filter>Source\SkinFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditAutoCompleteWnd.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditBufferManager.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditColorComboBox.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditColorSampleText.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditCtrl.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditDefines.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditDoc.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditDrawTextProcessor.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditFindReplaceDlg.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditGoToLineDlg.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditLexCfgFileReader.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditLexClass.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditLexClassSubObjDef.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditLexClassSubObjT.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditLexColorFileReader.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditLexParser.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditLexPtrs.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditLineMarksManager.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditPaintManager.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditPropertiesDlg.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditPropertiesPage.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditSectionManager.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditSelection.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditStruct.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditTextIterator.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditToolTipCtrl.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditUndoManager.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SyntaxEdit\XTPSyntaxEditView.h">
+      <Filter>Source\SyntaxEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TabManager\XTPTabControl.h">
+      <Filter>Source\TabManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TabManager\XTPTabManager.h">
+      <Filter>Source\TabManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TabManager\XTPTabPaintManager.h">
+      <Filter>Source\TabManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TaskPanel\XTPTaskPanel.h">
+      <Filter>Source\TaskPanel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TaskPanel\XTPTaskPanelAnimation.h">
+      <Filter>Source\TaskPanel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TaskPanel\XTPTaskPanelDefines.h">
+      <Filter>Source\TaskPanel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TaskPanel\XTPTaskPanelGroup.h">
+      <Filter>Source\TaskPanel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TaskPanel\XTPTaskPanelGroupItem.h">
+      <Filter>Source\TaskPanel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TaskPanel\XTPTaskPanelItem.h">
+      <Filter>Source\TaskPanel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TaskPanel\XTPTaskPanelItems.h">
+      <Filter>Source\TaskPanel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TaskPanel\XTPTaskPanelPaintManager.h">
+      <Filter>Source\TaskPanel</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ToolkitPro.rc">
+      <Filter>Source</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Source\CommandBars\XTPCommandBars.inl">
+      <Filter>Source\CommandBars</Filter>
+    </None>
+    <None Include="..\..\Source\Common\XTPPropExchange.inc">
+      <Filter>Source\Common</Filter>
+    </None>
+    <None Include="..\..\Source\TabManager\XTPTabPaintManager.inl">
+      <Filter>Source\TabManager</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\Source\GraphicLibrary\zlib\readme.txt">
+      <Filter>Source\GraphicLibrary\zlib</Filter>
+    </Text>
+    <Text Include="..\..\Source\GraphicLibrary\libpng\license.txt">
+      <Filter>Source\GraphicLibrary\libpng</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

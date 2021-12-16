@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="CryCommonTools">
+      <UniqueIdentifier>{455fa5ba-83e7-4ed1-8210-1dbee064bbc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrySystem">
+      <UniqueIdentifier>{f219ab02-4e72-4cd5-a8aa-63819e455511}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ResourceCompilerPlugin.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ResourceCompilerXML.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLConverter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommonTools\PathHelpers.cpp">
+      <Filter>CryCommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\CrySystem\XML\XMLBinaryNode.cpp">
+      <Filter>CrySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\CrySystem\XML\XMLBinaryReader.cpp">
+      <Filter>CrySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\CrySystem\XML\XMLBinaryWriter.cpp">
+      <Filter>CrySystem</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLConverter.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommonTools\PathHelpers.h">
+      <Filter>CryCommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\CrySystem\XML\XMLBinaryNode.h">
+      <Filter>CrySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\CrySystem\XML\XMLBinaryReader.h">
+      <Filter>CrySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\CrySystem\XML\XMLBinaryWriter.h">
+      <Filter>CrySystem</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

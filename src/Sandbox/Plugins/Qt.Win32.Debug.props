@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <QTDIR>$(ProjectDir)..\..\SDKs\Qt\x86</QTDIR>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_PropertySheetDisplayName>Qt.Debug.Win32</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>QT_LARGEFILE_SUPPORT;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_NO_EMIT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\SDKs\Qt\include;$(ProjectDir)..\..\SDKs\Qt\include\QtNetwork;$(ProjectDir)..\..\SDKs\Qt\include\QtGui;$(ProjectDir)..\..\SDKs\Qt\include\QtCore;$(ProjectDir)..\..\SDKs\Qt\include\ActiveQt;$(ProjectDir)..\..\SDKs\Qt\include\QtWidgets;$(ProjectDir)..\..\SDKs\Qt\include\QtANGLE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\SDKs\Qt\x86\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>del /S moc_*.cpp;del /S ui_*.h;del /S rcc_*.h</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="QTDIR">
+      <Value>$(QTDIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,267 @@
+/*************************************************************************
+  Crytek Source File.
+  Copyright (C), Crytek Studios, 2001-2004.
+ -------------------------------------------------------------------------
+	$Id$
+	$DateTime$
+	Description:	Implementation of the IGameFramework interface. 
+					MiniGameFramework provides a basic implementation
+  
+ -------------------------------------------------------------------------
+  History:
+  - 15:2:2010	11:45 : Created by Christian Helmich
+
+*************************************************************************/
+
+#ifndef __MINI_GAME_FRAMEWORK_H__
+#define __MINI_GAME_FRAMEWORK_H__
+
+#if _MSC_VER > 1000
+#	pragma once
+#endif
+
+#ifndef	USE_EXTERNAL_FRAMEWORK_DLL
+
+#include <ISystem.h>
+#include <ICmdLine.h>
+#include <IGameFramework.h>
+#include "../GameCore/GameConfig.h"
+#include "../GameGlobals/GameCVars.h"
+
+namespace simpleframework
+{
+	class	CMiniGameFramework : 
+		public IGameFramework
+	{
+	public:
+		CMiniGameFramework();
+		VIRTUAL ~CMiniGameFramework();
+		static IGameFramework*	CreateInstance();
+
+		//IGameFramework implementation
+		//- instance lifecycle
+		VIRTUAL bool		Init(SSystemInitParams& startupParams);	
+		VIRTUAL bool		CompleteInit();
+		VIRTUAL void		Shutdown();
+
+		VIRTUAL bool		PreUpdate(bool haveFocus, unsigned int updateFlags);
+		VIRTUAL void		PostUpdate(bool haveFocus, unsigned int updateFlags);
+
+		VIRTUAL void		Reset(bool clients);
+		VIRTUAL void		PauseGame(bool pause, bool force, unsigned int nFadeOutInMS=0);
+		VIRTUAL bool		IsGamePaused();
+		VIRTUAL bool		IsGameStarted();
+
+		//- subsystem access
+		//for licensee: please change subsystem interface according to your needs
+		VIRTUAL ISystem*			GetISystem()			{	return m_pSystem;	}
+		VIRTUAL ILevelSystem*		GetILevelSystem()		{	return m_pLevelSystem;	}	//code smell: interface defined in CryAction, should be in CryCommons
+		VIRTUAL IUIDraw*			GetIUIDraw()			{	return NULL;	}
+		VIRTUAL IGameObjectSystem*	GetIGameObjectSystem()	{	return NULL;	}	//needed?
+		VIRTUAL IActorSystem*		GetIActorSystem()		{	return NULL;	}	//needed?
+		VIRTUAL IItemSystem*		GetIItemSystem()		{	return NULL;	}	//needed?
+		VIRTUAL IViewSystem*		GetIViewSystem()		{	return NULL;	}	//possibly needed
+		VIRTUAL IGameplayRecorder*	GetIGameplayRecorder()	{	return NULL;	}
+		VIRTUAL IVehicleSystem*		GetIVehicleSystem()		{	return NULL;	}
+		VIRTUAL IGameRulesSystem*	GetIGameRulesSystem()	{	return NULL;	}	//needed?
+		VIRTUAL IActionMapManager*	GetIActionMapManager()	{	return NULL;	}	
+		VIRTUAL IFlowSystem*		GetIFlowSystem()		{	return NULL;	}
+		VIRTUAL IGameTokenSystem*	GetIGameTokenSystem()	{	return NULL;	}
+		VIRTUAL IEffectSystem*		GetIEffectSystem()		{	return NULL;	}	//for minimal framework
+		VIRTUAL IMaterialEffects*	GetIMaterialEffects()	{	return NULL;	}	//for minimal framework
+		VIRTUAL IDialogSystem*		GetIDialogSystem()		{	return NULL;	}	
+		VIRTUAL IDebrisMgr*			GetDebrisMgr ()			{	return NULL;	}
+		VIRTUAL ISubtitleManager*	GetISubtitleManager()	{	return NULL;	}
+
+
+
+		VIRTUAL IGameStatistics*	GetIGameStatistics()	{	return NULL;	}
+		VIRTUAL IVisualLog*			GetIVisualLog()			{	return NULL;	}
+		VIRTUAL ICombatLog*			GetICombatLog()			{	return NULL;	}
+		VIRTUAL IMusicLogic*		GetMusicLogic()			{	return NULL;	}	//for minimal framework
+		VIRTUAL IAnimationGraphState*	GetMusicGraphState(){	return NULL;	}	//for minimal framework
+		VIRTUAL	ITweakMenuController*	CreateITweakMenuController(){	return NULL;	}
+		VIRTUAL	ICheckpointSystem*		GetICheckpointSystem()		{	return NULL;	}
+		VIRTUAL IForceFeedbackSystem*	GetIForceFeedbackSystem() const	{	return NULL;	}
+		VIRTUAL IPlayerProfileManager*	GetIPlayerProfileManager()	{	return NULL;	}	//for savegame support?
+		VIRTUAL ICharacterPartsManager*	GetICharacterPartsManager()	{	return NULL;	}
+		VIRTUAL IRealtimeRemoteUpdate*	GetIRealTimeRemoteUpdate()	{	return NULL;	}	//needed: LiveCreate
+		VIRTUAL ICooperativeAnimationManager* GetICooperativeAnimationManager()	{	return NULL;	}
+		VIRTUAL IPersistantDebug*	GetIPersistantDebug()	{	return NULL;	}
+		VIRTUAL IGameStatsConfig*	GetIGameStatsConfig()	{	return NULL;	}
+		VIRTUAL IDebugHistoryManager*	CreateDebugHistoryManager()	{	return NULL;	}
+		VIRTUAL IDeferredRaycastManager*	GetIDeferredRaycastManager()	{	return NULL;	}
+
+		//- factories register
+		VIRTUAL void				RegisterFactory(const char* name, IActorCreator* pCreator, bool isAI);
+		VIRTUAL void				RegisterFactory(const char* name, IItemCreator* pCreator, bool isAI);
+		VIRTUAL void				RegisterFactory(const char* name, IVehicleCreator* pCreator, bool isAI);
+		VIRTUAL void				RegisterFactory(const char* name, IGameObjectExtensionCreator* pCreator, bool isAI );
+		VIRTUAL void				RegisterFactory(const char* name, IAnimationStateNodeFactory* (*func)(), bool isAI );
+		VIRTUAL void				RegisterFactory(const char* name, ISaveGame* (*func)(), bool);
+		VIRTUAL void				RegisterFactory(const char* name, ILoadGame* (*func)(), bool);
+
+		//- listener access
+		VIRTUAL ILanQueryListener*	GetILanQueryListener()	{	return NULL;	}
+		VIRTUAL void				RegisterListener(IGameFrameworkListener* pGameFrameworkListener, const char* name,EFRAMEWORKLISTENERPRIORITY eFrameworkListenerPriority);
+		VIRTUAL void				UnregisterListener(IGameFrameworkListener* pGameFrameworkListener);
+		
+
+		//- game context
+		VIRTUAL bool		StartGameContext( const SGameStartParams* pGameStartParams );	
+		VIRTUAL bool		ChangeGameContext( const SGameContextParams* pGameContextParams );
+		VIRTUAL void		EndGameContext();
+		VIRTUAL bool		StartedGameContext() const;
+		VIRTUAL	void		SetGameSessionHandler(IGameSessionHandler* pSessionHandler);
+
+		//- breakability
+		VIRTUAL void		FlushBreakableObjects();
+		VIRTUAL void		ResetBrokenGameObjects();
+
+		//- editor
+		VIRTUAL void		InitEditor(IGameToEditorInterface* pGameToEditor);
+		VIRTUAL void		SetEditorLevel(const char* levelName, const char* levelFolder);
+		VIRTUAL void		GetEditorLevel(char** levelName, char** levelFolder);
+		VIRTUAL void		OnEditorSetGameMode( int iMode );
+
+		//- networking
+		VIRTUAL void			BeginLanQuery();
+		VIRTUAL void			EndCurrentQuery();
+		VIRTUAL INetChannel*	GetClientChannel() const		{	return NULL;	}
+		VIRTUAL void			DelegateAuthority(EntityId entityId, uint16 channelId);
+		VIRTUAL CTimeValue		GetServerTime();
+		VIRTUAL uint16			GetGameChannelId(INetChannel* pNetChannel);
+		VIRTUAL bool			IsChannelOnHold(uint16 channelId);
+		VIRTUAL INetChannel*	GetNetChannel(uint16 channelId)	{	return NULL;	}
+		VIRTUAL bool			GetNetworkSafeClassId(uint16& id, const char* className);
+		VIRTUAL bool			GetNetworkSafeClassName(char* className, size_t maxn, uint16 id);
+		VIRTUAL INetNub*		GetServerNetNub()	{	return NULL;	}
+		VIRTUAL INetNub*		GetClientNetNub()	{	return NULL;	}
+		VIRTUAL INetContext*	GetNetContext()		{	return NULL;	}
+
+		//- player access
+		VIRTUAL bool		BlockingSpawnPlayer();	
+		VIRTUAL IActor*		GetClientActor() const	{	return NULL;	}
+		VIRTUAL EntityId	GetClientActorId() const;
+		
+		//- game object
+		VIRTUAL IGameObject*			GetGameObject(EntityId id)	{	return NULL;	}
+		VIRTUAL IGameObjectExtension*	QueryGameObjectExtension( EntityId id, const char* name)	{	return NULL;	}
+
+		//- save game
+		VIRTUAL bool		SaveGame(const char* path, bool quick = false, bool bForceImmediate = true, ESaveGameReason reason = eSGR_QuickSave, bool ignoreDelay = false, const char* checkPoint = NULL);
+		VIRTUAL bool		LoadGame(const char* path, bool quick = false, bool ignoreDelay = false);
+		VIRTUAL void		AllowLoad(bool bAllow = true)	{	LOG_CODE_COVERAGE();	m_bAllowLoad = bAllow;	}
+		VIRTUAL void		AllowSave(bool bAllow = true)	{	LOG_CODE_COVERAGE();	m_bAllowSave = bAllow;	}		
+		VIRTUAL bool		CanLoad()						{	LOG_CODE_COVERAGE();	return m_bAllowLoad;	}	
+		VIRTUAL bool		CanSave();
+		VIRTUAL bool		CanCheat();
+		
+		//- state query
+		VIRTUAL bool		IsEditing()						{	LOG_CODE_COVERAGE();	return m_bEditing;	}
+		VIRTUAL bool		IsInTimeDemo()					{	LOG_CODE_COVERAGE();	return false;	}
+		VIRTUAL bool		IsInLevelLoad();
+		VIRTUAL bool		IsLoadingSaveGame();		
+
+		//- level access
+		VIRTUAL const char*	GetLevelName()		{	LOG_CODE_COVERAGE();	return m_szEditorLevelName;	}
+		VIRTUAL const char*	GetAbsLevelPath(char*const pPath, const uint32 cPathMaxLen);
+		VIRTUAL void		PrefetchLevelAssets( const bool bEnforceAll );
+		
+
+		//- game GUID
+		VIRTUAL void		SetGameGUID(const char* gameGUID);
+		VIRTUAL const char*	GetGameGUID()	{	LOG_CODE_COVERAGE();	return m_szGameGUID;	}
+
+		//- memory stats
+		VIRTUAL void		GetMemoryStatistics(ICrySizer* );
+		VIRTUAL void		DumpMemInfo(const char* format, ...) PRINTF_PARAMS(2, 3);
+
+
+		//- voice recording
+		VIRTUAL void		EnableVoiceRecording(const bool enable);
+		VIRTUAL void		MutePlayerById(EntityId mutePlayer);
+		VIRTUAL bool		IsVoiceRecordingEnabled();
+
+
+		//- AI proxies
+		VIRTUAL IAIActorProxy*	GetAIActorProxy(EntityId id) const;
+		VIRTUAL IAIActorProxy*	CreateAIActorProxy(IGameObject* pGameObject, EntityId id);
+		VIRTUAL void			DestroyAIActorProxy(EntityId id);
+		VIRTUAL void			DestroyAllAIActorProxies();
+		VIRTUAL void			DestroyUnusedAIActorProxies();
+		
+		//- Multiplayer
+		VIRTUAL bool		IsImmersiveMPEnabled();
+
+		//- Browser
+		VIRTUAL void		ExecuteCommandNextFrame(const char*);
+		VIRTUAL void		ShowPageInBrowser(const char* URL);
+
+		//- 
+		VIRTUAL bool		StartProcess(const char* cmd_line);
+		VIRTUAL bool		SaveServerConfig(const char* path);	
+		VIRTUAL void		ReleaseGameStats();
+
+	protected:
+		void				OnActionEvent(const SActionEvent& ev);
+
+	protected:
+		enum EMGFPauseMode
+		{
+			eMGF_GameRunning = 0,
+			eMGF_GamePaused,
+			eMGF_GameForcedPause,
+
+			eMGF_PauseModeCount
+		};
+
+	private:
+		//- module
+	#if !defined(_LIB) && !defined(LINUX) && !defined(PS3)
+		HMODULE			m_hSystemDll;
+	#endif	//!_LIB && !LINUX && !PS3
+		
+		//- subsystems
+		ISystem*		m_pSystem;
+		ILevelSystem*	m_pLevelSystem;
+
+		//- states
+		bool			m_bGameStarted;	//true if game has started, i.e. loaded correctly
+		EMGFPauseMode	m_ePauseState;
+		bool			m_bEditing;
+		bool			m_bScheduleLevelEnd;
+
+		//- strings
+		// to avoid having to call string constructor, or allocating memory.
+		char			m_szEditorLevelName[LEVEL_NAME_LENGTH];	
+		char			m_szEditorLevelFolder[FOLDER_NAME_LENGTH];
+		char			m_szGameGUID[GAMEGUID_LENGTH];
+
+		//- load/save/cheat game
+		bool			m_bAllowLoad;
+		bool			m_bAllowSave;
+		bool			m_bAllowCheat;
+		
+		//- network
+		bool			m_bServerEnabled;
+		bool			m_bClientEnabled;
+	};
+
+
+	//////////////////////////////////////////////////////////////////////////
+
+	class CSystemEventListener_MiniGF : 
+		public ISystemEventListener
+	{
+	public:
+		virtual void OnSystemEvent( ESystemEvent event,UINT_PTR wparam,UINT_PTR lparam );
+	};
+
+	//////////////////////////////////////////////////////////////////////////
+
+}	//namespace simpleframework
+
+#endif //not USE_EXTERNAL_FRAMEWORK_DLL
+
+#endif //__MINI_GAME_FRAMEWORK_H__

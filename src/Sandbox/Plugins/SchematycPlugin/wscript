@@ -1,0 +1,24 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2014, Crytek Studios
+##
+## Creator: Paul Slinger
+## Date: June 11, 2014
+## Description: WAF  based build system
+#############################################################################
+
+QT_TO_MOC_FILES = [ 'Editor/Schematyc_MainFrameWnd.h' ]
+
+def build(bld):	
+	bld.CryPlugin(
+		target = 'SchematycPlugin',
+		vs_filter = 'Sandbox/Plugins',
+		file_list = 'schematyc_plugin.waf_files',
+		pch = 'StdAfx.cpp',
+		features = 'qt',					
+		qt_to_moc_files = QT_TO_MOC_FILES,
+		defines = [ 'SCHEMATYC_PLUGIN_EXPORTS', '_XTPLIB_VISUALSTUDIO_VERSION="vc110"' ],
+		includes = [ '.', '..', 'GeneratedFiles', Path('Code/SDKs/XT_13_4/Include'), Path('Code/CryEngine/CryAction'), Path('Code/Game_Hunt/Schematyc/Interface') ],
+		win_libpath = Path('Code/SDKs/XT_13_4/lib_vc11'),
+		use = [ 'Editor', 'EditorCommon' ]
+	)

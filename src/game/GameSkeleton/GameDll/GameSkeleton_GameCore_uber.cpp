@@ -1,0 +1,5 @@
+#include "GameCore/EditorGame.cpp"
+#include "GameCore/Game.cpp"
+#include "GameCore/GameDll.cpp"
+#include "GameCore/GameDll_PRX.cpp"
+#include "GameCore/GameStartup.cpp"

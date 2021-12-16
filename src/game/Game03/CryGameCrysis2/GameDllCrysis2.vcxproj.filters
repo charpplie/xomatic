@@ -1,0 +1,3450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Startup Files">
+      <UniqueIdentifier>{96ef52c8-6dd0-47fc-a78c-3a90526ec378}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files">
+      <UniqueIdentifier>{10152494-85e3-4d1b-8a56-2853f465d246}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\player">
+      <UniqueIdentifier>{a39985b4-1599-4607-abcc-584b894ddd4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\player\Camera">
+      <UniqueIdentifier>{a2faf5cd-0803-46c4-85c4-d3456edb0359}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\player\MindControl">
+      <UniqueIdentifier>{4e3061dd-7f9b-4bf8-b704-a777ac43e0b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\player\ActionControllers">
+      <UniqueIdentifier>{28489a10-59e4-427b-bd88-d43faea052f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\player\ActionControllers\CoverAndLean">
+      <UniqueIdentifier>{94d8c881-7f16-4a76-92ef-e9fca7ba1020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\player\ActionControllers\MountedGun">
+      <UniqueIdentifier>{d2f5b564-e002-4d28-a838-2e5c1d28583e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\player\ActionControllers\StealthKill">
+      <UniqueIdentifier>{cb5423df-4cb6-4fe7-adad-69ed3de10ba6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\player\ActionControllers\InteractiveAction">
+      <UniqueIdentifier>{a0305039-7a2b-4f2f-9bb1-4b5ea20564a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\player\AimAssistance">
+      <UniqueIdentifier>{6bfa83d0-7039-4eca-a4f1-30550dfc0dfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\player\HitDeathReactions">
+      <UniqueIdentifier>{af188483-05f6-49f3-aa7f-c05bd898691b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\aliens">
+      <UniqueIdentifier>{4608956e-10ad-4e4b-80af-61adff47756e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\grab">
+      <UniqueIdentifier>{4fb053d4-7be4-4d07-9f14-15d2b0bf8cf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\NanoSuit">
+      <UniqueIdentifier>{a1c96f2c-9469-4c28-8d10-8143792d5005}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\Prototype">
+      <UniqueIdentifier>{9a7228c1-6680-488a-a9a9-d35e51f60a0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Actor Files\Audio Files">
+      <UniqueIdentifier>{b1d678c9-8f22-4eb2-ab1f-7e1aa4968368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EditorGame Files">
+      <UniqueIdentifier>{7e4f3ca4-e0bc-4325-a1fa-35adb768e66e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EditorGame Files\OrganicMotion">
+      <UniqueIdentifier>{22375d12-166a-45fd-a31b-6b04905842bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files">
+      <UniqueIdentifier>{524c49b6-3107-4d6f-964b-56567da6519d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Environment">
+      <UniqueIdentifier>{b5a885e2-e94b-4511-999c-dd61b6428885}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Environment\Tornado">
+      <UniqueIdentifier>{fd1b9552-f2c4-4ec5-8530-98a1194e11f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Environment\InteractiveObjects">
+      <UniqueIdentifier>{d5be0e89-cc45-40bc-a16c-9fc30a738967}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\Environment\AlienDropPod">
+      <UniqueIdentifier>{b4acc22a-85c2-4913-b5ef-c777a9121a4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\ScreenFX">
+      <UniqueIdentifier>{c4f6ab7f-3f65-4698-90fe-fbe82246a4f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game Files\GameObject Parameters">
+      <UniqueIdentifier>{c0f2db41-d7c6-4d27-88ab-ade6afaf4fe1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vehicle Files">
+      <UniqueIdentifier>{69b2969c-adb3-435d-b877-5d82f7932937}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vehicle Files\Movement Files">
+      <UniqueIdentifier>{54b07328-2d0c-42bd-bbd6-85ff51a6b5d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vehicle Files\Damage Files">
+      <UniqueIdentifier>{f20070ae-fb41-45e1-a90b-a21e5e4a86d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vehicle Files\Action Files">
+      <UniqueIdentifier>{58408dc5-4738-4d82-9a9e-194cb99afaa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item Files">
+      <UniqueIdentifier>{c5b8e810-5d40-4c0d-90ad-34d022d258d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item Files\Weapon Files">
+      <UniqueIdentifier>{4b9bc005-0aa3-4302-9010-cefae954f869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item Files\Weapon Files\Fire Modes">
+      <UniqueIdentifier>{951af808-4770-4715-88b5-9e7be4f4f017}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item Files\Weapon Files\Projectiles">
+      <UniqueIdentifier>{9f8ef9e1-7053-47ae-bc0e-b38cae41fe91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item Files\Weapon Files\Zoom Modes">
+      <UniqueIdentifier>{11834778-bbc5-492e-9f92-af063217b73e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item Files\Weapon Files\Weapons">
+      <UniqueIdentifier>{5ecb277c-f60e-4ee3-be16-5e19f3fe8dbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item Files\Items">
+      <UniqueIdentifier>{41418247-85c3-463d-a709-6747b9fce900}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{e51eb85c-74e2-488f-b685-c9657fe70526}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HUD">
+      <UniqueIdentifier>{5e9293b5-2b4c-4020-8fd0-e943467d919d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HUD\HUDObjects">
+      <UniqueIdentifier>{58cbe3f2-e621-46db-939f-d4259706dd8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameRules">
+      <UniqueIdentifier>{c307366a-09a4-4654-8d93-618594eb3a20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nodes">
+      <UniqueIdentifier>{db6d1818-9613-46cd-8e11-215d07b4d43a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Flash">
+      <UniqueIdentifier>{4e8b045f-3269-4662-9e57-50a2cea4f28d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LCD">
+      <UniqueIdentifier>{a670b792-7dad-4a62-ba8e-14c9150f4339}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Realtime Remote Update System">
+      <UniqueIdentifier>{d8c99caa-3875-4f88-a178-bef5a799cf54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrontEnd">
+      <UniqueIdentifier>{247776b0-c295-4dac-9d6e-da0bea25858a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrontEnd\Multiplayer">
+      <UniqueIdentifier>{ec835180-0a63-4ae1-af12-8b4f0beda4f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files">
+      <UniqueIdentifier>{68b3f022-4421-4900-9846-8a243732dfea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Item Files">
+      <UniqueIdentifier>{ce634bca-5484-4845-882a-42bc3abadc4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Item Files\Weapon Files">
+      <UniqueIdentifier>{521e6f76-26e7-4074-8027-ba77b013bacc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Item Files\Weapon Files\Projectiles">
+      <UniqueIdentifier>{3e60c8df-a64f-445b-9248-1356cf49d6ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Item Files\Weapon Files\Fire Modes">
+      <UniqueIdentifier>{8ed7ca55-8de0-4210-8073-821c43871a91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Actor Files">
+      <UniqueIdentifier>{1df3af59-b8d6-485b-8a73-d0af964a70cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Actor Files\player">
+      <UniqueIdentifier>{e299c60c-bee2-4336-8529-f817b9b52986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Actor Files\player\animation">
+      <UniqueIdentifier>{497237c7-fac5-450a-8d83-ffb8a611efbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Actor Files\player\Perks">
+      <UniqueIdentifier>{d5457c6c-47e4-4625-a8e7-d7e8cab62cf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\GameRules">
+      <UniqueIdentifier>{64e9e62d-5fac-4868-9555-9529b0c6bda8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\GameRules\Modules">
+      <UniqueIdentifier>{43133745-e2e4-425d-97c7-e7ae2fd2be86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\GameRules\Objectives">
+      <UniqueIdentifier>{a2a1fe69-7424-4e79-92d3-e9409bd6f1d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\GameRules\Events">
+      <UniqueIdentifier>{40078aa8-e3d8-49d7-b605-2c95a47f93fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Testing">
+      <UniqueIdentifier>{a9b24ba7-542a-4a80-87d5-f5823fea0de5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Utility">
+      <UniqueIdentifier>{dd8057e1-b6c9-4333-a150-5fc64febeb21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Effects">
+      <UniqueIdentifier>{8d7b2bdf-a172-44dc-9389-ead526af0cbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Effects\RenderElements">
+      <UniqueIdentifier>{0c74eb17-9694-4985-928f-a8bd8fbdbb80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Effects\RenderNodes">
+      <UniqueIdentifier>{57ff7f06-6372-42af-914e-a38705a2d2cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Effects\GameEffects">
+      <UniqueIdentifier>{f5d70d1f-1e4f-4bf6-95c7-dd79a0f065da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Effects\HUDEventListeners">
+      <UniqueIdentifier>{e5050960-4544-4316-837c-1a920ab83a6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Effects\Tools">
+      <UniqueIdentifier>{21cd8f4f-e2bc-408c-b587-f667ee3db6a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\GameCodeCoverage">
+      <UniqueIdentifier>{9f0e4c1e-adbc-41d0-9089-32699df3376b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Vehicle Files">
+      <UniqueIdentifier>{b20f0788-753f-4069-9a0d-10e3319efe30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Vehicle Files\Movement Files">
+      <UniqueIdentifier>{1bc1fc7b-890b-465d-bc67-fd5c1d6dc261}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Audio Files">
+      <UniqueIdentifier>{e88f666f-01f4-47ca-8063-a50d9463f05f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\UI">
+      <UniqueIdentifier>{df235e18-c49a-4a65-a296-4270374508bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Graphics">
+      <UniqueIdentifier>{361dcf0c-7064-444c-8eac-2e8c309b2495}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\HUD">
+      <UniqueIdentifier>{9d357dc5-b258-45c3-b82b-49c0bc35f02a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\HUD\UI">
+      <UniqueIdentifier>{27f03eb1-333f-43a1-94f8-fc60ddcec17a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\HUD\HUDObjects">
+      <UniqueIdentifier>{09a232b8-f1ae-4cb9-bbb7-2c699584fd6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Menus">
+      <UniqueIdentifier>{561a5447-ae66-447a-9a9f-4a4e32b50671}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Network">
+      <UniqueIdentifier>{93677cc2-15dd-45e3-895e-81e5dc47cbe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Network\Lobby">
+      <UniqueIdentifier>{c0ec805e-c863-414d-a747-60276fc26ef5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CrysisWars2Files\Statistics">
+      <UniqueIdentifier>{7a738831-e77e-465b-b389-16435ff64203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{0eb8be1e-977d-4288-ad50-183675f30706}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menus">
+      <UniqueIdentifier>{c0b971a7-7779-474d-a517-3d97b49cec28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI">
+      <UniqueIdentifier>{b4e4c9c3-43d7-4142-bd0a-d23a5f7814d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Checkpoints">
+      <UniqueIdentifier>{67af56c3-e636-4699-aa8d-02b344baf4be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Boids">
+      <UniqueIdentifier>{a4e20ca7-9e5e-4206-a2d4-6756d43e7f1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameMechanismManager">
+      <UniqueIdentifier>{25f83948-2ff5-46c6-9d3b-b088bf2e0a15}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BasicEventListener.cpp">
+      <Filter>Startup Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameDll.cpp">
+      <Filter>Startup Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStartup.cpp">
+      <Filter>Startup Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Actor Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorDamageEffectController.cpp">
+      <Filter>Actor Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorRef.cpp">
+      <Filter>Actor Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorTelemetry.cpp">
+      <Filter>Actor Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AIDemoInput.cpp">
+      <Filter>Actor Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptBind_Actor.cpp">
+      <Filter>Actor Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shark.cpp">
+      <Filter>Actor Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SharkMovementController.cpp">
+      <Filter>Actor Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArmsAimingController.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="BodyDamage.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="GodMode.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="NetPlayerInput.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PerkSonarVision.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerInput.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerMovement.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerMovementController.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerNavPath.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerNavPathAgent.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerNavPathGraph.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerNavPathPoint.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerNavPathTagPointCloud.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerRotation.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerVisTable.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponAttachmentManager.cpp">
+      <Filter>Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraModes.cpp">
+      <Filter>Actor Files\player\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCamera.cpp">
+      <Filter>Actor Files\player\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="MindControl.cpp">
+      <Filter>Actor Files\player\MindControl</Filter>
+    </ClCompile>
+    <ClCompile Include="MindControlConsole.cpp">
+      <Filter>Actor Files\player\MindControl</Filter>
+    </ClCompile>
+    <ClCompile Include="MindControlInput.cpp">
+      <Filter>Actor Files\player\MindControl</Filter>
+    </ClCompile>
+    <ClCompile Include="CoverAndLean.cpp">
+      <Filter>Actor Files\player\ActionControllers\CoverAndLean</Filter>
+    </ClCompile>
+    <ClCompile Include="CoverAndLeanDraw.cpp">
+      <Filter>Actor Files\player\ActionControllers\CoverAndLean</Filter>
+    </ClCompile>
+    <ClCompile Include="CoverAndLeanMath.cpp">
+      <Filter>Actor Files\player\ActionControllers\CoverAndLean</Filter>
+    </ClCompile>
+    <ClCompile Include="MountedGunController.cpp">
+      <Filter>Actor Files\player\ActionControllers\MountedGun</Filter>
+    </ClCompile>
+    <ClCompile Include="StealthKill.cpp">
+      <Filter>Actor Files\player\ActionControllers\StealthKill</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractiveActionController.cpp">
+      <Filter>Actor Files\player\ActionControllers\InteractiveAction</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoAimManager.cpp">
+      <Filter>Actor Files\player\AimAssistance</Filter>
+    </ClCompile>
+    <ClCompile Include="HitDeathReactions.cpp">
+      <Filter>Actor Files\player\HitDeathReactions</Filter>
+    </ClCompile>
+    <ClCompile Include="HitDeathReactionsSystem.cpp">
+      <Filter>Actor Files\player\HitDeathReactions</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptBind_HitDeathReactions.cpp">
+      <Filter>Actor Files\player\HitDeathReactions</Filter>
+    </ClCompile>
+    <ClCompile Include="Alien.cpp">
+      <Filter>Actor Files\aliens</Filter>
+    </ClCompile>
+    <ClCompile Include="CompatibilityAlienMovementController.cpp">
+      <Filter>Actor Files\aliens</Filter>
+    </ClCompile>
+    <ClCompile Include="Hunter.cpp">
+      <Filter>Actor Files\aliens</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Actor Files\aliens</Filter>
+    </ClCompile>
+    <ClCompile Include="Scout.cpp">
+      <Filter>Actor Files\aliens</Filter>
+    </ClCompile>
+    <ClCompile Include="Trooper.cpp">
+      <Filter>Actor Files\aliens</Filter>
+    </ClCompile>
+    <ClCompile Include="GrabHandler.cpp">
+      <Filter>Actor Files\grab</Filter>
+    </ClCompile>
+    <ClCompile Include="NanoModeArmor.cpp">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClCompile>
+    <ClCompile Include="NanoModePower.cpp">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClCompile>
+    <ClCompile Include="NanoModeStealth.cpp">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClCompile>
+    <ClCompile Include="NanoModeTactical.cpp">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClCompile>
+    <ClCompile Include="NanoSuit_v2.cpp">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClCompile>
+    <ClCompile Include="NanoSuitDefs.cpp">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClCompile>
+    <ClCompile Include="NanoSuitEnergy.cpp">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClCompile>
+    <ClCompile Include="NanoSuitParams.cpp">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClCompile>
+    <ClCompile Include="SuitShapeDeformation.cpp">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClCompile>
+    <ClCompile Include="Harvester.cpp">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClCompile>
+    <ClCompile Include="Pinger.cpp">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClCompile>
+    <ClCompile Include="Pinger_Mechanics.cpp">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClCompile>
+    <ClCompile Include="Pinger_Movement.cpp">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClCompile>
+    <ClCompile Include="PingerMovementController.cpp">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClCompile>
+    <ClCompile Include="Spotter.cpp">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClCompile>
+    <ClCompile Include="Spotter_Movement.cpp">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClCompile>
+    <ClCompile Include="SpotterMovementController.cpp">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio\AudioSignalPlayer.cpp">
+      <Filter>Actor Files\Audio Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio\GameAudio.cpp">
+      <Filter>Actor Files\Audio Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio\Scriptbind_GameAudio.cpp">
+      <Filter>Actor Files\Audio Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorGame.cpp">
+      <Filter>EditorGame Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentSystemInterface.cpp">
+      <Filter>EditorGame Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OrganicMotion\OrganicMotionClient.cpp">
+      <Filter>EditorGame Files\OrganicMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientGameTokenSynch.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientSynchedStorage.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameActions.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCVars.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFactory.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Radio.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptBind_Game.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptControlledPhysics.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerGameTokenSynch.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerSynchedStorage.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SPAnalyst.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SynchedStorage.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TacticalManager.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Voting.cpp">
+      <Filter>Game Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment\AlienMine.cpp">
+      <Filter>Game Files\Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment\BattleDust.cpp">
+      <Filter>Game Files\Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment\LedgeManager.cpp">
+      <Filter>Game Files\Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment\Shake.cpp">
+      <Filter>Game Files\Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment\FlowTornado.cpp">
+      <Filter>Game Files\Environment\Tornado</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment\Tornado.cpp">
+      <Filter>Game Files\Environment\Tornado</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment\InteractiveObject.cpp">
+      <Filter>Game Files\Environment\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment\InteractiveObjectRegistry.cpp">
+      <Filter>Game Files\Environment\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment\ScriptBind_InteractiveObject.cpp">
+      <Filter>Game Files\Environment\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment\AlienDropPod.cpp">
+      <Filter>Game Files\Environment\AlienDropPod</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment\FlowAlienDropPodNodes.cpp">
+      <Filter>Game Files\Environment\AlienDropPod</Filter>
+    </ClCompile>
+    <ClCompile Include="BlendedEffect.cpp">
+      <Filter>Game Files\ScreenFX</Filter>
+    </ClCompile>
+    <ClCompile Include="BlendNode.cpp">
+      <Filter>Game Files\ScreenFX</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenEffects.cpp">
+      <Filter>Game Files\ScreenFX</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenEffects_Game.cpp">
+      <Filter>Game Files\ScreenFX</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorParametersRegistry.cpp">
+      <Filter>Game Files\GameObject Parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicActorParameters.cpp">
+      <Filter>Game Files\GameObject Parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="GameParameters.cpp">
+      <Filter>Game Files\GameObject Parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemSharedParams.cpp">
+      <Filter>Game Files\GameObject Parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponSharedParams.cpp">
+      <Filter>Game Files\GameObject Parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleClient.cpp">
+      <Filter>Vehicle Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleMovementTweaks.cpp">
+      <Filter>Vehicle Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehicle\VehicleViewGameBase.cpp">
+      <Filter>Vehicle Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehicle\VehicleViewSteer.cpp">
+      <Filter>Vehicle Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleMovementAmphibious.cpp">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleMovementArcadeWheeled.cpp">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleMovementBase.cpp">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehicle\VehicleMovementDummy.cpp">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleMovementHelicopter.cpp">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleMovementHovercraft.cpp">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleMovementStdBoat.cpp">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleMovementStdWheeled.cpp">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleMovementTank.cpp">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleMovementVTOL.cpp">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleDamageBehaviorBurn.cpp">
+      <Filter>Vehicle Files\Damage Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleDamageBehaviorCameraShake.cpp">
+      <Filter>Vehicle Files\Damage Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleDamageBehaviorCollisionEx.cpp">
+      <Filter>Vehicle Files\Damage Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleDamageBehaviorExplosion.cpp">
+      <Filter>Vehicle Files\Damage Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleDamageBehaviorTire.cpp">
+      <Filter>Vehicle Files\Damage Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleActionAutomaticDoor.cpp">
+      <Filter>Vehicle Files\Action Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleActionDeployRope.cpp">
+      <Filter>Vehicle Files\Action Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleActionEntityAttachment.cpp">
+      <Filter>Vehicle Files\Action Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleActionLandingGears.cpp">
+      <Filter>Vehicle Files\Action Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FlowItemAnimation.cpp">
+      <Filter>Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemAccessory.cpp">
+      <Filter>Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemClientServer.cpp">
+      <Filter>Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemDualWield.cpp">
+      <Filter>Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemEffect.cpp">
+      <Filter>Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemEvents.cpp">
+      <Filter>Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemParams.cpp">
+      <Filter>Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemResource.cpp">
+      <Filter>Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemScheduler.cpp">
+      <Filter>Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemView.cpp">
+      <Filter>Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptBind_Item.cpp">
+      <Filter>Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AmmoParams.cpp">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Recoil.cpp">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptBind_Weapon.cpp">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TracerManager.cpp">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponClientServer.cpp">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponEvent.cpp">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponInput.cpp">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponSystem.cpp">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Automatic.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="AutomaticShotgun.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="Burst.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="Charge.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="Detonate.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="ImpulseBeam.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="LTagSingle.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="Melee.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="MeleeCollisionHelper.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="MikeBullet.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="PingerDetectorBurst.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="Plant.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="Rapid.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="Shotgun.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="Single.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="SniperSingle.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="Throw.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="ThrowEx.cpp">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="C4Projectile.cpp">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="EMPField.cpp">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Grenade.cpp">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="HomingMissile.cpp">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="ImpulseBeamProjectile.cpp">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="LTAGGrenade.cpp">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Rock.cpp">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Rocket.cpp">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="TacBullet.cpp">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="TagBullet.cpp">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="IronSight.cpp">
+      <Filter>Item Files\Weapon Files\Zoom Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scope.cpp">
+      <Filter>Item Files\Weapon Files\Zoom Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="AIGrenade.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="AmmoPickup.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="Binocular.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="C4.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugGun.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="GunTurret.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="HandGrenades.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="HMG.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="JAW.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="LTAG.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="PickAndThrowWeapon.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="ReferenceWeapon.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="ThrowableWeapon.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleHMG.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="VehicleWeapon.cpp">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="Accessory.cpp">
+      <Filter>Item Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Flashlight.cpp">
+      <Filter>Item Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Laser.cpp">
+      <Filter>Item Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="GameForceFeedback.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="LaptopUtil.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="NetInputChainDebug.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptUtils.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="StatsAgent.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\ContextualInfo.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\GameFlashAnimation.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\GameFlashLogic.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Impl.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDAsset.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDCVars.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDEventDispatcher.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDEventTranslator.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDMissionObjectiveSystem.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDObject.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDObjectFactory.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDSilhouettes.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDState.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\LocalizedStringManager.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\ScriptBind_HUD.cpp">
+      <Filter>HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_AIUpdater.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Ammo.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Crosshair.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Debug.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Detector.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_EnergyAndSuitMode.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_InformationField.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Interactive.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_InteractWithObject.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_InterestPoints.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Logic.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_LookAtUpdater.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_MessageQueue.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_NavPath.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_ObjectiveDisplay.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\Objects\HUD_ProgressNotify.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Radar.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_RadarIcon.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_SaveLoadDisplay.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_ScannedEnemiesUpdater.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\Objects\HUD_ScoreNotify.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Stance.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_SuitMenu.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_TacticalInfo.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_UnifiedAsset.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Video.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Visor.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_WeaponSelect.cpp">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRules.cpp">
+      <Filter>GameRules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesClientServer.cpp">
+      <Filter>GameRules</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptBind_GameRules.cpp">
+      <Filter>GameRules</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\AINodes.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\ColorGradientNode.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\FlowActorNodes.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\FlowActorSensor.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\FlowConvoyNode.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\FlowCoopNodes.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\FlowHitInfoNode.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\FlowNanoSuitNodes.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\FlowNodesInput.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\FlowPlayerStagingNode.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\FlowPostFXNodes.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="FlowVehicleNodes.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\G2FlowEntityElectricConnector.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\G2FlowEntityVelocity.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\G2FlowYesNoGestureNode.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\HUDNodes.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\MPNodes.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes\WeaponNodes.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Flash\Flash.cpp">
+      <Filter>Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="FlashAnimation.cpp">
+      <Filter>Flash</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\EZ_LCD.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\EZ_LCD_Page.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\LCDAnimatedBitmap.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\LCDBase.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\LCDBitmap.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\LCDCollection.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\LCDGfx.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\LCDIcon.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\LCDManager.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\LCDOutput.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\LCDProgressBar.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\LCDScrollingText.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\LCDStreamingText.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\LCDText.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="LCD\LCDWrapper.cpp">
+      <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\GameRealtimeRemoteUpdate.cpp">
+      <Filter>Realtime Remote Update System</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\FlashFrontEnd.cpp">
+      <Filter>FrontEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\FrontEnd.cpp">
+      <Filter>FrontEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\FrontEndAudio.cpp">
+      <Filter>FrontEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\FrontEndElement.cpp">
+      <Filter>FrontEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\FrontEndParser.cpp">
+      <Filter>FrontEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\FrontEndScreen.cpp">
+      <Filter>FrontEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\ILoadingMessageProvider.cpp">
+      <Filter>FrontEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\MenuData.cpp">
+      <Filter>FrontEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\Option.cpp">
+      <Filter>FrontEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\ProfileOptions.cpp">
+      <Filter>FrontEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\WarningsManager.cpp">
+      <Filter>FrontEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\Multiplayer\MPMenuHub.cpp">
+      <Filter>FrontEnd\Multiplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\Multiplayer\UILeaderboards.cpp">
+      <Filter>FrontEnd\Multiplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="FrontEnd\Multiplayer\UIServerList.cpp">
+      <Filter>FrontEnd\Multiplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="RecordingBuffer.cpp">
+      <Filter>CrysisWars2Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RecordingSystem.cpp">
+      <Filter>CrysisWars2Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BTBBomb.cpp">
+      <Filter>CrysisWars2Files\Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dogtag.cpp">
+      <Filter>CrysisWars2Files\Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Javelin.cpp">
+      <Filter>CrysisWars2Files\Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SuitDisruptionField.cpp">
+      <Filter>CrysisWars2Files\Item Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GunTurret_AimWhereControllingPlayerIsAiming.cpp">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponWithPickupTimer.cpp">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Chaff.cpp">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="EMPStrike.cpp">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="JavelinMissile.cpp">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="KVoltBullet.cpp">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="SatelliteStrike.cpp">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="TunnelingGrenade.cpp">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="VolatileSpike.cpp">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClCompile>
+    <ClCompile Include="FM_Hologram.cpp">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="FM_TunnellingGrenade.cpp">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Fire Modes</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorHitReactController.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="DummyPlayer.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="IPerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="Perk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PerkCommands.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PerkDbgDisplay.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PerkUnitTests.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PersistantStats.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerHologram.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerModifiableValues.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPerkParticleInfo.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPlugin.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPlugin_CurrentlyTargetting.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPlugin_Interaction.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPlugin_ScoreRewards.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerProgression.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonAlignedParticleCreator.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillKill.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="SuitModeProgression.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClCompile>
+    <ClCompile Include="DualCharacterProxy.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="IKTorsoAim_Helper.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="LookAim_Helper.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformationPinning.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponFPAiming.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="CloakAwarenessPerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="CriticalEMPPerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="EagleVisionPerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="EMPStrikePerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="FatalityBonus.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="MissileCountermeasuresPerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="PerkIconData.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="PhantomPerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPlugin_Perk_AutoTarget.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPlugin_Perk_ModifyDamageBasedOnAngle.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPlugin_Perk_ModifyValues.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPlugin_Perk_SniperCountermeasures.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPlugin_Perk_TeamPerkWithTimeout.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="ProximityPerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="ResistantPerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="SelfDestructPerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="SilentFeetPerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="StampPerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreatDetectorPerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackerPerk.cpp">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="Battlechatter.cpp">
+      <Filter>CrysisWars2Files\GameRules</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentLoadout.cpp">
+      <Filter>CrysisWars2Files\GameRules</Filter>
+    </ClCompile>
+    <ClCompile Include="TeamPerks.cpp">
+      <Filter>CrysisWars2Files\GameRules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesAssistScoring.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesModulesManager.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesMPActorAction.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesMPDamageHandling.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesMPHQFrontlineSpawning.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesMPSimpleSpawning.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesMPSpawning.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesMPSpawningWithLives.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesMPSpectator.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesObjectiveVictoryConditionsTeam.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesProgressiveObjectives.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesSpawningBase.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesStandardPlayerStats.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesStandardRounds.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesStandardScoring.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesStandardSetup.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesStandardState.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesStandardTwoTeams.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesStandardVictoryConditionsPlayer.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesStandardVictoryConditionsTeam.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesStatsRecording.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesSurvivorOneVictoryConditions.cpp">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesCaptureObjective.cpp">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesCarryObjective.cpp">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesCombiCaptureObjective.cpp">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesHoldObjectiveBase.cpp">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesKillObjective.cpp">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesKingOfTheHillObjective.cpp">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesLuaEntityObjective.cpp">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesLuaObjectives.cpp">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesObjectiveHelper_Carry.cpp">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesObjectiveHelper_Icon.cpp">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesObjectiveHelper_NeutralSpawn.cpp">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesObjectiveHelper_Spawn.cpp">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesSimpleEntityBasedObjective.cpp">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRulesModules\GameRulesLuaListener.cpp">
+      <Filter>CrysisWars2Files\GameRules\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Testing\AutoTester.cpp">
+      <Filter>CrysisWars2Files\Testing</Filter>
+    </ClCompile>
+    <ClCompile Include="Testing\FeatureTester.cpp">
+      <Filter>CrysisWars2Files\Testing</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoEnum.cpp">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\CryHash.cpp">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\CryWatch.cpp">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\DesignerWarning.cpp">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="RecursiveDimensionalClustering.cpp">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\SingleAllocTextBlock.cpp">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="SShootHelper.cpp">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\StringUtils.cpp">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Effects\GameEffectsSystem.cpp">
+      <Filter>CrysisWars2Files\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="Effects\RenderElements\CREScreenFilter.cpp">
+      <Filter>CrysisWars2Files\Effects\RenderElements</Filter>
+    </ClCompile>
+    <ClCompile Include="Effects\RenderNodes\ScreenFilterRenderNode.cpp">
+      <Filter>CrysisWars2Files\Effects\RenderNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Effects\GameEffects\CCTVGameEffect.cpp">
+      <Filter>CrysisWars2Files\Effects\GameEffects</Filter>
+    </ClCompile>
+    <ClCompile Include="Effects\GameEffects\DeflectionGameEffect.cpp">
+      <Filter>CrysisWars2Files\Effects\GameEffects</Filter>
+    </ClCompile>
+    <ClCompile Include="Effects\GameEffects\ExplosionGameEffect.cpp">
+      <Filter>CrysisWars2Files\Effects\GameEffects</Filter>
+    </ClCompile>
+    <ClCompile Include="Effects\GameEffects\GameEffect.cpp">
+      <Filter>CrysisWars2Files\Effects\GameEffects</Filter>
+    </ClCompile>
+    <ClCompile Include="Effects\GameEffects\HitRecoilGameEffect.cpp">
+      <Filter>CrysisWars2Files\Effects\GameEffects</Filter>
+    </ClCompile>
+    <ClCompile Include="Effects\HUDEventListeners\CCTVHudEventListener.cpp">
+      <Filter>CrysisWars2Files\Effects\HUDEventListeners</Filter>
+    </ClCompile>
+    <ClCompile Include="Effects\Tools\CVarActivationSystem.cpp">
+      <Filter>CrysisWars2Files\Effects\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Effects\Tools\PostEffectActivationSystem.cpp">
+      <Filter>CrysisWars2Files\Effects\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCodeCoverage\GameCodeCoverageGUI.cpp">
+      <Filter>CrysisWars2Files\GameCodeCoverage</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCodeCoverage\GameCodeCoverageManager.cpp">
+      <Filter>CrysisWars2Files\GameCodeCoverage</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCodeCoverage\GameCodeCoverageTracker.cpp">
+      <Filter>CrysisWars2Files\GameCodeCoverage</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCodeCoverage\IGameCodeCoverageListener.cpp">
+      <Filter>CrysisWars2Files\GameCodeCoverage</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio\Announcer.cpp">
+      <Filter>CrysisWars2Files\Audio Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio\AreaAnnouncer.cpp">
+      <Filter>CrysisWars2Files\Audio Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDControllerInputIcons.cpp">
+      <Filter>CrysisWars2Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDOnScreenMessageDef.cpp">
+      <Filter>CrysisWars2Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\2DRenderUtils.cpp">
+      <Filter>CrysisWars2Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\ColourFromXML.cpp">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDObjectManager.cpp">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDStateManager.cpp">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUDTester.cpp">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\ScreenLayoutManager.cpp">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\ScreenLayoutUtils.cpp">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UIElementFactory.cpp">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UIElementManager.cpp">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UIBattleLog.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UIButtonPromptRegion.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UICoverEntireScreen.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UIDeathCam.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UIElement.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UIHitIndicators.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UIImageElement.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UIMinimapTextureElement.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UINewDamageIndicator.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UIObjectives.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UIPerkIconSet.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UIPrematch.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UIScorePopup.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UISimpleBar.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UISpectatorCam.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UISubElement.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UITagNames.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\UI\UITextElement.cpp">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_AONScoreElement.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_ASScoreElement.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_CDScoreElement.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_CTFScoreElement.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\Objects\HUD_DogTagCollectedPopup.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_IAScoreElement.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\Objects\HUD_LeavingBattle.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Message.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_MPSelectMenu.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_PSLScoreElement.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_ReviveCycle.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Scoreboard.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\Objects\HUD_Tagnames.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_TIAScoreElement.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD\HUD_Vehicles.cpp">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\FlashMenuButtonHandler.cpp">
+      <Filter>CrysisWars2Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\Lobby\GameBrowser.cpp">
+      <Filter>CrysisWars2Files\Network\Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\Lobby\GameLobby.cpp">
+      <Filter>CrysisWars2Files\Network\Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="StatHelpers.cpp">
+      <Filter>CrysisWars2Files\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="StatsRecordingMgr.cpp">
+      <Filter>CrysisWars2Files\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="TelemetryCollector.cpp">
+      <Filter>CrysisWars2Files\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLStatsSerializer.cpp">
+      <Filter>CrysisWars2Files\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\ColorGradientManager.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\CreateGame.cpp">
+      <Filter>Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\FlashMenuObject.cpp">
+      <Filter>Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\FlashMenuObjectOptions.cpp">
+      <Filter>Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\FlashMenuObjectProfiles.cpp">
+      <Filter>Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\FlashMenuObjectSingleplayer.cpp">
+      <Filter>Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\FlashMenuScreen.cpp">
+      <Filter>Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\GameNetworkProfile.cpp">
+      <Filter>Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\MPHub.cpp">
+      <Filter>Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\MPLobbyUI.cpp">
+      <Filter>Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\MultiplayerMenu.cpp">
+      <Filter>Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\OptionsManager.cpp">
+      <Filter>Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\QuickGame.cpp">
+      <Filter>Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\AdvantagePointOccupancyControl.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\AIAggression.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\AIBattleFront.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\AIPressure.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\DeadBody.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\DeathManager.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameAIInstanceBase.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\GameAISystem.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\ScriptBind_GameAI.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\SearchModule.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AI\TacticalPointLanguageExtender.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckpointGame.cpp">
+      <Filter>Checkpoints</Filter>
+    </ClCompile>
+    <ClCompile Include="Boids\BoidsProxy.cpp">
+      <Filter>Boids</Filter>
+    </ClCompile>
+    <ClCompile Include="Boids\BugsFlock.cpp">
+      <Filter>Boids</Filter>
+    </ClCompile>
+    <ClCompile Include="Boids\ChickenBoids.cpp">
+      <Filter>Boids</Filter>
+    </ClCompile>
+    <ClCompile Include="Boids\Flock.cpp">
+      <Filter>Boids</Filter>
+    </ClCompile>
+    <ClCompile Include="Boids\FrogBoids.cpp">
+      <Filter>Boids</Filter>
+    </ClCompile>
+    <ClCompile Include="Boids\ScriptBind_Boids.cpp">
+      <Filter>Boids</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMechanismManager\GameMechanismBase.cpp">
+      <Filter>GameMechanismManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMechanismManager\GameMechanismManager.cpp">
+      <Filter>GameMechanismManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\Lobby\CryLobbySessionHandler.cpp" />
+    <ClCompile Include="GameStateRecorder.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BasicEventListener.h">
+      <Filter>Startup Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStartup.h">
+      <Filter>Startup Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IBasicEventListener.h">
+      <Filter>Startup Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Actor Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorDamageEffectController.h">
+      <Filter>Actor Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorRef.h">
+      <Filter>Actor Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorTelemetry.h">
+      <Filter>Actor Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AIDemoInput.h">
+      <Filter>Actor Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptBind_Actor.h">
+      <Filter>Actor Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shark.h">
+      <Filter>Actor Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SharkMovementController.h">
+      <Filter>Actor Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArmsAimingController.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="BodyDamage.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="GodMode.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="IPlayerInput.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="IPlayerUpdateListener.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="NetPlayerInput.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PerkSonarVision.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInput.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMovement.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMovementController.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerNavPath.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerNavPathAgent.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerNavPathGraph.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerNavPathPoint.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerNavPathTagPointCloud.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerRotation.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerVisTable.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponAttachmentManager.h">
+      <Filter>Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraModes.h">
+      <Filter>Actor Files\player\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="ICameraMode.h">
+      <Filter>Actor Files\player\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCamera.h">
+      <Filter>Actor Files\player\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="MindControl.h">
+      <Filter>Actor Files\player\MindControl</Filter>
+    </ClInclude>
+    <ClInclude Include="MindControlConsole.h">
+      <Filter>Actor Files\player\MindControl</Filter>
+    </ClInclude>
+    <ClInclude Include="MindControlInput.h">
+      <Filter>Actor Files\player\MindControl</Filter>
+    </ClInclude>
+    <ClInclude Include="CoverAndLean.h">
+      <Filter>Actor Files\player\ActionControllers\CoverAndLean</Filter>
+    </ClInclude>
+    <ClInclude Include="CoverAndLeanDraw.h">
+      <Filter>Actor Files\player\ActionControllers\CoverAndLean</Filter>
+    </ClInclude>
+    <ClInclude Include="CoverAndLeanMath.h">
+      <Filter>Actor Files\player\ActionControllers\CoverAndLean</Filter>
+    </ClInclude>
+    <ClInclude Include="MountedGunController.h">
+      <Filter>Actor Files\player\ActionControllers\MountedGun</Filter>
+    </ClInclude>
+    <ClInclude Include="StealthKill.h">
+      <Filter>Actor Files\player\ActionControllers\StealthKill</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractiveActionController.h">
+      <Filter>Actor Files\player\ActionControllers\InteractiveAction</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoAimManager.h">
+      <Filter>Actor Files\player\AimAssistance</Filter>
+    </ClInclude>
+    <ClInclude Include="HitDeathReactions.h">
+      <Filter>Actor Files\player\HitDeathReactions</Filter>
+    </ClInclude>
+    <ClInclude Include="HitDeathReactionsDefs.h">
+      <Filter>Actor Files\player\HitDeathReactions</Filter>
+    </ClInclude>
+    <ClInclude Include="HitDeathReactionsSystem.h">
+      <Filter>Actor Files\player\HitDeathReactions</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptBind_HitDeathReactions.h">
+      <Filter>Actor Files\player\HitDeathReactions</Filter>
+    </ClInclude>
+    <ClInclude Include="CompatibilityAlienMovementController.h">
+      <Filter>Actor Files\aliens</Filter>
+    </ClInclude>
+    <ClInclude Include="Hunter.h">
+      <Filter>Actor Files\aliens</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Actor Files\aliens</Filter>
+    </ClInclude>
+    <ClInclude Include="Scout.h">
+      <Filter>Actor Files\aliens</Filter>
+    </ClInclude>
+    <ClInclude Include="Trooper.h">
+      <Filter>Actor Files\aliens</Filter>
+    </ClInclude>
+    <ClInclude Include="GrabHandler.h">
+      <Filter>Actor Files\grab</Filter>
+    </ClInclude>
+    <ClInclude Include="NanoModeArmor.h">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClInclude>
+    <ClInclude Include="NanoModePower.h">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClInclude>
+    <ClInclude Include="NanoModeStealth.h">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClInclude>
+    <ClInclude Include="NanoModeTactical.h">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClInclude>
+    <ClInclude Include="NanoSuit_v2.h">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClInclude>
+    <ClInclude Include="NanoSuitDefs.h">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClInclude>
+    <ClInclude Include="NanoSuitParams.h">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClInclude>
+    <ClInclude Include="SuitShapeDeformation.h">
+      <Filter>Actor Files\NanoSuit</Filter>
+    </ClInclude>
+    <ClInclude Include="Harvester.h">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="Pinger.h">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="Pinger_Mechanics.h">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="PingerMovementController.h">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="Spotter.h">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="SpotterMovementController.h">
+      <Filter>Actor Files\Prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio\AudioSignalPlayer.h">
+      <Filter>Actor Files\Audio Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio\GameAudio.h">
+      <Filter>Actor Files\Audio Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio\Scriptbind_GameAudio.h">
+      <Filter>Actor Files\Audio Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorGame.h">
+      <Filter>EditorGame Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentSystemInterface.h">
+      <Filter>EditorGame Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OrganicMotion\omsdktypes.h">
+      <Filter>EditorGame Files\OrganicMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="OrganicMotion\OrganicMotionClient.h">
+      <Filter>EditorGame Files\OrganicMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="OrganicMotion\SDKClientFactory.h">
+      <Filter>EditorGame Files\OrganicMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="OrganicMotion\sdkclientinterfaces.h">
+      <Filter>EditorGame Files\OrganicMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientGameTokenSynch.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientSynchedStorage.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameActions.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCVars.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFactory.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Radio.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptBind_Game.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptControlledPhysics.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerGameTokenSynch.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerSynchedStorage.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SPAnalyst.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SynchedStorage.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TacticalManager.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Voting.h">
+      <Filter>Game Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment\AlienMine.h">
+      <Filter>Game Files\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment\BattleDust.h">
+      <Filter>Game Files\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment\LedgeManager.h">
+      <Filter>Game Files\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment\Shake.h">
+      <Filter>Game Files\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment\FlowTornado.h">
+      <Filter>Game Files\Environment\Tornado</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment\Tornado.h">
+      <Filter>Game Files\Environment\Tornado</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment\InteractiveObject.h">
+      <Filter>Game Files\Environment\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment\InteractiveObjectRegistry.h">
+      <Filter>Game Files\Environment\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment\ScriptBind_InteractiveObject.h">
+      <Filter>Game Files\Environment\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment\AlienDropPod.h">
+      <Filter>Game Files\Environment\AlienDropPod</Filter>
+    </ClInclude>
+    <ClInclude Include="BlendedEffect.h">
+      <Filter>Game Files\ScreenFX</Filter>
+    </ClInclude>
+    <ClInclude Include="BlendNode.h">
+      <Filter>Game Files\ScreenFX</Filter>
+    </ClInclude>
+    <ClInclude Include="BlendTypes.h">
+      <Filter>Game Files\ScreenFX</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenEffects.h">
+      <Filter>Game Files\ScreenFX</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorParametersRegistry.h">
+      <Filter>Game Files\GameObject Parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicActorParameters.h">
+      <Filter>Game Files\GameObject Parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="GameParameters.h">
+      <Filter>Game Files\GameObject Parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemSharedParams.h">
+      <Filter>Game Files\GameObject Parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponSharedParams.h">
+      <Filter>Game Files\GameObject Parameters</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleClient.h">
+      <Filter>Vehicle Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleMovementTweaks.h">
+      <Filter>Vehicle Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vehicle\VehicleViewGameBase.h">
+      <Filter>Vehicle Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vehicle\VehicleViewSteer.h">
+      <Filter>Vehicle Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleMovementAmphibious.h">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleMovementArcadeWheeled.h">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleMovementBase.h">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vehicle\VehicleMovementDummy.h">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleMovementHelicopter.h">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleMovementHovercraft.h">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleMovementStdBoat.h">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleMovementStdWheeled.h">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleMovementTank.h">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleMovementVTOL.h">
+      <Filter>Vehicle Files\Movement Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleDamageBehaviorBurn.h">
+      <Filter>Vehicle Files\Damage Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleDamageBehaviorCameraShake.h">
+      <Filter>Vehicle Files\Damage Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleDamageBehaviorCollisionEx.h">
+      <Filter>Vehicle Files\Damage Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleDamageBehaviorExplosion.h">
+      <Filter>Vehicle Files\Damage Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleDamageBehaviorTire.h">
+      <Filter>Vehicle Files\Damage Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleActionAutomaticDoor.h">
+      <Filter>Vehicle Files\Action Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleActionDeployRope.h">
+      <Filter>Vehicle Files\Action Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleActionEntityAttachment.h">
+      <Filter>Vehicle Files\Action Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleActionLandingGears.h">
+      <Filter>Vehicle Files\Action Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FlowItemAnimation.h">
+      <Filter>Item Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Item Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemDefinitions.h">
+      <Filter>Item Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemParamReader.h">
+      <Filter>Item Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemScheduler.h">
+      <Filter>Item Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemString.h">
+      <Filter>Item Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptBind_Item.h">
+      <Filter>Item Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AmmoParams.h">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FireModeParams.h">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Recoil.h">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptBind_Weapon.h">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TracerManager.h">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponSystem.h">
+      <Filter>Item Files\Weapon Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Automatic.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="AutomaticShotgun.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="Burst.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="Charge.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="Detonate.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="FireMode.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="ImpulseBeam.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="LTagSingle.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="Melee.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="MeleeCollisionHelper.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="MikeBullet.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="PingerDetectorBurst.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="Plant.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="Rapid.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="Shotgun.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="Single.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="SniperSingle.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="Throw.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="ThrowEx.h">
+      <Filter>Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="C4Projectile.h">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="EMPField.h">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Grenade.h">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="HandGrenades.h">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="HomingMissile.h">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="ImpulseBeamProjectile.h">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="LTAGGrenade.h">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Rock.h">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Rocket.h">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="TacBullet.h">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="TagBullet.h">
+      <Filter>Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="IronSight.h">
+      <Filter>Item Files\Weapon Files\Zoom Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="Scope.h">
+      <Filter>Item Files\Weapon Files\Zoom Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="AIGrenade.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="AmmoPickup.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Binocular.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="C4.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugGun.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="GunTurret.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="HMG.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="JAW.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="LTAG.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="PickAndThrowWeapon.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="ReferenceWeapon.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="ThrowableWeapon.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleHMG.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleWeapon.h">
+      <Filter>Item Files\Weapon Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Accessory.h">
+      <Filter>Item Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Flashlight.h">
+      <Filter>Item Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Laser.h">
+      <Filter>Item Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="CryMacros.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="GameForceFeedback.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="LaptopUtil.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="NetInputChainDebug.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptUtils.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="StatsAgent.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\ContextualInfo.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\FlashPlayerNULL.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\GameFlashAnimation.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\GameFlashLogic.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Impl.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDAsset.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDCVars.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDEventDispatcher.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDEventTranslator.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDMissionObjectiveSystem.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDObject.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDObjectFactory.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDSilhouettes.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDState.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\LocalizedStringManager.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\ScriptBind_HUD.h">
+      <Filter>HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_AIUpdater.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Ammo.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Crosshair.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Debug.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Detector.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_EnergyAndSuitMode.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_InformationField.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Interactive.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_InteractWithObject.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_InterestPoints.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Logic.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_LookAtUpdater.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_MessageQueue.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_NavPath.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_ObjectiveDisplay.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\Objects\HUD_ProgressNotify.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Radar.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_RadarIcon.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_SaveLoadDisplay.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_ScannedEnemiesUpdater.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\Objects\HUD_ScoreNotify.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Stance.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_SuitMenu.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_TacticalInfo.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_UnifiedAsset.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Video.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Visor.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_WeaponSelect.h">
+      <Filter>HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRules.h">
+      <Filter>GameRules</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptBind_GameRules.h">
+      <Filter>GameRules</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodes\AINodes.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodes\ColorGradientNode.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodes\FlowConvoyNode.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodes\G2FlowBaseNode.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodes\HUDNodes.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Flash\Flash.h">
+      <Filter>Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="FlashAnimation.h">
+      <Filter>Flash</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\EZ_LCD.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\EZ_LCD_Defines.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\EZ_LCD_Page.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\LCDAnimatedBitmap.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\LCDBase.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\LCDBitmap.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\LCDCollection.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\LCDGfx.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\LCDIcon.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\LCDManager.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\LCDOutput.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\LCDProgressBar.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\LCDScrollingText.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\LCDStreamingText.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\LCDText.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\LCDWrapper.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="LCD\lglcd.h">
+      <Filter>LCD</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\GameRealtimeRemoteUpdate.h">
+      <Filter>Realtime Remote Update System</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\FlashFrontEnd.h">
+      <Filter>FrontEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\FrontEnd.h">
+      <Filter>FrontEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\FrontEndAudio.h">
+      <Filter>FrontEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\FrontEndElement.h">
+      <Filter>FrontEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\FrontEndParser.h">
+      <Filter>FrontEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\FrontEndScreen.h">
+      <Filter>FrontEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\ILoadingMessageProvider.h">
+      <Filter>FrontEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\MenuData.h">
+      <Filter>FrontEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\Option.h">
+      <Filter>FrontEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\ProfileOptions.h">
+      <Filter>FrontEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\WarningsManager.h">
+      <Filter>FrontEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\Multiplayer\MPMenuHub.h">
+      <Filter>FrontEnd\Multiplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\Multiplayer\UILeaderboards.h">
+      <Filter>FrontEnd\Multiplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="FrontEnd\Multiplayer\UIServerList.h">
+      <Filter>FrontEnd\Multiplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="RecordingBuffer.h">
+      <Filter>CrysisWars2Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RecordingSystem.h">
+      <Filter>CrysisWars2Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BTBBomb.h">
+      <Filter>CrysisWars2Files\Item Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dogtag.h">
+      <Filter>CrysisWars2Files\Item Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Javelin.h">
+      <Filter>CrysisWars2Files\Item Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SuitDisruptionField.h">
+      <Filter>CrysisWars2Files\Item Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GunTurret_AimWhereControllingPlayerIsAiming.h">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponWithPickupTimer.h">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chaff.h">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="EMPStrike.h">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="JavelinMissile.h">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="KVoltBullet.h">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="SatelliteStrike.h">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="TunnelingGrenade.h">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="VolatileSpike.h">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Projectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="FM_Hologram.h">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="FM_TunnellingGrenade.h">
+      <Filter>CrysisWars2Files\Item Files\Weapon Files\Fire Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorHitReactController.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="DummyPlayer.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="IPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="Perk.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PerkDbgDisplay.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PersistantStats.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerHologram.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerModifiableValues.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPerkParticleInfo.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPlugin.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPlugin_CurrentlyTargetting.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPlugin_Interaction.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPlugin_ScoreRewards.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerProgression.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonAlignedParticleCreator.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillKill.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="SuitModeProgression.h">
+      <Filter>CrysisWars2Files\Actor Files\player</Filter>
+    </ClInclude>
+    <ClInclude Include="DualCharacterProxy.h">
+      <Filter>CrysisWars2Files\Actor Files\player\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="IKTorsoAim_Helper.h">
+      <Filter>CrysisWars2Files\Actor Files\player\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="ITransformationPinning.h">
+      <Filter>CrysisWars2Files\Actor Files\player\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="LookAim_Helper.h">
+      <Filter>CrysisWars2Files\Actor Files\player\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformationPinning.h">
+      <Filter>CrysisWars2Files\Actor Files\player\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponFPAiming.h">
+      <Filter>CrysisWars2Files\Actor Files\player\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="CloakAwarenessPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="CriticalEMPPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="EagleVisionPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="EMPStrikePerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="FatalityBonus.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="MissileCountermeasuresPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="PerkIconData.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="PhantomPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPlugin_Perk_AutoTarget.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPlugin_Perk_ModifyDamageBasedOnAngle.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPlugin_Perk_ModifyValues.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPlugin_Perk_SniperCountermeasures.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPlugin_Perk_TeamPerkWithTimeout.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="ProximityPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="ResistantPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="SatStrikePerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="SelfDestructPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="SilentFeetPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="SmokeBlastPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="StampPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreatDetectorPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackerPerk.h">
+      <Filter>CrysisWars2Files\Actor Files\player\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="Battlechatter.h">
+      <Filter>CrysisWars2Files\GameRules</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentLoadout.h">
+      <Filter>CrysisWars2Files\GameRules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesTypes.h">
+      <Filter>CrysisWars2Files\GameRules</Filter>
+    </ClInclude>
+    <ClInclude Include="TeamPerks.h">
+      <Filter>CrysisWars2Files\GameRules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesAssistScoring.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesModulesManager.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesMPActorAction.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesMPDamageHandling.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesMPHQFrontlineSpawning.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesMPSimpleSpawning.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesMPSpawning.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesMPSpawningWithLives.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesMPSpectator.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesObjectiveVictoryConditionsTeam.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesProgressiveObjectives.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesSpawningBase.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesStandardPlayerStats.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesStandardRounds.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesStandardScoring.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesStandardSetup.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesStandardState.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesStandardTwoTeams.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesStandardVictoryConditionsPlayer.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesStandardVictoryConditionsTeam.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesStatsRecording.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesSurvivorOneVictoryConditions.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesActorActionModule.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesAssistScoringModule.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesDamageHandlingModule.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesModuleRMIListener.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesModulesManager.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesObjectivesModule.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesPlayerSetupModule.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesPlayerStatsModule.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesRoundsModule.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesScoringModule.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesSpawningModule.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesSpectatorModule.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesStateModule.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesTeamsModule.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesVictoryConditionsModule.h">
+      <Filter>CrysisWars2Files\GameRules\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesCaptureObjective.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesCarryObjective.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesCombiCaptureObjective.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesHoldObjectiveBase.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesKillObjective.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesKingOfTheHillObjective.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesLuaEntityObjective.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesLuaObjectives.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesObjectiveHelper_Carry.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesObjectiveHelper_Icon.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesObjectiveHelper_NeutralSpawn.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesObjectiveHelper_Spawn.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesSimpleEntityBasedObjective.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesEntityObjective.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesObjective.h">
+      <Filter>CrysisWars2Files\GameRules\Objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\GameRulesLuaListener.h">
+      <Filter>CrysisWars2Files\GameRules\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesClientConnectionListener.h">
+      <Filter>CrysisWars2Files\GameRules\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesClientScoreListener.h">
+      <Filter>CrysisWars2Files\GameRules\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesKillListener.h">
+      <Filter>CrysisWars2Files\GameRules\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesPickupListener.h">
+      <Filter>CrysisWars2Files\GameRules\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesPlayerStatsListener.h">
+      <Filter>CrysisWars2Files\GameRules\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesRevivedListener.h">
+      <Filter>CrysisWars2Files\GameRules\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesRoundsListener.h">
+      <Filter>CrysisWars2Files\GameRules\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesSurvivorCountListener.h">
+      <Filter>CrysisWars2Files\GameRules\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRulesModules\IGameRulesTeamChangedListener.h">
+      <Filter>CrysisWars2Files\GameRules\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Testing\AutoTester.h">
+      <Filter>CrysisWars2Files\Testing</Filter>
+    </ClInclude>
+    <ClInclude Include="Testing\FeatureTester.h">
+      <Filter>CrysisWars2Files\Testing</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoEnum.h">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\CryFixedArray.h">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\CryHash.h">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\CryWatch.h">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\DesignerWarning.h">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="RecursiveDimensionalClustering.h">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\SingleAllocTextBlock.h">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="SShootHelper.h">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\StringUtils.h">
+      <Filter>CrysisWars2Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Effects\GameEffectsSystem.h">
+      <Filter>CrysisWars2Files\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="Effects\RenderElements\CREScreenFilter.h">
+      <Filter>CrysisWars2Files\Effects\RenderElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Effects\RenderNodes\ScreenFilterRenderNode.h">
+      <Filter>CrysisWars2Files\Effects\RenderNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Effects\GameEffects\CCTVGameEffect.h">
+      <Filter>CrysisWars2Files\Effects\GameEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="Effects\GameEffects\DeflectionGameEffect.h">
+      <Filter>CrysisWars2Files\Effects\GameEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="Effects\GameEffects\ExplosionGameEffect.h">
+      <Filter>CrysisWars2Files\Effects\GameEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="Effects\GameEffects\GameEffect.h">
+      <Filter>CrysisWars2Files\Effects\GameEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="Effects\GameEffects\HitRecoilGameEffect.h">
+      <Filter>CrysisWars2Files\Effects\GameEffects</Filter>
+    </ClInclude>
+    <ClInclude Include="Effects\HUDEventListeners\CCTVHudEventListener.h">
+      <Filter>CrysisWars2Files\Effects\HUDEventListeners</Filter>
+    </ClInclude>
+    <ClInclude Include="Effects\Tools\CVarActivationSystem.h">
+      <Filter>CrysisWars2Files\Effects\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Effects\Tools\PostEffectActivationSystem.h">
+      <Filter>CrysisWars2Files\Effects\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCodeCoverage\GameCodeCoverageEnabled.h">
+      <Filter>CrysisWars2Files\GameCodeCoverage</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCodeCoverage\GameCodeCoverageGUI.h">
+      <Filter>CrysisWars2Files\GameCodeCoverage</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCodeCoverage\GameCodeCoverageManager.h">
+      <Filter>CrysisWars2Files\GameCodeCoverage</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCodeCoverage\GameCodeCoverageTracker.h">
+      <Filter>CrysisWars2Files\GameCodeCoverage</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCodeCoverage\IGameCodeCoverageListener.h">
+      <Filter>CrysisWars2Files\GameCodeCoverage</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio\Announcer.h">
+      <Filter>CrysisWars2Files\Audio Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio\AreaAnnouncer.h">
+      <Filter>CrysisWars2Files\Audio Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDControllerInputIcons.h">
+      <Filter>CrysisWars2Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDOnScreenMessageDef.h">
+      <Filter>CrysisWars2Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\2DRenderUtils.h">
+      <Filter>CrysisWars2Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\ColourFromXML.h">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDDefines.h">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDNULLFlashVariableObject.h">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDObjectManager.h">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDStateManager.h">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDTester.h">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUDUtils.h">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\ScreenLayoutManager.h">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\ScreenLayoutUtils.h">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UIElementFactory.h">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UIElementManager.h">
+      <Filter>CrysisWars2Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\IUIElement.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UIBattleLog.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UIButtonPromptRegion.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UICoverEntireScreen.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UIDeathCam.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UIElement.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UIHitIndicators.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UIImageElement.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UIMinimapTextureElement.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UINewDamageIndicator.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UIObjectives.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UIPerkIconSet.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UIPrematch.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UIScorePopup.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UISimpleBar.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UISpectatorCam.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UISubElement.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UITagNames.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\UI\UITextElement.h">
+      <Filter>CrysisWars2Files\HUD\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_AONScoreElement.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_ASScoreElement.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_CDScoreElement.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_CTFScoreElement.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\Objects\HUD_DogTagCollectedPopup.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_IAScoreElement.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\Objects\HUD_LeavingBattle.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Message.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_MPSelectMenu.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_PSLScoreElement.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_ReviveCycle.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Scoreboard.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\Objects\HUD_Tagnames.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_TIAScoreElement.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD\HUD_Vehicles.h">
+      <Filter>CrysisWars2Files\HUD\HUDObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Menus\FlashMenuButtonHandler.h">
+      <Filter>CrysisWars2Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\Lobby\GameBrowser.h">
+      <Filter>CrysisWars2Files\Network\Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\Lobby\GameLobby.h">
+      <Filter>CrysisWars2Files\Network\Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\Lobby\Xenon_LobbyDefinitions.h">
+      <Filter>CrysisWars2Files\Network\Lobby</Filter>
+    </ClInclude>
+    <ClInclude Include="ITelemetryCollector.h">
+      <Filter>CrysisWars2Files\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="StatHelpers.h">
+      <Filter>CrysisWars2Files\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="StatsRecordingMgr.h">
+      <Filter>CrysisWars2Files\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="TelemetryCollector.h">
+      <Filter>CrysisWars2Files\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLStatsSerializer.h">
+      <Filter>CrysisWars2Files\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\ColorGradientManager.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Menus\CreateGame.h">
+      <Filter>Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Menus\FlashMenuObject.h">
+      <Filter>Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Menus\FlashMenuScreen.h">
+      <Filter>Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Menus\GameNetworkProfile.h">
+      <Filter>Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Menus\MPHub.h">
+      <Filter>Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Menus\MPLobbyUI.h">
+      <Filter>Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Menus\MultiplayerMenu.h">
+      <Filter>Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Menus\OptionsManager.h">
+      <Filter>Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Menus\QuickGame.h">
+      <Filter>Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\AdvantagePointOccupancyControl.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\Agent.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\AIAggression.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\AIBattleFront.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\AIPressure.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\DeadBody.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\DeathManager.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameAIInstanceBase.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\GameAISystem.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\ScriptBind_GameAI.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\SearchModule.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI\TacticalPointLanguageExtender.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckpointGame.h">
+      <Filter>Checkpoints</Filter>
+    </ClInclude>
+    <ClInclude Include="Boids\BoidsProxy.h">
+      <Filter>Boids</Filter>
+    </ClInclude>
+    <ClInclude Include="Boids\BugsFlock.h">
+      <Filter>Boids</Filter>
+    </ClInclude>
+    <ClInclude Include="Boids\ChickenBoids.h">
+      <Filter>Boids</Filter>
+    </ClInclude>
+    <ClInclude Include="Boids\Flock.h">
+      <Filter>Boids</Filter>
+    </ClInclude>
+    <ClInclude Include="Boids\FrogBoids.h">
+      <Filter>Boids</Filter>
+    </ClInclude>
+    <ClInclude Include="Boids\ScriptBind_Boids.h">
+      <Filter>Boids</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMechanismManager\GameMechanismBase.h">
+      <Filter>GameMechanismManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMechanismManager\GameMechanismManager.h">
+      <Filter>GameMechanismManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\Lobby\CryLobbySessionHandler.h" />
+    <ClInclude Include="GameStateRecorder.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="StdAfx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="OrganicMotion\SDKClientLib.lib">
+      <Filter>EditorGame Files\OrganicMotion</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GameActions.actions">
+      <Filter>Game Files</Filter>
+    </None>
+    <None Include="..\Launcher\Cursor_White.cur" />
+    <None Include="Cursor_White.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Crysis.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GameDll.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Alien.h">
+      <Filter>Actor Files\aliens</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

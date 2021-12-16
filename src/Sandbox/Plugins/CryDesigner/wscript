@@ -1,0 +1,31 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2014, Crytek Studios
+##
+## Creator: Jaesik Hwang
+## Date: Dec 1, 2014
+## Description: WAF  based build system
+#############################################################################
+
+def build(bld):	
+	
+	bld.CryPlugin(
+		target      = 'CryDesigner',
+		vs_filter	= 'Sandbox/Plugins',
+		file_list   = 'crydesigner.waf_files',
+		use         = ['Editor'],
+		pch			= 'StdAfx.cpp',
+		#force_disable_mfc  = True,
+		defines = ['_XTPLIB_VISUALSTUDIO_VERSION="vc110"', 'USE_PYTHON_SCRIPTING', 'BOOST_PYTHON_STATIC_LIB', 'SANDBOX_IMPORTS'],
+		includes = [ 
+			'.', 
+			'..', 
+			'GeneratedFiles', 
+			Path('Code/SDKs/XT_13_4/Include')
+		],
+		win_libpath = [
+			Path('Code/SDKs/XT_13_4/lib_vc11'),
+			Path('Code/SDKs/boost/lib/64bit')
+			]
+	)
+	

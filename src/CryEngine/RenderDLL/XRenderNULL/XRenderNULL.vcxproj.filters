@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ab664405-4079-43e2-8ca7-5a8da6a29ac0}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{95d91c33-d88f-49fb-8850-d4bcdb7ab95f}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{48e5ed39-0df8-498a-bee4-2894a26d0876}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\RendElements">
+      <UniqueIdentifier>{0f5e076f-f039-42cf-9837-c40b01108eac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\RendElements\RendElements_h">
+      <UniqueIdentifier>{3012db9d-e0ca-41f5-9c9c-08d719803f03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Common_h">
+      <UniqueIdentifier>{df0cff76-efd5-4b4f-a779-9340900a3de2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\PostProcess">
+      <UniqueIdentifier>{eb52898d-d457-48dd-b81d-7a009dc83eae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\RenderMesh">
+      <UniqueIdentifier>{40fe17a9-7f3a-458a-8497-aa12a7a7315c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Textures">
+      <UniqueIdentifier>{5165a73c-0182-4da3-a28d-e333a1905b76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Textures\Image">
+      <UniqueIdentifier>{e23660a6-da21-4da4-a9c1-22ac934206d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Textures\Image\Image_h">
+      <UniqueIdentifier>{485aec93-90f9-4543-ae4a-1866352df5f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Textures\Image\zlib">
+      <UniqueIdentifier>{547b7c32-0248-4d54-8c15-092ffef00d02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Textures\Image\jpeg6">
+      <UniqueIdentifier>{eae7348c-7829-4a47-af71-ad56dcc40dc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Shaders">
+      <UniqueIdentifier>{96697a57-0f19-4c82-85fe-0f2a14a9c441}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Lzma">
+      <UniqueIdentifier>{1fe23d15-edf3-407b-a926-b4b45349f9d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries">
+      <UniqueIdentifier>{dd0c73c2-4dd3-424e-a402-97a0166eecd1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="NULL_DevBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NULL_Font.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NULL_PostProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NULL_Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NULL_RendPipeline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NULL_RERender.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NULL_Shaders.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NULL_Shadows.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NULL_System.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NULL_Textures.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NULL_TexturesStreaming.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NULLRenderAuxGeom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\3DUtils.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\CommonRender.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\CRT.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommon\EngineSettingsManager.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\lzss.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\MatrixStack.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Renderer.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RenderPipeline.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RenderThread.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\ResFile.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\ShadowUtils.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\TextMessages.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\WaterUtils.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREBeam.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREClientPoly.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CRECloud.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREDeferredShading.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREDummy.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREFlares.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREFogVolume.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREGameEffect.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREHDRProcess.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREImposter.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREIrradianceVolume.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREOcLeaf.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREOclusionQuery.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREParticle.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREParticleGPU.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREPostProcess.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREPrismObject.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CRESky.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CRETempMesh.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CRETerrainSector.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREVolumeObject.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREWaterOcean.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREWaterVolume.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\CREWaterWave.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RendElements\RendElement.cpp">
+      <Filter>Common\RendElements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\PostProcess\PostEffects.cpp">
+      <Filter>Common\PostProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\PostProcess\PostProcess.cpp">
+      <Filter>Common\PostProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\PostProcess\PostProcessUtils.cpp">
+      <Filter>Common\PostProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\RenderMesh2.cpp">
+      <Filter>Common\RenderMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\DynTexture.cpp">
+      <Filter>Common\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\PowerOf2BlockPacker.cpp">
+      <Filter>Common\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CryCommon\ResourceCompilerHelper.cpp">
+      <Filter>Common\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Texture.cpp">
+      <Filter>Common\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\TextureStreaming.cpp">
+      <Filter>Common\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\CImage.cpp">
+      <Filter>Common\Textures\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\CompressedImage.cpp">
+      <Filter>Common\Textures\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\DDSImage.cpp">
+      <Filter>Common\Textures\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\JpgImage.cpp">
+      <Filter>Common\Textures\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\TgaImage.cpp">
+      <Filter>Common\Textures\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jcomapi.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jdapimin.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jdapistd.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jdatasrc.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jdcoefct.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jdcolor.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jddctmgr.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jdhuff.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jdinput.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jdmainct.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jdmarker.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jdmaster.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jdpostct.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jdsample.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jdtrans.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jerror.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jfdctflt.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jidctflt.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jmemmgr.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jmemnobs.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Textures\Image\jpeg6\jutils.cpp">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Shaders\Parser.cpp">
+      <Filter>Common\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Shaders\ParserBin.cpp">
+      <Filter>Common\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Shaders\ShaderCache.cpp">
+      <Filter>Common\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Shaders\ShaderComponents.cpp">
+      <Filter>Common\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Shaders\ShaderCore.cpp">
+      <Filter>Common\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Shaders\ShaderFXParseBin.cpp">
+      <Filter>Common\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Shaders\ShaderGraph.cpp">
+      <Filter>Common\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Shaders\ShaderParse.cpp">
+      <Filter>Common\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Shaders\ShaderScript.cpp">
+      <Filter>Common\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Shaders\ShaderTemplate.cpp">
+      <Filter>Common\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Lzma\Alloc.c">
+      <Filter>Common\Lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Lzma\Bra.c">
+      <Filter>Common\Lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Lzma\Bra86.c">
+      <Filter>Common\Lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Lzma\LzFind.c">
+      <Filter>Common\Lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Lzma\Lzma2Dec.c">
+      <Filter>Common\Lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Lzma\Lzma2Enc.c">
+      <Filter>Common\Lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Lzma\Lzma86Dec.c">
+      <Filter>Common\Lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Lzma\Lzma86Enc.c">
+      <Filter>Common\Lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Lzma\LzmaDec.c">
+      <Filter>Common\Lzma</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\Lzma\LzmaEnc.c">
+      <Filter>Common\Lzma</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NULL_Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NULLRenderAuxGeom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommon\EngineSettingsManager.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TextMessages.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\RendElements\CREBeam.h">
+      <Filter>Common\RendElements\RendElements_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\RendElements\CREClientPoly.h">
+      <Filter>Common\RendElements\RendElements_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\RendElements\CRECloud.h">
+      <Filter>Common\RendElements\RendElements_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\RendElements\CREDeferredShading.h">
+      <Filter>Common\RendElements\RendElements_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\RendElements\CREFlares.h">
+      <Filter>Common\RendElements\RendElements_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\RendElements\CREHDRProcess.h">
+      <Filter>Common\RendElements\RendElements_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\RendElements\CREPostProcessData.h">
+      <Filter>Common\RendElements\RendElements_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CryCommon\CREPrismObject.h">
+      <Filter>Common\RendElements\RendElements_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\RendElements\CRETempMesh.h">
+      <Filter>Common\RendElements\RendElements_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\RendElements\Stars.h">
+      <Filter>Common\RendElements\RendElements_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\3DUtils.h">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\CommonRender.h">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\FrameProfiler.h">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\IColorGradingControllerInt.h">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\LZSS.H">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\OcclQuery.h">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Renderer.h">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\RenderPipeline.h">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\RenderThread.h">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\ResFile.h">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\ResFile_info.h">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Shadow_Renderer.h">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\ShadowUtils.h">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\WaterUtils.h">
+      <Filter>Common\Common_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\PostProcess\PostEffects.h">
+      <Filter>Common\PostProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\PostProcess\PostProcess.h">
+      <Filter>Common\PostProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\PostProcess\PostProcessUtils.h">
+      <Filter>Common\PostProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\RenderMesh2.h">
+      <Filter>Common\RenderMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\PowerOf2BlockPacker.h">
+      <Filter>Common\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Texture.h">
+      <Filter>Common\Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\JpgImage.h">
+      <Filter>Common\Textures\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\TgaImage.h">
+      <Filter>Common\Textures\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\CImage.h">
+      <Filter>Common\Textures\Image\Image_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\CompressedImage.h">
+      <Filter>Common\Textures\Image\Image_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\DDSImage.h">
+      <Filter>Common\Textures\Image\Image_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\SHendian.h">
+      <Filter>Common\Textures\Image\Image_h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\zlib\zconf.h">
+      <Filter>Common\Textures\Image\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\zlib\zlib.h">
+      <Filter>Common\Textures\Image\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\jpeg6\jchuff.h">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\jpeg6\jconfig.h">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\jpeg6\jdct.h">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\jpeg6\jdhuff.h">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\jpeg6\jerror.h">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\jpeg6\jinclude.h">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\jpeg6\jmemsys.h">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\jpeg6\jmorecfg.h">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\jpeg6\jpegint.h">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\jpeg6\jpeglib.h">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Textures\Image\jpeg6\jversion.h">
+      <Filter>Common\Textures\Image\jpeg6</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Shaders\CShader.h">
+      <Filter>Common\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Shaders\CShaderBin.h">
+      <Filter>Common\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Shaders\Parser.h">
+      <Filter>Common\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Shaders\ParserBin.h">
+      <Filter>Common\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Shaders\Shader.h">
+      <Filter>Common\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Shaders\ShaderCache.h">
+      <Filter>Common\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Shaders\ShaderComponents.h">
+      <Filter>Common\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Shaders\ShaderGraph.h">
+      <Filter>Common\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Lzma\Alloc.h">
+      <Filter>Common\Lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Lzma\Bra.h">
+      <Filter>Common\Lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Lzma\LzFind.h">
+      <Filter>Common\Lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Lzma\LzHash.h">
+      <Filter>Common\Lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Lzma\Lzma2Dec.h">
+      <Filter>Common\Lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Lzma\Lzma2Enc.h">
+      <Filter>Common\Lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Lzma\Lzma86.h">
+      <Filter>Common\Lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Lzma\LzmaDec.h">
+      <Filter>Common\Lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Lzma\LzmaEnc.h">
+      <Filter>Common\Lzma</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Lzma\Types.h">
+      <Filter>Common\Lzma</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Libraries\ijl15.lib">
+      <Filter>Libraries</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="XRenderNULL.rc" />
+  </ItemGroup>
+</Project>

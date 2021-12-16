@@ -1,0 +1,22 @@
+#############################################################################
+## Crytek Source File
+## Copyright (C) 2013, Crytek Studios
+##
+## Description: WAF based build system
+#############################################################################
+QT_TO_MOC_FILES = [
+	'ExampleWindow.h'
+	]
+
+
+def build(bld):	
+
+	bld.CryPlugin(
+		target      = '_ExampleQtViewPane',
+		vs_filter   = 'Sandbox/Plugins',
+		file_list   = '_exampleqtviewpane.waf_files',
+		features        = 'qt',		
+		includes        = 'GeneratedFiles',						
+		qt_to_moc_files = QT_TO_MOC_FILES,
+		use             = 'EditorCommon'
+	)

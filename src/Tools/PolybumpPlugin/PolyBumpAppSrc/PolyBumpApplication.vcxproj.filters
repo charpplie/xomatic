@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Hidden">
+      <UniqueIdentifier>{43d59db8-eb99-43ec-a6db-8d871fb8e7bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonPolyBump">
+      <UniqueIdentifier>{8c84c6a6-5bba-4c19-a26c-fe6fe28822cf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\PolyBumpApplication.ico">
+      <Filter>Hidden</Filter>
+    </None>
+    <None Include="res\PolyBumpApplication.rc2">
+      <Filter>Hidden</Filter>
+    </None>
+    <None Include="PolyBumpApplication.reg">
+      <Filter>Hidden</Filter>
+    </None>
+    <None Include="res\PolyBumpApplicationDoc.ico">
+      <Filter>Hidden</Filter>
+    </None>
+    <None Include="ReadMe.txt">
+      <Filter>Hidden</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>Hidden</Filter>
+    </None>
+    <None Include="..\Polybump.History" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PolyBumpApplication.rc">
+      <Filter>Hidden</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>Hidden</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Hidden</Filter>
+    </ClInclude>
+    <ClInclude Include="..\AG_Thread.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ASCIIFile.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ChooseIntersection.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CopyProtection.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Crytek_Logo.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryEngine\CryCommon\EngineSettingsManager.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EveryObjectOnlyOnce.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\intersect_triangle.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ITriangleMeshOutputProxy.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeyGen.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MAC_Address.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PbTri.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PolyBump.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PolyBumpCommon.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PolybumpProgress.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PolyBumpWorkerThread.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Properties.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RasterCube.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RasterTable.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\cryengine\crycommon\ResourceCompilerHelper.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SimpleIndexedMesh.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SimpleTriangleRasterizer.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\crycommontools\SRFData.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TangentSpaceCalculation.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TGA.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TriangleInputProxy.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\types.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zconf.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryCommonTools\zconf.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CryCommonTools\zlib.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\zlib.h">
+      <Filter>CommonPolyBump</Filter>
+    </ClInclude>
+    <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="LineReader.h" />
+    <ClInclude Include="LowPolySettingsDialog.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MainPanel.h" />
+    <ClInclude Include="OBJFileformat.h" />
+    <ClInclude Include="PolyBumpApplication.h" />
+    <ClInclude Include="PolyBumpApplicationDoc.h" />
+    <ClInclude Include="PolyBumpApplicationView.h" />
+    <ClInclude Include="PreviewInput.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Hidden</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AG_Thread.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ASCIIFile.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ChooseIntersection.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CopyProtection.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\CryCommon\EngineSettingsManager.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeyGen.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MAC_Address.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PbTri.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PolyBump.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PolybumpProgress.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PolyBumpWorkerThread.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CryEngine\CryCommon\ResourceCompilerHelper.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SimpleIndexedMesh.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SimpleTriangleRasterizer.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crycommontools\SRFData.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tga.cpp">
+      <Filter>CommonPolyBump</Filter>
+    </ClCompile>
+    <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="LineReader.cpp" />
+    <ClCompile Include="LowPolySettingsDialog.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MainPanel.cpp" />
+    <ClCompile Include="OBJFileformat.cpp" />
+    <ClCompile Include="PolyBumpApplication.cpp" />
+    <ClCompile Include="PolyBumpApplicationDoc.cpp" />
+    <ClCompile Include="PolyBumpApplicationView.cpp" />
+    <ClCompile Include="PreviewInput.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuildStep Include="res\PolyBumpApplication.manifest">
+      <Filter>Hidden</Filter>
+    </CustomBuildStep>
+  </ItemGroup>
+</Project>

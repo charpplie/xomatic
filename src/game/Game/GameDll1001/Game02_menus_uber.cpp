@@ -1,0 +1,12 @@
+//file acts as Uber-file
+#include "Item.cpp"
+#include "ItemAccessory.cpp"
+#include "ItemClientServer.cpp"
+#include "ItemDualWield.cpp"
+#include "ItemEffect.cpp"
+#include "ItemEvents.cpp"
+#include "ItemParams.cpp"
+#include "ItemResource.cpp"
+#include "ItemScheduler.cpp"
+#include "ItemSharedParams.cpp"
+#include "ItemView.cpp"

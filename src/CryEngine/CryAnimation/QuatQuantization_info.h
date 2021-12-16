@@ -1,0 +1,15 @@
+STRUCT_INFO_BEGIN(SmallTree48BitQuat)
+	VAR_INFO(m_1)
+	VAR_INFO(m_2)
+	VAR_INFO(m_3)
+STRUCT_INFO_END(SmallTree48BitQuat)
+
+STRUCT_INFO_BEGIN(SmallTree64BitQuat)
+	VAR_INFO(m_1)
+	VAR_INFO(m_2)
+STRUCT_INFO_END(SmallTree64BitQuat)
+
+STRUCT_INFO_BEGIN(SmallTree64BitExtQuat)
+	VAR_INFO(m_1)
+	VAR_INFO(m_2)
+STRUCT_INFO_END(SmallTree64BitExtQuat)

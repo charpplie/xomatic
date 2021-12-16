@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PreProcess">
+      <UniqueIdentifier>{9046a5bb-455c-4c82-8f28-40a81776457d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PreProcess\Source Files">
+      <UniqueIdentifier>{810577b8-67c7-4796-af53-c05ddb46de0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PreProcess\Header Files">
+      <UniqueIdentifier>{cfdcf182-6b7d-4eb1-8cac-1ee68b074e5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Material">
+      <UniqueIdentifier>{a03d7a77-e8b3-48f0-81bb-f1c3f6131f4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Material\Source Files">
+      <UniqueIdentifier>{3c8a63fb-9695-4d8c-8ffc-b61c3c7abd2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Material\Header Files">
+      <UniqueIdentifier>{3a20d09c-34fb-45e1-a085-a5c60ff38962}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{71edafdd-84b8-4c02-840c-f8980f677763}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base\Header Files">
+      <UniqueIdentifier>{f3ac5312-ad80-475e-b4dc-4ca5ecb1fb88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Transfer">
+      <UniqueIdentifier>{c39dc9f2-8bc0-4bc1-837a-26d0117860f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Transfer\Source Files">
+      <UniqueIdentifier>{23095cd5-0d51-40ae-a104-9c02e153976a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Transfer\Header Files">
+      <UniqueIdentifier>{232a1e7c-24b2-4939-9fe3-3412c6937873}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Import/Export">
+      <UniqueIdentifier>{79a97e04-ffc7-4967-812e-4ef58117c8f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Import/Export\Source Files">
+      <UniqueIdentifier>{ab58c591-ceb8-4d16-9990-05655092ef82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Import/Export\Header Files">
+      <UniqueIdentifier>{b37a1420-b733-4aa7-bdd0-557d2f50df50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{90b5ee9b-e4e7-467d-b799-8e58b0d6dbfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Source Files">
+      <UniqueIdentifier>{6dbdc358-00c4-49cc-817c-7965cbc94d91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Header Files">
+      <UniqueIdentifier>{d05e4183-e2bd-41b1-95a8-da2096837bd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{de1e5474-438f-4695-ac49-fc920c7ffb7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Log\Source Files">
+      <UniqueIdentifier>{d2586363-f15d-493d-97de-3f7ebc78e463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Log\Header Files">
+      <UniqueIdentifier>{dcdd0925-f287-4753-b557-10bcf0f906be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RayCasting">
+      <UniqueIdentifier>{74d8c142-ce3f-4669-a896-49aa1bb69041}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RayCasting\Source Files">
+      <UniqueIdentifier>{c04427ee-e30d-4538-bcd4-f2e81f828210}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RayCasting\Header Files">
+      <UniqueIdentifier>{72c61bd2-6183-4db6-87ca-5dd97aa3a0f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Allocator">
+      <UniqueIdentifier>{44fea565-1f9e-419e-aa99-74758588bf40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Allocator\Source Files">
+      <UniqueIdentifier>{0daa38a4-32cb-4ca4-8d3e-bb0ce9ad2072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageLoading">
+      <UniqueIdentifier>{30c6945e-d4ea-4b87-90d5-eef6ecc87d4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageLoading\Source Files">
+      <UniqueIdentifier>{e73026c9-de2d-4fd6-9305-4be4ba8b2387}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageLoading\Header Files">
+      <UniqueIdentifier>{9354988c-5cd2-4f66-a063-ba537708fb23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TransferConfigurator">
+      <UniqueIdentifier>{378d7ba1-3dcd-4bb7-abf0-c64f4ef5f69a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TransferConfigurator\Source Files">
+      <UniqueIdentifier>{e11fd010-3f14-4f64-bf60-54992e9b40f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TransferConfigurator\Header Files">
+      <UniqueIdentifier>{89c25154-d759-422a-8055-d8055f01c205}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SampleGenerator.cpp">
+      <Filter>PreProcess\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AlphaTextureMaterial.cpp">
+      <Filter>Material\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BacklightingAlphaTextureMaterial.cpp">
+      <Filter>Material\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseTextureMaterial.cpp">
+      <Filter>Material\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultAlphaMaterial.cpp">
+      <Filter>Material\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultBacklightingMaterial.cpp">
+      <Filter>Material\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultMaterial.cpp">
+      <Filter>Material\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialFactory.cpp">
+      <Filter>Material\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PrintTransferObserver.cpp">
+      <Filter>Transfer\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transfer.cpp">
+      <Filter>Transfer\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransferParameters.cpp">
+      <Filter>Transfer\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleIndexedMesh.cpp">
+      <Filter>Import/Export\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleTriangleRasterizer.cpp">
+      <Filter>Import/Export\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SHFramework.cpp">
+      <Filter>Framework\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SHLog.cpp">
+      <Filter>Log\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FullVisCache.cpp">
+      <Filter>RayCasting\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RayCaster.cpp">
+      <Filter>RayCasting\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SHAllocator.cpp">
+      <Filter>Allocator\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonImageReader.cpp">
+      <Filter>ImageLoading\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HDRImageReader.cpp">
+      <Filter>ImageLoading\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageFactory.cpp">
+      <Filter>ImageLoading\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TIFImageReader.cpp">
+      <Filter>ImageLoading\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ITransferConfigurator.cpp">
+      <Filter>TransferConfigurator\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransferConfiguratorFactory.cpp">
+      <Filter>TransferConfigurator\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SampleRetrieval.inl">
+      <Filter>PreProcess\Source Files</Filter>
+    </None>
+    <None Include="SubTriManager.inl">
+      <Filter>PreProcess\Source Files</Filter>
+    </None>
+    <None Include="FullVisCache.inl">
+      <Filter>RayCasting\Source Files</Filter>
+    </None>
+    <None Include="RayCache.inl">
+      <Filter>RayCasting\Source Files</Filter>
+    </None>
+    <None Include="DefaultTransferConfigurator.inl">
+      <Filter>TransferConfigurator\Source Files</Filter>
+    </None>
+    <None Include="VegetationTransferConfigurator.inl">
+      <Filter>TransferConfigurator\Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Icosahedron.h">
+      <Filter>PreProcess\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ISampleGenerator.h">
+      <Filter>PreProcess\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomSampleGen.h">
+      <Filter>PreProcess\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SampleGenerator.h">
+      <Filter>PreProcess\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SampleRetrieval.h">
+      <Filter>PreProcess\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SubTriManager.h">
+      <Filter>PreProcess\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AlphaTextureMaterial.h">
+      <Filter>Material\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BacklightingAlphaTextureMaterial.h">
+      <Filter>Material\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseTextureMaterial.h">
+      <Filter>Material\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultAlphaMaterial.h">
+      <Filter>Material\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultBacklightingMaterial.h">
+      <Filter>Material\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultMaterial.h">
+      <Filter>Material\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicUtils.h">
+      <Filter>Base\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ITransfer.h">
+      <Filter>Transfer\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintTransferObserver.h">
+      <Filter>Transfer\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transfer.h">
+      <Filter>Transfer\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTriangleRasterizer.h">
+      <Filter>Import/Export\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SHLog.h">
+      <Filter>Log\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FullVisCache.h">
+      <Filter>RayCasting\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RasterCube.h">
+      <Filter>RayCasting\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RasterTable.h">
+      <Filter>RayCasting\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RayCache.h">
+      <Filter>RayCasting\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RayCaster.h">
+      <Filter>RayCasting\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TangentSpaceCalculation.h">
+      <Filter>RayCasting\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonImageReader.h">
+      <Filter>ImageLoading\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HDRImageReader.h">
+      <Filter>ImageLoading\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IImageReader.h">
+      <Filter>ImageLoading\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageFactory.h">
+      <Filter>ImageLoading\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TIFImageReader.h">
+      <Filter>ImageLoading\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultTransferConfigurator.h">
+      <Filter>TransferConfigurator\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TransferConfiguratorFactory.h">
+      <Filter>TransferConfigurator\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VegetationTransferConfigurator.h">
+      <Filter>TransferConfigurator\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+</Project>

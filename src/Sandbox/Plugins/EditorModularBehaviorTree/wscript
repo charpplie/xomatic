@@ -1,0 +1,21 @@
+
+QT_TO_MOC_FILES = [
+		'MainWindow.h',
+		'TreePanel.h'
+	]
+
+def build(bld):	
+	files = bld.read_file_list('editormodularbehaviortree.waf_files')
+
+	bld.CryPlugin(
+		target = 'EditorModularBehaviorTree',
+		vs_filter = 'Sandbox/Plugins',
+		file_list = 'editormodularbehaviortree.waf_files',
+		features = 'qt',
+		includes = [
+			'.',
+			'..'
+		],						
+		qt_to_moc_files = QT_TO_MOC_FILES,
+		use=['Editor', 'EditorCommon' ]
+	)

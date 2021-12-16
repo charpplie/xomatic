@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1b360fd8-97d3-419f-87b9-eb4645ae5782}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Tracks">
+      <UniqueIdentifier>{8c60936f-1686-4b56-b021-3cae86d20a40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nodes">
+      <UniqueIdentifier>{9c7e573f-fd27-40f4-9680-829be88f5409}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="2DSpline.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimSequence.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Movie.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceIt.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TCBSpline.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimSplineTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimSplineTrack_FloatSpecialization.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimSplineTrack_QuatSpecialization.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimSplineTrack_Vec2Specialization.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimSplineTrack_Vec3Specialization.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="BoolTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="CaptureTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="CompoundSplineTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="EventTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="ExprTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="FaceSeqTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="GotoTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="LookAtTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackEventTrack.h">
+      <Filter>Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimCameraNode.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimNode.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="CryMovie.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="CVarNode.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityNode.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="EventNode.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialNode.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneNode.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptVarNode.h">
+      <Filter>Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="LayerNode.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AnimSequence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CryMovie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Movie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceIt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimSplineTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="BoolTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="CaptureTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="CompoundSplineTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="EventTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="ExprTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="FaceSeqTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="GotoTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="LookAtTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackEventTrack.cpp">
+      <Filter>Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimCameraNode.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimNode.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="CVarNode.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityNode.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="EventNode.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialNode.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneNode.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptVarNode.cpp">
+      <Filter>Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CryMovie.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

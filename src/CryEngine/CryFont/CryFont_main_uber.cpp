@@ -1,0 +1,11 @@
+//file acts as Uber-file
+#include "CryFont.cpp"
+#include "CryPakIO.cpp"
+#include "FFont.cpp"
+#include "FFontXML.cpp"
+#include "FontRenderer.cpp"
+#include "FontTexture.cpp"
+#include "GlyphBitmap.cpp"
+#include "GlyphCache.cpp"
+#include "ICryFont.cpp"
+#include "NullFont.cpp"

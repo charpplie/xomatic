@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ATLControlsPanel</class>
+ <widget class="QWidget" name="ATLControlsPanel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>299</width>
+    <height>674</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ATL Controls Panel</string>
+  </property>
+  <property name="icon" stdset="0">
+   <iconset resource="AudioControlsBrowserUI.qrc">
+    <normaloff>:/Icons/Load_Icon.png</normaloff>:/Icons/Load_Icon.png</iconset>
+  </property>
+  <property name="text" stdset="0">
+   <string>Reload</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="label_27">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;ATL Controls&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_27">
+     <item>
+      <widget class="QLineEdit" name="m_pInternalListFilter">
+       <property name="toolTip">
+        <string>Show only controls with this name</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Search</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="m_pFiltersButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="toolTip">
+        <string>Filter controls by type</string>
+       </property>
+       <property name="text">
+        <string>Filters</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QAudioControlTreeWidget" name="m_pInternalControlTree">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="autoScroll">
+      <bool>true</bool>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+     </property>
+     <property name="dragEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="dragDropMode">
+      <enum>QAbstractItemView::DragDrop</enum>
+     </property>
+     <property name="defaultDropAction">
+      <enum>Qt::MoveAction</enum>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>false</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::ExtendedSelection</enum>
+     </property>
+     <property name="indentation">
+      <number>15</number>
+     </property>
+     <property name="rootIsDecorated">
+      <bool>true</bool>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="animated">
+      <bool>false</bool>
+     </property>
+     <property name="columnCount">
+      <number>6</number>
+     </property>
+     <attribute name="headerDefaultSectionSize">
+      <number>45</number>
+     </attribute>
+     <attribute name="headerMinimumSectionSize">
+      <number>10</number>
+     </attribute>
+     <attribute name="headerShowSortIndicator" stdset="0">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="headerStretchLastSection">
+      <bool>false</bool>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>Controls</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>PC</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string notr="true">PS4</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Xbox</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Mac</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Linux</string>
+      </property>
+      <property name="textAlignment">
+       <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_28">
+     <property name="spacing">
+      <number>2</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <spacer name="horizontalSpacer_11">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="m_pAddButton">
+       <property name="toolTip">
+        <string>Add new folder or control</string>
+       </property>
+       <property name="text">
+        <string>+ Add</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QAudioControlTreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>qaudiocontroltreewidget.h</header>
+   <slots>
+    <slot>SetFilter(QString)</slot>
+    <slot>SetHideConnected(bool)</slot>
+    <slot>SelectedControlNameEdited(QString)</slot>
+    <slot>SetControlTypeFilter(QString)</slot>
+    <slot>SelectedControlEditingFinished()</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="AudioControlsBrowserUI.qrc"/>
+ </resources>
+ <connections/>
+ <slots>
+  <signal>CurrentControlNameChanged(QString)</signal>
+  <signal>CurrentControlEditingFinished()</signal>
+  <slot>Reload()</slot>
+  <slot>SelectedInternalControlChanged(QTreeWidgetItem*,QTreeWidgetItem*)</slot>
+  <slot>UpdateAddConnectionMenu(int)</slot>
+  <slot>SelectedConnectionChanged(QListWidgetItem*,QListWidgetItem*)</slot>
+  <slot>Save()</slot>
+  <slot>NewLibrary()</slot>
+  <slot>CreateSwitchControl()</slot>
+  <slot>CreateTriggerControl()</slot>
+  <slot>CreateRTPCControl()</slot>
+  <slot>AddEnvironmentsLibrary()</slot>
+  <slot>CreateEnvironmentsControl()</slot>
+  <slot>UpdateSelectedConnection()</slot>
+  <slot>AddPreloadLibrary()</slot>
+  <slot>CreatePreloadControl()</slot>
+  <slot>CurrentConnectionGroupChanged(QString)</slot>
+  <slot>SetScopeForCurrentControl(QString)</slot>
+  <slot>SetSelectedControlName(QString)</slot>
+  <slot>SetAutoLoadForCurrentControl(bool)</slot>
+  <slot>UpdateControlData()</slot>
+  <slot>ShowExtraColumns(bool)</slot>
+ </slots>
+</ui>

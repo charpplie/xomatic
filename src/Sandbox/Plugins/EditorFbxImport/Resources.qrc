@@ -1,0 +1,9 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+  <qresource>
+    <file>bone.png</file>
+    <file>geom.png</file>
+    <file>anim.png</file>
+    <file>mtl.png</file>
+  </qresource>
+</RCC>

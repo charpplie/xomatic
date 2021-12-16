@@ -1,0 +1,2629 @@
+# p4/Jamrules
+#
+# This Jamrules describes how to build most of Perforce, exclusive of
+# windows only products.
+#
+# This file is organized into sections:
+#
+#	Section 1.  Global variable settings.
+#	Section 2.  Library names.
+#	Section 3.  Per-build type variable settings.
+#	Section 4.  Per-platform variable settings.
+#	Section 5.  Perforce-special rules and actions.
+# 	Section 6.  Perforce-special Windows rules.
+#	Section 7.  QT build rules and actions.
+#	Section 8.  Lua build rules and actions.
+#	Section 9.  Per-platform actions.
+#
+
+#################################################
+#
+# Section 1.  Global variable settings.
+#
+#################################################
+
+	if $(JAMBASEDATE) < 2002.05.09 {
+	    Exit Jamrules requires Jambase 2002.05.09 ($(JAMBASEDATE)) ;
+	}
+
+	# Variables you shouldn't set:
+	#
+	#   OS - operating system ("FreeBSD")
+	#   OSPLAT - OS platform ("sparc")
+	#
+	# Variables you can set:
+	#
+	#   OSVER - version of OS ("102" for MACOSX)
+	#   TYPE - controls compile flags (see below)
+	#   BUILD - subdirectory for special named builds ("nightly")
+
+	# enable for AS400 port (cheesy)
+	# OS = AS400 ; OSPLAT = ;
+
+        # For convenience of historical compatibility, the OSPLAT value
+        # "AMD64" will be changed to "X86_64", which is the canonical name
+        # we are now using for that platform.  Please get into the habit of
+        # using it directly, as this may go away someday.
+        if $(OSPLAT) = AMD64 { OSPLAT = X86_64 ; }
+
+	# This is jam idiomatic, but the result is that
+	# P4BIN is set to ../p4-bin (relative to P4)
+
+	SubDir AllP4 p4 ;	# where we are
+	SubDir AllP4 p4-bin ;	# where we want to be
+	SubDir P4BIN ;		# name is that
+	SubDir AllP4 p4 ;	# back to where we started
+
+	EXEC_LIB_TOKENS =
+		P4BIN
+		lib.$(OS:L)$(OSVER:EL)$(OSPLAT:EL)
+		;
+	EXEC_LIB ?= [ FSubDirPath $(EXEC_LIB_TOKENS) ] ;
+
+	# Build dir: p4-bin/bin.xxx[/build][/type]
+	EXEC_TOKENS =
+		P4BIN
+		bin.$(OS:L)$(OSVER:EL)$(OSPLAT:EL)
+		$(BUILD)
+		$(TYPE:L)
+		;
+
+	EXEC ?= [ FSubDirPath $(EXEC_TOKENS) ] ;
+	ALL_LOCATE_TARGET = $(EXEC) ;
+
+	# version file
+	# Ident'ed executables depend on this
+
+	SEARCH on Version Jamrules = $(P4) ;
+	include Version ;
+
+	API = p4api.tar ;
+	STRIP = strip ;
+
+	# symbolic flags with no user/group/other specifier will default to
+	# ANDing with the user's umask.
+        # Thus, if the user's umask is 022,
+        #  files will be -rw-r--r-- and executables will be -rwxr-xr-x
+        # If a user's umask is 002,
+        #  files will be -rw-rw-r-- and executables will be -rwxrwxr-x
+        # and so on.
+	switch $(OS)
+	{
+	case NT : pass ;
+	case VMS : pass ;
+	case OPENVMS : pass ;
+	case * :
+	  FILEMODE = "+rw" ;
+	  EXEMODE  = "+rwx" ;
+	}
+
+        # With some older versions of gcc (before 3.0? 3.2?), it's
+        # possible to link C++ programs with no additional libraries such
+        # as those brought in by using `g++' (rather than `gcc') for the link
+        # phase; in particular, libstdc++.  With later versions of gcc, if
+        # `gcc' is used for the link command then -lsupc++ is required to
+        # bring in some of the constructor machinery.  That library is
+        # always static, so we can reduce run-time system dependencies on
+        # the stdc++ library (which is otherwise not used by our apps).
+        #
+        # On some systems we always use gcc >= 3.2; on others we use the
+        # "local", older compiler for everything but the QT apps; in the
+        # latter case we use a custom build of gcc 3.4.4 because TrollTech
+        # does not support compilers earlier than 3.2.  On those
+        # platforms we may need to add -lsupc++ to the linker command only
+        # for QT apps.  This is the list of those targets to modify.
+        P4QTAPPS = p4v p4merge p4thumb ;
+
+        # can be overridden on jam cmdline with -sSMARTHEAP=no
+        # Smartheap is currently only used on NT and Linux.
+        SMARTHEAP ?= yes ;
+
+	DEFINES +=
+		OS_$(OS)
+		OS_$(OS)$(OSVER)
+		OS_$(OS)$(OSPLAT)
+		OS_$(OS)$(OSVER)$(OSPLAT) ;
+
+	HDRS +=
+		[ FSubDirPath P4 msgs ]
+		[ FSubDirPath P4 support ]
+		[ FSubDirPath P4 sys ] ;
+
+#################################################
+#
+# Section 2.  Library names.
+#
+#################################################
+
+	rule SetLibName
+	{
+		$(1) = $(2:S=$(SUFLIB)) ;
+		LOCATE on $($(1)) = $(EXEC) ;
+	}
+
+	SetLibName CLIENTLIB        : libclient     ;
+	SetLibName CPPUNIT          : libcppunit    ;
+	SetLibName DMLIB            : libdm         ;
+	SetLibName FTPLIB 	    : libp4ftp 	    ;
+	SetLibName LBRLIB           : liblbr        ;
+	SetLibName P4EXPLIB         : libp4exp      ;
+	SetLibName P4TD             : libp4thumb    ;
+	SetLibName P4LIB            : libp4         ;
+	SetLibName P4SCCLIB         : libp4scc      ;
+	SetLibName P4WINLIB         : libp4win      ;
+	SetLibName P4WINCMNLIB      : libp4wcmn     ;
+	SetLibName P4WINDIFFLIB     : libp4wdf      ;
+	SetLibName P4WINMRGLIB      : libp4wmrg     ;
+	SetLibName PLUGINLIB 	    : libplugin     ;
+	SetLibName PROXYLIB	    : libproxy      ;
+	SetLibName QTAGENTLIB       : libqtagent    ;
+	SetLibName QTCMDLIB         : libqtcmd      ;
+	SetLibName QTIMAGELIB       : libqtimage    ;
+	SetLibName QTIMGFMTLIB      : libqtimgfmt   ;
+	SetLibName QTMERGELIB       : libqtmerge    ;
+	SetLibName QTMERGEAPPLIB    : libqtmergeapp ;
+	SetLibName QTOBJLIB         : libqtobj      ;
+	SetLibName QTOPLIB          : libqtop       ;
+	SetLibName QTOSMACLIB       : libqtosmac    ;
+	SetLibName QTOSWINLIB       : libqtoswin    ;
+	SetLibName QTPREFLIB        : libqtpref     ;
+	SetLibName QTUTILLIB        : libqtutil     ;
+	SetLibName QTREELIB         : libqtree      ;
+	SetLibName Q4COMPATLIB      : libq4compat   ;
+	SetLibName RPCLIB           : librpc        ;
+	SetLibName SANDSTORM        : libstorm      ;
+	SetLibName P4ALIB           : libp4a        ;
+	SetLibName P4V              : libp4v        ;
+	SetLibName P4VTEST          : libp4vtest    ;
+	SetLibName SCCDLLLIB        : libscc        ;
+	SetLibName SERVERLIB        : libserver     ;
+	SetLibName SUPPORTLIB       : libsupp       ;
+	SetLibName WEBGIZMOLIB	    : libp4web      ;
+
+#################################################
+#
+# Section 3.  Per-build type variable settings.
+#
+#################################################
+
+	TYPE ?= opt ;
+
+	switch $(TYPE)
+	{
+	# These are official builds
+	#
+	#  dyn: windows guis must be dynamic
+	#  opt: our standard, optimized built
+	#  pic: for special customer requests
+
+	case dyn :	OPTIM = -O2 ;
+	case opt : 	OPTIM = -O2 ;
+	case pic : 	OPTIM = -O2 -fPIC ; NO_OPTIM = -fPIC ;
+
+	# These are for internal testing/playing
+	#
+	#  g/dyng/optg: debugging
+	#  pg: profiled executable on unix
+	#  fast: a fast compile (no optimization)
+	#  lower: case insensitive on UNIX
+	#  lpg: lower profiled
+
+	case g : 	OPTIM = -g ;
+	case dyng :	OPTIM = -g ;
+	case fast :	OPTIM = ;
+	case lower :	OPTIM = -DCASE_INSENSITIVE -O2 ;
+	case lpg :	OPTIM = -DCASE_INSENSITIVE -O2 -pg ; LINKFLAGS = -pg ;
+	case optg : 	OPTIM = -O2 -g ;
+	case pg : 	OPTIM = -pg -O ; LINKFLAGS = -pg ;
+	case sym :	OPTIM = -opt off -sym full ; LINKFLAGS = -sym full ;
+
+	case * : 	Echo "Warning -- unknown compilation TYPE" $(TYPE) ;
+	}
+
+	# TYPE_DEBUG for all debug builds.
+	# TYPE_DYNAMIC for all dynamic builds.
+
+	switch $(TYPE) { case *g :	TYPE_DEBUG = true ; }
+	switch $(TYPE) { case dyn* :	TYPE_DYNAMIC = true ; }
+
+	# Some things don't get built dynamically/statically.
+
+	if ! $(TYPE_DYNAMIC) || $(OS) != NT { BUILD_P4D = true ; }
+
+#################################################
+#
+# Section 4.  Per-platform variable settings.
+#
+#################################################
+
+	# Flags for Perforce
+	#
+	#	CASE_INSENSITIVE -- case folding server
+	#	ENUM_INT -- force enums to int sized for watcom
+	#	USE_CRLF -- ascii opened as binary needs special handling
+	#	USE_CR -- special CR <-> LF translation for mac
+	#	USE_EBCDIC -- ascii <-> ebcdic translation in rpc
+
+	GENFLAGS = CCFLAGS C++FLAGS ;
+
+	switch $(OS)$(OSVER) $(OS)
+	{
+	case AIX32 :
+	    # using GNU
+	    CC = gcc ;
+	    C++ = gcc ;
+	    C++FLAGS += -DBSD -Dunix ;
+	    LINK = gcc ;
+
+	case AIX43 :
+	    # using GNU
+	    C++ = gcc ;
+	    CC = gcc ;
+	    C++FLAGS += -DBSD -Dunix ;
+	    LINK = gcc /usr/local/lib/libsupc++.a ;
+
+	case AIX53 :
+	    #using GNU
+	    C++ = g++ ;
+	    CC = g++ ;
+	    C++FLAGS += -DBSD -Dunix -D_LARGE_FILES=1 ;
+	    LINK = gcc ;
+	    LINKLIBS += -lsupc++ ;
+
+	case AIX5 :
+	    C++ = xlc ;
+	    CC = xlc ;
+	    C++FLAGS += -L/usr/lib/ia64l64 -Dunix ;
+	    LINK = xlc -lC  ;
+
+	case AIX51 :
+	    C++ = xlc ;
+	    CC = xlc ;
+	    C++FLAGS += -L/usr/lib/ia64l64 -Dunix ;
+	    LINK = xlC_r -lC  ;
+
+	case AMIGA :
+	    CC = gcc ;
+	    LINK = gcc ;
+
+	case AS400 :
+	    # qifs=32 stdio works right
+	    # W1 suppress warnings
+	    # O40 optimization
+	    # AScp500 set code page
+	    # /Xi don't look for INCLUDE_400 by default
+	    # (so we can put it in 1st)
+	    # and get the right version of errno.h.
+	    # switch /O40 to /O- /Ti+ for debugging
+
+	    NT = ;
+	    C++ = iccas ;
+	    CC = iccas ;
+	    C++FLAGS += /DUSE_EBCDIC /Xi /qifs=32 /W1 /AScp500 ;
+	    STDHDRS = $(INCLUDE_400) ;
+	    NOARSCAN = true ;
+	    STRIP = ;
+	    OPTIM = /O40 ;
+
+	case BEOS5 :
+	    STRIP = ;
+	    LINKLIBS += -lroot ;
+
+	case CYGWIN :
+	    STRIP = ;
+	    CC = gcc ;
+	    C++ = gcc ;
+	    LINK = g++ ;
+	    C++FLAGS += -DUSE_CRLF ;
+
+	case DARWIN :
+	    CC = cc ;
+	    C++ = cc ;
+	    C++FLAGS += -DCASE_INSENSITIVE ;
+
+	case DARWIN60 :
+	    CC = cc ;
+	    C++ = cc ;
+	    LINK = g++ ;
+	    C++FLAGS += -DCASE_INSENSITIVE ;
+
+	case DARWIN60cs : #case-sensitive
+	    CC = cc ;
+	    C++ = cc ;
+            LINK = g++ ;
+
+	case DARWIN79 :
+	    CC = cc ;
+	    C++ = cc ;
+	    C++FLAGS += -DCASE_INSENSITIVE ;
+	    LINKLIBS += -lsupc++ ;
+
+	case DARWIN8* :
+	   CC	= gcc ;
+	   C++	= g++ ;
+	   LINK = g++ ;
+	   LINKFLAGS += -Wl,-syslibroot,/Developer/SDKs/MacOSX10.4u.sdk ;
+
+	   switch $(OSVER:U) {
+             case *CS :
+             case *   : C++FLAGS += -DCASE_INSENSITIVE ;
+           }
+
+	   switch $(OSPLAT) {
+	     case X86 : _arch = i386 ;
+	     case *   : _arch = ppc  ;
+	   }
+
+	   $(GENFLAGS) += -arch $(_arch) -DOS_DARWIN80 ;
+	   LINKFLAGS   += -arch $(_arch) ;
+
+	case DGUX :
+	    CC = ec++ ;
+	    C++ = ec++ ;
+	    LINK = ec++ ;
+
+	case FREEBSD :
+	    Exit Set OSVER to 4, 5, or 6 for FreeBSD ;
+
+	case FREEBSD4 :
+	    CC   = gcc ;
+            C++  = g++ ;
+	    LINK = gcc ;
+
+            switch $(OSCOMP) {
+              case GCC3 : LINKLIBS                += -lsupc++ ;
+	      # We always use gcc 3.x or later for qt apps
+              case *    : LINKLIBS on $(P4QTAPPS) += -lsupc++ ;
+ 	    }
+
+	    if $(OSPLAT) != AXP { LINKFLAGS += -static ; }
+	    $(GENFLAGS) += -pipe ;
+
+	case FREEBSD[56789]* :
+	    CC   = gcc ;
+            C++  = g++ ;
+	    LINK = gcc ;
+            # supc++ library on freebsd5.x and later is missing some
+            # modules (this is a bug), so we can't use it.
+            # But we still do not want to link stdc++ dynamically.
+	    #LINKLIBS += -lsupc++ ;
+            LINKLIBS += -Wl,-dn,-lstdc++,-dy ;
+
+            _mflags = ;
+            switch $(OSPLAT) {
+              case X86    : _mflags = -m32 ;
+	      case X86_64 : _mflags = -m64 ;
+            }
+
+	    $(GENFLAGS) += $(_mflags) -pipe ;
+            LINKFLAGS   += $(_mflags) ;
+
+	case HPUX10old :
+	    CC = c89 ;
+	    C++ = aCC ;
+	    OPTIM = -O ;
+	    C++FLAGS += -Dunix ;
+	    CCFLAGS += -D_INCLUDE_POSIX_SOURCE ;
+	    LINK = aCC ;
+	    LINKFLAGS += -Wl,-a,archive ;
+
+	case HPUX10 :
+	    CC = gcc ;
+	    LINK = gcc -static ;
+
+	case HPUX11pic :
+	    CC = aCC ;
+	    C++ = aCC ;
+	    C++FLAGS += -D_LARGEFILE64_SOURCE ;
+	    LINK = aCC ;
+	    OPTIM = +O1 ;
+	    $(GENFLAGS) += +Z ;
+
+	case HPUX11 :
+	    switch $(OSPLAT:E)-$(OSCOMP:E)
+		{
+		# On IA64, hpux supports both 64-bit and 32-bit executables.
+		# We build 64-bit for the benefit of p4d, and client apps are built
+		# the same way for the sake of simplicity.
+		case IA64-GCC :
+			CC           = gcc ;
+			C++          = gcc ;
+			$(GENFLAGS) += -mlp64 ;
+
+			LINK         = gcc ;
+			LINKFLAGS   += -mlp64 ;
+			LINKLIBS    += -lsupc++ -lunwind ;
+
+		case IA64-* : # unbundled vendor compiler
+			CC           = aCC ;
+			C++          = aCC ;
+			OPTIM        = +O1 ;
+			$(GENFLAGS) += +DD64 ;
+
+			LINK         = aCC ;
+			LINKFLAGS   += +DD64 ;
+
+		case PA11-* : # unbundled vendor compiler
+			CC           = aCC ;
+			C++          = aCC ;
+			LINK         = aCC ;
+			OPTIM        = +O1 ;
+			$(GENFLAGS) += -D_LARGEFILE64_SOURCE +DA1.1 ;
+
+		case *-* : # assumed PA20 (32-bit) with unbundled vendor compiler
+	    CC    = aCC ;
+	    C++   = aCC ;
+	    LINK  = aCC ;
+	    OPTIM = +O1 ;
+            $(GENFLAGS) += -D_LARGEFILE64_SOURCE ;
+	    }
+
+	case HPUX9 :
+	    CC = gcc ;
+	    LINK = gcc ;
+
+	case INTERIX :
+	    # using GNU
+	    CC = gcc ;
+	    C++ = gcc ;
+	    C++FLAGS += -Dunix ;
+	    LINK = gcc ;
+
+	case IRIX62 :
+	    CC = cc -Olimit 5000 -o32 ;
+	    C++ = CC -Olimit 5000 -o32 ;
+	    $(GENFLAGS) += -nostdinc -I /irix62/usr/include ;
+	    LINK = CC -o32 -nostdlib -L /irix62/lib ;
+
+	case IRIX65o32 :
+	    CC = cc OPT:Olimit 5000 -o32 ;
+	    C++ = CC -OPT:Olimit 5000 -o32 ;
+	    LINK = CC -o32 ;
+
+	case IRIX65 :
+	    CC = cc -OPT:Olimit 5000 -64 -mips3 ;
+	    C++ = CC -woff 3439,1174,1178,1681,1682
+		-OPT:Olimit 5000 -64 -mips3 ;
+	    LINK = CC -64 ;
+
+	    if $(TYPE) = PIC
+	    {
+		C++FLAGS += -KPIC ;
+		CCFLAGS += -KPIC ;
+	    }
+
+	case LINUX80 :
+	    CC = gcc ;
+	    C++ = g++ ;
+	    LINK = g++ ;
+	    $(GENFLAGS) += -D_GNU_SOURCE ;
+
+	case LINUX90 :
+	    CC = gcc ;
+	    C++ = g++ ;
+	    LINK = g++ ;
+	    $(GENFLAGS) += -D_GNU_SOURCE ;
+
+	case LINUX :
+	    CC = gcc ;
+	    LINK = gcc ;
+	    if $(OSPLAT) = X86
+	    {
+		Exit Set OSVER to 42/52 [RedHat M.n], or 22/24 [uname -r M.n] ;
+	    }
+	    if $(OSPLAT) = IA64
+            {
+              # This avoids an internal compiler error in gcc 2.96,
+              # seen with ia64 turbolinux 010307.
+              C++FLAGS += -fno-default-inline ;
+            }
+	    if $(OSPLAT) = PPC { LINKFLAGS += -static ; }
+            if $(OSPLAT) = X86_64
+            {
+	        C++ = g++ ;
+	        LINK = g++ ;
+	    }
+	case LINUX22 : # redhat 6.2
+	    CC = gcc ;
+	    C++ = gcc ;
+	    LINK = gcc ;
+	    if $(OSPLAT) = AXP { LINKFLAGS += -static ; }
+	    if $(OSPLAT) = IA64
+            {
+              # This avoids an internal compiler error in gcc 2.96,
+              # seen with ia64 turbolinux 010307.
+              C++FLAGS += -fno-default-inline ;
+            }
+	    $(GENFLAGS) += -D_GNU_SOURCE ;
+
+	case LINUX24 :
+	    CC   = gcc ;
+            C++  = g++ ;
+	    LINK = gcc ;
+
+            # For linux24 systems we have a mixture of gcc 2.x
+            # (e.g. suse7.1) and gcc 3.x (e.g. rhel3) native compilers.
+            # The library dependencies and compiler flags vary; the
+            # variable OSCOMP (which defaults to nil) specifies; that must
+            # be set manually by the caller.
+            #
+            # This variable will be more systematically referenced in
+            # future release lines.
+            switch $(OSCOMP) {
+	      # We always use gcc 3.x or later for qt apps
+              case GCC2* : LINKLIBS on $(P4QTAPPS) += -lsupc++ ;
+              case *     : LINKLIBS                += -lsupc++ ;
+ 	    }
+
+            # with newer compilers, be explicit about submodel since we may
+            # be cross compiling ia32 code on an amd64/em64t system, and
+            # the default may be uncertain.
+            _mflags = ;
+            switch $(OSPLAT) {
+              case X86 :
+                switch $(OSCOMP:E) {
+                  case GCC2* : _mflags = ;
+                  case *     : _mflags = -m32 ;
+                }
+	      case X86_64    : _mflags = -m64 ;
+              case AXP       : LINKFLAGS += -static ;
+            }
+
+            if $(SMARTHEAP) = yes { $(GENFLAGS) += -DUSE_SMARTHEAP ; }
+
+	    $(GENFLAGS) += $(_mflags) -D_GNU_SOURCE ;
+            LINKFLAGS   += $(_mflags) ;
+
+	case LINUX26 :
+	    CC   = gcc ;
+	    C++  = g++ ;
+            LINK = gcc ;
+
+            # Needed for all apps since we use gcc >= 3.2.
+            LINKLIBS += -lsupc++ ;
+
+            _mflags = ;
+            switch $(OSPLAT) {
+              case X86    : _mflags = -m32 ;
+              case X86_64 : _mflags = -m64 ;
+              case AXP    : LINKFLAGS += -static ;
+            }
+
+            if $(SMARTHEAP) = yes { $(GENFLAGS) += -DUSE_SMARTHEAP ; }
+
+	    $(GENFLAGS) += $(_mflags) -D_GNU_SOURCE ;
+            LINKFLAGS   += $(_mflags) ;
+
+	case LINUX72 : # redhat 7.2 (p4v builds)
+	    CC = gcc ;
+	    LINK = gcc ;
+	    $(GENFLAGS) += -D_GNU_SOURCE ;
+
+	case LINUX90 :	# Red Hat 9. Currently only used to build p4v
+			# on a test machine.
+	    CC = gcc ;
+	    LINK = g++ ;
+	    # if $(OSPLAT) = AXP { LINKFLAGS += -static ; }
+	    # LINKFLAGS += -static ;
+	    LINKFLAGS += -shared ;
+	    $(GENFLAGS) += -D_GNU_SOURCE ;
+
+	case LINUX42 : # redhat 4.2
+	    CC = gcc ;
+	    LINK = gcc ;
+	    if $(OSPLAT) = AXP { LINKFLAGS += -static ; }
+
+	case LINUX52 : # redhat 5.2
+	    CC = gcc ;
+	    LINK = gcc ;
+	    if $(OSPLAT) = AXP { LINKFLAGS += -static ; }
+	    if $(OSPLAT) = X86 { $(GENFLAGS) += -D_GNU_SOURCE ; }
+
+	case LYNX :
+	    # using GNU
+	    CC = gcc ;
+	    C++ = g++ ;
+	    C++FLAGS += -Dunix ;
+	    LINK = gcc ;
+	    LINKLIBS += -lnetinet ;
+
+	case MACHTEN :
+	    LINK = gcc ;
+	    CC = gcc ;
+
+	case MPEIX :
+	    STRIP = ;
+	    LINKLIBS += -lsocket ;
+
+	case MACOSX :
+	    CC = cc ;
+	    C++ = cc ;
+	    $(GENFLAGS) += -DCASE_INSENSITIVE ;
+  	    $(GENFLAGS) += -fpascal-strings ;
+	    # This looks like a flag but it is really a library macro
+	    # kind of thing and causes link problems if it at the front
+	    # of the link command so we make it a LIB
+  	    LINKLIBS += -framework Carbon ;
+
+  	case MACOSX102 :
+
+	    CC = cc ;
+	    C++ = cc ;
+	    LINK = g++ ;
+	    $(GENFLAGS) += -DCASE_INSENSITIVE ;
+	    $(GENFLAGS) += -fpascal-strings ;
+	    # This looks like a flag but it is really a library macro
+	    # kind of thing and causes link problems if it at the front
+	    # of the link command so we make it a LIB
+	    LINKLIBS += -framework Carbon ;
+
+  	case MACOSX102CW :
+
+	    # Build p4 and the Metrowerks CodeWarrior plugin using
+	    # same settings as Mac Classic + Carbon.
+	    # Requires CodeWarrior Pro 9 on OS X >= 10.2
+
+	    CC = mwpefcc ;
+	    C++ = mwpefcc ;
+	    LINK = mwpefld ;
+	    AR = mwpefld -library -o ;
+	    RANLIB = ;
+	    DEFINES += MAC_MWPEF ;
+	    $(GENFLAGS) += -gccinc -DUSE_CARBON -DTARGET_API_MAC_OSX ;
+	    if $(TYPE_DEBUG) { $(GENFLAGS) += -sym on,full ; }
+
+	case MACOSX103 :
+	    CC = cc ;
+	    C++ = cc ;
+	    $(GENFLAGS) += -DCASE_INSENSITIVE ;
+  	    $(GENFLAGS) += -fpascal-strings ;
+	    LINKLIBS += -lsupc++ ;
+            # This looks like a flag but it is really a library macro
+	    # kind of thing and causes link problems if it at the front
+	    # of the link command so we make it a LIB
+  	    LINKLIBS += -framework Carbon ;
+
+	case MACOSX104 :  # assumes using gcc 4.0.1 or newer
+	    CC  = gcc ;
+	    C++  = g++ ;
+	    LINK = g++ ;
+
+	    MACOSX_SDK ?= /Developer/SDKs/MacOSX10.4u.sdk ;
+	    $(GENFLAGS) += -DCASE_INSENSITIVE
+			   -fpascal-strings
+			   -isysroot$(MACOSX_SDK) ;
+	    LINKFLAGS   += -Wl,-syslibroot,$(MACOSX_SDK) ;
+	    LINKLIBS    += -framework Carbon ;
+
+	     switch $(OSPLAT) {
+	     case X86 : _arch = i386 ;
+	     case *   : _arch = ppc  ;
+	     }
+
+	   $(GENFLAGS) += -arch $(_arch) -DCASE_INSENSITIVE ;
+	   LINKFLAGS   += -arch $(_arch) ;
+
+
+	case MACOSXN :
+	    CC = cc ;
+	    C++ = cc ;
+
+	case MVS :
+	    CC = cc ;
+	    C++ = c++ -+ ;
+	    $(GENFLAGS) += -D_OE_SOCKETS -DUSE_EBCDIC -DNO_LONG_LONG ;
+	    LINK = c++ ;
+	    OPTIM = -O ;
+
+	case NETBSD16 :
+	    CC = gcc ;
+	    C++ = g++ ;
+	    $(GENFLAGS) += -pipe -Dunix ;
+	    LINK = gcc ;
+	    # NetBSD gcc choked on -O2 -fPIC
+	    if $(TYPE) = pic { OPTIM = -O1 -fPIC ; }
+
+	case NETBSD* :
+	    CC = /usr/pkg/gcc34/bin/gcc ;
+	    C++ = /usr/pkg/gcc34/bin/g++ ;
+	    $(GENFLAGS) += -pipe -Dunix ;
+	    LINK = /usr/pkg/gcc34/bin/g++ ;
+	    # NetBSD gcc choked on -O2 -fPIC
+	    if $(TYPE) = pic { OPTIM = -O1 -fPIC ; }
+
+	case OPENBSD36 :
+	    CC = gcc ;
+	    $(GENFLAGS) += -pipe -Dunix ;
+	    LINK = gcc ;
+	    if $(OSPLAT) != AXP { LINKFLAGS += -static ; }
+
+	case OPENBSD29 :
+	    CC = gcc ;
+	    $(GENFLAGS) += -pipe -Dunix ;
+	    LINK = gcc ;
+
+	case VMS* :
+	    API = p4api.bck ;
+	    # use C++ compiler: we're cheap
+	    CC = cxx ;
+	    C++ = cxx ;
+	    DEFINES += NO_MEMCPY ;
+	    STRIP = ;
+	    OPTIM = ;
+
+	case OS2 :
+	    $(GENFLAGS) += /DUSE_CRLF ;
+	    C++FLAGS += /DENUM_INT ;
+	    LINKLIBS += $(WATCOM)\\lib386\\so32dll.lib
+			$(WATCOM)\\lib386\\tcp32dll.lib ;
+	    OPTIM = ;
+	    STRIP = ;
+
+	case OSFSTATIC :
+	    CC = gcc ;
+	    C++ = gcc ;
+	    LINK = gcc ;
+	    $(GENFLAGS) += -mcpu=ev5 ;
+	    LINKFLAGS += -static ;
+
+	case OSF :
+	    CC = gcc ;
+	    C++ = gcc ;
+	    LINK = gcc ;
+
+	case NEXT :
+	    CC = cc ;
+	    C++ = cc ;
+	    $(GENFLAGS) += -arch m68k -arch i386 -arch hppa -arch sparc ;
+	    $(GENFLAGS) += -D_POSIX_SOURCE ;
+	    LINKFLAGS += -arch m68k -arch i386 -arch hppa -arch sparc ;
+	    LINKLIBS += -lg++ ;
+	    LINK = cc ;
+
+	case NCR :
+	    CC = gcc ;
+	    CCFLAGS += -D_ATT4 ;
+	    C++FLAGS += -D_ATT4 ;
+	    LINK = gcc ;
+	    LINKLIBS += /usr/ucblib/libucb.a -lsocket -lnsl ;
+
+	case NT* :
+	    # Use setargv.obj to get wildcard expansion.
+	    # The "rc" tool needs MS headers:
+
+	    BINDIR    = e:\\perforce ;
+	    JAMSHELL ?= $(P4)\\Jamsh.bat $(OSPLAT) % ;
+
+	    C++FLAGS += /DCASE_INSENSITIVE /DUSE_CRLF /wd4996 ;
+	    if $(SMARTHEAP) = yes { $(GENFLAGS) += /DUSE_SMARTHEAP ; }
+
+	    LINKLIBS  = setargv.obj advapi32.lib oldnames.lib
+                        kernel32.lib wsock32.lib ;
+	    STDHDRS   = $(MSVCNT)\\include $(MSVCNT)\\atlmfc\\include ;
+	    STRIP     = ;
+
+	    # Now, unset STDHDRS so Jam doesn't scan system headers (takes
+	    # too long when using compiler on networked machine):
+
+	    STDHDRS = ;
+
+	    if $(BCCROOT)
+	    {
+		# Jeff Anton compiles with borland.
+
+		OPTIM        = -O2 ;
+		RCFLAGS      = /d NDEBUG /r ;
+		AR           = tlib /C /P128 ;
+		LINKLIBS     = $(BCCROOT)/lib/wildargs.obj ;
+	    }
+	    else if $(TYPE) = g
+	    {
+		# Debugging build
+
+		OPTIM        = /Zi /Gm ;
+		RCFLAGS      = /d DEBUG /r ;
+		LINKFLAGS   += /DEBUG ;
+		$(GENFLAGS) += /MTd ;
+	    }
+	    else if $(TYPE) = dyn
+	    {
+		# Dynamic link version, for qt products
+
+		OPTIM        = /O2 ;
+		RCFLAGS      = /d NDEBUG /r ;
+		$(GENFLAGS) += /MD ;
+		LINKFLAGS   += /MAP /OPT:REF /OPT:ICF ;
+	    }
+	    else if $(TYPE) = dyng
+	    {
+		# Dynamic Debugging build
+
+		OPTIM        = /Zi /Gm ;
+		RCFLAGS      = /d DEBUG /r ;
+		$(GENFLAGS) += /MDd ;
+		LINKFLAGS   += /DEBUG /NODEFAULTLIB:msvcrt.lib  /fixed:no ;
+	    }
+	    else if $(OSVER) = 98
+	    {
+		# Dynamic link version for win98 version of p4win
+		# Goes into bin.win98 -- oddity.
+
+		EXEC = [ FSubDirPath P4BIN bin.win98 ] ;
+		ALL_LOCATE_TARGET = $(EXEC) ;
+
+		OPTIM        = /O2 ;
+		if $(TYPE_DEBUG) = true { OPTIM += /Zi ; }
+
+		RCFLAGS      = /d NDEBUG /r ;
+		$(GENFLAGS) += /MD ;
+		LINKFLAGS    = /MAP ;
+	    }
+	    else
+	    {
+		# Static link version, for command line products
+
+		OPTIM        = /O2 ;
+		RCFLAGS      = /d NDEBUG /r ;
+		$(GENFLAGS) += /MT ;
+		LINKFLAGS   += /MAP ;
+	    }
+
+	case PTX :
+	    C++ = CC ;
+	    LINK = CC ;
+	    LINKLIBS += -lsocket -lnsl ;
+
+	case QNX :
+	    C++FLAGS += -DENUM_INT -Dbool=int -Dtrue=1 -Dfalse=0 ;
+	    STRIP = ;
+
+	case QNXNTO :
+	    CC = cc ;
+	    C++ = cc ;
+	    LINKLIBS += -lsocket ;
+
+	case RHAPSODY :
+	    CC = cc ;
+	    C++ = cc ;
+
+	case SCO* :
+	    C++ = gcc ;
+	    CC = gcc ;
+	    LINK = gcc ;
+	    LINKLIBS += -lsocket ;
+
+	case SINIX :
+	    C++ = CC ;
+	    LINK = CC ;
+	    LINKLIBS += -lsocket -lnsl ;
+
+	case SOLARIS25 :
+	    CC = gcc ;
+	    $(GENFLAGS) += -Dsolaris ;
+	    LINK = gcc ;
+	    LINKLIBS += /usr/ucblib/libucb.a -lsocket -lnsl ;
+	    AR = /usr/ccs/bin/ar ru ;
+	    STRIP = /usr/ccs/bin/strip ;
+
+	case SOLARIS26 :
+	    CC = gcc ;
+	    C++ = gcc ;
+	    $(GENFLAGS) += -Dsolaris -D_LARGEFILE64_SOURCE -D__STDC__=0 ;
+	    LINK = gcc ;
+	    LINKLIBS += -lsocket -lnsl ;
+	    AR = /usr/ccs/bin/ar ru ;
+	    STRIP = /usr/ccs/bin/strip ;
+
+	case SOLARIS27 :
+	    CC = cc ;
+	    C++ = CC ;
+	    $(GENFLAGS) += -Dsolaris -D_LARGEFILE64_SOURCE -D_STDC_=0 ;
+	    LINK = CC ;
+	    LINKLIBS += -lsocket -lnsl ;
+	    AR = /usr/ccs/bin/ar ru ;
+	    STRIP = /usr/ccs/bin/strip ;
+	    OPTIM = -0 ;
+
+	case SOLARIS8 :
+            switch $(OSCOMP) {
+              case SUNC :
+                # Recommended jam flags:
+                # -sOSVER=8 -sOSCOMP=SUNC -sBUILD=suncc
+                CC   = cc ;
+                C++  = CC ;
+                LINK = CC ;
+                OPTIM = -xO3 ;
+              
+              case * :
+	    CC   = gcc ;
+            C++  = g++ ;
+	    LINK = gcc ;
+
+                # Needed for all apps since we use gcc >= 3.2.
+                LINKLIBS += -lsupc++ ;
+        
+                switch $(OSPLAT) {
+                  case SPARC64 :
+                    LINKFLAGS   += -m64 ;
+                    $(GENFLAGS) += -m64 ;
+                }
+            }
+
+	    $(GENFLAGS) += -Dsolaris
+                           -D_LARGEFILE64_SOURCE ;
+
+	    LINKLIBS += -lsocket -lnsl ;
+	    AR    = /usr/ccs/bin/ar ru ;
+	    STRIP = /usr/ccs/bin/strip ;
+	    OPTIM = -O2 ;
+
+	    switch $(OSPLAT) {
+	      case SPARC64 :
+	        LINKFLAGS     += -m64 ;
+	        $(GENFLAGS)   += -m64 ;
+	    }
+
+
+	case SOLARIS10 :
+            switch $(OSCOMP) {
+              case SUNC :
+                # Recommended jam flags:
+                #  -sOSVER=10 -sOSPLAT=X86|X86_64 -sOSCOMP=SUNC -sBUILD=suncc
+                CC   = cc ;
+                C++  = CC ;
+                LINK = CC ;
+                OPTIM = -xO3 ;
+
+                switch $(OSPLAT) {
+                  case X86 :
+                    $(GENFLAGS) += -xtarget=generic ;
+
+                  case X86_64 :
+                    $(GENFLAGS) += -xtarget=opteron -xarch=generic64 ;
+                    LINKFLAGS   += -xtarget=opteron -xarch=generic64 ;
+                }
+
+              case * :
+                CC   = gcc ;
+                C++  = g++ ;
+                LINK = gcc ;
+
+                switch $(OSPLAT) {
+                  case X86_64 :
+                    LINKFLAGS   += -m64 ;
+                    $(GENFLAGS) += -m64 ;
+                  case SPARC64 :
+                    LINKFLAGS   += -m64 ;
+                    $(GENFLAGS) += -m64 ;
+                }
+            }
+
+	    $(GENFLAGS) += -Dsolaris
+                           -D_LARGEFILE64_SOURCE
+                           -I/opt/lude/include ;
+
+	    # Needed for all apps since we use gcc >= 3.2.
+	    LINKLIBS += -lsupc++ ;
+
+	    LINKLIBS += -lsocket -lnsl ;
+	    AR    = /usr/ccs/bin/ar ru ;
+	    STRIP = /usr/ccs/bin/strip ;
+
+	case SUNOS :
+	    CC = gcc ;
+	    LINK = gcc ;
+	    LINKFLAGS += -static ;
+
+	case UNICOS :
+	    C++ = CC ;
+	    LINK  = CC ;
+
+	case UNIXWARE2 :
+	    C++ = CC ;
+	    LINK = CC ;
+	    LINKLIBS += -lsocket /usr/ccs/lib/libgen.a ;
+
+	case UNIXWARE7 :
+	    CC = gcc ;
+	    C++ = gcc ;
+	    LINK = gcc ;
+	    $(GENFLAGS) += -D_LARGEFILE64_SOURCE ;
+	    LINKLIBS += -lsocket ;
+
+	case ZETA :
+	    LINKLIBS += -lsocket -lroot -lbind ;
+
+	case * :
+	    Exit Don't know "$(OS)$(OSVER) or " $(OS) ;
+	}
+
+#################################################
+#
+# Section 5.  Perforce-special rules and actions.
+#
+#################################################
+
+	#
+	# Special Rules
+	#
+	# DefineVar src : var ; # define a var for src compilation
+	# Ident exe ; -- define bits for program ident string
+	# LinkP4WebMacOptions exe ; - adjusting LINKLIBS/LINKFLAGS
+	# ListAC ??? ;
+	# P4ClientHdrs ; - add all p4 client headers for building Web, ftp
+	# P4Library lib : src ; - Library of P4 client libs
+	# P4DLibrary lib : src ; - Library of P4D server libs
+	# Strip exe ; strip executable of symbols after building
+	# API filelist ; build api dist structure and tar up into archive
+	# TarBall x.tar : sources ; - tar up sources into archive (obsolete)
+	#
+
+	rule DefineVar
+	{
+		# Usage: DefineVar foo.cc : VARNAME
+		# Defines it if set
+
+		if $($(>))
+		{
+		    ObjectDefines $(<) :
+			[ Fconcat $(>)= [ FQuote \"$($(>))\" ] ] ;
+		}
+	}
+
+	rule Ident
+	{
+		# Set up special defines
+
+		local osid = $(OS)$(OSVER:E)$(OSPLAT:E) ;
+
+		rule Fconcat { return $(<:J) ; }
+
+		ObjectDefines $(<) :
+		    [ Fconcat ID_OS= 	[ FQuote $(osid[1]:U) ] ]
+		    [ Fconcat ID_REL= 	[ FQuote $(RELEASE:J=.) ] ]
+		    [ Fconcat ID_PATCH= [ FQuote $(PATCHLEVEL)$(SPECIAL:E) ] ]
+		    [ Fconcat ID_Y= 	[ FQuote $(SUPPDATE[1]) ] ]
+		    [ Fconcat ID_M= 	[ FQuote $(SUPPDATE[2]) ] ]
+		    [ Fconcat ID_D= 	[ FQuote $(SUPPDATE[3]) ] ] ;
+
+		# Source file includes Version
+
+		Includes [ FGristSourceFiles $(<) ] : Version ;
+	}
+
+	rule ListAC
+	{
+		# Special jam trickery to display AC numbers with "jam AC"
+
+		NOTFILE $(<) ;
+		ALWAYS $(<) ;
+		SEARCH on $(>) = $(SEARCH_SOURCE) ;
+		Depends $(<) : $(>) ;
+	}
+
+	actions ListAC
+	{
+		$(AWK) 'BEGIN {L=0; FS=","} /AC_/ {print L, $1; L++}' $(>)
+	}
+
+	rule MacRes
+	{
+		local _t = [ FAppendSuffix $(<) : $(SUFEXE) ] ;
+		Depends $(_t) : $(>) ;
+		SEARCH on $(>) = $(SEARCH_SOURCE) ;
+	}
+
+	rule MacCreatorCode
+	{
+		switch $(<)
+		{
+		    case p4v :
+		    	return P4VC ;
+
+		    case p4merge :
+		    	return P4MG ;
+
+		    case * :
+		    	return ttxt ;
+		}
+	}
+
+	rule P4ClientHdrs
+	{
+		# P4ClientHdrs ; - add p4 client headers for building Web, ftp
+
+		SubDirHdrs $(P4) client ;
+		SubDirHdrs $(P4) diff ;
+		SubDirHdrs $(P4) i18n ;
+		SubDirHdrs $(P4) middle ;
+		SubDirHdrs $(P4) net ;
+		SubDirHdrs $(P4) web ;
+	}
+
+	rule P4Library
+	{
+		Library $(<) : $(>) ;
+	}
+
+	rule P4DLibrary
+	{
+		if $(BUILD_P4D) { Library $(<) : $(>) ; }
+	}
+
+	rule P4Main
+	{
+		Main $(<) : $(>) ;
+		Strip $(<) ;
+		if $(BINDIR) { InstallBin $(BINDIR) : $(<) ; }
+	}
+
+	rule P4DMain
+	{
+		if $(BUILD_P4D)
+		{
+		    P4Main $(<) : $(>) ;
+		}
+		else
+		{
+		    P4NoBuild $(<) : BUILD_P4D ;
+		}
+	}
+
+	rule P4NoBuild
+	{
+		NotFile $(>) ;
+	}
+
+	actions quietly P4NoBuild
+	{
+		echo Set $(>) to force build of $(<).
+	}
+
+	rule LinkLibraries
+	{
+		# NB this is superfluous in jam 2.6
+
+		# make library dependencies of target
+		# set NEEDLIBS variable used by 'actions Main'
+
+		local _t = [ FAppendSuffix $(<) : $(SUFEXE) ] ;
+		local _s = [ FAppendSuffix $(>) : $(SUFLIB) ] ;
+
+		Depends $(_t) : $(_s) ;
+		NEEDLIBS on $(_t) += $(_s) ;
+	}
+
+	rule Strip
+	{
+		if $(STRIP) && $(TYPE:E=opt) = opt
+		{
+		    Strip1 $(<:S=$(SUFEXE)) ;
+		}
+	}
+
+	actions Strip1
+	{
+		$(STRIP) $(<)
+	}
+
+	rule API
+        {
+          local dparts = $(RELEASE[1-2]) $(PATCHLEVEL) $(RELEASE[3-]) ;
+          local dname  = p4api-$(dparts:J=.) ;
+          NotFile $(dname) ;
+
+          NotFile api ;
+          Depends api : $(<) ;
+
+          LOCATE on $(<) = $(EXEC) ;
+          SEARCH on $(>) += $(HDRS) $(SUBDIRHDRS) $(SUBDIR) ;
+
+          for _f in $(>)
+          {
+            local _d ;
+            local dst ;
+            switch $(_f)
+            {
+              case *.h   : _d = include p4 ;
+              case *.a   : _d = lib        ;
+              case *.lib : _d = lib        ;
+              case *.cc  : _d = sample     ;
+              case *     : _d = sample     ;
+            }
+
+            dst = [ ApiFile $(<) : $(EXEC) $(dname) $(_d) : $(_f) ] ;
+            ApiInst $(dst) : $(_f) ;
+          }
+
+          ApiMkTarBall $(<) : $(EXEC) $(dname) ;
+          #ApiMkZip    $(<) : $(EXEC) $(dname) ;  # TODO
+        }
+
+        rule ApiFile
+        {
+          local dstdir = [ FDirName $(2) ] ;
+          local dst    = [ FDirName $(2) $(3) ] ;
+
+          Depends $(1)   : $(dst) ;
+          Depends $(dst) : $(dstdir) $(3) ;
+
+          MkDir $(dstdir) ;
+          return $(dst) ;
+        }
+
+        actions ApiInst      { $(CP) -p $(2) $(1) }
+        actions ApiMkTarBall { tar -cvf $(1) -C $(2) }
+
+if $(OS) = VMS
+{
+	actions ApiInst {
+	    $(CP) $(2) $(1)
+	}
+
+	# $(1) is relative path for the target archive name ../p4-bin/bin..../
+	# First part of $(2) is base dir, second is name of dir to backup
+	actions ApiMkTarBall {
+	    backup $(1) -C $(2)
+	    set file/prot=(o:d) $(1)
+	}
+}
+
+if $(OS) = NT
+{
+	actions ApiInst {
+	    cp $(2) $(1)
+	}
+
+	# First part of $(2) is base dir, second is name of dir to backup
+	actions ApiMkTarBall {
+	    tar cvf $(1) -C $(2)
+	}
+}
+
+	rule TarBall
+	{
+		NotFile api ;
+		Depends api : $(<) ;
+		Depends $(<) : $(>) ;
+		LOCATE on $(<) = $(EXEC) ;
+		SEARCH on $(>) += $(HDRS) $(SUBDIRHDRS) $(SUBDIR) ;
+		TarBallPre $(<) : $(>) ;
+		TarBallCopy $(<) : $(>) ;
+		TarBallPost $(<) : $(>) ;
+	}
+
+	rule TarBallPre { }
+	rule TarBallPost { }
+
+	actions TarBallCopy
+	{
+		t=/tmp/td.$$
+		trap 'rm -rf $t' 0
+		mkdir $t
+		cp $(>) $t
+		( cd $t; tar cvf - * ) > $(<)
+	}
+
+	rule LinkSmartHeap
+	{
+          if $(SMARTHEAP) = yes
+          {
+            local _64 = "" ;
+            local   d = "" ;
+
+            if $(OSPLAT) = X86_64 || $(OSPLAT) = X64 { _64 = 64 ; }
+
+            if $(TYPE) = g { d = d ; }
+
+            switch $(OS)-$(OSVER:E)-$(OSPLAT:E)-$(OSCOMP:E)
+            {
+              case NT-*-*-* :
+                SMARTHPLIB ?= $(EXEC_LIB)\\shlSMP$(_64)Mt$(d).lib ;
+
+                local e = [ FAppendSuffix $(<) : $(SUFEXE) ] ;
+                LINKLIBS on $(e) = setargv.obj $(SMARTHPLIB)
+                                   advapi32.lib oldnames.lib
+                                   kernel32.lib wsock32.lib ;
+
+              case LINUX-*-*-* :
+                SMARTHPLIB ?= $(EXEC_LIB)/libsmartheapC$(d)$(_64).a
+                              $(EXEC_LIB)/libsmartheap$(d)$(_64).a ;
+
+                # Per-target LINKLIBS need to incorporate global libs
+                # too (e.g. libsupc++), but they should come after the
+                # smartheap libs.
+                LINKLIBS on $(<) += $(SMARTHPLIB) $(LINKLIBS) ;
+            }
+          }
+        }
+
+#################################################
+#
+# Section 5.  Perforce-special Windows rules.
+#
+#################################################
+
+	#
+	# Special p4-win/scc/p4-exp rules:
+	#
+	# P4EXPCompileActions - quotes STDHDRS
+	# P4EXPIncludes - set up headers fpr WTL and platform SDK
+	# P4EXPDefines - set C++ flags for P4-EXP
+	# P4EXPDOTH file : file ; - wrapper for p4exp.h dependencies
+	# P4EXPDOTHDEPENDS files : file ; - wrapper for files dependant on p4exp.h
+	# P4EXPMIDL file : file ; - set up files for MIDL compiling
+	# EXPMIDL file : file ; - compile .idl file
+	# P4EXPLinkage exe : libs ; - set up link flags windows exe
+	#
+	# P4SccDefines - set C++ flags for (old) p4scc.dll
+	#
+	# P4WinDefines - set C++ flags for p4-win/gui
+	# P4WinDiffDefines - set C++ flags for p4-win/diff, merge
+	#
+	# WinDefines opts : defines ; - set C++ flags for p4-win
+	# WinDllDeffile exe : file ; - set /def: file for link
+	# WinDllLinkage exe : libs ; - set up link flags windows DLL
+	# WinDllNoMain exe ; - setup exe with no main
+	# WinLinkage exe : libs ; - set up link flags windows exe
+	# WinRes exe : *.rc : flags ; - compile .rc->.res, link against exe
+	# WinResIdent *.rc ; - set special defines for build identification
+	#
+
+	rule P4RPTCLILinkage
+	{
+	    local _lf = /subsystem:console ;
+
+	    switch $(TYPE_DEBUG)
+	    {
+	    case true : _lf += /DEBUG ;
+	    case *    : _lf += /MAP ;
+	    }
+
+	    _lf += /INCREMENTAL:NO ;
+	    _lf += /NODEFAULTLIB:"libcmt" ;
+	    _lf += /NODEFAULTLIB:"libc" ;
+
+	    switch $(OSPLAT)
+	    {
+	    case X86 : _lf += /MACHINE:x86 ;
+	    }
+
+	    LINKFLAGS on $(<) = $(LINKFLAGS) $(_lf) ;
+
+	    LINKLIBS on $(<) =
+	    gdi32.lib comctl32.lib shlwapi.lib user32.lib
+	    version.lib shell32.lib advapi32.lib oldnames.lib
+	    kernel32.lib wsock32.lib winmm.lib odbc32.lib
+	    odbccp32.lib $(2) ;
+	}
+
+	rule P4GTLinkage
+	{
+	    local _lf = /subsystem:windows ;
+
+	    switch $(TYPE_DEBUG)
+	    {
+	    case true : _lf += /DEBUG ;
+	    case *    : _lf += /MAP ;
+	    }
+
+	    _lf += /DLL ;
+	    _lf += /INCREMENTAL:NO ;
+	    _lf += /NODEFAULTLIB:"libcmt" ;
+	    _lf += /NODEFAULTLIB:"libc" ;
+
+	    switch $(OSPLAT)
+	    {
+	    case X86 : _lf += /MACHINE:x86 ;
+	    }
+
+	    LINKFLAGS on $(<) = $(LINKFLAGS) $(_lf) ;
+
+	    LINKLIBS on $(<) =
+	    $(P4GT)/htmlhelp/htmlhelp.lib
+	    gdi32.lib comctl32.lib shlwapi.lib user32.lib
+	    version.lib shell32.lib advapi32.lib oldnames.lib
+	    kernel32.lib wsock32.lib winmm.lib odbc32.lib
+	    odbccp32.lib $(2) ;
+	}
+
+	rule P4GTDefines
+	{
+	    WinDefines /GX : _USRDLL _WINDLL NT_PLUGIN ;
+	}
+
+	rule P4EXPCompileActions
+	{
+
+		actions C++
+		{
+			$(C++) /c /Fo$(<) $(C++FLAGS) $(CCDEFS) $(CCHDRS) "/I$(STDHDRS)" /Tp$(>)
+		}
+
+		actions Cc
+		{
+			$(CC) /c /Fo$(<) $(CCFLAGS) $(CCDEFS) $(CCHDRS) "/I$(STDHDRS)" $(>)
+		}
+	}
+
+	rule P4EXPIncludes
+	{
+		P4ClientHdrs ;
+		STDHDRS += $(MSVCNT)\\wtl71\\include ;
+		STDHDRS += "C:\\Program Files\\Microsoft SDK\\include" ;
+	}
+
+	rule P4EXPDefines
+	{
+		local u = ;
+
+  		if $(OSVER) != 98 && ! $(NOUNICODE)
+		{
+   			u += [ FDefines UNICODE _UNICODE ] ;
+  		}
+
+		WinDefines /Ob1 /EHsc $(u) : _UNICODE _ATL_STATIC_REGISTRY _USRDLL _WINDLL ;
+	}
+
+	rule P4EXPDOTH
+	{
+		DEPENDS $(<) : $(>) ;
+	}
+
+	rule P4EXPDOTHDEPENDS
+	{
+		DEPENDS $(<) : $(>) ;
+	}
+
+	rule P4EXPMIDL
+	{
+		DEPENDS $(<) : $(>) ;
+		EXPMIDL $(<) : $(>) ;
+	}
+
+	actions EXPMIDL
+	{
+		$(MSVCNT)\..\Common7\tools\bin\midl /env win32 /Oicf /tlb ".\p4exp.tlb" /h "p4exp.h" /iid $(<) $(>)
+	}
+
+	rule P4EXPLinkage
+	{
+		# P4EXPLinkage exe : libs ; - set up link flags windows exe
+
+		local _lf = /subsystem:windows ;
+
+		switch $(TYPE_DEBUG)
+		{
+		case true : _lf += /DEBUG ;
+		case *    : _lf += /MAP ;
+		}
+
+		_lf += /DLL ;
+		_lf += /def:p4exp.def ;
+
+		switch $(OSPLAT)
+		{
+		case X86 : _lf += /MACHINE:X86 ;
+		}
+
+		LINKFLAGS on $(<) = $(LINKFLAGS) $(_lf) ;
+
+		LINKLIBS on $(<) =
+			gdi32.lib comctl32.lib shlwapi.lib
+			user32.lib version.lib shell32.lib
+			advapi32.lib oldnames.lib kernel32.lib wsock32.lib
+			winmm.lib $(2) ;
+
+	}
+
+	rule P4SccDefines
+	{
+		WinDefines /GX : _USRDLL _WINDLL ;
+	}
+
+	rule P4WinDefines
+	{
+		local u = ;
+
+		# Unicode builds except on Win98.
+
+		if $(OSVER) != 98 && ! $(NOUNICODE)
+		{
+			u += [ FDefines UNICODE _UNICODE ] ;
+		}
+		else
+		{
+			u += [ FDefines _MBCS ] ;
+		}
+
+		u += /GR /EHsc /GS ;
+		if $(TYPE_DEBUG) = true { u += /Zi ; }
+
+		WinDefines $(u) : STRICT ;
+	}
+
+	rule P4WinDiffDefines
+	{
+		WinDefines /GR /GX : P4DIFF ;
+	}
+
+	rule WinDefines
+	{
+		SubDirC++Flags
+		    /W3 $(1)
+		    [ FDefines NDEBUG WIN32 _WINDOWS $(2) ] ;
+
+		if $(TYPE_DYNAMIC)
+		{
+		    SubDirC++Flags [ FDefines _AFXDLL ] ;
+		}
+	}
+
+	rule WinDllDeffile
+	{
+		# WinDllDeffile exe : file ; - set /def: file for link
+
+		SEARCH on $(>) = $(SEARCH_SOURCE) ;
+		DEFFILE on $(<) = $(>) ;
+		DEPENDS $(<) : $(>) ;
+
+		# Have to redefine actions for the DEFFILE
+		# Should move to jambase
+
+		actions Link bind NEEDLIBS DEFFILE
+		{
+	$(LINK) $(LINKFLAGS) /out:$(<) /def:$(DEFFILE) $(UNDEFS) $(>) $(NEEDLIBS) $(LINKLIBS)
+		}
+	}
+
+	rule WinDllLinkage
+	{
+		# WinDllLinkage exe : libs ; - set up link flags windows DLL
+
+		WinLinkage $(<) : $(>) ;
+
+		LINKFLAGS on $(<) += /dll ;
+	}
+
+	rule WinDllNoMainLinkage
+	{
+		# WinDllNoMain exe ;
+
+		LINKFLAGS on $(<) += /NOENTRY /MACHINE:I386 /SUBSYSTEM:WINDOWS /DLL ;
+
+		LINKLIBS on $(<) = $(2) ;
+	}
+
+	rule WinLinkage
+	{
+		# WinLinkage exe : libs ; - set up link flags windows exe
+
+		local _lf = /subsystem:windows ;
+
+		switch $(TYPE_DEBUG)
+		{
+		case true : _lf += /DEBUG ;
+		case *    : _lf += /MAP /DEBUG ;
+		}
+
+		if $(OSVER) != 98 && ! $(NOUNICODE)
+		{
+			_lf += /ENTRY:"wWinMainCRTStartup" ;
+		}
+
+		switch $(OSPLAT)
+		{
+		case X86 : _lf += /MACHINE:X86 ;
+		}
+
+		LINKFLAGS on $(<) = $(LINKFLAGS) $(_lf) ;
+
+		LINKLIBS on $(<) =
+		    $(2) ;
+	}
+
+	rule WinRes
+	{
+		# WinRes exe : *.rc : flags ; - compile .rc->.res, link
+
+		# Compile .rc into .res for linking into executable.
+		# (Strictly MSVCNT, I presume.)
+
+		local s r e ;
+
+		e = [ FAppendSuffix $(<) : $(SUFEXE) ] ;
+		s = [ FGristSourceFiles $(>) ] ;
+		r = $(s:S=.res:G=) ;
+
+		DEPENDS $(e) : $(r) ;
+		DEPENDS $(r) : $(s) ;
+
+		LinkLibraries $(e) : $(r) ;
+
+		LOCATE on $(r) = $(LOCATE_TARGET) ;
+		SEARCH on $(s) = $(SEARCH_SOURCE) ;
+
+		# .rc files have #includes, but we're pretty sure
+		# they include only files local to the .rc's directory
+
+		HDRRULE on $(>) = HdrRule ;
+		HDRSCAN on $(>) = $(HDRPATTERN) ;
+		HRDSEARCH on $(>) = $(SEARCH_SOURCE) ;
+		HDRGRIST on $(>) = $(HDRGRIST) ;
+
+		# Bind headers
+
+		RCFLAGS on $(r) = $(RCFLAGS) $(3) ;
+		RCHDRS on $(r) = [ on $(r) FIncludes
+			$(SUBDIRHDRS) $(HDRS) $(STDHDRS) ] ;
+
+		WinRc $(r) : $(s) ;
+
+		Clean clean : $(r) ;
+	}
+
+	rule WinResIdent
+	{
+		# WinResIdent *.rc ;
+
+		local s r p v ;
+
+		s = [ FGristSourceFiles $(<) ] ;
+		r = $(s:S=.res:G=) ;
+
+		# If RELEASE=2005.1 and PATCHLEVEL=69929 then
+		#	P4_FILE_VERSION = 2005.1.6.9929
+		#	P4_PRODUCT_VERSION = 2005.1
+
+		p = [ Match (.*)(....) : $(PATCHLEVEL) ] ;
+		v = $(RELEASE[1]).$(RELEASE[2]).$(p:J=.) $(RELEASE[3]) ;
+
+		rule Fconcat { return $(<:J) ; }
+
+		RCFLAGS on $(r) += [ FDefines
+		    [ Fconcat P4_INT_MAJOR= $(RELEASE[1]) ]
+		    [ Fconcat P4_INT_MINOR= $(RELEASE[2]) ]
+		    [ Fconcat P4_INT_HBUILD= $(p[1]) ]
+		    [ Fconcat P4_INT_LBUILD= $(p[2]) ]
+		    [ Fconcat P4_FILE_VERSION= [ FQuote $(v[1]) ] ]
+		    [ Fconcat P4_PRODUCT_VERSION= [ FQuote $(v:J=.) ] ]
+		    [ Fconcat P4_COPYRIGHT= [ FQuote $(RELEASE[1]) ] ]
+		    ] ;
+
+		# Source file includes Version
+
+		Includes $(s) : Version ;
+	}
+
+	actions WinRc {
+		rc /fo $(<) $(RCFLAGS) "$(RCHDRS)" $(>)
+	}
+
+
+#################################################
+#
+# Section 7.  QT build rules and actions.
+#
+#################################################
+
+	#
+	# QtDefines ; - Add defines/headers for building with QT
+	# QtEmbed x.h : files : flags ; - preprocess with qembed
+	# QtFormLibrary lib : *.ui ; make .h's and archive .obj's
+	# QtHeaders ts : headers ; - list headers for i18n xlation
+	# QtImages x.h : files ; - make a .h from image files
+	# QtLibrary lib : ts : files ; - Library call with lupdate
+	# QtLinkage exe : opt ; - linkflags/libs for building with QT
+	# QtConsoleLinkage exe ; - QtLinkage for a console app on NT
+	# QtLrelease qm : ts ; - build qm from ts files with lrelease
+	# QtMoc x.cpp : x.h ; - preprocess with moc
+	# QtMocLibrary lib : *.h ; - moc, compile, & archive
+	# QtUicCpp x.cpp : x.ui x.h ; - preprocess with uic to make .cpp
+	# QtUicHdr x.h : x.ui ; - preprocess with uic to make .h
+	#
+
+	QtLanguages = jp la ;
+
+	rule QtHeaders
+	{
+		# QtHeaders ts : headers ; - list headers for lupdate
+
+		# This just stashes the named headers in the QTLUPHDRS
+		# variable, used by QtLupdate1 to generate the translation
+		# files.
+
+		# We give the headers a separate grist, so that we don't
+		# confuse their other uses (just in case we mess up here).
+
+		QtLupdate $(<) : h : $(>:G=QTLHDR) ;
+	}
+
+	rule QtLibrary
+	{
+		# QtLibrary lib : ts : files ; - Library call with lupdate
+
+		Library $(1) : $(3) ;
+		QtLupdate $(2) : s : [ FGristSourceFiles $(3) ] ;
+	}
+
+	rule QtLrelease
+	{
+		# QtLrelease qm : ts ;
+
+		for _i in $(QtLanguages)
+		{
+		    QtLreleaseRun $(1)_$(_i).qm : $(2)_$(_i).ts ;
+		}
+
+		LOCATE on $(_ts) $(_qm) = $(LOCATE_TARGET) ;
+
+	}
+
+	rule QtLreleaseRun
+	{
+		# QtLreleaseRun qm : ts ;
+
+		NotFile lupdate ;
+		Depends lupdate : $(1) ;
+		Depends $(1) : $(2) ;
+
+		LOCATE on $(1) $(2) = $(LOCATE_TARGET) ;
+	}
+
+	actions QtLreleaseRun
+	{
+
+		$(QTLREL) $(>) -qm $(<)
+	}
+
+	rule QtLupdate
+	{
+		# QtLupdate ts : h/s : files ; - Add sources/hdrs to lupdate
+
+		local _ts = $(1)_$(QtLanguages).ts ;
+
+		local _pro = $(1).pro ;
+		local _proh = $(1)h.pro ;
+		local _pros = $(1)s.pro ;
+		local _prox = $(1)$(2).pro ;
+
+		on $(_ts) if ! $(Done)
+		{
+		    Done on $(_ts) = true ;
+
+		    # .ts -> .pro -> s.pro (QtLupTmp)-> sources
+		    #		  -> h.pro (QtLupTmp)-> headers
+
+		    NotFile lupdate ;
+		    Depends lupdate : $(_ts) ;
+		    Depends $(_ts) : $(_pro) ;
+		    Depends $(_pro) : $(_proh) $(_pros) ;
+
+		    # _pro must be in current directory
+		    # or lupdate gets confused.
+
+		    LOCATE on $(_ts) $(_proh) $(_pros) = $(LOCATE_TARGET) ;
+		    QTLTRANS on $(_pro) = $(_ts) ;
+
+		    # Build ts files from pro file
+		    # Build pro file from list of headers/sources
+
+		    QtLupdateRun $(_ts) : $(_pro) ;
+		    QtLupdatePro $(_pro) : $(_proh) $(_pros) ;
+
+		    # Zonk pro files when done
+
+		    RmTemps $(_ts) : $(_pro) ;
+		    RmTemps $(_pro) : $(_proh) $(_pros) ;
+
+		    # Zero h.pro/s.pro files to begin with
+
+		    QtLupTmp0 $(_proh) ;
+		    QtLupTmp0 $(_pros) ;
+		}
+
+		# Add files to building or h.pro/s.pro file
+
+		Depends $(_prox) : $(3) ;
+		SEARCH on $(3) = $(SEARCH_SOURCE) ;
+		QtLupTmp1 $(_prox) : $(3) ;
+	}
+
+
+	# QtLupdatePro pro : hpro spro ;
+
+	if $(OS) = NT
+	{
+	    actions quietly together piecemeal QtLupTmp1
+	    {
+		    echo $(>) \ >> $(<)
+	    }
+
+	    actions quietly QtLupTmp0
+	    {
+		    echo. > $(<)
+		    $(RM) $(<)
+	    }
+
+	    actions quietly QtLupdatePro bind QTLTRANS
+	    {
+		    echo TRANSLATIONS = $(QTLTRANS) > $(<)
+		    echo HEADERS = \ >> $(<)
+		    type $(>[1]) >> $(<)
+		    echo. >> $(<)
+		    echo SOURCES = \ >> $(<)
+		    type $(>[2]) >> $(<)
+		    echo. >> $(<)
+	    }
+	}
+	else
+	{
+	    actions quietly together piecemeal QtLupTmp1
+	    {
+		    echo $(>) \\ >> $(<)
+	    }
+
+	    actions quietly QtLupTmp0
+	    {
+		    $(RM) $(<)
+	    }
+
+	    actions quietly QtLupdatePro bind QTLTRANS
+	    {
+		    echo TRANSLATIONS = $(QTLTRANS) > $(<)
+		    echo HEADERS = \\ >> $(<)
+		    cat $(>[1]) >> $(<)
+		    echo "" >> $(<)
+		    echo SOURCES = \\ >> $(<)
+		    cat $(>[2]) >> $(<)
+		    echo "" >> $(<)
+	    }
+	}
+
+	# QtLupdateRun ts : pro ;
+
+	actions QtLupdateRun
+	{
+		$(QTLUP) $(>)
+	}
+
+	rule QtDefines
+	{
+		# QtDefines ; - Add defines/headers for building with QT
+
+		if ! $(QTDIR)
+		{
+		    Exit Can't build in QT directories without QTDIR set. ;
+		}
+
+		if $(JAMVERSION) < 2.4.1 {
+		    Exit QT builds require 2.4.1 ;
+		}
+
+		if $(JAMBASEDATE) < 2005.05.05 && ! $(QT25WARN) {
+		    Echo QT builds work poorly without Jambase 2005.05.05 ;
+		    QT25WARN = true ;
+		}
+
+		QTLUP    = [ FDirName $(QTDIR) bin lupdate ] ;
+		QTLREL   = [ FDirName $(QTDIR) bin lrelease ] ;
+		QTMOC    = [ FDirName $(QTDIR) bin moc ] ;
+		QTUIC    = [ FDirName $(QTDIR) bin uic ] ;
+		QEMBED   = [ FDirName $(QTDIR) bin qembed ] ;
+
+		local _d _f ;
+
+		_d += QT_NO_STL ;
+		_d += QT_THREAD_SUPPORT ;
+		_d += QT_NO_CAST_ASCII ;
+		_d += QT_NO_ASCII_CAST ;
+
+		if $(TEST) { _d += TEST ; }
+
+		# Source code debugging
+		# DEBUG is in our code -- conditional compilations
+		# QT_NO_* is in QT code
+
+		switch $(TYPE_DEBUG)
+		{
+		case true : _d += DEBUG ;
+		case *    : _d += QT_NO_DEBUG QT_NO_CHECK ;
+		}
+
+		SubDirHdrs [ FDirName $(QTDIR) include ] ;
+		SubDirHdrs $(LOCATE_SOURCE[1]) ;
+		SubDirHdrs [ FDirName $(P4QT) util q3 ] ;
+
+		switch $(OS)
+		{
+		case NT :
+		    _f += /EHsc /GR ;
+		    # from Qt's Makefile
+		    _f += /Zm200 /W3 ;
+		    if $(VS80COMNTOOLS)
+		    {
+				_f += /Zc:wchar_t- ;
+			}
+
+		case MACOSX :
+		    if ! $(TYPE_DEBUG) { OPTIM = -O4 ; }
+
+		case FREEBSD :
+		    SubDirHdrs /usr/X11R6/include ;
+		}
+
+		SubDirC++Flags [ FDefines $(_d) ] $(_f) ;
+	}
+
+	rule QtLinkage
+	{
+		# QtLinkage exe : opt ; - linkflags/libs for building with QT
+
+		local _t = [ FAppendSuffix $(<) : $(SUFEXE) ] ;
+		local _opt = $(2) ;
+
+		switch $(OS)
+		{
+                 # We don't want to embed rpath entries for QTDIR/lib in
+                 # production builds because they are not located in a
+                 # standard system directory (unlike e.g. /usr/X11R6/lib).
+                 # Doing so results in unnecessary stat(2) calls on
+                 # customer filesystems that may even cause network
+                 # timeouts.  We link qt-mt statically in production.
+                 #
+                 # Please do not add X libraries here in order to
+                 # satisfy dependencies in development builds of qt-mt.
+                 # The libraries listed here are the dependencies required
+                 # for production builds; adding more dynamic linker
+                 # dependencies decreases portability.
+                 #
+                 # If you are working with QT shared libraries in a
+                 # development environment, there are 3 alternatives:
+                 #   1. set LD_LIBRARY_PATH
+                 #   2. edit your system ld.so.conf
+                 #   3. use the dev_LINKFLAGS and dev_LINKLIBS hooks:
+                 #         jam -sdev_LINKFLAGS="..." -sdev_LINKLIBS="..."
+
+		case FREEBSD :
+		    LINKFLAGS on $(_t) +=
+			# -Wl,-rpath,$(QTDIR)/lib
+			-L$(QTDIR)/lib -L/usr/X11R6/lib
+                        $(LINKFLAGS) $(dev_LINKFLAGS) ;
+
+		    LINKLIBS on $(_t) +=
+			-lqt-mt -lSM -lICE -lXext -lX11 -lXmu -lXcursor 
+			-lm -pthread
+                        $(LINKLIBS) $(dev_LINKLIBS) ;
+
+		case SOLARIS :
+		    LINKFLAGS on $(_t) +=
+			# -Wl,-R,$(QTDIR)/lib
+			-L$(QTDIR)/lib -L/usr/X11R6/lib -L/opt/lude/lib
+                        $(LINKFLAGS) $(dev_LINKFLAGS) ;
+
+		    LINKLIBS on $(_t) +=
+			-lqt-mt -lXext -lX11
+                        -ldl -lpthread -lposix4
+			-lm -lsocket -lnsl
+                        $(LINKLIBS) $(dev_LINKLIBS) ;
+
+		 case NETBSD :
+		    LINKFLAGS on $(_t) +=
+		    # -Wl,-rpath,$(QTDIR)/lib
+		    -Wl,-rpath,/usr/X11R6/lib
+		    -Wl,-rpath,/usr/pkg/lib
+		    -L$(QTDIR)/lib -L/usr/X11R6/lib -L/usr/pkg/lib
+                    $(LINKFLAGS) $(dev_LINKFLAGS) ;
+
+		    LINKLIBS on $(_t) +=
+			 -lqt-mt -lSM -lICE -lXext -lX11
+			 -lGL # for revision graph
+			 -lm -lpthread -lXmu -lX11
+			 -lXrandr -lXcursor -lXrender -lX11
+                         $(LINKLIBS) $(dev_LINKLIBS) ;
+
+		    HDRS += /usr/pkg/include ;
+
+		    if ! $(TYPE_DYNAMIC) {
+		        LINKFLAGS on $(_t) += -static ;
+		    }
+
+		case LINUX :
+		    LINKFLAGS on $(_t) +=
+                        # -Wl,-rpath,$(QTDIR)/lib
+			-L$(QTDIR)/lib -L/usr/X11R6/lib
+                        $(LINKFLAGS) $(dev_LINKFLAGS) ;
+
+		    LINKLIBS on $(_t) +=
+                        -lqt-mt -lX11 -lXext -lXcursor -lm -pthread -ldl
+                        $(LINKLIBS) $(dev_LINKLIBS) ;
+
+		case MACOSX :
+		    LINKFLAGS on $(_t) += $(LINKFLAGS)
+			-prebind
+			-L$(QTDIR)/lib
+                        # This (dynamic) library is listed here so that it
+                        # appears before any other objects and specifically
+                        # before libsupp.a, to avoid symbol name collisions.
+                        # libz is needed for the QuickTime framework.
+                        -lz
+                        $(dev_LINKFLAGS) ;
+
+		    LINKLIBS on $(_t) += $(LINKLIBS)
+                        -lqt-mt
+                        # This is already on the global LINKLIBS
+			#-framework Carbon
+			-framework QuickTime
+			-framework OpenGL
+			-framework AGL
+                        $(dev_LINKLIBS) ;
+
+		    if $(_opt) != "console"
+		    {
+		    	QtMacPackage $(<) ;
+		    }
+
+		case NT :
+
+		    # warn about non-dynamic builds on NT
+
+		    if ! $(TYPE_DYNAMIC) && ! $(QTWARNED)
+		    {
+			echo Warning: you really want jam -sTYPE=dyn
+				for QT on NT. ;
+			QTWARNED = 1 ;
+		    }
+
+		    # no dos box unless debug
+
+		    if $(_opt) = "console"
+		    {
+			LINKFLAGS on $(_t) += $(LINKFLAGS) /subsystem:console ;
+		    }
+		    else if ! $(TYPE_DEBUG)
+		    {
+			LINKFLAGS on $(_t) += $(LINKFLAGS) /subsystem:windows ;
+		    }
+
+		    LINKLIBS on $(_t) =
+			[ Glob [ FDirName $(QTDIR) lib ] : qt-mt*.lib ]
+			[ FDirName $(QTDIR) lib qtmain.lib ]
+			advapi32.lib	# for qtree
+			user32.lib
+			gdi32.lib
+			comdlg32.lib
+			ole32.lib
+			oleaut32.lib
+			shell32.lib
+			uuid.lib
+			imm32.lib
+			winmm.lib
+			wsock32.lib
+			winspool.lib
+			version.lib
+			;
+
+		case * :
+		    Exit Don't know how to link QT executables on $(OS). ;
+		}
+	}
+
+	rule QtConsoleLinkage
+	{
+		# QtConsoleLinkage exe ; - QtLinkage for a console app on NT
+
+		QtLinkage $(<) : console ;
+	}
+
+	rule QtDllLinkage
+	{
+		# QtLinkage exe ; - linkflags/libs for building with QT
+
+		switch $(OS)
+		{
+		case NT :
+
+		    # warn about non-dynamic builds on NT
+
+		    if ! $(TYPE_DYNAMIC) && ! $(QTWARNED)
+		    {
+			echo Warning: you really want jam -sTYPE=dyn
+				for QT on NT. ;
+			QTWARNED = 1 ;
+		    }
+
+		    LINKFLAGS on $(<) +=
+			$(LINKFLAGS)
+			/DLL
+			;
+
+			echo Warning: you are building a dll  $(LINKFLAGS) ;
+
+		    # no dos box unless debug
+
+		    if ! $(TYPE_DEBUG)
+		    {
+		    LINKFLAGS on $(<) +=
+			$(LINKFLAGS)
+			/subsystem:windows
+			;
+		    }
+
+		    LINKLIBS on $(<) =
+			[ Glob [ FDirName $(QTDIR) lib ] : qt-mt*.lib ]
+			[ FDirName $(QTDIR) lib qtmain.lib ]
+			advapi32.lib	# for qtree
+			user32.lib
+			gdi32.lib
+			comdlg32.lib
+			ole32.lib
+			oleaut32.lib
+			shell32.lib
+			uuid.lib
+			imm32.lib
+			winmm.lib
+			wsock32.lib
+			winspool.lib
+			shlwapi.lib
+			version.lib
+			;
+
+		case * :
+		    Exit Don't know how to link QT executables on $(OS). ;
+		}
+	}
+
+	# Mac special package - make a raw executable into a .app folder
+	# This does x things:
+
+	# 1. locates the actual exe in exe.app/Contents/MacOS/exe
+	# 2. Creates exe.app/Contents/PkgInfo
+	# 3. Creates exe.app/Contents/Info.plist
+	# 4. Creates exe.app/Contents/Resources/application.icns
+
+	rule QtMacPackage
+	{
+	    # QtMacPackage exe ;
+
+	    Depends $(<) : <$(<)>PkgInfo ;
+	    Depends $(<) : <$(<)>Info.plist ;
+	    Depends $(<) : <$(<)>application.icns ;
+
+	    MakeLocate $(<) :
+		[ FSubDirPath $(EXEC_TOKENS) $(<:S=.app) Contents MacOS ] ;
+	    MakeLocate <$(<)>PkgInfo :
+		[ FSubDirPath $(EXEC_TOKENS) $(<:S=.app) Contents ] ;
+	    MakeLocate <$(<)>Info.plist :
+		[ FSubDirPath $(EXEC_TOKENS) $(<:S=.app) Contents ] ;
+	    MakeLocate <$(<)>application.icns :
+		[ FSubDirPath $(EXEC_TOKENS) $(<:S=.app) Contents Resources ] ;
+
+	    MacCreatorCode <$(<)>Info.plist : $(<) ;
+
+	    QtMacPackageInfo <$(<)>PkgInfo ;
+	    QMS on <$(<)>PkgInfo = [ MacCreatorCode $(<) ] ;
+
+	    QtMacPlist <$(<)>Info.plist : $(<) ;
+	}
+
+	actions QtMacPackageInfo
+	{
+	    echo "APPL$(QMS)" > $(<)
+	}
+
+	rule QtMacIcons
+	{
+	    File <$(<)>application.icns : $(>) ;
+	}
+
+	rule QtMacPlist
+	{
+	    local osid = $(OS)$(OSVER:E)$(OSPLAT:E) ;
+
+	    Depends files : $(<) ;
+
+	    # Add the standard items to the Info.plist file
+	    #
+	    QtMacAddPListItem $(>) : CFBundleExecutable         : $(>) ;
+	    QtMacAddPListItem $(>) : CFBundlePackageType        : "APPL" ;
+	    QtMacAddPListItem $(>) : CFBundleShortVersionString : $(RELEASE:J=.) ;
+	    QtMacAddPListItem $(>) : CFBundleVersion            : $(RELEASE:J=.)/$(PATCHLEVEL)$(SPECIAL:E) ;
+	    QtMacAddPListItem $(>) : CFBundleGetInfoString      : "$(RELEASE:J=.), Copyright $(SUPPDATE[1]) Perforce Software, Inc." ;
+	    QtMacAddPListItem $(>) : CFBundleIconFile           : application.icns ;
+	    QtMacAddPListItem $(>) : P4RevString                : "$(>:U)/$(osid[1]:U)/$(RELEASE:J=.)/$(PATCHLEVEL)$(SPECIAL:E) ($(SUPPDATE[1])/$(SUPPDATE[2])/$(SUPPDATE[3]))" ;
+
+	    MODE on $(<) = $(FILEMODE) ;
+	    Chmod $(<) ;
+
+	    # This is just for the output hack in the action QtMacPList
+	    JOINER_VARIABLE on $(<) = " >> " ;
+	}
+
+	# Adds a string item to Info.plist
+	# concatenates the XML description to a string which contains the contents
+	#
+	rule QtMacAddPListItem
+	{
+	    MAC_PLIST_CONTENTS on <$(<)>Info.plist  += " \"    <key>$(2)</key>\"" ;
+	    MAC_PLIST_CONTENTS on <$(<)>Info.plist  += " \"    <string>$(3)</string>\"" ;
+	}
+
+	# Writes out an XML file that conforms to the Info.pllist format
+	#
+	# look at the central line very carefully
+	# the whole thing gets expanded into multiple lines because
+	# there are no spaces in this line. They are made into multiple
+	# permutations of every value in MAC_PLIST_CONTENTS.
+	# each value begins with a space (so there is a space after "echo"
+	# and each one uses the one value in JOINER_VARIABLE so it can
+	# put spaces between current the MAC_PLIST_CONTENTS value, and
+	# the value of the file which it will be appended to
+	#
+	actions QtMacPlist
+	{
+		echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > $(<)
+		echo "<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">"  >> $(<)
+		echo "<plist version=\"1.0\">"  >> $(<)
+		echo "<dict>"                   >> $(<)
+
+
+		echo$(MAC_PLIST_CONTENTS)$(JOINER_VARIABLE)$(<);
+
+
+		echo "</dict>"                  >> $(<)
+		echo "</plist>"                 >> $(<)
+	}
+
+	# Library rules
+
+	rule QtHdrRule
+	{
+		# Our own HdrRule that knows a .ui doesn't itself include
+		# a .h, but instead causes the resulting .cpp to do so.
+		# What .cpp?  TCPP is set on the .ui by QtFormLibrary,
+		# and that's how we know it's this rigged dependency.
+
+		HdrRule $(TCPP:E=$(<)) : $(>) ;
+	}
+
+	rule QtFormLibrary
+	{
+		# QtFormLibrary lib : *.ui ; make .h's and archive .obj's
+
+		# For each x.ui file we generate _3_ files:
+		#
+		#	x.h (uic x.ui)
+		#	tx.cpp (uic x.ui x.h) (temp)
+		#	mx.cpp (moc x.h) (temp)
+		#
+		# The tx.cpp and mx.cpp get compiled into tx.o and mx.o
+		# and archived into the library.
+
+		Library $(<) : m$(>:S=.cpp) ;
+		Library $(<) : t$(>:S=.cpp) ;
+
+		local i ;
+
+		for i in $(>)
+		{
+		    local h = $(i:S=.h) ;
+		    local ui = [ FGristSourceFiles $(i) ] ;
+		    local mcpp = [ FGristSourceFiles m$(i:S=.cpp) ] ;
+		    local tcpp = [ FGristSourceFiles t$(i:S=.cpp) ] ;
+		    local mobj = $(mcpp:S=$(SUFOBJ)) ;
+		    local tobj = $(tcpp:S=$(SUFOBJ)) ;
+
+		    # .ui's can include .h files, though what it actually
+		    # means is that the generated tx.cpp includes the .h's,
+		    # so we pass the tx.cpp name down to our own QtHdrRule.
+
+		    TCPP on $(ui) = $(tcpp) ;
+		    HDRRULE on $(ui) = QtHdrRule ;
+		    HDRSCAN on $(ui) = "<include .*>(.*)</include>" ;
+		    HDRSEARCH on $(ui) =
+			$(SEARCH_SOURCE:E) $(SUBDIRHDRS) $(HDRS) $(STDHDRS) ;
+
+		    QtUicHdr $(h) : $(ui) ;
+		    QtUicCpp $(tcpp) : $(ui) $(h) ;
+		    QtMoc $(mcpp) : $(h) ;
+
+		    if ! $(TYPE_DEBUG) { RmTemps $(mobj) : $(mcpp) ; }
+		    if ! $(TYPE_DEBUG) { RmTemps $(tobj) : $(tcpp) ; }
+
+		    Includes $(mcpp) : $(h) ;
+		    Includes $(tcpp) : $(h) ;
+		}
+	}
+
+	rule QtMocLibrary
+	{
+		# QtMocLibrary lib : *.h ; - moc, compile, & archive
+
+		# X.h -> temp mX.cpp -> temp mX.obj -> lib
+		# Normal library rule on the generated m*.cpp files
+
+		Library $(<) : m$(>:S=.cpp) ;
+
+		# Make mX.cpp from X.h using moc
+		# mX.cpp is a temp
+
+		local h ;
+
+		for h in $(>)
+		{
+		    local cpp = [ FGristSourceFiles m$(h:S=.cpp) ] ;
+		    local obj = $(cpp:S=$(SUFOBJ)) ;
+		    QtMoc $(cpp) : $(h) ;
+		    if ! $(TYPE_DEBUG) { RmTemps $(obj) : $(cpp) ; }
+		}
+	}
+
+	# Source file rules
+
+	rule QtImages
+	{
+		# QtImages x.h : files ; - make a .h from image files
+
+		# Delete and do piecemeal append for line-length limited NT.
+
+		QtEmpty $(<) ;
+
+		QEMBED on $(<) = $(QTUIC) ;
+		QtEmbed $(<) : $(>) : -embed $(<:B) ;
+	}
+
+	actions QtEmpty
+	{
+		$(RM) $(<)
+	}
+
+	rule QtEmbed
+	{
+		# QtEmbed x.h : files : flags ; - preprocess with qembed
+
+		NotFile src ;
+		Depends src : $(<) ;
+
+		Depends all : $(<) ;
+		Depends $(<) : $(>) ;
+		Clean clean : $(<) ;
+
+		SEARCH on $(>) = $(SEARCH_SOURCE) ;
+		MakeLocate $(<) : $(LOCATE_SOURCE) ;
+
+		QEMBEDFLAGS on $(<) = $(3) ;
+	}
+
+	actions piecemeal QtEmbed
+	{
+		$(QEMBED) $(QEMBEDFLAGS) $(>) >> $(<)
+	}
+
+	rule QtMoc
+	{
+		# QtMoc x.cpp : x.h ; - preprocess with moc
+
+		# Derive a .cpp from .h using Qt's moc
+
+		NotFile src ;
+		Depends src : $(<) ;
+
+		Depends all : $(<) ;
+		Depends $(<) : $(>) ;
+		Clean clean : $(<) ;
+
+		SEARCH on $(>) = $(SEARCH_SOURCE) ;
+		MakeLocate $(<) : $(LOCATE_SOURCE) ;
+	}
+
+	actions QtMoc
+	{
+		$(QTMOC) $(>) -o $(<)
+	}
+
+	rule QtUicCpp
+	{
+		# QtUicCpp x.cpp : x.ui x.h ; - preprocess with uic to make .cpp
+
+		NotFile src ;
+		Depends src : $(<) ;
+
+		Depends all : $(<) ;
+		Depends $(<) : $(>) ;
+		Clean clean : $(<) ;
+
+		SEARCH on $(>) = $(SEARCH_SOURCE) ;
+		MakeLocate $(<) : $(LOCATE_SOURCE) ;
+	}
+
+	# don't include dir name in x.h
+
+	actions QtUicCpp
+	{
+		$(QTUIC) $(>[1]) -i $(>[2]:D=) -o $(<)
+	}
+
+	rule QtUicHdr
+	{
+		# QtUicHdr x.h : x.ui ; - preprocess with uic to make .h
+
+		NotFile src ;
+		Depends src : $(<) ;
+
+		Depends all : $(<) ;
+		Depends $(<) : $(>) ;
+		Clean clean : $(<) ;
+
+		SEARCH on $(>) = $(SEARCH_SOURCE) ;
+		MakeLocate $(<) : $(LOCATE_SOURCE) ;
+	}
+
+	actions QtUicHdr
+	{
+		$(QTUIC) $(>) -o $(<)
+	}
+
+	rule QtUnitTest
+	{
+		# $(1) = component to build unit test for
+		#	the component is defined in $(1).h and $(1).cpp
+		#   the unit test is defined in t_$(1).h and t_$(1).cpp
+		# $(2) = list of other components this test depends on
+		# $(3) = list of libraries this test depends on
+
+		# Unit test (but not component itself) needs to include cppunit headers.
+
+		local lib = t_$(1) ;
+
+		# Need to build component into differently named object file
+		# because Library rule will delete normal object file.
+		# Create unique names that don't conflict with the unit test
+		# files by adding .ut suffix before extension.
+
+		Object <$(SOURCE_GRIST)>$(1).ut$(SUFOBJ) : <$(SOURCE_GRIST)>$(1).cpp ;
+		QtMoc <$(SOURCE_GRIST)>m$(1).ut.cpp : <$(SOURCE_GRIST)>$(1).h ;
+		Object <$(SOURCE_GRIST)>m$(1).ut$(SUFOBJ) : <$(SOURCE_GRIST)>m$(1).ut.cpp ;
+		LibraryFromObjects t_$(1) :
+			<$(SOURCE_GRIST)>$(1).ut$(SUFOBJ)
+			<$(SOURCE_GRIST)>m$(1).ut$(SUFOBJ) ;
+
+		# Rebuild any depencies for same reason.
+		for dep in $(2)
+		{
+			Object <$(SOURCE_GRIST)>$(dep).ut$(SUFOBJ) :
+				<$(SOURCE_GRIST)>$(dep).cpp ;
+			QtMoc <$(SOURCE_GRIST)>m$(dep).ut.cpp : <$(SOURCE_GRIST)>$(dep).h ;
+			Object <$(SOURCE_GRIST)>m$(dep).ut$(SUFOBJ) :
+				<$(SOURCE_GRIST)>m$(dep).ut.cpp ;
+			LibraryFromObjects t_$(1) :
+				<$(SOURCE_GRIST)>$(dep).ut$(SUFOBJ)
+				<$(SOURCE_GRIST)>m$(dep).ut$(SUFOBJ) ;
+		}
+
+		# Need to compile unit test too since we're forced to use MainFromObjects.
+		# Moc'ed cpp files, and their obj files, end up with mt_ prefix.
+		Object <$(SOURCE_GRIST)>t_$(1)$(SUFOBJ) : <$(SOURCE_GRIST)>t_$(1).cpp ;
+		QtMoc <$(SOURCE_GRIST)>mt_$(1).cpp : <$(SOURCE_GRIST)>t_$(1).h ;
+		Object <$(SOURCE_GRIST)>mt_$(1)$(SUFOBJ) : <$(SOURCE_GRIST)>mt_$(1).cpp ;
+
+		MainFromObjects $(1) :
+			<$(SOURCE_GRIST)>mt_$(1)$(SUFOBJ)
+			<$(SOURCE_GRIST)>t_$(1)$(SUFOBJ) ;
+		LinkLibraries $(1) : $(lib) $(CPPUNIT) $(3) ;
+		QtConsoleLinkage $(1) ;
+	}
+
+#################################################
+#
+# Section 8.  Lua build rules and actions.
+#
+#################################################
+
+	rule Lua2c
+	{
+		local _t ;
+		_t = [ FGristFiles $(>:S=.lb) ] ;
+
+		LuaCompile $(>) ;
+		LOCATE on $(<) = $(SEARCH_SOURCE) ;
+		DEPENDS lib : $(<) ;
+		DEPENDS $(<) : $(_t) ;
+		LuaBin2c $(<) : $(_t) ;
+	}
+
+	rule LuaCompile
+	{
+		local _t _i ;
+
+		for _i in [ FGristFiles $(<:S=.lua) ]
+		{
+			_t = $(_i:S=.lb) ;
+			SEARCH on $(_i) = $(SEARCH_SOURCE) ;
+			LOCATE on $(_t) = $(LOCATE_TARGET) ;
+			DEPENDS obj : $(_t) ;
+			DEPENDS $(_t) : $(_i) ;
+			Luac $(_t) : $(_i) ;
+		}
+	}
+
+	actions LuaBin2c {
+		bin2c $(>) > $(<)
+	}
+
+	actions Luac {
+		luac -s -o $(<) $(>)
+	}
+
+#################################################
+#
+# Section 9.  Per-platform actions.
+#
+#################################################
+
+if $(OS) = AS400
+{
+	actions Archive {
+		echo > $(<)
+	}
+
+	actions Link {
+		echo > $(<)
+	}
+
+	actions Cc {
+		$(CC) /Q+ /C $(CCFLAGS) $(CCDEFS) /I$(HDRS) /I$(STDHDRS) $(>)
+		if not errorlevel 1 echo > $(<)
+	}
+
+	actions C++ {
+		$(C++) /Q+ /C $(C++FLAGS) $(CCDEFS) /I$(HDRS) /I$(STDHDRS) $(>)
+		if not errorlevel 1 echo > $(<)
+	}
+}
+
+if $(OS) = NT && $(MSVCNT)
+{
+	actions updated together piecemeal Archive {
+	    pushd $(<:D)
+	    if exist $(<:BS) set _$(<:B)_=$(<:BS)
+	    $(AR) /nologo /out:$(<:BS) %_$(<:B)_% $(>:BS)
+	    popd
+	}
+
+	actions QtEmpty {
+	    if exist $(<) $(RM) $(<)
+	}
+}
+
+if $(OS) = VMS
+{
+	actions TarBallCopy {
+	    $(MKDIR) [.p4api]
+	    $(CP) $(>[1]) ,$(>[2-]) [.p4api]
+	    backup [.p4api]*.* $(<)/save
+	    delete [.p4api]*.*;*
+	    set file/prot=(o:d) p4api.dir
+	    delete p4api.dir;
+	}
+}
+
+if $(OS) = NT
+{
+	actions TarBallPre {
+	    $(MKDIR) p4api.dir
+	}
+
+	actions piecemeal TarBallCopy {
+	    cp $(>) p4api.dir
+	}
+
+	actions TarBallPost {
+	    cd p4api.dir
+	    tar cvf ../p4api.tmp *
+	    cd ..
+	    mv p4api.tmp $(<)
+	    rm -rf p4api.dir
+	}
+}
+
+# end of Jamrules 
